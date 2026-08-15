@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LSRG-ByteTrack：ID 切换失效机理诊断与纠错路线验证</title>
+<link rel="stylesheet" href="lib/katex/katex.min.css">
+<style>
+  :root{
+    --bg:#f5f6f9; --ink:#1c2430; --ink-soft:#55627a; --muted:#8a94a6;
+    --navy:#16365c; --navy-deep:#0e243e; --navy-mid:#28527a; --navy-lite:#7d9bc4;
+    --teal:#1f7a6d; --amber:#c98a2e; --copper:#c2572a; --red:#b23a2e; --green:#2f7d4f;
+    --line:#dfe4ec; --card:#ffffff; --track:#e9edf3;
+    --serif:Georgia,"Songti SC","Noto Serif SC","Source Han Serif SC","SimSun",serif;
+    --sans:"Segoe UI","Microsoft YaHei","PingFang SC",-apple-system,sans-serif;
+    --mono:Consolas,"Cascadia Mono","JetBrains Mono",monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg); color:var(--ink); font:15px/1.8 var(--sans); -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1040px; margin:0 auto; padding:40px 28px 80px;}
+
+  /* ── Hero ─────────────────────────── */
+  .hero{position:relative; overflow:hidden; border-radius:20px; padding:52px 56px 44px;
+        background:linear-gradient(135deg,#0b1d33 0%, #16365c 52%, #22527f 100%); color:#fff;
+        box-shadow:0 18px 40px -18px rgba(14,36,62,.55);}
+  .hero::before{content:""; position:absolute; inset:0;
+    background-image:radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px); background-size:24px 24px;}
+  .hero::after{content:""; position:absolute; top:-120px; right:-90px; width:340px; height:340px; border-radius:50%;
+    background:radial-gradient(circle, rgba(217,164,65,.22), transparent 65%);}
+  .hero>*{position:relative; z-index:1;}
+  .eyebrow{font-size:12.5px; letter-spacing:.32em; color:#c9a05c; font-weight:600; text-transform:uppercase; margin-bottom:18px;}
+  .hero h1{font-family:var(--serif); font-size:37px; line-height:1.35; font-weight:700; letter-spacing:.02em;}
+  .hero .sub{margin-top:14px; font-size:15.5px; color:#c8d6e8; max-width:760px;}
+  .hero .meta{margin-top:26px; display:flex; flex-wrap:wrap; gap:10px;}
+  .chip{font-size:12.5px; padding:5px 14px; border-radius:999px; background:rgba(255,255,255,.10);
+        border:1px solid rgba(255,255,255,.18); color:#dce7f4;}
+  .chip b{color:#f4c87a; font-weight:600;}
+
+  /* ── Stats strip ──────────────────── */
+  .stats{display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin:22px 0 8px;}
+  .stat{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 10px 13px; text-align:center;
+        box-shadow:0 4px 14px -8px rgba(22,54,92,.12);}
+  .stat .v{font-size:23px; font-weight:700; color:var(--navy); font-variant-numeric:tabular-nums; line-height:1.2;}
+  .stat .v small{font-size:14px; color:var(--muted); font-weight:600;}
+  .stat .k{font-size:11.5px; color:var(--muted); margin-top:5px; line-height:1.5;}
+  .stat.hot .v{color:var(--amber);}
+
+  /* ── TOC ──────────────────────────── */
+  .toc{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px 28px; margin:30px 0 10px;}
+  .toc .t{font-size:12px; letter-spacing:.28em; color:var(--muted); font-weight:600; margin-bottom:12px;}
+  .toc ul{list-style:none; display:grid; grid-template-columns:repeat(3,1fr); gap:8px 26px;}
+  .toc a{color:var(--ink-soft); text-decoration:none; font-size:13.5px;}
+  .toc a:hover{color:var(--navy-mid);}
+  .toc a .n{color:var(--amber); font-weight:700; margin-right:6px; font-family:var(--mono); font-size:12px;}
+
+  /* ── Sections ─────────────────────── */
+  section{margin-top:64px;}
+  h2{display:flex; align-items:baseline; gap:14px; font-family:var(--serif); font-size:26px; font-weight:700; color:var(--navy-deep);}
+  h2 .no{font-family:var(--serif); font-size:34px; font-weight:700; color:var(--amber);}
+  h2::after{content:""; flex:1; height:1px; background:linear-gradient(90deg,var(--line),transparent); margin-left:6px;}
+  h3{font-size:17.5px; font-weight:700; color:var(--navy-deep); margin:34px 0 12px; display:flex; align-items:center; gap:10px;}
+  h3 .tag{font-size:11px; font-weight:600; color:var(--amber); background:#f6efdf; border:1px solid #e8dcbc;
+          padding:2px 9px; border-radius:999px; letter-spacing:.08em; flex-shrink:0;}
+  h4{font-size:14.5px; font-weight:700; color:var(--navy-mid); margin:20px 0 8px;}
+  p{margin:10px 0; color:#2b3547;}
+  .lead{font-size:15.5px; color:var(--ink-soft); margin:14px 0 4px;}
+  b.hl{color:var(--navy-deep);}
+  .ref{font-size:12px; color:var(--muted); vertical-align:super;}
+
+  /* ── Cards ────────────────────────── */
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px 26px; margin:16px 0;
+        box-shadow:0 6px 18px -12px rgba(22,54,92,.14);}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .grid4{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+
+  .tk{background:var(--card); border:1px solid var(--line); border-top:3px solid var(--navy-mid); border-radius:12px;
+      padding:16px 18px 15px; box-shadow:0 6px 16px -12px rgba(22,54,92,.16);}
+  .tk .n{font-family:var(--serif); font-size:13px; font-weight:700; color:var(--amber); letter-spacing:.1em;}
+  .tk .t{font-weight:700; font-size:14.5px; color:var(--navy-deep); margin:6px 0 5px;}
+  .tk p{font-size:12.8px; line-height:1.7; color:var(--ink-soft); margin:0;}
+
+  .tkb{background:var(--card); border:1px solid #e7d7b0; border-radius:12px; padding:16px 18px;
+       box-shadow:0 6px 16px -12px rgba(201,138,46,.30); border-top:3px solid var(--amber); margin-top:14px;}
+  .tkb .t{font-weight:700; color:#8a5c14; font-size:14px; margin-bottom:4px;}
+  .tkb p{font-size:13px; color:#5d4a22; margin:0;}
+
+  .phase-flow{display:flex; align-items:stretch; gap:0; margin:18px 0 6px;}
+  .phase{flex:1; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; position:relative;}
+  .phase + .phase::before{content:"→"; position:absolute; left:-15px; top:50%; transform:translateY(-50%);
+    color:var(--amber); font-weight:700; font-size:18px; background:var(--bg); padding:2px 4px; z-index:2;}
+  .phase .pn{font-size:11px; letter-spacing:.22em; color:var(--muted); font-weight:700;}
+  .phase .pt{font-weight:700; color:var(--navy-deep); font-size:14.5px; margin:6px 0 4px;}
+  .phase p{font-size:12.3px; color:var(--ink-soft); margin:0; line-height:1.65;}
+
+  /* ── Notes ────────────────────────── */
+  .note,.warn,.ok{padding:13px 18px; border-radius:0 10px 10px 0; font-size:13.5px; line-height:1.75; margin:14px 0;}
+  .note{background:#eef4fb; border-left:3px solid var(--navy-mid); color:#27405f;}
+  .note b,.warn b,.ok b{font-weight:700;}
+  .note .h{font-weight:700; display:block; margin-bottom:3px; letter-spacing:.04em;}
+  .warn{background:#fdf1ec; border-left:3px solid var(--copper); color:#63341f;}
+  .ok{background:#eef7f1; border-left:3px solid var(--green); color:#245237;}
+  .ok .h{font-weight:700; display:block; margin-bottom:3px; letter-spacing:.04em;}
+  .warn .h{font-weight:700; display:block; margin-bottom:3px; letter-spacing:.04em;}
+
+  /* ── Tables ───────────────────────── */
+  .tblwrap{overflow-x:auto; margin:14px 0;}
+  table{width:100%; border-collapse:collapse; font-size:13.3px; background:var(--card);}
+  thead th{background:var(--navy-deep); color:#fff; font-weight:600; padding:10px 12px; text-align:left;
+    white-space:nowrap; font-size:12.8px;}
+  tbody td{padding:9px 12px; border-bottom:1px solid #e7ebf2; color:#2b3547; vertical-align:top;}
+  tbody tr:nth-child(even){background:#f5f7fb;}
+  tbody tr:last-child td{border-bottom:none;}
+  td.c,th.c{text-align:center;}
+  td.num{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .tblcaption{font-size:12.5px; color:var(--muted); margin-top:6px;}
+  .pill{display:inline-block; font-size:11px; font-weight:700; padding:2px 10px; border-radius:999px; white-space:nowrap;}
+  .pill.ok{background:#e5f3ea; color:#1f6b41; border:1px solid #bfe0cc;}
+  .pill.no{background:#fbe9e5; color:#a33a28; border:1px solid #f0c6bb;}
+  .pill.part{background:#fbf3e0; color:#8a5c14; border:1px solid #ecd9a8;}
+  .pill.key{background:#16365c; color:#fff;}
+  .pill.sl{background:#eef1f6; color:#55627a; border:1px solid #d5dbe6;}
+
+  /* ── Formulas ─────────────────────── */
+  .formula{font-size:14.5px; background:#f0f3f8; border:1px solid #e2e7f0;
+    border-radius:8px; padding:14px 18px; margin:12px 0; color:#22314a; overflow-x:auto; text-align:center;}
+  code{font-family:var(--mono); font-size:.92em; background:#eef1f6; padding:1px 6px; border-radius:4px; color:#31425f;}
+  .katex{font-size:1.04em;}
+
+  /* ── Horizontal bars ──────────────── */
+  .hbar{display:flex; align-items:center; gap:12px; margin:9px 0;}
+  .hbar .lbl{width:230px; flex-shrink:0; font-size:12.8px; color:var(--ink-soft); text-align:right; line-height:1.4;}
+  .hbar .track{flex:1; background:var(--track); border-radius:5px; height:24px; position:relative; overflow:visible;}
+  .hbar .fill{height:100%; border-radius:5px; min-width:2px;}
+  .hbar .val{width:170px; flex-shrink:0; font-size:12.3px; color:var(--ink-soft);}
+  .hbar .val b{color:var(--navy-deep); font-size:13.5px; font-variant-numeric:tabular-nums;}
+  .hbar .val .auc{color:var(--muted); font-size:11.3px;}
+
+  /* ── Stacked bar ──────────────────── */
+  .stacked{display:flex; width:100%; height:46px; border-radius:8px; overflow:hidden; margin:16px 0 10px; border:1px solid var(--line);}
+  .stacked .seg{display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:#fff;
+    min-width:0; overflow:hidden; white-space:nowrap; transition:filter .2s;}
+  .stacked .seg:hover{filter:brightness(1.08);}
+  .legend{display:flex; flex-wrap:wrap; gap:8px 18px; font-size:12.3px; color:var(--ink-soft); margin:8px 0 4px;}
+  .legend .dot{display:inline-block; width:11px; height:11px; border-radius:3px; margin-right:6px; vertical-align:-1px;}
+
+  /* ── Verdict ──────────────────────── */
+  .verdict{background:linear-gradient(135deg,#3c120e,#7c2a1e); border-radius:16px; padding:26px 30px; color:#f6e9e6;
+    box-shadow:0 14px 30px -14px rgba(92,32,22,.5); margin:18px 0;}
+  .verdict .badge{display:inline-block; background:#f0c06a; color:#4a2f05; font-weight:800; font-size:12.5px;
+    letter-spacing:.14em; padding:4px 14px; border-radius:999px; margin-bottom:12px;}
+  .verdict h4{color:#ffd9a0; font-size:15.5px; margin:0 0 8px;}
+  .verdict p{color:#f1e3df; font-size:13.8px; margin:8px 0;}
+  .verdict .rule{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;}
+  .vrule{flex:1; min-width:200px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.16);
+    border-radius:10px; padding:12px 16px; font-size:12.8px;}
+  .vrule .k{font-size:11.5px; color:#e8b98a; font-weight:700; letter-spacing:.06em; display:block; margin-bottom:4px;}
+  .vrule .val{font-weight:700; color:#fff; font-size:14.5px;}
+
+  /* ── Conclusion ───────────────────── */
+  .concl{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:8px 26px 20px; margin:14px 0;}
+  .concl ol{list-style:none; counter-reset:ci;}
+  .concl ol>li{counter-increment:ci; position:relative; padding:16px 0 16px 58px; border-bottom:1px dashed #e3e8f0;}
+  .concl ol>li:last-child{border-bottom:none;}
+  .concl ol>li::before{content:counter(ci,decimal-leading-zero); position:absolute; left:0; top:16px;
+    font-family:var(--serif); font-size:22px; font-weight:700; color:var(--amber);}
+  .concl .ct{font-weight:700; color:var(--navy-deep); font-size:14.5px; margin-bottom:4px;}
+  .concl p{font-size:13.3px; color:var(--ink-soft); margin:0;}
+
+  /* ── Appendix / glossary ──────────── */
+  details.appx{background:var(--card); border:1px solid var(--line); border-radius:12px; margin-top:14px; overflow:hidden;}
+  details.appx summary{cursor:pointer; padding:15px 22px; font-weight:700; color:var(--navy-deep); font-size:14px;
+    list-style:none; display:flex; align-items:center; gap:10px;}
+  details.appx summary::before{content:"＋"; color:var(--amber); font-weight:700; font-size:15px;}
+  details.appx[open] summary::before{content:"－";}
+  details.appx .body{padding:0 22px 18px;}
+  details.appx p{font-size:13px; color:var(--ink-soft); margin:8px 0;}
+
+  footer{margin-top:70px; padding-top:22px; border-top:1px solid var(--line); font-size:12px; color:var(--muted);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
+
+  @media (max-width:900px){
+    .stats{grid-template-columns:repeat(3,1fr);}
+    .grid2,.grid4{grid-template-columns:1fr;}
+    .toc ul{grid-template-columns:1fr;}
+    .hero{padding:36px 28px;}
+    .hero h1{font-size:28px;}
+    .phase-flow{flex-direction:column; gap:12px;}
+    .phase + .phase::before{display:none;}
+    .hbar .lbl{width:160px; font-size:11.5px;}
+    .hbar .val{width:140px;}
+  }
+  @media print{
+    body{background:#fff;}
+    .hero{box-shadow:none;}
+    section{page-break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <header class="hero">
+    <div class="eyebrow">LSRG-ByteTrack · 多目标跟踪 · 实验研究</div>
+    <h1>ID 切换失效机理诊断与纠错路线验证</h1>
+    <p class="sub">面向多目标跟踪 ID 切换（ID Switch）的结构化研究：以物理机理分类为起点，经候选信号离线筛选与在线插桩验证，最终以可观测性上限诊断完成对门控（Gate）技术路线的 Go / No-Go 裁决。全量实验覆盖 MOT17 / MOT20 / SportsMOT 三数据集。</p>
+    <div class="meta">
+      <span class="chip">日期 <b>2026-08-10</b></span>
+      <span class="chip">实验数据集 <b>MOT17 · MOT20 · SportsMOT</b></span>
+      <span class="chip">冻结事件池 <b>4,756 条 ID 切换事件</b></span>
+      <span class="chip">核心裁决 <b>情况 B · No-Go</b></span>
+    </div>
+  </header>
+
+  <!-- ══════════════ STATS ══════════════ -->
+  <div class="stats">
+    <div class="stat"><div class="v">4,756</div><div class="k">冻结 ID 切换事件池<br>（\(S_c\) 1,841 · \(S_r\) 1,921 · \(S_h\) 994）</div></div>
+    <div class="stat"><div class="v">1,643,361</div><div class="k">负样本检测量<br>（非事件帧全量）</div></div>
+    <div class="stat"><div class="v">35.7<small>%</small></div><div class="k">双信号固定并集 TPR<br>@成分级 FPR≤1%（\(S_r\) 事件池）</div></div>
+    <div class="stat hot"><div class="v">31.7<small>%</small></div><div class="k">Swap Instability<br>最强单一信号 · AUC 0.844</div></div>
+    <div class="stat"><div class="v">64.3<small>%</small></div><div class="k">\(S_r\) 事件对 margin 与 swap<br>均不可见（”自信而错”）</div></div>
+    <div class="stat"><div class="v">23.5<small>%</small></div><div class="k">全部 switch 事件识别率<br>@成分级 FPR≤1%</div></div>
+  </div>
+
+  <!-- ══════════════ TOC ══════════════ -->
+  <nav class="toc">
+    <div class="t">目 录</div>
+    <ul>
+      <li><a href="#summary"><span class="n">摘要</span>研究结论速览</a></li>
+      <li><a href="#bg"><span class="n">01</span>研究背景与核心假设</a></li>
+      <li><a href="#p1"><span class="n">02</span>阶段一 · 失效分类与物理签名验证</a></li>
+      <li><a href="#p2"><span class="n">03</span>阶段二 · 候选信号筛选与在线验证</a></li>
+      <li><a href="#p3"><span class="n">04</span>阶段三 · 可观测性诊断与路线裁决</a></li>
+      <li><a href="#conclusion"><span class="n">05</span>结论</a></li>
+      <li><a href="#appendix"><span class="n">附</span>术语表与口径说明</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══════════════ SUMMARY ══════════════ -->
+  <section id="summary">
+    <h2><span class="no">摘</span>研究结论速览</h2>
+    <div class="grid4" style="margin-top:18px;">
+      <div class="tk"><div class="n">结论 01</div><div class="t">分类前提成立</div>
+        <p>ID 切换并非单一失效类型：按接管方输出历史划分的三类失效（\(S_c\) 冷启动 38.7% / \(S_r\) 活跃接管 40.4% / \(S_h\) 历史重新激活 20.9%）在时间深度与空间签名上完全分离，“分而治之”的研究前提获得数据支持。</p></div>
+      <div class="tk"><div class="n">结论 02</div><div class="t">几何门控：高信噪比，低覆盖率</div>
+        <p>以 \(\mathrm{top}_1/\mathrm{top}_2\) IoU 竞争结构为触发代理，正常帧误触发率 &lt;0.75%（Bypass 率 &gt;99.2%），事件浓度富集 33–55×；但覆盖率在阈值放宽处封顶于 24.5% —— 错误发生瞬间系统“自信地分错”（\(\mathrm{margin}\) 中位 0.406）。</p></div>
+      <div class="tk"><div class="n">结论 03</div><div class="t">廉价信号覆盖饱和</div>
+        <p>以最强两信号 margin + Swap 构成成分级预算的固定阈值并集（不再联合约束互相牵制），TPR@成分级 FPR≤1% 为 35.7%（三数据集 22.9%–39.3%，并集 FPR 1.23%）；放宽至成分级 FPR≤2% 亦仅 41.6%。叠加此前已验证的 \(\sigma\) 自适应与 DEN 密度信号，六类信号覆盖饱和于 ~36%。</p></div>
+      <div class="tk"><div class="n">结论 04</div><div class="t">裁决：情况 B（No-Go）</div>
+        <p>Gate 路线的可观测性前提被系统性证伪：64.3% 的 \(S_r\) 事件、约 76% 的全部 switch 事件，在错误发生当帧 margin 与 swap 两观测全部”正常”——错误关联发生前不存在足够的因果可观测信号。</p></div>
+    </div>
+    <div class="tkb">
+      <div class="t">◈ 新发现：Swap Instability 为最强单一门控信号</div>
+      <p>2×2 交换分配代价差 \(\Delta C_{\mathrm{swap}}\)（\(D_2=T_2\) 自有检测）合并 TPR <b>31.7% @FPR≤1%</b>，AUC <b>0.844</b>——强于几何 \(\mathrm{margin}\)（24.5%），且二者互补（并集增益 +11.2pp）。事件帧交换分配比正常帧”便宜”0.3–0.5，证明错误分配瞬间的代价结构确实不稳。该信号被保留为后续关联改进的离线诊断/消融指标。</p>
+    </div>
+  </section>
+
+  <!-- ══════════════ 01 BACKGROUND ══════════════ -->
+  <section id="bg">
+    <h2><span class="no">01</span>研究背景与核心假设</h2>
+    <p class="lead">多目标跟踪（MOT）中，ID 切换（ID Switch, IDS）在学术界通常被作为一个全局指标端到端优化。但这种“目标视角”的统一评估掩盖了跟踪系统内部异构的失效机理——不同失效在时间深度、空间交互与记忆状态上具有本质差异。</p>
+    <div class="card">
+      <h4>本研究的两个核心假设</h4>
+      <p><b class="hl">H1 · 分类前提：</b>ID 切换是由多类机理不同的失效模式组成的混合体，可依据跟踪器自身历史状态进行互斥、完备的严格分类，并对应不同的物理现象与纠错手段。<span class="ref">（已验证：物理签名分离显著，见 §02）</span></p>
+      <p><b class="hl">H2 · 可观测性：</b>错误关联发生前，存在足够强的、在线可观测且因果的廉价物理信号，可支撑风险门控（Gate）在错误发生时触发纠错动作。<span class="ref">（本研究的核心裁决对象，见 §04）</span></p>
+      <div class="note"><span class="h">方法学路径</span>
+      研究按“先诊断、后裁决”的顺序推进：先在离线冻结事件池上完成机理分类与信号验证，再在线插桩复现，最终以可观测性上限诊断对技术路线作出 Go / No-Go 裁决——避免在原理未获支持的情况下投入复杂纠错模块的开发。</div>
+    </div>
+    <div class="phase-flow">
+      <div class="phase"><div class="pn">阶段一 · 诊断基础</div><div class="pt">失效分类与物理签名验证</div>
+        <p>冻结 4,756 条 switch 事件，按接管方输出历史分为 \(S_c\) / \(S_r\) / \(S_h\) 三类；验证物理签名分离，并对原设计的两项宏大设想（场景级拥挤度控制、冷启动长时记忆库）作出收缩裁决。</p></div>
+      <div class="phase"><div class="pn">阶段二 · 信号验证</div><div class="pt">候选信号筛选与在线插桩</div>
+        <p>对三个候选风险信号（运动一致性 KMC、KF 协方差自适应、局域密度 DEN）做机制级离线筛选，将唯一获支持的 DEN 以 alert 模式插入在线管线，三数据集全量验证。</p></div>
+      <div class="phase"><div class="pn">阶段三 · 上限裁决</div><div class="pt">可观测性诊断实验（Go/No-Go）</div>
+        <p>在 FPR≤1%～2% 预算下统计四个廉价正交特征及其并集的召回率，对照预设判据（≥50–60% 继续 / &lt;40% 终止）裁决 Gate 路线去留。</p></div>
+    </div>
+  </section>
+
+  <!-- ══════════════ 02 PHASE 1 ══════════════ -->
+  <section id="p1">
+    <h2><span class="no">02</span>阶段一 · 失效分类与物理签名验证</h2>
+
+    <h3><span class="tag">定义</span>三类失效：基于接管方历史状态的严格分类</h3>
+    <p>一次 ID 切换事件定义为元组 \(e = (g,\ t,\ i_{\mathrm{old}} \to i_{\mathrm{new}})\)：物理真实目标 g 在帧 t 被跟踪器由 ID \(i_{\mathrm{old}}\) 错误关联为 \(i_{\mathrm{new}}\)。为保证特征因果性（避免未来信息泄露），分类<b class="hl">完全基于接管方 \(i_{\mathrm{new}}\) 在事件帧 t 之前的输出历史状态</b>，互斥且完备：</p>
+
+    <div class="card">
+      <svg viewBox="0 0 940 400" role="img" aria-label="三类失效分类决策树" style="width:100%;height:auto;">
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#8a94a6"/>
+          </marker>
+        </defs>
+        <!-- root -->
+        <rect x="170" y="14" width="600" height="46" rx="23" fill="#16365c"/>
+        <text x="470" y="42" fill="#ffffff" font-size="13.5" text-anchor="middle">事件 e = (g, t, i<tspan baseline-shift="sub" font-size="9">old</tspan> → i<tspan baseline-shift="sub" font-size="9">new</tspan>)：目标 g 在帧 t 被错误关联</text>
+        <!-- q1 -->
+        <line x1="470" y1="60" x2="470" y2="84" stroke="#8a94a6" stroke-width="1.5" marker-end="url(#arr)"/>
+        <rect x="290" y="84" width="360" height="48" rx="14" fill="#ffffff" stroke="#28527a" stroke-width="1.5"/>
+        <text x="470" y="112" fill="#16365c" font-size="13.5" font-weight="700" text-anchor="middle">接管方 i<tspan baseline-shift="sub" font-size="9">new</tspan> 在帧 t 之前是否输出过？</text>
+        <!-- branches -->
+        <line x1="470" y1="132" x2="470" y2="158" stroke="#8a94a6" stroke-width="1.5"/>
+        <line x1="470" y1="158" x2="170" y2="158" stroke="#8a94a6" stroke-width="1.5"/>
+        <line x1="170" y1="158" x2="170" y2="180" stroke="#8a94a6" stroke-width="1.5" marker-end="url(#arr)"/>
+        <line x1="470" y1="158" x2="730" y2="158" stroke="#8a94a6" stroke-width="1.5"/>
+        <line x1="730" y1="158" x2="730" y2="180" stroke="#8a94a6" stroke-width="1.5" marker-end="url(#arr)"/>
+        <text x="170" y="152" fill="#8a94a6" font-size="12" text-anchor="middle">否 · 从未输出</text>
+        <text x="730" y="152" fill="#8a94a6" font-size="12" text-anchor="middle">是 · 有输出历史</text>
+        <!-- S_c leaf -->
+        <rect x="40" y="180" width="260" height="160" rx="12" fill="#fbfcfe" stroke="#d8dfe9"/>
+        <text x="170" y="210" fill="#16365c" font-size="14" font-weight="700" text-anchor="middle">S<tspan baseline-shift="sub" font-size="9">c</tspan> · 冷启动接管</text>
+        <text x="170" y="238" fill="#1c2430" font-size="13" font-weight="700" text-anchor="middle">n = 1,841 · 38.7%</text>
+        <text x="170" y="264" fill="#55627a" font-size="12" text-anchor="middle">t 之前从未输出 → 新建 ID 接管目标</text>
+        <text x="170" y="286" fill="#55627a" font-size="12" text-anchor="middle">记忆层失效 · 无历史预测可挂载</text>
+        <text x="170" y="312" fill="#8a94a6" font-size="11.5" text-anchor="middle">top<tspan baseline-shift="sub" font-size="8">1</tspan> 中位恒为 0（结构性盲区源头）</text>
+        <!-- q2 -->
+        <rect x="560" y="180" width="340" height="48" rx="14" fill="#ffffff" stroke="#28527a" stroke-width="1.5"/>
+        <text x="730" y="208" fill="#16365c" font-size="13.5" font-weight="700" text-anchor="middle">i<tspan baseline-shift="sub" font-size="9">new</tspan> 在帧 t<tspan baseline-shift="sub" font-size="9">−1</tspan> 是否活跃？</text>
+        <line x1="730" y1="228" x2="730" y2="250" stroke="#8a94a6" stroke-width="1.5"/>
+        <line x1="730" y1="250" x2="575" y2="250" stroke="#8a94a6" stroke-width="1.5"/>
+        <line x1="575" y1="250" x2="575" y2="268" stroke="#8a94a6" stroke-width="1.5" marker-end="url(#arr)"/>
+        <line x1="730" y1="250" x2="810" y2="250" stroke="#8a94a6" stroke-width="1.5"/>
+        <line x1="810" y1="250" x2="810" y2="268" stroke="#8a94a6" stroke-width="1.5" marker-end="url(#arr)"/>
+        <text x="575" y="244" fill="#8a94a6" font-size="12" text-anchor="middle">是</text>
+        <text x="810" y="244" fill="#8a94a6" font-size="12" text-anchor="middle">否</text>
+        <!-- S_r leaf -->
+        <rect x="460" y="268" width="230" height="116" rx="12" fill="#fbfcfe" stroke="#d8dfe9"/>
+        <text x="575" y="296" fill="#16365c" font-size="14" font-weight="700" text-anchor="middle">S<tspan baseline-shift="sub" font-size="9">r</tspan> · 活跃接管</text>
+        <text x="575" y="322" fill="#1c2430" font-size="13" font-weight="700" text-anchor="middle">n = 1,921 · 40.4%</text>
+        <text x="575" y="346" fill="#55627a" font-size="12" text-anchor="middle">t<tspan baseline-shift="sub" font-size="8">−1</tspan> 活跃 · 邻居间瞬时互换</text>
+        <text x="575" y="366" fill="#8a94a6" font-size="11.5" text-anchor="middle">空间局域失效（gap 恒为 1）</text>
+        <!-- S_h leaf -->
+        <rect x="700" y="268" width="220" height="116" rx="12" fill="#fbfcfe" stroke="#d8dfe9"/>
+        <text x="810" y="296" fill="#16365c" font-size="14" font-weight="700" text-anchor="middle">S<tspan baseline-shift="sub" font-size="9">h</tspan> · 历史重新激活</text>
+        <text x="810" y="322" fill="#1c2430" font-size="13" font-weight="700" text-anchor="middle">n = 994 · 20.9%</text>
+        <text x="810" y="346" fill="#55627a" font-size="12" text-anchor="middle">t<tspan baseline-shift="sub" font-size="8">−1</tspan> 休眠 · 更早帧丢失后恢复</text>
+        <text x="810" y="366" fill="#8a94a6" font-size="11.5" text-anchor="middle">长时漂移失效（gap 中位 6）</text>
+      </svg>
+    </div>
+
+    <div class="card">
+      <h4>三类失效的物理签名分离度 <span class="ref">[1,2]</span></h4>
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>类别</th><th>占比</th><th class="c">接管间隔 gap</th><th class="c">与旧框 IoU 中位</th><th class="c">位移距离 P90 <span class="ref">(第 90 百分位数)</span></th><th>对应物理现象</th></tr></thead>
+          <tbody>
+            <tr><td><b>\(S_r\)</b> 活跃接管</td><td class="num">40.4% (1,921)</td><td class="c">恒为 1 帧</td><td class="c"><b>0.854</b></td><td class="num"><b>14.9 px</b></td><td>邻居间快速错配，空间极度局域</td></tr>
+            <tr><td><b>\(S_h\)</b> 历史重新激活</td><td class="num">20.9% (994)</td><td class="c">中位 6 帧（&gt;5 帧占 56.3%）</td><td class="c"><b>0.383</b></td><td class="num"><b>97.3 px</b>（≈6.5×\(S_r\)）</td><td>长时遮挡后的恢复失效，显著时间漂移</td></tr>
+            <tr><td><b>\(S_c\)</b> 冷启动接管</td><td class="num">38.7% (1,841)</td><td class="c">—（无历史）</td><td class="c">0.235（20.6% 事件旧框仍在场）</td><td class="num">—</td><td>旧轨迹未消亡但空间已不重合，难以几何挽回</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tblcaption">“分而治之”的前提获得数据支持：三类失效在时间深度（gap）与空间局域性（IoU、位移）上完全分离，不存在重叠带。</p>
+    </div>
+
+    <h3><span class="tag">收缩裁决</span>原设计两项宏大设想的边界收缩</h3>
+    <div class="grid2">
+      <div class="card">
+        <h4>① 场景级几何拥挤度控制 —— 否定</h4>
+        <p>原设想以场景几何拥挤度 \(\kappa_{\mathrm{geo}}\) 动态调节门控。对 108 个序列样本做逻辑回归：各 \(\kappa_{\mathrm{geo}}\) 系数<b class="hl">不显著或方向相反</b>，McFadden \(R^2\) 仅 <b class="hl">0.03–0.04</b>。</p>
+        <p>主导 \(\pi_r\) 分布的真实物理协变量是<b class="hl">场景目标的绝对运动速度</b>；速度与几何密集度在数据集中强共线（密集序列通常慢速），原直觉正相关实为经速度通道传导的表观现象。</p>
+        <p><span class="pill no">裁决</span> 删除“顶层场景级自适应阈值控制”。</p>
+      </div>
+      <div class="card">
+        <h4>② 冷启动长时记忆库 —— 移除</h4>
+        <p>原设想以长时记忆库召回冷启动失效 \(S_c\)。基于物理可达性上限评估（恒速外推 + 空间距离可达）：容忍间隔 \(L=30\) 帧时可挽回率 <b class="hl">43.1%</b>，\(L\ge120\) 帧在 <b class="hl">44.4%</b> 处彻底饱和（SportsMOT 高速场景上限仅 36%）。</p>
+        <p>瓶颈并非时间窗口不够长，而是<b class="hl">目标的剧烈非线性运动</b>使恒速外推在长间隔下丧失空间可达性。</p>
+        <p><span class="pill no">裁决</span> 收益上限受物理约束明显，移除冷启动长时记忆库。</p>
+      </div>
+    </div>
+    <div class="ok"><span class="h">收敛结果</span>
+      框架由多路分流纠错收缩为专注于 \(S_r\)（活跃接管）局部纠错的<b>最小闭环</b>：该类失效占比最高（40.4%）、接管间隔恒为 1、空间局域性最强，无需长历史记忆，工程复杂度最低。</div>
+
+    <h3><span class="tag">门控 V7</span>几何门控：定义与性能剖析</h3>
+    <p>门控是闭环中最关键的计算分流器：在检测框分配时识别空间竞争风险，仅在有歧义时刻触发后续纠错算法，其余时间 Bypass。利用 \(F{-}1\)、\(F{-}2\) 帧输出以恒速外推计算预测框，对当前检测取 \(\mathrm{top}_1\)（最强）与 \(\mathrm{top}_2\)（次强）IoU 候选：</p>
+    <div class="formula">\[\mathrm{Trigger} \iff \mathrm{top}_1 \ge 0.2 \ \wedge\ \mathrm{top}_2 \ge 0.2 \ \wedge\ |\mathrm{top}_1 - \mathrm{top}_2| < \varepsilon,\qquad \varepsilon \in \{0.05,\,0.10,\,0.15,\,0.20,\,0.25\}\]</div>
+    <div class="note"><span class="h">直觉</span>
+    当最强与次强竞争候选的分配差距足够小（\(\mathrm{margin} = \mathrm{top}_1 - \mathrm{top}_2\) 足够低）时，分配存在“犹豫”——这正是空间竞争风险的核心代理。</div>
+    <div class="card">
+      <h4>触发率权衡（合并三数据集）<span class="ref">[2]</span></h4>
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>评估组</th><th>样本数 n</th><th class="c">ε=0.05</th><th class="c">ε=0.10</th><th class="c">ε=0.15</th><th class="c">ε=0.20</th><th class="c">ε=0.25</th></tr></thead>
+          <tbody>
+            <tr><td><b>\(S_r\) 事件帧触发率</b></td><td class="num">1,921</td><td class="c">3.85%</td><td class="c">7.81%</td><td class="c">12.23%</td><td class="c">18.43%</td><td class="c"><b>24.47%</b></td></tr>
+            <tr><td>正常帧误触发率（Bypass）</td><td class="num">1,643,361</td><td class="c">0.070%</td><td class="c">0.149%</td><td class="c">0.255%</td><td class="c">0.425%</td><td class="c"><b>0.750%</b></td></tr>
+            <tr><td><b>事件浓度富集倍数</b></td><td class="num">—</td><td class="c">55×</td><td class="c">52×</td><td class="c">48×</td><td class="c">43×</td><td class="c">33×</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="legend">
+        <span><span class="dot" style="background:#28527a"></span>正常帧误触发率 &lt;0.75% → 超过 99.2% 的正常检测被 Bypass</span>
+        <span><span class="dot" style="background:#c98a2e"></span>\(S_r\) 事件帧触发率最高 24.47% → 事件浓度富集 33–55×</span>
+      </div>
+      <div class="stacked" style="margin-top:12px;">
+        <div class="seg" style="width:97.4%; background:#e9edf3; color:#8a94a6;" title="Bypass 的正常检测">Bypass &gt; 99.2%</div>
+        <div class="seg" style="width:2.6%; background:#28527a;" title="S_r 事件帧触发（ε=0.25 时占正常检测的 33 倍浓度）">0.75%</div>
+      </div>
+      <p class="tblcaption">几何分配裕度是高信噪比的风险预警信号：事件帧触发概率为正常帧的 33–55 倍。</p>
+    </div>
+
+    <h3><span class="tag">局限性</span>纯几何门控的三个原理性瓶颈</h3>
+    <div class="warn"><span class="h">局限一 · “Confident-but-Wrong”困境：覆盖率封顶 24.47%</span>
+    ε 放宽至 0.25 时门控仍仅覆盖 24.47% 的 \(S_r\) 事件，约 75% 的错误交换发生时门控“毫无知觉”。机理：\(S_r\) 事件发生时 \(\mathrm{top}_1\) IoU 中位 <b>0.875</b>，而竞争裕度 \(\mathrm{margin}\) 中位仍有 <b>0.406</b>，仅 19.2% 的事件 \(\mathrm{margin}<0.2\)。大部分错误交换发生的瞬间，系统其实“非常有自信地分错了”——错误候选在几何空间占据绝对优势。</div>
+    <div class="warn"><span class="h">局限二 · 对冷启动 \(S_c\) 存在结构性盲区</span>
+    \(S_c\) 触发率各阈值下仅 2.5%–9.5%。冷启动目标在当前帧前无任何历史预测，\(\mathrm{top}_1\) 中位物理上恒为 <b>0.000</b>（仅 29.7% 的事件因空间重叠挂载到邻近活跃预测上）——缺乏外推代理，几何门控无法在冷启动发生时拉起警报。</div>
+    <div class="warn"><span class="h">局限三 · 跨场景表现漂移（Domain Shift，ε=0.25）</span>
+    MOT20（慢速极拥挤）：\(S_c\) 44.9% / \(S_r\) 24.0% / \(S_h\) 42.4% —— 空间高度重叠使所有接管卷入几何歧义区；SportsMOT（高速极稀疏）：\(S_c\) 2.6% / \(S_r\) 27.3% / \(S_h\) 9.5% —— 长时激活与冷启动因高运动偏差完全脱离几何交互区。单一固定阈值 ε 无法跨场景通用（与该阶段“速度主导”的回归结论高度契合）。</div>
+  </section>
+
+  <!-- ══════════════ 03 PHASE 2 ══════════════ -->
+  <section id="p2">
+    <h2><span class="no">03</span>阶段二 · 候选信号筛选与在线验证</h2>
+    <p class="lead">几何裕度之外是否存在可利用的风险信号？离线筛选的三个候选信号在机制级给出否定/支持结论，唯一获支持的 DEN 局域密度被插入在线跟踪管线做三数据集全量验证（alert 模式：仅检测、不改关联）。</p>
+
+    <h3><span class="tag">V8 筛选</span>三候选机制验证（FPR≤1% 预算）</h3>
+    <div class="card">
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th style="width:17%">机制</th><th>验证假设</th><th>实测结果</th><th class="c">机制判定</th><th class="c">裁决</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><b>KMC</b><br>运动一致性</td>
+              <td>错误交换伴随运动突变（方向突变 / 速度尺度突变）</td>
+              <td>\(S_r\) 接管方运动<b>并不异常</b>：\(\cos\theta\) 中位 0.72–0.90（方向一致）、速度尺度比中位 1.57–1.90；三数据集 TPR≈0（网格最小 FPR 亦达 4–16%）。掉头（\(\cos\theta<0\)）是合法运动，却贡献主要误报</td>
+              <td class="c"><span class="pill no">否定</span></td>
+              <td class="c"><span class="pill sl">放弃</span></td>
+            </tr>
+            <tr>
+              <td><b>KF 自适应</b><br>协方差裕度</td>
+              <td>以卡尔曼预测协方差 \(\hat{\sigma}\) 自适应收紧/放宽触发阈值</td>
+              <td>\(S_r\) 与正常帧 \(\hat{\sigma}\) 完全重叠（0.0575 vs 0.0577；gap=1 → 恒稳态）；\(\mathrm{margin}\) 与 \(\sigma\) 无相关（Spearman 0.03–0.06）；机制增益 ≤ +0.99pp</td>
+              <td class="c"><span class="pill no">机制级否定</span></td>
+              <td class="c"><span class="pill sl">放弃（\(\sigma\) 留作 \(S_h\) 通路）</span></td>
+            </tr>
+            <tr>
+              <td><b>DEN</b><br>局域密度</td>
+              <td>\(S_r\) 事件显著更“拥挤”：以 \(F{-}1\) 帧邻域活跃 track 数 \(N\) 调节阈值</td>
+              <td>\(S_r\) 的 \(N\) 中位 2.0/5.0/2.0 vs 正常 1.0/4.0/1.0（MOT17/20/SportsMOT）；\(\gamma\) 机制增益 <b>+3.6 / +6.6 / +6.2pp</b>；SportsMOT 最优点 TPR <b>27.3%</b> @FPR≤1%（基线 21.1%）</td>
+              <td class="c"><span class="pill part">支持（部分）</span></td>
+              <td class="c"><span class="pill key">在线插桩</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note"><span class="h">关键机制洞察</span>
+      曾被否定的全局拥挤度在 <b>ego-centric 局部化</b>后“复活”：\(S_r\) 事件在邻域层面显著更拥挤，判别力随 domain 递增（MOT17 &lt; MOT20 &lt; SportsMOT），与“高速稀疏场景中竞争者紧邻、竞争信号最强”的结论相容。</div>
+    </div>
+
+    <h3><span class="tag">在线插桩</span>DEN 检测模块（alert 模式）设计</h3>
+    <div class="card">
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>项</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>代码</td><td><code>yolox/tracker/den_gate.py</code>（新，纯函数）+ <code>byte_tracker.py</code> 门控特征块与帧末快照 + <code>mot_evaluator.py</code> dump 钩子 + <code>tools/track_v001.py</code> CLI</td></tr>
+            <tr><td>开关</td><td><code>--den-gate</code> 默认关（基线路径零变化）；<code>--den-eps0 0.20</code>、<code>--den-gamma 1.25</code></td></tr>
+            <tr><td>动作</td><td><b>alert（仅记录）</b>——不修改关联代价矩阵，记录候选行 + 检测框 + 帧摘要</td></tr>
+            <tr><td>防泄露纪律</td><td>门控输入仅 \(F{-}1\) 快照（输出框）+ 当前检测 + KF 预测框；帧号资格 <code>cur_frame == snap_frame + 1</code>（跳帧时不误用旧快照）；改前文件备份 SHA256 已核对</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ok"><span class="h">零行为变化验证（MOT17 V002，同轮次 A/B）</span>
+      alert vs base 逐行差异 ≈ base vs base 重跑差异（该机 fp16/cudnn 非确定性：同配置重跑约 87% 行不同、--seed 无效，故 A/B 必须同轮次）。指标：MOTA 50.2% vs 49.9%、IDF1 51.0% vs 51.5%、IDS 62 vs 67——均在噪声带内。</div>
+    </div>
+
+    <h3><span class="tag">全量结果</span>在线触发率、命中率与开销</h3>
+    <div class="card">
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>数据集</th><th class="c">FPR 代理<br>（锚点 \(\varepsilon_0=0.20,\ \gamma=1.25\)）</th><th class="c">预算内点 \((\varepsilon_0,\gamma)\)</th><th class="c">预算点 FPR</th><th class="c">\(S_r\) box 级命中<br>（预算点）</th><th class="c">快照一致率</th><th class="c">开销（gate+快照）</th></tr></thead>
+          <tbody>
+            <tr><td><b>MOT17</b>（21 序列 / 7,977 帧）</td><td class="c">1.56%</td><td class="c">(0.15, 1.25)</td><td class="c">0.75–0.81%</td><td class="c"><b>10.3%</b>（249 事件）</td><td class="c">100%</td><td class="c">&lt;1.5 ms/帧</td></tr>
+            <tr><td><b>MOT20</b>（4 序列 / 8,931 帧）</td><td class="c">1.55%</td><td class="c">(0.15, 1.25)</td><td class="c">0.75–0.81%</td><td class="c"><b>29.2%</b>（962 事件）</td><td class="c">100%</td><td class="c">≈6.3 ms/帧（约 12% 跟踪耗时）</td></tr>
+            <tr><td><b>SportsMOT</b>（90 序列 / 55,544 帧）</td><td class="c">3.39%</td><td class="c">(0.15, 1.0) 网格内最低</td><td class="c">1.37%</td><td class="c"><b>27.5%</b>（710 事件）</td><td class="c">100%</td><td class="c">≈1.1 ms/帧</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tblcaption">候选行日志存原始特征，\(\varepsilon_0\times\gamma\) 网格可后验重算无需重跑。在线 FPR 代理约为离线 1% 预算的 1.5–3 倍（SportsMOT 最高），收紧至 (0.15, 1.25) 后 MOT17/MOT20 回到预算内。</p>
+      <h4>在线 vs 离线：\(S_r\) 事件命中率的方向差异</h4>
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>数据集</th><th class="c">离线 TPR@FPR≤1%</th><th class="c">在线 box 级命中（预算点）</th><th class="c">量级关系</th></tr></thead>
+          <tbody>
+            <tr><td>MOT20</td><td class="c">24.0%</td><td class="c">29.2%</td><td class="c">在线略超离线</td></tr>
+            <tr><td>SportsMOT</td><td class="c">27.3%</td><td class="c">27.5%</td><td class="c">量级相当</td></tr>
+            <tr><td>MOT17</td><td class="c">18.1%</td><td class="c">10.3%</td><td class="c"><b>方向相反</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tblcaption">注：在线命中为 box 级口径，与离线 TPR@FPR≤1% 口径不同（在线 FPR 代理 ≠ 离线 1% 预算；候选人口为原始检测框），仅作量级参照。MOT17 方向差异为<b>假设</b>（Hypothesis，未验证）：场景每帧 track 少，原始框 \(\mathrm{top}_2\) 抖动跌破 0.2 使部分事件不入候选池。</p>
+    </div>
+
+    <h3><span class="tag">归因</span>在线 / 离线口径偏差</h3>
+    <div class="card">
+      <h4>已验证（有数据支撑）</h4>
+      <p>① <b>特征偏移</b>：在线特征（原始检测框）\(\mathrm{top}_1\) 中位差 −0.039 / −0.049 / −0.109、\(\mathrm{margin}\) 中位差 −0.056 / −0.058 / −0.096（MOT20/17/SportsMOT）——原始框抖动使门控“更热”，解释了 FPR 代理偏高；② <b>\(N\) 近似成立</b>：\(\mathrm{top}_1\) track 的邻居数近似接管方自身 \(F{-}1\) 邻居数，中位差 0、P90≤1；③ <b>快照口径一致</b>：与同运行 track_results 逐帧一致率 100%（含 vertical/min_area 过滤与 0.1 舍入复刻）。</p>
+      <h4>未完全解释（假设，待进一步实验）</h4>
+      <p>MOT17 在线命中率低于离线（10.3% vs 18.1%）的方向差异；\(S_h\) box 级命中高于 \(S_r\)（MOT17 24.1% vs 14.1%），提示 \(S_h\) 场景需要专属口径——DEN 从未在 \(S_h\) 上做离线验证，该现象不构成 DEN 失效证据。</p>
+    </div>
+  </section>
+
+  <!-- ══════════════ 04 PHASE 3 ══════════════ -->
+  <section id="p3">
+    <h2><span class="no">04</span>阶段三 · 可观测性诊断实验与路线裁决</h2>
+    <p class="lead">在启动任何复杂纠错动作（Reject / Resolve）之前，对冻结 \(S_r\) 事件池提取四个计算开销极低、在线可观测的正交物理特征，在 FPR≤1%～2% 预算下统计各信号及并集的召回率，依预设判据裁决 Gate 路线去留。</p>
+
+    <div class="card">
+      <h4>实验协议速览</h4>
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th style="width:20%">项</th><th>口径</th></tr></thead>
+          <tbody>
+            <tr><td>正样本</td><td>冻结 switch 事件池 4,756 条（\(S_c\) 1,841 / \(S_r\) 1,921 / \(S_h\) 994），与 V8 协议逐点一致；仅 SportsMOT 1 个 \(S_c\) 事件无 F 帧输出框（检测级门控结构性无法评估）</td></tr>
+            <tr><td>负样本</td><td>C 组非事件帧全部检测 1,643,361 条（MOT17 144,891 / MOT20 920,064 / SportsMOT 578,406），与冻结 summary 完全吻合</td></tr>
+            <tr><td>共享资格条件</td><td>\(E = \mathrm{top}_1 \ge 0.2 \ \wedge\ \mathrm{top}_2 \ge 0.2\)（沿用几何门控语义，所有信号以 \(E\) 为前置，保证并集口径自洽）</td></tr>
+            <tr><td>指标</td><td>TPR@FPR≤1%（主口径）与 TPR@FPR≤2%（敏感性）；阈值按数据集分别搜索。并集双模式：<b>u2 主口径</b>——margin 与 swap 各在成分级 FPR≤1% 预算下取最优阈值后固定取并（并集 FPR 如实报告，不施加联合约束）；<b>u1234 对照</b>——四信号联合网格搜索在整体 FPR 预算内最大化 TPR</td></tr>
+            <tr><td>硬断言</td><td>SANITY 已通过：事件计数与冻结分类一致；重算 \(\mathrm{top}_1/\mathrm{top}_2/\mathrm{margin}\) 等与冻结 CSV 逐值一致（容差 5e-5 内，无系统偏差）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h3><span class="tag">特征集</span>四个正交廉价信号</h3>
+    <div class="card">
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th style="width:16%">特征</th><th>定义</th><th class="c">触发方向</th><th>直觉</th></tr></thead>
+          <tbody>
+            <tr><td><b>1 · Margin</b></td><td>\(m = \mathrm{top}_1 - \mathrm{top}_2\)（对 \(F{-}1\) 活跃 track 恒速外推预测框的 IoU 竞争结构）</td><td class="c">低（\(m < \varepsilon\)）</td><td>最强与次强候选间的“分配犹豫”</td></tr>
+            <tr><td><b>2 · Motion Surprise</b></td><td>\(\cos\theta = \cos\!\bigl(\angle(v_{\mathrm{hist}},\ v_{\mathrm{obs}})\bigr)\)，\(v_{\mathrm{hist}} = F{-}1 \to F{-}2\)、\(v_{\mathrm{obs}} = F \to F{-}1\) 中心位移；敏感性：归一化中心残差 \(v_{\mathrm{obs\,norm}} = \lVert d_t - x_{t-1} \rVert / \mathrm{diag}\)</td><td class="c">\(\cos\) 低 / \(v_{\mathrm{norm}}\) 高</td><td>“错误交换伴随运动突变”？</td></tr>
+            <tr><td><b>3 · Occlusion</b></td><td>\(Oc_i = \max_j \dfrac{\lVert B_i \cap B_j \rVert}{\lVert B_i \rVert}\)（同帧检测自交比 IoF，向量化）</td><td class="c">高</td><td>被遮挡 → 检测框定位失真</td></tr>
+            <tr><td><b>4 · Swap Instability</b></td><td>局部竞争对 \((T_1,\ T_2)\) 与检测 \((D_1,\ D_2)\) 的 2×2 交换分配代价差：\(\Delta C_{\mathrm{swap}} = (c_{12} + c_{21}) - (c_{11} + c_{22})\)，其中 \(c_{11}=\mathrm{top}_1,\ c_{12}=\mathrm{top}_2,\ c_{21}=\mathrm{IoU}(D_2, T_1),\ c_{22}=\mathrm{IoU}(D_2, T_2)\)，\(D_2 = T_2\) 自有检测</td><td class="c">高（\(\Delta C > 0\)）</td><td>对调竞争双方的分配，若总代价更小则当前分配不稳定</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tblcaption">全部特征在线可观测、因果（仅用 \(F{-}1/F{-}2\) 输出 + F 帧检测），不引入任何未来信息。Swap 的 \(D_2\) 取“当前分配自然读法”（变体 B）；变体 A（\(D_2 = T_1\) 自有检测）作为敏感性记录（合并 AUC 0.846 vs 0.844，性能相近）。</p>
+    </div>
+
+    <h3><span class="tag">诊断结果</span>分特征 TPR@FPR≤1%（\(S_r\) 事件池）</h3>
+    <div class="card">
+      <div class="hbar"><div class="lbl">Swap Instability（\(\Delta C\)）</div>
+        <div class="track"><div class="fill" style="width:75%; background:var(--amber);"></div></div>
+        <div class="val"><b>31.7%</b> · AUC <span class="auc">0.844</span> <span class="pill key" style="margin-left:4px;">最强</span></div></div>
+      <div class="hbar"><div class="lbl">Margin（几何门控）</div>
+        <div class="track"><div class="fill" style="width:58%; background:var(--navy-mid);"></div></div>
+        <div class="val"><b>24.5%</b> · AUC <span class="auc">0.838</span></div></div>
+      <div class="hbar"><div class="lbl">Motion Surprise（\(v_{\mathrm{obs\,norm}}\)）</div>
+        <div class="track"><div class="fill" style="width:35%; background:var(--navy-lite);"></div></div>
+        <div class="val"><b>14.7%</b> · AUC <span class="auc">0.773</span></div></div>
+      <div class="hbar"><div class="lbl">Occlusion（同帧 IoF）</div>
+        <div class="track"><div class="fill" style="width:14%; background:var(--teal);"></div></div>
+        <div class="val"><b>6.1%</b> · AUC <span class="auc">0.627</span></div></div>
+      <div class="hbar"><div class="lbl">Motion Surprise（\(\cos\theta\)）</div>
+        <div class="track"><div class="fill" style="width:6%; background:var(--muted);"></div></div>
+        <div class="val"><b>2.2%</b> · AUC <span class="auc">0.586</span></div></div>
+      <p class="tblcaption" style="margin-top:10px;">合并口径。正样本池 = 全部有框 \(S_r\) 事件（未定义特征按不触发计），各特征 TPR 可直接比较；AUC 在“合格且特征可定义”子池上计算（纯信号判别力）。</p>
+
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>特征</th><th class="c">MOT17</th><th class="c">MOT20</th><th class="c">SportsMOT</th><th class="c">合并</th><th class="c">合并 AUC</th></tr></thead>
+          <tbody>
+            <tr><td>Margin（离线重算）</td><td class="c">18.1%</td><td class="c">24.0%</td><td class="c">27.3%</td><td class="c">24.5%</td><td class="c">0.838</td></tr>
+            <tr><td>Motion Surprise（\(v_{\mathrm{obs\,norm}}\)）</td><td class="c">4.8%</td><td class="c">19.3%</td><td class="c">17.2%</td><td class="c">14.7%</td><td class="c">0.773</td></tr>
+            <tr><td>Motion Surprise（\(\cos\theta\)）</td><td class="c">4.8%</td><td class="c">2.3%</td><td class="c">4.6%</td><td class="c">2.2%</td><td class="c">0.586</td></tr>
+            <tr><td>Occlusion（IoF）</td><td class="c">6.0%</td><td class="c">7.1%</td><td class="c">3.9%</td><td class="c">6.1%</td><td class="c">0.627</td></tr>
+            <tr style="background:#fbf3e0 !important;"><td><b>Swap Instability（\(\Delta C\)，变体 B）</b></td><td class="c"><b>18.1%</b></td><td class="c"><b>33.1%</b></td><td class="c"><b>35.6%</b></td><td class="c"><b>31.7%</b></td><td class="c"><b>0.844</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tblcaption">Margin 各数据集数值与冻结基线（\(\varepsilon=0.25\) 档：18.07% / 24.01% / 27.32%）逐点吻合，协议自洽。</p>
+      <div class="note"><span class="h">Swap Instability：新发现信号</span>
+      \(S_r\) 事件帧 \(\Delta C\) 中位 −0.66 ~ −0.89，vs 正常帧 −1.16 ~ −1.22——事件帧的交换分配比正常帧“便宜”约 0.3–0.5，即分配犹豫真实存在。三数据集一致（AUC 0.73–0.86），且 100% 可定义（合格检测恒有 \(\mathrm{top}_2\) 与 \(D_2\)）。<b>它是比 \(\mathrm{margin}\) 更强的单一门控信号（31.7% vs 24.5%），且两者互补。</b></div>
+      <div class="warn"><span class="h">其余信号的结构性否定</span>
+      ① \(\cos\theta\) 几乎无判别力（AUC 0.59）——再次确认接管方运动方向正常（事件中位 0.80–0.90 vs 正常 0.88–0.98），KMC 否定结论稳健；② Occlusion 在 SportsMOT 上完全无判别力（AUC 0.497，事件与正常中位 0.552 vs 0.524 几乎重叠）——高速稀疏场景目标相互遮挡少，“被遮挡→定位失真”机理不成立。</div>
+    </div>
+
+    <h3><span class="tag">研究目标产物</span>并集召回率与 Go/No-Go 判据对照</h3>
+    <div class="card">
+      <svg viewBox="0 0 900 400" role="img" aria-label="四信号并集召回率与判据线" style="width:100%;height:auto;">
+        <!-- plot area: x 70..870, y 20..300 -->
+        <!-- 继续区 50-60% -->
+        <rect x="70" y="20" width="800" height="46.7" fill="#2f7d4f" opacity="0.07"/>
+        <text x="866" y="38" fill="#2f7d4f" font-size="11.5" text-anchor="end" font-weight="700">继续线区 50–60%</text>
+        <!-- 终止线 40% -->
+        <line x1="70" y1="113.3" x2="870" y2="113.3" stroke="#b23a2e" stroke-width="1.6" stroke-dasharray="7 5"/>
+        <text x="74" y="108" fill="#b23a2e" font-size="11.5" font-weight="700">终止线 40%</text>
+        <!-- gridlines -->
+        <g stroke="#e3e8f0" stroke-width="1">
+          <line x1="70" y1="300" x2="870" y2="300"/>
+          <line x1="70" y1="253.3" x2="870" y2="253.3"/>
+          <line x1="70" y1="206.7" x2="870" y2="206.7"/>
+          <line x1="70" y1="160" x2="870" y2="160"/>
+          <line x1="70" y1="113.3" x2="870" y2="113.3"/>
+          <line x1="70" y1="66.7" x2="870" y2="66.7"/>
+          <line x1="70" y1="20" x2="870" y2="20"/>
+        </g>
+        <g fill="#8a94a6" font-size="11" text-anchor="end">
+          <text x="62" y="304">0%</text><text x="62" y="257">10%</text><text x="62" y="210">20%</text>
+          <text x="62" y="164">30%</text><text x="62" y="117">40%</text><text x="62" y="70">50%</text><text x="62" y="24">60%</text>
+        </g>
+        <!-- bars: centers 170/370/570/770, bar w 64, gap 12 -->
+        <!-- MOT17 22.9 -> y 193.1 ; 25.3 -> 181.9 -->
+        <rect x="106" y="193.1" width="64" height="106.9" fill="#28527a"/>
+        <rect x="182" y="181.9" width="64" height="118.1" fill="#a8bdda"/>
+        <text x="138" y="187" fill="#1c2430" font-size="11.5" text-anchor="middle" font-weight="700">22.9%</text>
+        <text x="214" y="176" fill="#1c2430" font-size="11.5" text-anchor="middle" font-weight="700">25.3%</text>
+        <!-- MOT20 37.0 -> 127.3 ; 44.2 -> 93.7 -->
+        <rect x="306" y="127.3" width="64" height="172.7" fill="#28527a"/>
+        <rect x="382" y="93.7" width="64" height="206.3" fill="#a8bdda"/>
+        <text x="338" y="121" fill="#1c2430" font-size="11.5" text-anchor="middle" font-weight="700">37.0%</text>
+        <text x="414" y="88" fill="#1c2430" font-size="11.5" text-anchor="middle" font-weight="700">44.2%</text>
+        <!-- SportsMOT 39.3 -> 116.6 ; 45.2 -> 89.1 -->
+        <rect x="506" y="116.6" width="64" height="183.4" fill="#28527a"/>
+        <rect x="582" y="89.1" width="64" height="210.9" fill="#a8bdda"/>
+        <text x="538" y="110" fill="#1c2430" font-size="11.5" text-anchor="middle" font-weight="700">39.3%</text>
+        <text x="614" y="83" fill="#1c2430" font-size="11.5" text-anchor="middle" font-weight="700">45.2%</text>
+        <!-- 合并 35.7 -> 133.4 ; 41.6 -> 105.9 -->
+        <rect x="706" y="133.4" width="64" height="166.6" fill="#16365c"/>
+        <rect x="782" y="105.9" width="64" height="194.1" fill="#7d9bc4"/>
+        <text x="738" y="127" fill="#1c2430" font-size="11.5" text-anchor="middle" font-weight="700">35.7%</text>
+        <text x="814" y="100" fill="#1c2430" font-size="11.5" text-anchor="middle" font-weight="700">41.6%</text>
+        <!-- x labels -->
+        <g fill="#55627a" font-size="12.5" text-anchor="middle">
+          <text x="170" y="326" font-weight="700">MOT17</text>
+          <text x="370" y="326" font-weight="700">MOT20</text>
+          <text x="570" y="326" font-weight="700">SportsMOT</text>
+          <text x="770" y="326" font-weight="700">合并</text>
+        </g>
+        <!-- legend -->
+        <rect x="560" y="346" width="12" height="12" fill="#28527a"/>
+        <text x="578" y="356" fill="#55627a" font-size="12">主口径：u2 双信号并集 @成分级 FPR≤1%</text>
+        <rect x="738" y="346" width="12" height="12" fill="#a8bdda"/>
+        <text x="756" y="356" fill="#55627a" font-size="12">敏感性 @成分级 FPR≤2%</text>
+        <text x="70" y="356" fill="#8a94a6" font-size="11.5">\(S_r\) 事件池 · margin 与 swap 各取最优阈值后固定取并</text>
+      </svg>
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>信号组合</th><th class="c">MOT17</th><th class="c">MOT20</th><th class="c">SportsMOT</th><th class="c">合并</th></tr></thead>
+          <tbody>
+            <tr><td>Margin（单信号，@1%）</td><td class="c">18.1%</td><td class="c">24.0%</td><td class="c">27.3%</td><td class="c">24.5%</td></tr>
+            <tr><td>Swap Instability（单信号，@1%）</td><td class="c">18.1%</td><td class="c">33.1%</td><td class="c">35.6%</td><td class="c">31.7%</td></tr>
+            <tr style="background:#eef4fb !important;"><td><b>u2：Margin ∪ Swap 固定阈值并集，@1%成分</b></td><td class="c"><b>22.9%</b></td><td class="c"><b>37.0%</b></td><td class="c"><b>39.3%</b></td><td class="c"><b>35.7%</b></td></tr>
+            <tr><td><b>u2 @2%成分</b></td><td class="c">25.3%</td><td class="c">44.2%</td><td class="c">45.2%</td><td class="c">41.6%</td></tr>
+            <tr><td>对照：四信号联合搜索（整体 FPR≤1%）</td><td class="c">20.5%</td><td class="c">37.0%</td><td class="c">36.2%</td><td class="c">33.0%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ok"><span class="h">对照判据的读数</span>
+      双信号并集在成分级 FPR≤1% 下三数据集全部低于 40% 终止线（22.9% / 37.0% / 39.3%），合并 35.7%（并集 FPR 1.23%）；放宽至成分级 FPR≤2% 合并 41.6%（并集 FPR 2.29%），越过 40% 线但仍远低于 50–60% 继续线。</div>
+    </div>
+
+    <h3><span class="tag">扩展</span>全类别识别率（\(S_c\) / \(S_h\) / 全部 switch 事件）</h3>
+    <div class="card">
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>事件类别</th><th class="c">MOT17</th><th class="c">MOT20</th><th class="c">SportsMOT</th><th class="c">合并</th></tr></thead>
+          <tbody>
+            <tr><td>\(S_c\) 冷启动接管（n=1,841）</td><td class="c">12.2%</td><td class="c">44.9%</td><td class="c">2.8%</td><td class="c"><b>9.6%</b></td></tr>
+            <tr><td><b>\(S_r\) 活跃接管（n=1,921）</b></td><td class="c">22.9%</td><td class="c">37.0%</td><td class="c">39.3%</td><td class="c"><b>35.7%</b></td></tr>
+            <tr><td>\(S_h\) 历史重新激活（n=994）</td><td class="c">20.3%</td><td class="c">43.1%</td><td class="c">10.5%</td><td class="c"><b>25.6%</b></td></tr>
+            <tr style="background:#fbf3e0 !important;"><td><b>全部 switch（n=4,756）</b></td><td class="c"><b>19.7%</b></td><td class="c"><b>39.8%</b></td><td class="c"><b>14.1%</b></td><td class="c"><b>23.5%</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tblcaption">u2（margin ∪ swap 固定阈值并集），成分级 FPR≤1%。敏感性（成分级 FPR≤2%）：全部 switch 合并 27.1%。</p>
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>类别</th><th class="c">合格事件占比<br>（\(\mathrm{top}_1\ge 0.2 \wedge \mathrm{top}_2 \ge 0.2\)）</th><th class="c">结构性观察</th></tr></thead>
+          <tbody>
+            <tr><td>\(S_c\)</td><td class="c"><b>12.0%</b>（221/1,841）</td><td>冷启动检测大多孤立于活跃 track 预测框之外（SportsMOT 1,446 事件仅 43 个合格）——与“冷启动 \(\mathrm{top}_1\) 中位恒 0”机理一致；例外是 MOT20 拥挤场景（44.9%）</td></tr>
+            <tr><td>\(S_r\)</td><td class="c">86.2%</td><td>竞争结构最完整，识别率最高</td></tr>
+            <tr><td>\(S_h\)</td><td class="c">46.8%</td><td>居中（合并 25.6%）</td></tr>
+            <tr><td>全部</td><td class="c">49.2%</td><td>约一半 switch 事件在错误发生当帧不具备“竞争结构”，任何检测级门控在原理上无法捕获</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note"><span class="h">两个关键结构性事实</span>
+      ① <b>Motion Surprise 对 \(S_c/S_h\) 结构上不可计算</b>（定义数 0/1,841、0/994）：接管方在 \(F{-}1\) 无输出，“运动突变”物理上不存在——四正交特征对非 \(S_r\) 类别实际只剩 3 个可用；
+      ② <b>Swap 变体选择在 \(S_c/S_h\) 上反转</b>：变体 A（\(D_2 = T_1\) 自有检测）在 \(S_c/S_h\) 上显著更强（\(S_h\) 合并 29.7% vs 变体 B 8.1%；MOT20 \(S_c\) 58.8% vs 7.0%），而 \(S_r\) 上变体 B 更强——两类 \(D_2\) 定义对应不同物理图景（冷启动是”闯入者 vs 持有者”竞争，活跃接管是”两持有者互换”竞争）；u2 主口径采用 S_r 上的更强变体（变体 B）。</div>
+      <div class="warn"><span class="h">总覆盖率远低于单类别</span>
+      全部 switch 事件识别率仅约 1/4（23.5% @成分级 FPR≤1%）——被 \(S_c\) 的大基数（38.7%）与低识别率（9.6%）共同拉低：门控路线对”全部 ID 失效”的总覆盖率远低于对 \(S_r\) 单类别的覆盖率。</div>
+    </div>
+
+    <h3><span class="tag">并集分解</span>信号互补性分析（合并口径）</h3>
+    <div class="card">
+      <div class="stacked">
+        <div class="seg" style="width:64.3%; background:#c3cad6; color:#55627a;">未命中 64.3%</div>
+        <div class="seg" style="width:4.0%; background:#28527a;">仅 margin 4.0%</div>
+        <div class="seg" style="width:11.2%; background:#c98a2e;">仅 swap 11.2%</div>
+        <div class="seg" style="width:20.5%; background:#1f7a6d;">margin ∧ swap 20.5%</div>
+      </div>
+      <div class="legend">
+        <span><span class="dot" style="background:#c3cad6"></span>margin 与 swap 均未命中（含不合格）· 1,235 条</span>
+        <span><span class="dot" style="background:#28527a"></span>仅 margin 命中 · 77</span>
+        <span><span class="dot" style="background:#c98a2e"></span>仅 swap 命中 · 216</span>
+        <span><span class="dot" style="background:#1f7a6d"></span>margin ∧ swap 同时命中 · 393</span>
+      </div>
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>事件覆盖组合</th><th class="c">数量</th><th class="c">占比</th></tr></thead>
+          <tbody>
+            <tr><td>margin 与 swap 均未命中（含不满足资格）</td><td class="c">1,235</td><td class="c"><b>64.3%</b></td></tr>
+            <tr><td>margin 命中（其余未中）</td><td class="c">77</td><td class="c">4.0%</td></tr>
+            <tr><td>swap 命中（其余未中）</td><td class="c">216</td><td class="c">11.2%</td></tr>
+            <tr><td><b>margin ∧ swap 同时命中</b></td><td class="c">393</td><td class="c">20.5%</td></tr>
+            <tr style="background:#eef4fb !important;"><td><b>并集合计捕获</b></td><td class="c"><b>686</b></td><td class="c"><b>35.7%</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tblcaption">u2 最优档（合并口径）：\(\mathrm{margin}\le 0.25\)，\(\Delta C \ge -0.5584\)（两信号各按成分级 FPR≤1% 独立选取）。</p>
+      <div class="note"><span class="h">互补性与”正交”假设的证伪</span>
+      margin 与 swap 明显互补：swap 在 margin 之外新增约 11.2pp（35.7% − 24.5%），且 swap-only（216 条）多于 margin-only（77 条）——swap 是并集增益的主要来源。但两信号在事件覆盖上<b>显著重叠</b>（393 条双命中占捕获的 57%）——它们在同一类物理情境（两目标交叉、检测框重叠、分配犹豫）上齐响，而非覆盖不同失效子类。真正互斥的失效子类（如”自信而错”型：margin 大且 swap 也稳定）对两个信号均不可见。</div>
+    </div>
+
+    <h3><span class="tag">裁决</span>Go / No-Go 判定</h3>
+    <div class="verdict">
+      <span class="badge">裁 决 · 情 况 B · No-Go</span>
+      <h4>终止 Gate-centric DEN 路线</h4>
+      <p>在成分级 FPR≤1% 预算下（两信号各自取最优阈值后固定取并，并集 FPR 1.23%），margin 与 Swap 双信号并集对 \(S_r\) 的识别率为 <b>35.7%</b>（三数据集 22.9%–39.3%），全部低于 40% 终止线；放宽至成分级 FPR≤2% 时合并 41.6%，越过 40% 线但仍与 50–60% 继续线存在结构性差距。全部 switch 事件识别率仅 23.5%（@1%成分）/ 27.1%（@2%成分）。</p>
+      <div class="rule">
+        <div class="vrule"><span class="k">判据 · 情况 A（继续 Gate 路线）</span><span class="val">并集召回率 ≥ 50–60% 且 FPR ≤ 1–2%</span></div>
+        <div class="vrule"><span class="k">实测</span><span class="val">\(S_r\) 合并 35.7% @1%成分 / 41.6% @2%成分 · 全部 switch 23.5%</span></div>
+        <div class="vrule"><span class="k">判据 · 情况 B（终止 Gate 路线）</span><span class="val">融合信号后并集仍 &lt; 40%（主口径）</span></div>
+      </div>
+      <p style="margin-top:14px;">诊断结论与此前”confident-but-wrong”瓶颈完全自洽：<b>错误关联发生前不存在足够的因果可观测信号</b>——64.3% 的 \(S_r\) 事件（及约 76% 的全部 switch 事件），在错误发生当帧 margin 与 swap 两观测全部”正常”。</p>
+    </div>
+    <div class="card">
+      <h4>裁决动作（既定决策）</h4>
+      <p>不再堆叠门控参数——\(\mathrm{margin}\)、\(\sigma\) 自适应、DEN 密度、运动、遮挡、交换六类信号均已验证（运动与遮挡单信号 TPR@1% 仅 14.7% / 6.1% 且与双信号并集高度重叠，边际贡献有限），双信号固定并集覆盖饱和于 ~36%（@1%成分）。研究重心转向<b class="hl">关联函数本身的改进</b>（观测中心运动补偿 / 搜索空间自适应）；<b class="hl">Swap Instability（AUC 0.844）保留为关联改进的离线诊断/消融指标</b>（\(\Delta C\) 事件-正常分离度可作为改进前后的敏感性度量）；\(S_h\) 通路（KF \(\sigma\) 在 lost 期增长）不受本裁决影响，与 Gate 路线相互独立。</p>
+    </div>
+
+    <div class="card">
+      <svg viewBox="0 0 900 190" role="img" aria-label="识别率相对判据线的位置" style="width:100%;height:auto;">
+        <!-- track -->
+        <rect x="40" y="70" width="220" height="20" rx="10" fill="#e3c5bf"/>
+        <rect x="260" y="70" width="82" height="20" fill="#ecd9b3"/>
+        <rect x="342" y="70" width="82" height="20" fill="#bcd9c6"/>
+        <rect x="424" y="70" width="436" height="20" fill="#a8cbb8"/>
+        <!-- boundary ticks -->
+        <line x1="260" y1="62" x2="260" y2="98" stroke="#8a94a6" stroke-width="1"/>
+        <line x1="342" y1="62" x2="342" y2="98" stroke="#8a94a6" stroke-width="1"/>
+        <text x="40" y="106" fill="#8a94a6" font-size="11" text-anchor="middle">0%</text>
+        <text x="260" y="106" fill="#8a94a6" font-size="11" text-anchor="middle">40%</text>
+        <text x="342" y="106" fill="#8a94a6" font-size="11" text-anchor="middle">50%</text>
+        <text x="424" y="106" fill="#8a94a6" font-size="11" text-anchor="middle">60%</text>
+        <text x="860" y="106" fill="#8a94a6" font-size="11" text-anchor="middle">100%</text>
+        <!-- zone labels -->
+        <text x="150" y="52" fill="#a33a28" font-size="12" text-anchor="middle" font-weight="700">终止区 &lt; 40%</text>
+        <text x="301" y="52" fill="#8a5c14" font-size="11.5" text-anchor="middle">临界</text>
+        <text x="383" y="52" fill="#1f6b41" font-size="12" text-anchor="middle" font-weight="700">继续区 50–60%</text>
+        <text x="660" y="52" fill="#1f6b41" font-size="11.5" text-anchor="middle">≥60%</text>
+        <!-- markers -->
+        <g font-size="11.5" text-anchor="middle" font-weight="700">
+          <path d="M 233 66 L 229 58 L 237 58 Z" fill="#55627a"/>
+          <text x="233" y="140" fill="#55627a">全部 switch @1%成分 · 23.5%</text>
+          <path d="M 333 66 L 329 58 L 337 58 Z" fill="#28527a"/>
+          <text x="333" y="158" fill="#28527a">\(S_r\) 并集 @1%成分 · 35.7%</text>
+          <path d="M 381 66 L 377 58 L 385 58 Z" fill="#1f7a6d"/>
+          <text x="381" y="128" fill="#1f7a6d">\(S_r\) 并集 @2%成分 · 41.6%</text>
+        </g>
+      </svg>
+      <p class="tblcaption">识别率相对判据线的位置：主口径（成分级 FPR≤1%）全部落在终止区；仅成分级 FPR≤2% 时 \(S_r\) 并集（41.6%）越过 40% 线，SportsMOT 主口径 39.3% 贴线——MOT20 拥挤场景在 swap 变体 A 下个别类别可达 50–56%——场景自适应门控若继续，只有 MOT20 类拥挤场景可能触及 50% 档位，跨场景泛化不成立。</p>
+    </div>
+  </section>
+
+  <!-- ══════════════ 05 CONCLUSION ══════════════ -->
+  <section id="conclusion">
+    <h2><span class="no">05</span>结论</h2>
+    <div class="concl">
+      <ol>
+        <li>
+          <div class="ct">失效分类诊断具有坚实的物理证据支持</div>
+          <p>\(S_c\)（38.7%）、\(S_r\)（40.4%）、\(S_h\)（20.9%）在接管间隔（gap 恒 1 / 中位 6 / 无历史）与空间签名（IoU 中位 0.854 / 0.383 / 0.235，位移 P90 14.9 / 97.3 px）上完全分离，“多类型失效分而治之”的前提（H1）成立。</p>
+        </li>
+        <li>
+          <div class="ct">几何门控提供高信噪比的触发通路，但覆盖率受原理性瓶颈封顶</div>
+          <p>正常帧误触发率 &lt;0.75%（Bypass &gt;99.2%），事件浓度富集 33–55×；但“自信而错”结构（\(\mathrm{margin}\) 中位 0.406）使 \(S_r\) 覆盖率封顶于 24.5%，\(S_c\) 因无历史预测存在结构性盲区，且单一阈值无法跨场景通用。</p>
+        </li>
+        <li>
+          <div class="ct">候选信号筛选收敛，在线插桩管线成立</div>
+          <p>KMC（接管方运动不异常）与 KF 协方差自适应（\(\hat{\sigma}\) 恒稳态）在机制级被否定；DEN 局域密度是唯一获得支持的信号（\(\gamma\) 增益 +3.6~+6.6pp）。在线 alert 插桩零行为变化、\(N\) 近似无偏、快照逐帧一致率 100%、开销可控；“在线复现离线增益”在 MOT20/SportsMOT 量级相当，MOT17 方向相反（归因假设待验证）。</p>
+        </li>
+        <li>
+          <div class="ct">廉价信号覆盖饱和：最强信号为 Swap Instability</div>
+          <p>margin 与 Swap 双信号固定并集 TPR@成分级 FPR≤1% 为 35.7%（并集 FPR 1.23%），@2%成分亦仅 41.6%；叠加全部已验信号（六类）覆盖饱和于 ~36%。Swap Instability（2×2 交换分配代价差）以合并 31.7%、AUC 0.844 成为最强单一信号，且与 margin 互补（+11.2pp）——但它同样无法越过覆盖饱和曲线。</p>
+        </li>
+        <li>
+          <div class="ct">核心裁决：可观测性假设（H2）被系统性证伪 → 情况 B</div>
+          <p>64.3% 的 \(S_r\) 事件与约 76% 的全部 switch 事件，在错误发生当帧 margin 与 swap 两观测全部”正常”：错误关联发生前不存在足够的因果可观测信号。据此终止 Gate 路线，不再堆叠门控参数；研究重心转向关联函数本身的改进，Swap Instability 保留为离线诊断/消融指标。</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ══════════════ APPENDIX ══════════════ -->
+  <section id="appendix">
+    <h2><span class="no">附</span>术语表与口径说明</h2>
+
+    <details class="appx" open>
+      <summary>术语表</summary>
+      <div class="body">
+        <div class="tblwrap">
+          <table>
+            <thead><tr><th style="width:22%">术语</th><th>含义</th></tr></thead>
+            <tbody>
+              <tr><td>ID Switch（IDS）</td><td>跟踪器把物理目标 g 的错误关联为另一 ID 的事件：\(e = (g,\ t,\ i_{\mathrm{old}} \to i_{\mathrm{new}})\)</td></tr>
+              <tr><td>\(S_c\) / \(S_r\) / \(S_h\)</td><td>按接管方 \(i_{\mathrm{new}}\) 在事件帧 t 之前的输出历史划分的三类失效：冷启动接管 / 活跃接管 / 历史重新激活</td></tr>
+              <tr><td>\(\mathrm{top}_1\) / \(\mathrm{top}_2\)</td><td>当前检测与所有活跃 track 恒速外推预测框的 IoU 候选中，最强 / 次强竞争者</td></tr>
+              <tr><td>Margin</td><td>\(m = \mathrm{top}_1 - \mathrm{top}_2\)，分配犹豫程度的几何代理</td></tr>
+              <tr><td>gap</td><td>接管方 \(i_{\mathrm{new}}\) 上一次输出与接管事件之间的帧间隔</td></tr>
+              <tr><td>P90</td><td>第 90 百分位数（非平均位移），用于刻画位移长尾</td></tr>
+              <tr><td>TPR / FPR</td><td>事件识别率（召回率）／正常帧误触发率；全文主口径为 TPR@FPR≤1%</td></tr>
+              <tr><td>Swap Instability</td><td>\(\Delta C_{\mathrm{swap}} = (c_{12}+c_{21}) - (c_{11}+c_{22})\)，2×2 交换分配代价差：&gt;0 表示交换分配更便宜、当前分配不稳定</td></tr>
+              <tr><td>Eligibility（资格）</td><td>\(E = \mathrm{top}_1 \ge 0.2 \wedge \mathrm{top}_2 \ge 0.2\)，所有信号触发共享的几何前置条件</td></tr>
+              <tr><td>IoF</td><td>交并比（Intersection over Foreground）：同帧检测自交比，遮挡程度度量</td></tr>
+              <tr><td>alert 模式</td><td>在线插桩的第一阶段：仅记录触发候选，不修改关联代价矩阵（行为零变化）</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+
+    <details class="appx">
+      <summary>口径与防泄露纪律</summary>
+      <div class="body">
+        <p>① <b>事件检测</b>：tracker-centric 换目标事件（motmetrics 事件表含 RAW 行会污染状态，只扫 MATCH/SWITCH/TRANSFER 行）。</p>
+        <p>② <b>分类因果性</b>：事件分类仅依据接管方在帧 t 之前的输出历史，不引入任何未来信息；离线诊断指标（gap、IoU_last、dist_last）不可作为在线门控输入——离线特征与在线特征严格区分。</p>
+        <p>③ <b>在线插桩纪律</b>：门控输入仅 \(F{-}1\) 快照（输出框）+ 当前检测 + KF 预测框；帧号资格 <code>cur_frame == snap_frame + 1</code>；alert 模式不改关联。</p>
+        <p>④ <b>口径自洽</b>：四特征并集行通过联合网格搜索（候选阈值 = 负样本分位数 + 显式“关闭”档）在 FPR 预算内最大化 TPR；正样本池各特征间一致，行间可直接比较。</p>
+        <p>⑤ <b>环境注意</b>：运行 track_v001.py 需 PYTHONPATH 指向 ByteTrack 根目录（conda .pth 损坏）；该机 fp16 非确定性使同配置重跑约 87% 行不同，A/B 对比必须同轮次。</p>
+        <p>⑥ <b>复现</b>：<code>diag_exp/run_diag.py</code>（全量约 5 分钟，产物 results/ 下 CSV）、<code>taxonomy/</code> 下分析工具与 <code>tools/track_v001.py</code>；详细数据见 <code>diag_exp/day3_report.md</code>、<code>diag_exp/recognition_summary.md</code>、<code>day1_report.md</code>、<code>day2_report.md</code>。</p>
+      </div>
+    </details>
+  </section>
+
+  <footer>
+    <span>LSRG-ByteTrack · ID 切换失效机理诊断与纠错路线验证</span>
+    <span>数据口径：MOT17 / MOT20 / SportsMOT 全量 · 冻结事件池 4,756 条 · 2026-08-10</span>
+  </footer>
+</div>
+
+<script src="lib/katex/katex.min.js"></script>
+<script src="lib/katex/contrib/auto-render.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "\\[", right: "\\]", display: true},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false,
+      strict: "ignore"
+    });
+  });
+</script>
+</body>
+</html>

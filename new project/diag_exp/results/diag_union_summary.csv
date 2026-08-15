@@ -1,0 +1,65 @@
+dataset,class,union,motion_signal,tpr_1,fpr_1,thr_1,tpr_2,fpr_2,thr_2
+MOT17,S_c,u12,vobs,12.1951%,0.8241%,margin<=0.2 vobs>=0.1226,14.6341%,1.9566%,margin<=0.3 vobs=off
+MOT17,S_c,u1234,vobs,12.1951%,0.8820%,margin<=0.2 vobs>=0.1592 oc=off dcb>=-0.4192,14.6341%,1.9566%,margin<=0.3 vobs=off oc=off dcb=off
+MOT17,S_c,u1234a,vobs,14.6341%,0.8903%,margin<=0.1 vobs>=0.1226 oc=off dca>=-0.1878,14.6341%,1.8904%,margin<=0.1 vobs>=0.09874 oc=off dca>=-0.4568
+MOT17,S_c,u2,vobs,12.1951%,1.0808%,margin<=0.2 dcb>=-0.5302,14.6341%,2.4660%,margin<=0.3 dcb>=-0.5999
+MOT17,S_r,u12,vobs,18.0723%,0.9545%,margin<=0.25 vobs>=0.1592,24.0964%,1.9566%,margin<=0.3 vobs=off
+MOT17,S_r,u1234,vobs,20.4819%,0.9731%,margin<=0.25 vobs=off oc=off dcb>=-0.4192,24.0964%,1.9566%,margin<=0.3 vobs=off oc=off dcb=off
+MOT17,S_r,u1234a,vobs,19.2771%,0.9649%,margin<=0.25 vobs=off oc=off dca>=-0.1878,25.3012%,1.9359%,margin<=0.25 vobs>=0.1226 oc=off dca>=-0.4568
+MOT17,S_r,u2,vobs,22.8916%,1.2216%,margin<=0.25 dcb>=-0.5302,25.3012%,2.4660%,margin<=0.3 dcb>=-0.5999
+MOT17,S_h,u12,vobs,16.9492%,0.9545%,margin<=0.25 vobs>=0.1592,18.6441%,1.9566%,margin<=0.3 vobs=off
+MOT17,S_h,u1234,vobs,18.6441%,0.9731%,margin<=0.25 vobs=off oc=off dcb>=-0.4192,20.3390%,1.8366%,margin<=0.25 vobs>=0.09874 oc=off dcb>=-0.5302
+MOT17,S_h,u1234a,vobs,22.0339%,0.8903%,margin<=0.1 vobs>=0.1226 oc=off dca>=-0.1878,25.4237%,1.8904%,margin<=0.1 vobs>=0.09874 oc=off dca>=-0.4568
+MOT17,S_h,u2,vobs,20.3390%,1.2216%,margin<=0.25 dcb>=-0.5302,20.3390%,2.4660%,margin<=0.3 dcb>=-0.5999
+MOT17,overall,u12,vobs,16.3934%,0.9545%,margin<=0.25 vobs>=0.1592,20.2186%,1.9566%,margin<=0.3 vobs=off
+MOT17,overall,u1234,vobs,18.0328%,0.9731%,margin<=0.25 vobs=off oc=off dcb>=-0.4192,20.2186%,1.9566%,margin<=0.3 vobs=off oc=off dcb=off
+MOT17,overall,u1234a,vobs,19.1257%,0.9649%,margin<=0.25 vobs=off oc=off dca>=-0.1878,22.9508%,1.9359%,margin<=0.25 vobs>=0.1226 oc=off dca>=-0.4568
+MOT17,overall,u2,vobs,19.6721%,1.2216%,margin<=0.25 dcb>=-0.5302,21.3115%,2.4660%,margin<=0.3 dcb>=-0.5999
+MOT20,S_c,u12,vobs,44.8529%,0.9118%,margin<=0.25 vobs>=0.06003,48.5294%,1.9255%,margin<=0.3 vobs>=0.04772
+MOT20,S_c,u1234,vobs,44.8529%,0.9416%,margin<=0.25 vobs=off oc=off dcb>=-0.4784,49.6324%,1.9014%,margin<=0.3 vobs=off oc>=0.9532 dcb=off
+MOT20,S_c,u1234a,vobs,58.8235%,0.9630%,margin<=0.1 vobs>=0.06003 oc=off dca>=-0.2101,58.8235%,1.8999%,margin<=0.1 vobs>=0.06003 oc=off dca>=-0.4089
+MOT20,S_c,u2,vobs,44.8529%,1.2851%,margin<=0.25 dcb>=-0.5648,48.5294%,2.3620%,margin<=0.3 dcb>=-0.6446
+MOT20,S_r,u12,vobs,29.0021%,0.9118%,margin<=0.25 vobs>=0.06003,39.2931%,1.9255%,margin<=0.3 vobs>=0.04772
+MOT20,S_r,u1234,vobs,37.0062%,0.9334%,margin<=0.2 vobs>=0.06003 oc=off dcb>=-0.4784,45.0104%,1.9782%,margin<=0.2 vobs>=0.04772 oc>=0.9532 dcb>=-0.5648
+MOT20,S_r,u1234a,vobs,29.2100%,0.9917%,margin<=0.15 vobs>=0.06003 oc=off dca>=-0.2101,42.2037%,1.9610%,margin<=0.2 vobs>=0.06003 oc=off dca>=-0.4089
+MOT20,S_r,u2,vobs,37.0062%,1.2851%,margin<=0.25 dcb>=-0.5648,44.1788%,2.3620%,margin<=0.3 dcb>=-0.6446
+MOT20,S_h,u12,vobs,42.3645%,0.9118%,margin<=0.25 vobs>=0.06003,50.4926%,1.9255%,margin<=0.3 vobs>=0.04772
+MOT20,S_h,u1234,vobs,42.8571%,0.9416%,margin<=0.25 vobs=off oc=off dcb>=-0.4784,52.2167%,1.9014%,margin<=0.3 vobs=off oc>=0.9532 dcb=off
+MOT20,S_h,u1234a,vobs,56.1576%,0.8818%,margin<=0.2 vobs=off oc=off dca>=-0.2101,61.0837%,1.9818%,margin<=0.3 vobs>=0.06003 oc=off dca>=-0.2101
+MOT20,S_h,u2,vobs,43.1034%,1.2851%,margin<=0.25 dcb>=-0.5648,50.9852%,2.3620%,margin<=0.3 dcb>=-0.6446
+MOT20,overall,u12,vobs,34.9390%,0.9118%,margin<=0.25 vobs>=0.06003,43.5976%,1.9255%,margin<=0.3 vobs>=0.04772
+MOT20,overall,u1234,vobs,37.6829%,0.9416%,margin<=0.25 vobs=off oc=off dcb>=-0.4784,46.5244%,1.9421%,margin<=0.3 vobs>=0.06003 oc=off dcb>=-0.5648
+MOT20,overall,u1234a,vobs,40.4878%,0.9917%,margin<=0.15 vobs>=0.06003 oc=off dca>=-0.2101,48.9634%,1.9610%,margin<=0.2 vobs>=0.06003 oc=off dca>=-0.4089
+MOT20,overall,u2,vobs,39.8171%,1.2851%,margin<=0.25 dcb>=-0.5648,46.5854%,2.3620%,margin<=0.3 dcb>=-0.6446
+SportsMOT,S_c,u12,vobs,2.6279%,0.9208%,margin<=0.25 vobs>=0.1763,2.8354%,1.7958%,margin<=0.3 vobs>=0.1275
+SportsMOT,S_c,u1234,vobs,2.6279%,0.9514%,margin<=0.25 vobs>=0.2124 oc=off dcb>=-0.4431,2.9046%,1.9396%,margin<=0.25 vobs>=0.1763 oc>=0.8442 dcb>=-0.5541
+SportsMOT,S_c,u1234a,vobs,2.9737%,0.9844%,margin<=0.1 vobs>=0.1545 oc=off dca>=-0.4248,2.9737%,1.9422%,margin<=0.1 vobs>=0.2124 oc>=0.8985 dca>=-0.5863
+SportsMOT,S_c,u2,vobs,2.7663%,1.1554%,margin<=0.25 dcb>=-0.5541,2.8354%,2.1207%,margin<=0.3 dcb>=-0.6813
+SportsMOT,S_r,u12,vobs,29.4366%,0.9208%,margin<=0.25 vobs>=0.1763,38.5915%,1.7958%,margin<=0.3 vobs>=0.1275
+SportsMOT,S_r,u1234,vobs,36.1972%,0.9862%,margin<=0.1 vobs=off oc=off dcb>=-0.5541,43.2394%,1.9884%,margin<=0.2 vobs>=0.2466 oc=off dcb>=-0.6813
+SportsMOT,S_r,u1234a,vobs,36.0563%,0.9400%,margin<=0.2 vobs>=0.2124 oc=off dca>=-0.4248,44.3662%,1.9778%,margin<=0.3 vobs>=0.2466 oc=off dca>=-0.5863
+SportsMOT,S_r,u2,vobs,39.2958%,1.1554%,margin<=0.25 dcb>=-0.5541,45.2113%,2.1207%,margin<=0.3 dcb>=-0.6813
+SportsMOT,S_h,u12,vobs,9.4891%,0.9208%,margin<=0.25 vobs>=0.1763,12.1655%,1.7958%,margin<=0.3 vobs>=0.1275
+SportsMOT,S_h,u1234,vobs,9.9757%,0.9514%,margin<=0.25 vobs>=0.2124 oc=off dcb>=-0.4431,13.6253%,1.9364%,margin<=0.3 vobs>=0.1763 oc>=0.8985 dcb>=-0.5541
+SportsMOT,S_h,u1234a,vobs,12.1655%,0.9753%,margin<=0.25 vobs>=0.2124 oc=off dca>=-0.2485,16.5450%,1.9778%,margin<=0.3 vobs>=0.2466 oc=off dca>=-0.5863
+SportsMOT,S_h,u2,vobs,10.4623%,1.1554%,margin<=0.25 dcb>=-0.5541,13.3820%,2.1207%,margin<=0.3 dcb>=-0.6813
+SportsMOT,overall,u12,vobs,11.1414%,0.9208%,margin<=0.25 vobs>=0.1763,14.2189%,1.7958%,margin<=0.3 vobs>=0.1275
+SportsMOT,overall,u1234,vobs,12.8165%,0.9514%,margin<=0.25 vobs>=0.2124 oc=off dcb>=-0.4431,15.5434%,1.9422%,margin<=0.3 vobs>=0.1275 oc=off dcb>=-0.5541
+SportsMOT,overall,u1234a,vobs,13.5567%,0.9400%,margin<=0.2 vobs>=0.2124 oc=off dca>=-0.4248,16.5952%,1.9778%,margin<=0.3 vobs>=0.2466 oc=off dca>=-0.5863
+SportsMOT,overall,u2,vobs,14.1021%,1.1554%,margin<=0.25 dcb>=-0.5541,16.2446%,2.1207%,margin<=0.3 dcb>=-0.6813
+combined,S_c,u12,vobs,9.5057%,0.9521%,margin<=0.25 vobs>=0.1266,10.3748%,1.8312%,margin<=0.3 vobs>=0.1063
+combined,S_c,u1234,vobs,9.5057%,0.9583%,margin<=0.25 vobs>=0.1998 oc=off dcb>=-0.4593,10.3748%,1.9150%,margin<=0.3 vobs>=0.1266 oc=off dcb>=-0.5584
+combined,S_c,u1234a,vobs,12.0043%,0.9602%,margin<=0.1 vobs>=0.1266 oc=off dca>=-0.2746,12.0043%,1.9952%,margin=off vobs>=0.1063 oc=off dca>=-0.4708
+combined,S_c,u2,vobs,9.6143%,1.2316%,margin<=0.25 dcb>=-0.5584,10.3748%,2.2879%,margin<=0.3 dcb>=-0.6462
+combined,S_r,u12,vobs,26.9651%,0.9521%,margin<=0.25 vobs>=0.1266,35.5023%,1.8312%,margin<=0.3 vobs>=0.1063
+combined,S_r,u1234,vobs,33.0036%,0.9583%,margin<=0.25 vobs>=0.1998 oc=off dcb>=-0.4593,40.1353%,1.9786%,margin<=0.25 vobs>=0.1266 oc>=0.9446 dcb>=-0.5584
+combined,S_r,u1234a,vobs,30.5570%,0.9930%,margin<=0.2 vobs>=0.1635 oc=off dca>=-0.2746,39.1983%,1.9941%,margin<=0.25 vobs>=0.1635 oc=off dca>=-0.4708
+combined,S_r,u2,vobs,35.7106%,1.2316%,margin<=0.25 dcb>=-0.5584,41.6450%,2.2879%,margin<=0.3 dcb>=-0.6462
+combined,S_h,u12,vobs,24.2455%,0.9521%,margin<=0.25 vobs>=0.1266,28.9738%,1.8312%,margin<=0.3 vobs>=0.1063
+combined,S_h,u1234,vobs,24.9497%,0.9583%,margin<=0.25 vobs>=0.1998 oc=off dcb>=-0.4593,29.6781%,1.9150%,margin<=0.3 vobs>=0.1266 oc=off dcb>=-0.5584
+combined,S_h,u1234a,vobs,31.8913%,0.9930%,margin<=0.2 vobs>=0.1635 oc=off dca>=-0.2746,35.6137%,1.9407%,margin<=0.3 vobs>=0.1635 oc=off dca>=-0.2746
+combined,S_h,u2,vobs,25.5533%,1.2316%,margin<=0.25 dcb>=-0.5584,29.8793%,2.2879%,margin<=0.3 dcb>=-0.6462
+combined,overall,u12,vobs,19.6384%,0.9521%,margin<=0.25 vobs>=0.1266,24.4113%,1.8312%,margin<=0.3 vobs>=0.1063
+combined,overall,u1234,vobs,22.2246%,0.9583%,margin<=0.25 vobs>=0.1998 oc=off dcb>=-0.4593,26.3877%,1.9150%,margin<=0.3 vobs>=0.1266 oc=off dcb>=-0.5584
+combined,overall,u1234a,vobs,23.6543%,0.9930%,margin<=0.2 vobs>=0.1635 oc=off dca>=-0.2746,27.8385%,1.9941%,margin<=0.25 vobs>=0.1635 oc=off dca>=-0.4708
+combined,overall,u2,vobs,23.4861%,1.2316%,margin<=0.25 dcb>=-0.5584,27.0816%,2.2879%,margin<=0.3 dcb>=-0.6462
