@@ -41,7 +41,6 @@ ByteTrack/
 │   ├── track_v001.py         # V001批量评估跟踪（标准入口）
 │   ├── draw_tracks_video.py  # 跟踪可视化视频
 │   ├── draw_boxes_canvas.py  # 白布可视化
-│   ├── id_switch_metrics.py  # ID切换指标统计
 │   ├── draw_switch_trajectory.py # 切换轨迹图
 │   ├── convert_sportsmot_to_coco.py  # SportsMOT转换
 │   └── standardize_datasets.py       # 数据集验证
