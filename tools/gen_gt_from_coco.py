@@ -6,7 +6,7 @@ from pathlib import Path
 from collections import defaultdict
 
 import os
-BASE = Path(os.getcwd()) / 'datasets'
+BASE = Path(__file__).resolve().parents[1] / 'datasets'
 
 
 def load_mapping(mapping_file):

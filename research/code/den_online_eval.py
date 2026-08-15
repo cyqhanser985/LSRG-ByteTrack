@@ -11,9 +11,9 @@ the offline V8 validation expectations:
   4. Snapshot consistency: online n_snapshot vs frozen track_results rows.
 
 Usage:
-  E:\\anaconda\\envs\\bytetrack\\python.exe new project/code/den_online_eval.py \\
+  python research/code/den_online_eval.py \\
       --ds mot17 --logdir YOLOX_outputs/mot17_den_alert_full/den_gate_log \\
-      --offline "new project/taxonomy/gate_feasibility_events.csv" \\
+      --offline "research/taxonomy/gate_feasibility_events.csv" \\
       --frozen-track YOLOX_outputs/mot17_v001_full/track_results --tag full
 
 Outputs: taxonomy/den_online_{ds}_{tag}.csv + console summary.

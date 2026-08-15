@@ -42,7 +42,7 @@
 # deviation).
 #
 # Pure stdlib + numpy + scipy + matplotlib(Agg). ASCII comments only.
-# Run in-place from new project/code/ with the bytetrack conda interpreter.
+# Run in-place from research/code/ with the bytetrack conda interpreter.
 
 import argparse
 import csv
@@ -92,7 +92,7 @@ def log(msg):
 # --------------------------------------------------------------------------
 def _repo_root():
     """Repo root = first dir upward containing YOLOX_outputs (works from
-    new project/code/ or tools/)."""
+    research/code/ or tools/)."""
     d = os.path.dirname(os.path.abspath(__file__))
     while not os.path.isdir(os.path.join(d, "YOLOX_outputs")):
         nd = os.path.dirname(d)
@@ -103,8 +103,8 @@ def _repo_root():
 
 
 ROOT = _repo_root()
-DATA = os.path.join(ROOT, "new project", "data")
-OUT = os.path.join(ROOT, "new project", "taxonomy")
+DATA = os.path.join(ROOT, "research", "data")
+OUT = os.path.join(ROOT, "research", "taxonomy")
 
 
 def load_frames(txt_path):

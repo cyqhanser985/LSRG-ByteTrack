@@ -60,5 +60,7 @@ setuptools.setup(
     ext_modules=get_extensions(),
     classifiers=["Programming Language :: Python :: 3", "Operating System :: OS Independent"],
     cmdclass={"build_ext": torch.utils.cpp_extension.BuildExtension},
-    packages=setuptools.find_namespace_packages(),
+    packages=setuptools.find_namespace_packages(
+        exclude=["research*", "docs*", "reports*", "scripts*"]
+    ),
 )

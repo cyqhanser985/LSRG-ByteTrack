@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 权重文件完整性验证脚本 (COE 规范)
-- 使用 pathlib.Path + os.getcwd()，禁止硬编码绝对路径
+- 使用 pathlib.Path + __file__ 推导仓库根，禁止硬编码绝对路径
 - 逐一 torch.load(map_location='cpu') 验证可加载性
 - 用与 exps/example/mot/yolox_x_mix_det.py 一致的网络结构(YOLOX-X, 1类)构建模型并加载权重
 """
@@ -12,7 +12,7 @@ from pathlib import Path
 
 import torch
 
-BASE = Path(os.getcwd())
+BASE = Path(__file__).resolve().parents[1]
 PRETRAINED = BASE / "pretrained"
 
 

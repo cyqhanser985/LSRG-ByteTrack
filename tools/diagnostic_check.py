@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 数据集与路径鲁棒性校验脚本 (COE 规范) — 步骤3 防错机制
-- 使用 pathlib.Path + os.getcwd() 获取路径，禁止硬编码盘符/绝对路径
+- 使用 pathlib.Path + __file__ 推导仓库根，禁止硬编码盘符/绝对路径
 - 检测 datasets/{MOT17,MOT20,SportsMOT} 目录结构是否符合 V001 标准化格式
 - 读取 mapping.txt 验证 V 编号与原始序列名映射
 - 抽样读取每个数据集 1 张图像（规避中文路径编码问题）
@@ -17,7 +17,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-BASE = Path(os.getcwd())
+BASE = Path(__file__).resolve().parents[1]
 DATASETS = ["MOT17", "MOT20", "SportsMOT"]
 
 # 每个数据集评估用 JSON（prepare_eval_json.py 生成的标准化文件）

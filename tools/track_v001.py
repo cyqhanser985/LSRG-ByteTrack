@@ -18,6 +18,8 @@ import motmetrics as mm
 from collections import OrderedDict
 from pathlib import Path
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
 
 def make_parser():
     parser = argparse.ArgumentParser("YOLOX Eval (V001 datasets)")
@@ -256,7 +258,7 @@ def main(exp, args, num_gpu):
                      "Please use a *v001.py config.")
         import sys
         sys.exit(1)
-    gt_root = Path("datasets") / dataset_name
+    gt_root = REPO_ROOT / "datasets" / dataset_name
     gtfiles = sorted(str(p) for p in gt_root.glob("V*/gt/gt{}.txt".format(gt_type)))
     print('gt_files', gtfiles)
 

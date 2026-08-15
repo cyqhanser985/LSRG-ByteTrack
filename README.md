@@ -1,41 +1,42 @@
-# ByteTrack 多目标跟踪分析项目
+# ByteTrack 多目标跟踪项目
 
-基于 [ByteTrack](https://github.com/ifzhang/ByteTrack)（ECCV 2022，MIT License）的多目标跟踪复现与分析项目。
-在 MOT17 / MOT20 / SportsMOT 三个数据集上完成全量评估，并对 **ID 切换（switch）/ ID 复用（reuse）**
-事件做了深度分析与可视化；同时内置 BFT（鸟群跟踪）私有数据集，供后续研究使用。
+本仓库包含两个明确分区：
+
+1. **官方 ByteTrack 基线复现区（只读 / 归档）**：基于 [ByteTrack](https://github.com/ifzhang/ByteTrack)（ECCV 2022，MIT License）的复现与评估链路，包含 `yolox/` 上游框架、`exps/` 实验配置、`tools/` 运行工具、`datasets/`（Git 忽略）、`pretrained/`（Git 忽略）与 `YOLOX_outputs/`（Git 忽略）。
+2. **LSRG 活跃研究区（`research/`）**：ID 失效机理分类、DEN 门控验证、可观测性诊断与后续 OC-SORT / C-BIoU 关联函数重构工作。**当前研究进展以 [`research/README.md`](research/README.md) 为唯一入口。**
+
+> `docs/` 下的旧版开发文档已归档，仅作历史参考；新研究文档统一维护在 `research/docs/` 与 `research/reports/`。
 
 ## 目录结构
 
-```
+```text
 ByteTrack/
-├── yolox/                  # YOLOX 框架 + BYTETracker（官方代码）
-├── tools/                  # 全部运行脚本（评估 / 事件分析 / 可视化 / 数据集工具）
-├── exps/example/mot/       # 实验配置：yolox_x_mix_det 基类 + 3 个数据集 v001 配置
-├── datasets/               # MOT17 / MOT20 / SportsMOT / BFT（私有）/ DanceTrack
-├── pretrained/             # 官方预训练权重（3 × ~800MB）
-├── YOLOX_outputs/          # 全量评估结果与分析产物（track_results、事件表、指标、报告）
-├── docs/                   # 项目文档：开发进度 / 经验沉淀 / 复现报告 / 使用指南 / 图表
-├── reports/                # 自包含 HTML 分析报告（离线可打开）
-├── scripts/                # 报告打包与校验脚本
-├── videos/                 # 示例视频（BFT / DanceTrack 样本）
-├── requirements.txt        # 依赖清单
-├── setup.cfg / setup.py    # 包配置（python setup.py develop 安装 yolox）
-└── LICENSE                 # MIT License（官方）
+├── .gitignore                           # 排除 datasets/videos/大型输出
+├── requirements.txt                     # 补齐 scipy, matplotlib 等依赖
+├── setup.py                             # 配置 exclude 规则，防止污染命名空间
+├── README.md                            # 统一入口门户（复现基线 + research 索引）
+├── yolox/                               # 上游框架
+├── exps/                                # 实验配置
+├── tools/                               # 通用运行/转换/评估工具（修复路径依赖与入口保护）
+├── research/                            # 活跃研究主区
+│   ├── README.md                        # 研究区总索引
+│   ├── docs/                            # COE.md / 开发进度.md / 研究方向.md
+│   ├── reports/                         # day1_report / day2_report / day3_report
+│   ├── code/                            # analysis.py / den_online_eval.py / 备份 diff
+│   ├── data/                            # 唯一权威冻结输入 + SHA256SUMS.txt
+│   ├── taxonomy/                        # 规范化产物 + 映射说明
+│   └── diag_exp/                        # 独立诊断实验
+├── docs/                                # 旧版开发文档（标注已归档）
+├── reports/                             # 自包含交付报告与打包产物
+├── scripts/                             # 打包与校验辅助脚本（消除绝对盘符）
+├── datasets/                            # (Git 忽略) 数据集
+├── pretrained/                          # (Git 忽略) 权重文件
+└── YOLOX_outputs/                       # (Git 忽略) 运行输出
 ```
 
-## 核心成果
+## 官方 ByteTrack 基线复现区（只读 / 归档）
 
-| 项目 | 结果 |
-|------|------|
-| 三数据集全量评估 | MOT17 **MOTA 49.9%** / MOT20 **78.8%** / SportsMOT **97.1%**（与官方同口径量级一致） |
-| 事件全量挖掘 | **7,156 条** switch/reuse 事件，逐序列与 motmetrics `num_switches` 100% 一致 |
-| 可视化产物 | 115 个跟踪视频、白布可视化、6 张切换轨迹图、12 个典型例子（372 帧标注图） |
-| 分析报告 | 自包含 HTML 报告，`reports/ByteTrack_ID分析报告/index.html` 双击即看 |
-
-> 注：`YOLOX_outputs/` 下的完整跟踪视频与标注图原图已按需精简（可再生），
-> 所有指标产物（track_results、事件表 CSV、指标分布、轨迹图、报告）完整保留。
-
-## 快速开始
+本分区保留三数据集（MOT17 / MOT20 / SportsMOT）的 V001 全量评估链路与结果。
 
 ```bash
 # 1. 环境（Python 3.8 + PyTorch + CUDA）
@@ -48,33 +49,38 @@ python tools/track_v001.py \
     -c pretrained/bytetrack_x_mot17.pth.tar \
     -expn mot17_v001_full -b 1 -d 1 --fp16 --fuse
 
-# 3. ID 切换/复用事件挖掘
-python tools/find_id_events.py -expn mot17_v001_full -ds MOT17
-
-# 4. 跟踪可视化（视频）
+# 3. 跟踪可视化（视频）
 python tools/draw_tracks_video.py -expn mot17_v001_full -ds MOT17
 ```
 
-## 文档索引
+历史 ID 事件挖掘与分析脚本已下线；对应冻结产物已收敛至 `research/data/` 作为唯一权威输入。
+
+## LSRG 活跃研究区
+
+- 研究总索引：[`research/README.md`](research/README.md)
+- 跨会话经验与坑位：[`research/docs/COE.md`](research/docs/COE.md)
+- 研究进度台账：[`research/docs/开发进度.md`](research/docs/开发进度.md)
+- 冻结数据源：[`research/data/README.md`](research/data/README.md)（含 `SHA256SUMS.txt`）
+
+## 文档索引（历史归档）
 
 | 文档 | 说明 |
 |------|------|
-| `docs/开发进度.md` | 步骤 1-8 开发全记录（环境 / 数据 / 评估 / 可视化 / 指标） |
-| `docs/reproduction_results.md` | 三数据集复现结果报告（逐序列指标） |
-| `docs/experience.md` | 经验与踩坑沉淀（8 个专题） |
-| `docs/USAGE_GUIDE.md` | 使用指南（数据集、命令、参数调优、算法解析） |
-| `reports/ByteTrack_ID分析报告/` | 自包含 HTML 分析报告（6 页，离线可用） |
-| `YOLOX_outputs/analysis/*.md` | 各阶段原始报告（事件 / 白布 / 指标） |
+| `docs/开发进度.md` | 步骤 1-8 开发全记录（已归档） |
+| `docs/reproduction_results.md` | 三数据集复现结果报告（已归档） |
+| `docs/experience.md` | 经验与踩坑沉淀（已归档） |
+| `docs/USAGE_GUIDE.md` | 使用指南（已归档） |
+| `reports/ByteTrack_ID分析报告/` | 自包含 HTML 分析报告（离线可用） |
 
 ## 数据集说明
 
 | 数据集 | 内容 | 状态 |
 |--------|------|------|
-| MOT17 | 行人跟踪，21 序列 | 全量评估完成，`annotations/eval.json` 就绪 |
-| MOT20 | 拥挤场景行人，4 序列 | 全量评估完成，`annotations/eval.json` 就绪 |
-| SportsMOT | 体育运动，240 序列（90 有 GT） | 全量评估完成，`annotations/eval.json` 就绪 |
-| BFT | 鸟群跟踪（私有），106 序列 | COCO 标注（train/val/test_v1.5.json），可直接使用 |
+| MOT17 | 行人跟踪，21 序列 | 全量评估完成 |
+| MOT20 | 拥挤场景行人，4 序列 | 全量评估完成 |
+| SportsMOT | 体育运动，240 序列（90 有 GT） | 全量评估完成 |
+| BFT | 鸟群跟踪（私有），106 序列 | COCO 标注就绪 |
 | DanceTrack | 下载中的基准数据 | `test2.zip` 待处理 |
 
-> 本项目在官方代码基础上未改动 `yolox/` 框架；评估链路适配（v001 配置、
-> `tools/track_v001.py`、`mot_evaluator.py` 视频切换逻辑）详见 `docs/开发进度.md` 步骤 4。
+> 本项目在官方代码基础上未改动 `yolox/` 框架核心算法；评估链路适配（v001 配置、
+> `tools/track_v001.py`、`mot_evaluator.py` 视频切换逻辑）详见 `docs/开发进度.md`。

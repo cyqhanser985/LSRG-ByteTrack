@@ -11,7 +11,7 @@
 | ① | **冻结产物** | V1/V2 阶段生成、不再变化，仍被活脚本读取（SANITY 锚点） | `event_classification.csv`、`event_counts_by_sequence.csv`、`warning_features.csv` |
 | ② | **离线分析产物** | `analysis.py` 每次运行重新生成（活产物，可覆写） | `gate_feasibility_events.csv`、`gate_feasibility_summary.csv`、`gate_feasibility_roc.png` |
 | ③ | **在线插桩产物** | `den_online_eval.py` 生成（活产物，可覆写） | `den_online_{mot17,mot20,sportsmot}_full.csv` |
-| — | **静态报告** | 手写维护，与代码解耦；改报告直接编辑 md | `event_taxonomy_report.md`（事件侧）；根目录 `day1_report.md`（设计收敛与门控基线）、`day2_report.md`（三机制筛选与在线插桩，由原 gate_report + den_online_report 合并，2026-08-10） |
+| — | **静态报告** | 手写维护，与代码解耦；改报告直接编辑 md | `event_taxonomy_report.md`（事件侧）；`reports/day1_report.md`（设计收敛与门控基线）、`reports/day2_report.md`（三机制筛选与在线插桩，由原 gate_report + den_online_report 合并，2026-08-10）、`reports/day3_report.md`（可观测性诊断与路线裁决） |
 
 ## 文件清单（10 个，2026-08-10 整理后）
 
@@ -29,4 +29,10 @@
 ## 使用规则
 
 - ②/③ 类为活产物：重跑对应脚本即覆写；① 类与报告禁止被脚本覆写。
-- 删除任何文件前先读内容（无 git，COE.md §5 教训）。
+- 删除任何文件前先读内容（Git 已启用，`baseline-v001` 为重构前基线；仍应谨慎操作）。
+
+## 旧版命名映射
+
+- `event_classification.csv` 即早期版本中的 `taxonomy_partition.csv`（逐事件分类结果）。
+- `event_counts_by_sequence.csv` 即早期版本中的 `taxonomy_by_sequence.csv`（序列级分类计数）。
+- 旧版命名已不再使用；后续代码与文档统一引用当前文件名。

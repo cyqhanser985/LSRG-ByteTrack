@@ -83,7 +83,7 @@ $N_{\text{neighbor}}(i)$ = F−1 帧与 track $i$ 重叠的活跃 track 数（�
 | 代码 | `yolox/tracker/den_gate.py`（新，纯函数）+ `byte_tracker.py`（L207-209 门控特征块 + 帧末快照 + `dump_den_log`）+ `mot_evaluator.py`（dump 钩子）+ `tools/track_v001.py`（CLI） |
 | 开关 | `--den-gate`（默认关，基线路径零变化）；`--den-eps0 0.20`、`--den-gamma 1.25` |
 | 动作 | **alert（仅记录）**——不修改关联代价矩阵 |
-| 备份 | 改前文件在 `new project/code/backup/`（SHA256SUMS.txt 已核对） |
+| 备份 | 改前文件在 `research/code/backup/`（SHA256SUMS.txt 已核对） |
 
 ```
 检测 D@F + F−1 快照(输出框) + KF 预测框(恒速)

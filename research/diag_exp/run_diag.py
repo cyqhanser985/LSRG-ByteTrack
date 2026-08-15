@@ -30,8 +30,8 @@
 # Reuses analysis.py utilities by import (guarded main, no side effects).
 # Pure stdlib + numpy + scipy + matplotlib(Agg); ASCII comments only.
 # Run in-place with the bytetrack conda interpreter:
-#   E:\anaconda\envs\bytetrack\python.exe run_diag.py --datasets mot17
-#   E:\anaconda\envs\bytetrack\python.exe run_diag.py                 # full
+#   python run_diag.py --datasets mot17
+#   python run_diag.py                 # full
 # Outputs -> results/ (this folder; no writes to data/ or taxonomy/).
 
 import argparse

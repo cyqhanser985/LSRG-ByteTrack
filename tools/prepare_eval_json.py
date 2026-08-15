@@ -5,7 +5,7 @@
 - MOT17:    从 val_half.json 复制(已标准化)，gt 覆盖 301-600 后半段
 - MOT20:    从 train.json 切片，file_name 重映射 MOT20-XX -> Vxxx (gt 为全序列)
 - SportsMOT: 对有 gt 的 Vxxx 序列，从 train/val.json 切片到本地帧范围 + 重映射
-- 全程只使用 pathlib.Path 与 os.getcwd() 派生的相对路径
+- 全程只使用 pathlib.Path 与 __file__ 派生的仓库根路径
 """
 import json
 import os
@@ -13,7 +13,7 @@ import sys
 import traceback
 from pathlib import Path
 
-BASE = Path(os.getcwd())
+BASE = Path(__file__).resolve().parents[1]
 
 
 def load_mapping(name):

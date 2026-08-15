@@ -1,6 +1,6 @@
 """DEN (local-density) gate instrumentation -- pure functions, no state.
 
-Offline semantics replicated from `new project/code/analysis.py` (V8, frozen):
+Offline semantics replicated from `research/code/analysis.py` (V8, frozen):
   - neighbor_counts : N(i) = # other F-1 output boxes overlapping box i (IoU > 0)
   - gate features    : per-detection top1/top2/margin over the
                        (det x F-1-predicted-box) IoU matrix

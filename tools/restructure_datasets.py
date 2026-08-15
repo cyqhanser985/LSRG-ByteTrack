@@ -14,8 +14,8 @@ import tarfile
 from pathlib import Path
 from collections import OrderedDict
 
-# Use cwd relative path to avoid encoding issues
-BASE = Path(os.getcwd()) / 'datasets'
+# Use repo root resolved from this file to avoid cwd assumptions
+BASE = Path(__file__).resolve().parents[1] / 'datasets'
 
 
 def get_seq_dirs(src_dir, exclude_prefixes=('._', '.'), exclude_names=None):

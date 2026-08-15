@@ -5,8 +5,8 @@ Usage:
     python tools/gen_examples.py -expn mot17_v001_full -ds MOT17
     python tools/gen_examples.py -expn sportsmot_v001_full -ds SportsMOT
 
-For each dataset the script scans the events csv produced by
-find_id_events.py and scores candidate events:
+For each dataset the script scans the frozen events CSV (canonical source:
+research/data/{dataset}_events.csv) and scores candidate events:
 
   * switch: the OLD tracker must still be visible inside the +-15 frame
     window (so the viewer can see its color), its box at the event frame
@@ -26,15 +26,18 @@ Outputs go to YOLOX_outputs/analysis/examples/. Source is pure ASCII.
 import argparse
 import os
 import sys
+from pathlib import Path
 
 import cv2
 import numpy as np
 
 import draw_tracks_video as dtv
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
 WIN = 15
 MIN_FRAME_GAP = 50
-OUT = os.path.join("YOLOX_outputs", "analysis", "examples")
+OUT = REPO_ROOT / "YOLOX_outputs" / "analysis" / "examples"
 
 
 def box_iou(a, b):
@@ -166,9 +169,8 @@ def main():
     args = ap.parse_args()
 
     os.makedirs(OUT, exist_ok=True)
-    seq_root = os.path.join("datasets", args.ds)
-    events_csv = os.path.join("YOLOX_outputs", "analysis",
-                              "%s_events.csv" % args.ds)
+    seq_root = REPO_ROOT / "datasets" / args.ds
+    events_csv = REPO_ROOT / "research" / "data" / ("%s_events.csv" % args.ds)
 
     switch_evs = []
     reuse_evs = []
@@ -210,9 +212,8 @@ def main():
     sw_pick = []
     ru_pick = []
     for seq in all_seqs:
-        txt = os.path.join("YOLOX_outputs", args.expn, "track_results",
-                           "%s.txt" % seq)
-        if not os.path.exists(txt):
+        txt = REPO_ROOT / "YOLOX_outputs" / args.expn / "track_results" / ("%s.txt" % seq)
+        if not txt.exists():
             continue
         boxes = dtv.parse_track(txt)
         if not boxes:
@@ -258,25 +259,23 @@ def main():
     rendered = []
     for s, ev in sw_final:
         seq, frame, oid, hid, old_hid, note = ev
-        txt = os.path.join("YOLOX_outputs", args.expn, "track_results",
-                           "%s.txt" % seq)
+        txt = REPO_ROOT / "YOLOX_outputs" / args.expn / "track_results" / ("%s.txt" % seq)
         boxes = dtv.parse_track(txt)
         prefix = os.path.join(OUT, "%s_switch_%s_f%06d" % (args.ds, seq, frame))
         caption = "%s f%d SWITCH gt%d tracker%s->%d" % (
             seq, frame, oid,
             "unknown" if old_hid is None else str(old_hid), hid)
-        render_window(os.path.join("datasets", args.ds), seq, boxes, frame,
+        render_window(seq_root, seq, boxes, frame,
                       caption, hid, prefix)
         rendered.append((seq, frame, "switch", hid, caption))
     for s, ev in ru_final:
         seq, frame, tid, gt_old, gt_new, old_last, note = ev
-        txt = os.path.join("YOLOX_outputs", args.expn, "track_results",
-                           "%s.txt" % seq)
+        txt = REPO_ROOT / "YOLOX_outputs" / args.expn / "track_results" / ("%s.txt" % seq)
         boxes = dtv.parse_track(txt)
         prefix = os.path.join(OUT, "%s_reuse_%s_f%06d" % (args.ds, seq, frame))
         caption = "%s f%d REUSE tracker%d gt%d->%d" % (
             seq, frame, tid, gt_old, gt_new)
-        render_window(os.path.join("datasets", args.ds), seq, boxes, frame,
+        render_window(seq_root, seq, boxes, frame,
                       caption, tid, prefix)
         rendered.append((seq, frame, "reuse", tid, caption))
 

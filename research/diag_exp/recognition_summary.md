@@ -1,6 +1,6 @@
 # 门控信号识别率汇总（导师汇报用）
 
-> 依据《研究方向.md》的可观测性诊断实验（`diag_exp/`，2026-08-10）。口径：冻结 switch 事件池（4,756 条）为识别对象，C 组正常帧检测为负样本；**主口径（u2）为诊断最强的两个信号——Margin（几何裕度）与 Swap Instability（2×2 交换分配代价差，变体 B）——各自在成分级 FPR≤1% 预算下取最优阈值后以固定阈值取并**（并集 FPR 如实报告，约 1.1–1.3%，不再施加联合约束）；触发前置 = 共享资格（top1≥0.2 ∧ top2≥0.2）；识别率 = 并集捕获的事件占比（成分级 FPR≤2% 作敏感性）。事件按接管方历史分为三类：S_c 冷启动接管（1,841）、S_r 活跃接管（1,921）、S_h 历史重新激活（994）。
+> 依据《../docs/研究方向.md》的可观测性诊断实验（`diag_exp/`，2026-08-10）。口径：冻结 switch 事件池（4,756 条）为识别对象，C 组正常帧检测为负样本；**主口径（u2）为诊断最强的两个信号——Margin（几何裕度）与 Swap Instability（2×2 交换分配代价差，变体 B）——各自在成分级 FPR≤1% 预算下取最优阈值后以固定阈值取并**（并集 FPR 如实报告，约 1.1–1.3%，不再施加联合约束）；触发前置 = 共享资格（top1≥0.2 ∧ top2≥0.2）；识别率 = 并集捕获的事件占比（成分级 FPR≤2% 作敏感性）。事件按接管方历史分为三类：S_c 冷启动接管（1,841）、S_r 活跃接管（1,921）、S_h 历史重新激活（994）。
 
 ## 一、总体识别率（全部 switch 事件，n=4,756）
 
@@ -55,8 +55,8 @@
 ## 复现
 
 ```bash
-PY=E:\anaconda\envs\bytetrack\python.exe
-cd "new project/diag_exp"
+PY=python   # 或 conda 环境解释器
+cd "research/diag_exp"
 $PY run_diag.py          # 全量（~5 min），产物：results/diag_roc_summary.csv（含 class 列）、
                          #       results/diag_union_summary.csv（u12/u1234/u1234a）、
                          #       results/diag_features_events.csv（4,756 事件 × 8 特征）

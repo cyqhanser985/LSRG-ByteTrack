@@ -1,5 +1,7 @@
 # ByteTrack 项目使用指南
 
+> 本文档为历史归档版本，部分历史事件分析与验证脚本已下线；当前活跃研究请以 `research/README.md` 为准。
+
 ## 目录
 1. [项目概述](#1-项目概述)
 2. [环境配置](#2-环境配置)
@@ -37,7 +39,6 @@ ByteTrack/
 │   └── data/datasets/        # MOTDataset数据加载
 ├── tools/                    # 工具脚本
 │   ├── track_v001.py         # V001批量评估跟踪（标准入口）
-│   ├── find_id_events.py     # ID切换/复用事件挖掘
 │   ├── draw_tracks_video.py  # 跟踪可视化视频
 │   ├── draw_boxes_canvas.py  # 白布可视化
 │   ├── id_switch_metrics.py  # ID切换指标统计
