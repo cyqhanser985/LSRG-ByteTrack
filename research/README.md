@@ -20,13 +20,18 @@ research/
 ├── README.md          本索引
 ├── docs/              进度台账、COE、研究方向
 ├── reports/           day1/day2/day3 研究报告 + lib/katex
-├── code/              活脚本（analysis.py 离线分析 + den_online_eval.py 在线对齐）
+├── code/              活脚本（analysis.py 离线分析 + den_online_eval.py 在线对齐 + risk_features.py 统一因果风险特征抽取 + risk_aggregation.py 风险聚合模型与评测）
 ├── data/              冻结输入：{MOT17,MOT20,SportsMOT}_events.csv + *_events_metrics.csv + *_events_summary.csv（分类标准见 data/README.md）
 ├── taxonomy/          产物（分类标准见 taxonomy/README.md）：
 │                      event_counts_by_sequence.csv    序列级分类计数（冻结，SANITY 读取源）
 │                      gate_feasibility_events.csv     逐事件门控特征（analysis.py 生成）
 │                      gate_feasibility_summary.csv    门控触发率长表（analysis.py 生成）
 │                      gate_feasibility_roc.png        三机制 ROC 图（analysis.py 生成）
+│                      risk_features_events.{npy,npz,csv} 全量无门控因果风险张量与 CSV（risk_features.py 生成）
+│                      risk_features_negatives.npz     164.7万负样本校准风险特征及序列元数据包
+│                      risk_ecdf_calibrator.npz        负样本 ECDF 经验分布校准器（risk_features.py 生成）
+│                      risk_aggregation_summary.csv    四大聚合模型在 Oracle 与 Test 口径下的 FPR@TPR 与 pAUC 评测大表（risk_aggregation.py 生成）
+│                      risk_aggregation_roc.png        四大聚合模型高召回率 ROC 与 FPR 对比图（risk_aggregation.py 生成）
 │                      den_online_{ds}_full.csv        在线-离线对齐数据（den_online_eval.py 生成）
 │                      event_taxonomy_report.md        静态报告：分类/签名/可挽回性
 └── diag_exp/          Day 3 诊断实验独立工作区（自包含，只读 data/ 与 taxonomy/）：

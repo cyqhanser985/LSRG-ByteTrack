@@ -24,6 +24,14 @@
 | `gate_feasibility_events.csv` | `analysis.py` | ② | 4,713 行逐事件：class + top1/top2/margin + cos_theta/r_v/v_obs_norm + sigma_norm + n_neighbor + geom_020 |
 | `gate_feasibility_summary.csv` | `analysis.py` | ② | 长表：geom 基线 A/B/C × ε + kmc/kf/den 最优触发点 |
 | `gate_feasibility_roc.png` | `analysis.py` | ② | 三机制 ROC 图（全目录唯一图片） |
+| `risk_features_events.npy` | `risk_features.py` | ② | 4,713×3 核心风险张量（r_weak/r_comp/r_swap，严格[0,1]，零NaN） |
+| `risk_features_events.npz` | `risk_features.py` | ② | 包含风险矩阵、原始矩阵、类别标签与序列/帧/ID元数据的压缩包 |
+| `risk_features_events.csv` | `risk_features.py` | ② | 逐事件人类可读 CSV（含原始特征与校准风险分值） |
+| `risk_features_negatives.npz` | `test_neg_cache.py` / `risk_features.py` | ② | 164.7万负样本校准风险特征及序列元数据缓存包 |
+| `risk_ecdf_calibrator.npz` | `risk_features.py` | ② | 负样本（164.7万框）ECDF经验分布校准器模型与分位数表 |
+| `risk_aggregation_summary.csv` | `risk_aggregation.py` | ② | 四大聚合模型在 Oracle 与 Test 口径下的 FPR@TPR 与 pAUC 评测大表 |
+| `risk_aggregation_tpr_grid.csv` | `risk_aggregation.py` | ② | TPR 60%..100% 以 5% 为跨度的 FPR 详细对齐大表 |
+| `risk_aggregation_roc.png` | `risk_aggregation.py` | ② | 四大聚合模型 TPR 60%..100% ROC 曲线与 5% 步长折线图 |
 | `den_online_{mot17,mot20,sportsmot}_full.csv` | `den_online_eval.py` | ③ | 在线-离线对齐：ε0×γ 网格 FPR/TPR + 锚点指标 |
 | `event_taxonomy_report.md` | 手写 | 报告 | 事件分类/物理签名/可挽回性（数字基于 2026-08-16 前旧事件池，方法学存档） |
 
