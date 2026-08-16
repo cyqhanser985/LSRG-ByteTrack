@@ -15,7 +15,7 @@
 #                  (variant A) / T2's own detection (variant B)  (trigger high)
 #
 # Protocol (mirrors V8 / analysis.py):
-#   positive = frozen S_r events with a box (249/962/710), negative = all
+#   positive = frozen S_r events with a box (246/943/710), negative = all
 #   detections in non-event frames with F-1 active tracks (C group);
 #   shared eligibility E = top1>=0.2 & top2>=0.2 baked into every trigger;
 #   TPR reported at FPR<=1% (primary) and FPR<=2% (sensitivity), thresholds

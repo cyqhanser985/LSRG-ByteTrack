@@ -1,5 +1,0 @@
-seq,switch_count,reuse_count,num_switches_metric,transfer_rows,status
-V001,73,49,73,53,OK
-V002,451,296,451,301,OK
-V003,313,204,313,201,OK
-V004,803,522,803,530,OK

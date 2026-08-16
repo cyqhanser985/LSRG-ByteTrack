@@ -39,16 +39,13 @@ ByteTrack/
 │   └── data/datasets/        # MOTDataset数据加载
 ├── tools/                    # 工具脚本
 │   ├── track_v001.py         # V001批量评估跟踪（标准入口）
-│   ├── draw_tracks_video.py  # 跟踪可视化视频
-│   ├── draw_boxes_canvas.py  # 白布可视化
-│   ├── draw_switch_trajectory.py # 切换轨迹图
-│   ├── convert_sportsmot_to_coco.py  # SportsMOT转换
-│   └── standardize_datasets.py       # 数据集验证
+│   ├── clean_mot_gt.py       # MOT17/MOT20 gt.txt 清洗（过滤 ignore region）
+│   ├── build_ids_events.py   # IDS 事件表重生成（motmetrics 时序匹配）
+│   ├── build_event_counts.py # 序列级分类计数锚点重建
+│   └── plot_results.py       # 结果绘图
 ├── exps/example/mot/         # 实验配置（v001系列）
-├── docs/                     # 项目文档（开发进度/经验/复现/指南）
-├── reports/                  # 自包含HTML分析报告
-├── scripts/                  # 报告打包与校验脚本
-└── datasets/                 # 数据集目录
+├── docs/                     # 项目文档（开发进度/经验/指南）
+└── datasets/                 # 数据集目录（MOT17/MOT20/SportsMOT）
 ```
 
 ---
@@ -83,14 +80,13 @@ python setup.py develop
 
 ## 3. 数据集准备
 
-### 3.1 四个数据集概览
+### 3.1 数据集概览
 
 | 数据集 | 内容 | 类别 | 当前状态 |
 |--------|------|------|----------|
-| MOT17 | 行人跟踪 | person | 图像+标注完整，需运行转换脚本 |
-| MOT20 | 极度拥挤场景行人 | person | 图像+标注完整，需运行转换脚本 |
-| BFT | 鸟群跟踪 | bird | COCO格式已兼容，可直接使用 |
-| SportsMOT | 体育运动跟踪 | person/ball等 | COCO格式已生成，可直接使用 |
+| MOT17 | 行人跟踪 | person | 已清洗（gt.txt 仅保留 conf==1 行人） |
+| MOT20 | 极度拥挤场景行人 | person | 已清洗（gt.txt 仅保留 conf==1 行人） |
+| SportsMOT | 体育运动跟踪 | person/ball等 | 原始标注即干净，直接可用 |
 
 **验证过的图像数量：**
 - MOT17 train: 21序列，600~1500张/序列
@@ -98,42 +94,27 @@ python setup.py develop
 - MOT20 train: 4序列(MOT20-01/02/03/05)，429~3315张/序列
 - MOT20 test: 4序列(MOT20-04/06/07/08)，585~2080张/序列
 
-### 3.2 MOT17/MOT20 COCO格式转换
+### 3.2 MOT17/MOT20 GT 清洗（ignore region 过滤）
 
 ```bash
-# MOT17: 将MOT格式标注转为COCO JSON，并自动生成train_half/val_half分割
-python tools/convert_mot17_to_coco.py
-
-# MOT20: 同上
-python tools/convert_mot20_to_coco.py
-
-# 转换后在 datasets/mot/annotations/ 或 datasets/MOT20/annotations/ 下生成:
-#   train.json, val.json, test.json, train_half.json, val_half.json
+# 从 annotations/eval.json 重建各序列 gt.txt，仅保留 conf==1 的活跃行人
+# （移除 MOT17 约 44.7% / MOT20 约 15.1% 的 conf==0 ignore region）:
+python tools/clean_mot_gt.py                  # MOT17 + MOT20
+python tools/clean_mot_gt.py --datasets mot20 # 仅 MOT20
 ```
 
-### 3.3 BFT 数据集 (已就绪)
-
-BFT 数据集已完成解压和验证，直接可用：
-- 标注: `datasets/BFT/annotations_coco/`（train/val/test_v1.5.json）
-- 图像: `datasets/BFT/V001/img1/000001.jpg` (已解压，MOT格式)
-- 实验配置: 尚未创建，可参考 `exps/example/mot/yolox_x_mot17_v001.py` 模板
-
-### 3.4 SportsMOT 数据集 (已就绪)
+### 3.3 SportsMOT 数据集 (已就绪)
 
 ```bash
-# 已完成tar解压和COCO转换
 # 标注: datasets/SportsMOT/annotations/
-# 图像: datasets/SportsMOT/{split}/{seq}/img1/
-
-# 如有新增数据，重新转换:
-python tools/convert_sportsmot_to_coco.py
+# 图像: datasets/SportsMOT/V{xxx}/img1/
 ```
 
-### 3.5 验证数据集完整性
+### 3.4 数据集完整性
 
-```bash
-python tools/standardize_datasets.py
-```
+GT 加载器（`research/diag_exp/bad_cases/badcase_common.py::load_gt_frames`）
+内置防御过滤（conf<1 / 无效框 / 越界框 / 超大框 / 静态目标），
+加载时自动剔除异常标注；`tools/track_v001.py` 为评估标准入口。
 
 ---
 
@@ -223,37 +204,23 @@ python tools/track_v001.py \
 参考 `exps/example/mot/yolox_x_mix_det.py` 创建自己的配置文件：
 
 ```python
-# exps/example/mot/yolox_x_bft.py (已创建)
+# 示例（num_classes 等按实际任务修改）
 class Exp(MyExp):
     def __init__(self):
         super().__init__()
-        self.num_classes = 1          # 类别数(BFT只有bird)
-        self.train_ann = "train_v1.5.json"  # 训练集标注文件
-        self.val_ann = "val_v1.5.json"      # 验证集标注文件
-        self.input_size = (896, 1600)       # 输入尺寸
+        self.num_classes = 1          # 类别数
+        self.train_ann = "train.json" # 训练集标注文件
+        self.val_ann = "val.json"     # 验证集标注文件
+        self.input_size = (896, 1600) # 输入尺寸
         self.test_size = (896, 1600)
-        self.max_epoch = 80                 # 最大训练轮数
-        self.test_conf = 0.001              # 测试置信度阈值
-        self.nmsthre = 0.7                  # NMS阈值
+        self.max_epoch = 80           # 最大训练轮数
+        self.test_conf = 0.001        # 测试置信度阈值
+        self.nmsthre = 0.7            # NMS阈值
 ```
 
-### 6.2 BFT 数据集训练示例（配置需自行创建）
+### 6.2 SportsMOT 训练示例
 
-```bash
-# 1. 参考 exps/example/mot/yolox_x_mot17_v001.py 创建 yolox_x_bft.py
-#    关键字段: self.dataset_name = "BFT"; self.num_classes = 1 (bird)
-#    标注: datasets/BFT/annotations_coco/train_v1.5.json / val_v1.5.json
-# 2. 恢复官方 train.py 后训练:
-python tools/train.py \
-    -f exps/example/mot/yolox_x_bft.py \
-    -d 1 \                          # GPU数量
-    -b 16 \                          # batch size
-    --fp16                           # 混合精度训练
-```
-
-### 6.3 SportsMOT 训练示例
-
-先创建配置文件(参考BFT配置)，修改 `data_dir` 指向SportsMOT：
+先创建配置文件，修改 `data_dir` 指向SportsMOT：
 
 ```python
 # exps/example/mot/yolox_x_sportsmot.py
@@ -344,7 +311,6 @@ SORT / DeepSORT / MOTDT 对比脚本已随官方冗余移除，如需对比请�
 │ 行人跟踪(MOT17)  │ 0.6      │ 0.9      │ 30        │
 │ 拥挤场景(MOT20)  │ 0.3      │ 0.9      │ 30        │
 │ 体育运动         │ 0.5      │ 0.8      │ 60        │
-│ 鸟群(BFT)        │ 0.4      │ 0.7      │ 60        │
 │ 高帧率视频       │ 0.6      │ 0.9      │ 30        │
 │ 低帧率视频       │ 0.4      │ 0.7      │ 60        │
 └─────────────────┴──────────┴──────────┴───────────┘
@@ -436,10 +402,9 @@ BYTETracker.update(outputs, img_info, img_size)
 
 | 数据集 | 标注格式 | 图像状态 | 可用性 |
 |--------|----------|----------|--------|
-| MOT17 | 需运行 convert_mot17_to_coco.py | 完整(21train+21test序列) | 运行转换后可用 |
-| MOT20 | 需运行 convert_mot20_to_coco.py | 完整(4train+4test序列) | 运行转换后可用 |
-| BFT | COCO兼容(datasets/BFT/annotations_coco/) | 完整(已解压) | 直接可用 |
-| SportsMOT | COCO兼容(annotations/) | train/val/test已解压 | 直接可用 |
+| MOT17 | MOT格式(已清洗 conf==1) | 完整(21序列) | 直接可用 |
+| MOT20 | MOT格式(已清洗 conf==1) | 完整(4序列) | 直接可用 |
+| SportsMOT | MOT格式(原始即干净) | train/val/test已解压 | 直接可用 |
 
 ---
 
@@ -449,7 +414,6 @@ BYTETracker.update(outputs, img_info, img_size)
 > - 匹配算法: [yolox/tracker/matching.py](file:///e:/科研/ByteTrack/yolox/tracker/matching.py)
 > - 评估器: [yolox/evaluators/mot_evaluator.py](file:///e:/科研/ByteTrack/yolox/evaluators/mot_evaluator.py)
 > - 数据加载: [yolox/data/datasets/mot.py](file:///e:/科研/ByteTrack/yolox/data/datasets/mot.py)
-> - 数据转换: [tools/convert_sportsmot_to_coco.py](file:///e:/科研/ByteTrack/tools/convert_sportsmot_to_coco.py)
-> - 数据验证: [tools/standardize_datasets.py](file:///e:/科研/ByteTrack/tools/standardize_datasets.py)
+> - GT清洗: [tools/clean_mot_gt.py](file:///e:/科研/ByteTrack/tools/clean_mot_gt.py)
 > - 评估入口: [tools/track_v001.py](file:///e:/科研/ByteTrack/tools/track_v001.py)
 > - 实验配置: [exps/example/mot/yolox_x_mot17_v001.py](file:///e:/科研/ByteTrack/exps/example/mot/yolox_x_mot17_v001.py)

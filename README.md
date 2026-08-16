@@ -48,12 +48,11 @@ python tools/track_v001.py \
     -f exps/example/mot/yolox_x_mot17_v001.py \
     -c pretrained/bytetrack_x_mot17.pth.tar \
     -expn mot17_v001_full -b 1 -d 1 --fp16 --fuse
-
-# 3. 跟踪可视化（视频）
-python tools/draw_tracks_video.py -expn mot17_v001_full -ds MOT17
 ```
 
-历史 ID 事件挖掘与分析脚本已下线；对应冻结产物已收敛至 `research/data/` 作为唯一权威输入。
+历史 ID 事件挖掘/报告生成脚本已下线；事件表唯一权威 = `research/data/`（由
+`tools/build_ids_events.py` 从当前 GT + track_results 重生成，命令见
+`research/data/README.md`）。
 
 ## LSRG 活跃研究区
 
@@ -67,20 +66,17 @@ python tools/draw_tracks_video.py -expn mot17_v001_full -ds MOT17
 | 文档 | 说明 |
 |------|------|
 | `docs/开发进度.md` | 步骤 1-8 开发全记录（已归档） |
-| `docs/reproduction_results.md` | 三数据集复现结果报告（已归档） |
 | `docs/experience.md` | 经验与踩坑沉淀（已归档） |
 | `docs/USAGE_GUIDE.md` | 使用指南（已归档） |
-| `reports/ByteTrack_ID分析报告/` | 自包含 HTML 分析报告（离线可用） |
+| `research/reports/day{1,2,3}_report.md` | 研究结论报告（方法学存档，数字基于 2026-08-16 重生成前的旧事件池） |
 
 ## 数据集说明
 
 | 数据集 | 内容 | 状态 |
 |--------|------|------|
-| MOT17 | 行人跟踪，21 序列 | 全量评估完成 |
-| MOT20 | 拥挤场景行人，4 序列 | 全量评估完成 |
-| SportsMOT | 体育运动，240 序列（90 有 GT） | 全量评估完成 |
-| BFT | 鸟群跟踪（私有），106 序列 | COCO 标注就绪 |
-| DanceTrack | 下载中的基准数据 | `test2.zip` 待处理 |
+| MOT17 | 行人跟踪，21 序列 | 全量评估完成；GT 已清洗（仅 conf==1 行人） |
+| MOT20 | 拥挤场景行人，4 序列 | 全量评估完成；GT 已清洗（仅 conf==1 行人） |
+| SportsMOT | 体育运动，240 序列（90 有 GT） | 全量评估完成；GT 原始即干净 |
 
 > 本项目在官方代码基础上未改动 `yolox/` 框架核心算法；评估链路适配（v001 配置、
 > `tools/track_v001.py`、`mot_evaluator.py` 视频切换逻辑）详见 `docs/开发进度.md`。

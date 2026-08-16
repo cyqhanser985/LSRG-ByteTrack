@@ -1,36 +1,36 @@
 dataset,class,union,motion_signal,tpr_1,fpr_1,thr_1,tpr_2,fpr_2,thr_2
-MOT17,S_c,u12,vobs,12.1951%,0.8241%,margin<=0.2 vobs>=0.1226,14.6341%,1.9566%,margin<=0.3 vobs=off
-MOT17,S_c,u1234,vobs,12.1951%,0.8820%,margin<=0.2 vobs>=0.1592 oc=off dcb>=-0.4192,14.6341%,1.9566%,margin<=0.3 vobs=off oc=off dcb=off
-MOT17,S_c,u1234a,vobs,14.6341%,0.8903%,margin<=0.1 vobs>=0.1226 oc=off dca>=-0.1878,14.6341%,1.8904%,margin<=0.1 vobs>=0.09874 oc=off dca>=-0.4568
-MOT17,S_c,u2,vobs,12.1951%,1.0808%,margin<=0.2 dcb>=-0.5302,14.6341%,2.4660%,margin<=0.3 dcb>=-0.5999
-MOT17,S_r,u12,vobs,18.0723%,0.9545%,margin<=0.25 vobs>=0.1592,24.0964%,1.9566%,margin<=0.3 vobs=off
-MOT17,S_r,u1234,vobs,20.4819%,0.9731%,margin<=0.25 vobs=off oc=off dcb>=-0.4192,24.0964%,1.9566%,margin<=0.3 vobs=off oc=off dcb=off
-MOT17,S_r,u1234a,vobs,19.2771%,0.9649%,margin<=0.25 vobs=off oc=off dca>=-0.1878,25.3012%,1.9359%,margin<=0.25 vobs>=0.1226 oc=off dca>=-0.4568
-MOT17,S_r,u2,vobs,22.8916%,1.2216%,margin<=0.25 dcb>=-0.5302,25.3012%,2.4660%,margin<=0.3 dcb>=-0.5999
-MOT17,S_h,u12,vobs,16.9492%,0.9545%,margin<=0.25 vobs>=0.1592,18.6441%,1.9566%,margin<=0.3 vobs=off
-MOT17,S_h,u1234,vobs,18.6441%,0.9731%,margin<=0.25 vobs=off oc=off dcb>=-0.4192,20.3390%,1.8366%,margin<=0.25 vobs>=0.09874 oc=off dcb>=-0.5302
-MOT17,S_h,u1234a,vobs,22.0339%,0.8903%,margin<=0.1 vobs>=0.1226 oc=off dca>=-0.1878,25.4237%,1.8904%,margin<=0.1 vobs>=0.09874 oc=off dca>=-0.4568
-MOT17,S_h,u2,vobs,20.3390%,1.2216%,margin<=0.25 dcb>=-0.5302,20.3390%,2.4660%,margin<=0.3 dcb>=-0.5999
-MOT17,overall,u12,vobs,16.3934%,0.9545%,margin<=0.25 vobs>=0.1592,20.2186%,1.9566%,margin<=0.3 vobs=off
-MOT17,overall,u1234,vobs,18.0328%,0.9731%,margin<=0.25 vobs=off oc=off dcb>=-0.4192,20.2186%,1.9566%,margin<=0.3 vobs=off oc=off dcb=off
-MOT17,overall,u1234a,vobs,19.1257%,0.9649%,margin<=0.25 vobs=off oc=off dca>=-0.1878,22.9508%,1.9359%,margin<=0.25 vobs>=0.1226 oc=off dca>=-0.4568
-MOT17,overall,u2,vobs,19.6721%,1.2216%,margin<=0.25 dcb>=-0.5302,21.3115%,2.4660%,margin<=0.3 dcb>=-0.5999
-MOT20,S_c,u12,vobs,44.8529%,0.9118%,margin<=0.25 vobs>=0.06003,48.5294%,1.9255%,margin<=0.3 vobs>=0.04772
-MOT20,S_c,u1234,vobs,44.8529%,0.9416%,margin<=0.25 vobs=off oc=off dcb>=-0.4784,49.6324%,1.9014%,margin<=0.3 vobs=off oc>=0.9532 dcb=off
-MOT20,S_c,u1234a,vobs,58.8235%,0.9630%,margin<=0.1 vobs>=0.06003 oc=off dca>=-0.2101,58.8235%,1.8999%,margin<=0.1 vobs>=0.06003 oc=off dca>=-0.4089
-MOT20,S_c,u2,vobs,44.8529%,1.2851%,margin<=0.25 dcb>=-0.5648,48.5294%,2.3620%,margin<=0.3 dcb>=-0.6446
-MOT20,S_r,u12,vobs,29.0021%,0.9118%,margin<=0.25 vobs>=0.06003,39.2931%,1.9255%,margin<=0.3 vobs>=0.04772
-MOT20,S_r,u1234,vobs,37.0062%,0.9334%,margin<=0.2 vobs>=0.06003 oc=off dcb>=-0.4784,45.0104%,1.9782%,margin<=0.2 vobs>=0.04772 oc>=0.9532 dcb>=-0.5648
-MOT20,S_r,u1234a,vobs,29.2100%,0.9917%,margin<=0.15 vobs>=0.06003 oc=off dca>=-0.2101,42.2037%,1.9610%,margin<=0.2 vobs>=0.06003 oc=off dca>=-0.4089
-MOT20,S_r,u2,vobs,37.0062%,1.2851%,margin<=0.25 dcb>=-0.5648,44.1788%,2.3620%,margin<=0.3 dcb>=-0.6446
-MOT20,S_h,u12,vobs,42.3645%,0.9118%,margin<=0.25 vobs>=0.06003,50.4926%,1.9255%,margin<=0.3 vobs>=0.04772
-MOT20,S_h,u1234,vobs,42.8571%,0.9416%,margin<=0.25 vobs=off oc=off dcb>=-0.4784,52.2167%,1.9014%,margin<=0.3 vobs=off oc>=0.9532 dcb=off
-MOT20,S_h,u1234a,vobs,56.1576%,0.8818%,margin<=0.2 vobs=off oc=off dca>=-0.2101,61.0837%,1.9818%,margin<=0.3 vobs>=0.06003 oc=off dca>=-0.2101
-MOT20,S_h,u2,vobs,43.1034%,1.2851%,margin<=0.25 dcb>=-0.5648,50.9852%,2.3620%,margin<=0.3 dcb>=-0.6446
-MOT20,overall,u12,vobs,34.9390%,0.9118%,margin<=0.25 vobs>=0.06003,43.5976%,1.9255%,margin<=0.3 vobs>=0.04772
-MOT20,overall,u1234,vobs,37.6829%,0.9416%,margin<=0.25 vobs=off oc=off dcb>=-0.4784,46.5244%,1.9421%,margin<=0.3 vobs>=0.06003 oc=off dcb>=-0.5648
-MOT20,overall,u1234a,vobs,40.4878%,0.9917%,margin<=0.15 vobs>=0.06003 oc=off dca>=-0.2101,48.9634%,1.9610%,margin<=0.2 vobs>=0.06003 oc=off dca>=-0.4089
-MOT20,overall,u2,vobs,39.8171%,1.2851%,margin<=0.25 dcb>=-0.5648,46.5854%,2.3620%,margin<=0.3 dcb>=-0.6446
+MOT17,S_c,u12,vobs,12.1951%,0.8237%,margin<=0.2 vobs>=0.1226,14.6341%,1.9557%,margin<=0.3 vobs=off
+MOT17,S_c,u1234,vobs,12.1951%,0.8816%,margin<=0.2 vobs>=0.1591 oc=off dcb>=-0.4195,14.6341%,1.9557%,margin<=0.3 vobs=off oc=off dcb=off
+MOT17,S_c,u1234a,vobs,14.6341%,0.8899%,margin<=0.1 vobs>=0.1226 oc=off dca>=-0.1877,14.6341%,1.8895%,margin<=0.1 vobs>=0.0987 oc=off dca>=-0.4566
+MOT17,S_c,u2,vobs,12.1951%,1.0803%,margin<=0.2 dcb>=-0.5302,14.6341%,2.4669%,margin<=0.3 dcb>=-0.5999
+MOT17,S_r,u12,vobs,18.2927%,0.9541%,margin<=0.25 vobs>=0.1591,24.3902%,1.9557%,margin<=0.3 vobs=off
+MOT17,S_r,u1234,vobs,20.7317%,0.9727%,margin<=0.25 vobs=off oc=off dcb>=-0.4195,24.3902%,1.9557%,margin<=0.3 vobs=off oc=off dcb=off
+MOT17,S_r,u1234a,vobs,19.5122%,0.9644%,margin<=0.25 vobs=off oc=off dca>=-0.1877,25.6098%,1.9350%,margin<=0.25 vobs>=0.1226 oc=off dca>=-0.4566
+MOT17,S_r,u2,vobs,23.1707%,1.2210%,margin<=0.25 dcb>=-0.5302,25.6098%,2.4669%,margin<=0.3 dcb>=-0.5999
+MOT17,S_h,u12,vobs,16.9492%,0.9541%,margin<=0.25 vobs>=0.1591,18.6441%,1.9557%,margin<=0.3 vobs=off
+MOT17,S_h,u1234,vobs,18.6441%,0.9727%,margin<=0.25 vobs=off oc=off dcb>=-0.4195,20.3390%,1.8357%,margin<=0.25 vobs>=0.0987 oc=off dcb>=-0.5302
+MOT17,S_h,u1234a,vobs,22.0339%,0.8899%,margin<=0.1 vobs>=0.1226 oc=off dca>=-0.1877,25.4237%,1.8895%,margin<=0.1 vobs>=0.0987 oc=off dca>=-0.4566
+MOT17,S_h,u2,vobs,20.3390%,1.2210%,margin<=0.25 dcb>=-0.5302,20.3390%,2.4669%,margin<=0.3 dcb>=-0.5999
+MOT17,overall,u12,vobs,16.4835%,0.9541%,margin<=0.25 vobs>=0.1591,20.3297%,1.9557%,margin<=0.3 vobs=off
+MOT17,overall,u1234,vobs,18.1319%,0.9727%,margin<=0.25 vobs=off oc=off dcb>=-0.4195,20.3297%,1.9557%,margin<=0.3 vobs=off oc=off dcb=off
+MOT17,overall,u1234a,vobs,19.2308%,0.9644%,margin<=0.25 vobs=off oc=off dca>=-0.1877,23.0769%,1.9350%,margin<=0.25 vobs>=0.1226 oc=off dca>=-0.4566
+MOT17,overall,u2,vobs,19.7802%,1.2210%,margin<=0.25 dcb>=-0.5302,21.4286%,2.4669%,margin<=0.3 dcb>=-0.5999
+MOT20,S_c,u12,vobs,45.9459%,0.9124%,margin<=0.25 vobs>=0.06009,49.8069%,1.9252%,margin<=0.3 vobs>=0.04775
+MOT20,S_c,u1234,vobs,45.9459%,0.9421%,margin<=0.25 vobs=off oc=off dcb>=-0.478,50.9653%,1.9010%,margin<=0.3 vobs=off oc>=0.9532 dcb=off
+MOT20,S_c,u1234a,vobs,60.6178%,0.9620%,margin<=0.1 vobs>=0.06009 oc=off dca>=-0.2088,60.6178%,1.8981%,margin<=0.1 vobs>=0.06009 oc=off dca>=-0.4081
+MOT20,S_c,u2,vobs,45.9459%,1.2858%,margin<=0.25 dcb>=-0.5648,49.8069%,2.3627%,margin<=0.3 dcb>=-0.6446
+MOT20,S_r,u12,vobs,29.1622%,0.9124%,margin<=0.25 vobs>=0.06009,39.7667%,1.9252%,margin<=0.3 vobs>=0.04775
+MOT20,S_r,u1234,vobs,37.6458%,0.9347%,margin<=0.2 vobs>=0.06009 oc=off dcb>=-0.478,45.7052%,1.9792%,margin<=0.2 vobs>=0.04775 oc>=0.9532 dcb>=-0.5648
+MOT20,S_r,u1234a,vobs,29.1622%,0.9909%,margin<=0.15 vobs>=0.06009 oc=off dca>=-0.2088,42.8420%,1.9599%,margin<=0.2 vobs>=0.06009 oc=off dca>=-0.4081
+MOT20,S_r,u2,vobs,37.9639%,1.2858%,margin<=0.25 dcb>=-0.5648,44.9629%,2.3627%,margin<=0.3 dcb>=-0.6446
+MOT20,S_h,u12,vobs,41.9598%,0.9124%,margin<=0.25 vobs>=0.06009,50.2513%,1.9252%,margin<=0.3 vobs>=0.04775
+MOT20,S_h,u1234,vobs,42.4623%,0.9421%,margin<=0.25 vobs=off oc=off dcb>=-0.478,51.7588%,1.9010%,margin<=0.3 vobs=off oc>=0.9532 dcb=off
+MOT20,S_h,u1234a,vobs,54.7739%,0.8807%,margin<=0.2 vobs=off oc=off dca>=-0.2088,59.7990%,1.9808%,margin<=0.3 vobs>=0.06009 oc=off dca>=-0.2088
+MOT20,S_h,u2,vobs,42.7136%,1.2858%,margin<=0.25 dcb>=-0.5648,50.7538%,2.3627%,margin<=0.3 dcb>=-0.6446
+MOT20,overall,u12,vobs,35.0625%,0.9124%,margin<=0.25 vobs>=0.06009,44.0000%,1.9252%,margin<=0.3 vobs>=0.04775
+MOT20,overall,u1234,vobs,38.2500%,0.9421%,margin<=0.25 vobs=off oc=off dcb>=-0.478,47.0625%,1.9429%,margin<=0.3 vobs>=0.06009 oc=off dcb>=-0.5648
+MOT20,overall,u1234a,vobs,40.3125%,0.9909%,margin<=0.15 vobs>=0.06009 oc=off dca>=-0.2088,49.2500%,1.9599%,margin<=0.2 vobs>=0.06009 oc=off dca>=-0.4081
+MOT20,overall,u2,vobs,40.4375%,1.2858%,margin<=0.25 dcb>=-0.5648,47.1875%,2.3627%,margin<=0.3 dcb>=-0.6446
 SportsMOT,S_c,u12,vobs,2.6279%,0.9208%,margin<=0.25 vobs>=0.1763,2.8354%,1.7958%,margin<=0.3 vobs>=0.1275
 SportsMOT,S_c,u1234,vobs,2.6279%,0.9514%,margin<=0.25 vobs>=0.2124 oc=off dcb>=-0.4431,2.9046%,1.9396%,margin<=0.25 vobs>=0.1763 oc>=0.8442 dcb>=-0.5541
 SportsMOT,S_c,u1234a,vobs,2.9737%,0.9844%,margin<=0.1 vobs>=0.1545 oc=off dca>=-0.4248,2.9737%,1.9422%,margin<=0.1 vobs>=0.2124 oc>=0.8985 dca>=-0.5863
@@ -47,19 +47,19 @@ SportsMOT,overall,u12,vobs,11.1414%,0.9208%,margin<=0.25 vobs>=0.1763,14.2189%,1
 SportsMOT,overall,u1234,vobs,12.8165%,0.9514%,margin<=0.25 vobs>=0.2124 oc=off dcb>=-0.4431,15.5434%,1.9422%,margin<=0.3 vobs>=0.1275 oc=off dcb>=-0.5541
 SportsMOT,overall,u1234a,vobs,13.5567%,0.9400%,margin<=0.2 vobs>=0.2124 oc=off dca>=-0.4248,16.5952%,1.9778%,margin<=0.3 vobs>=0.2466 oc=off dca>=-0.5863
 SportsMOT,overall,u2,vobs,14.1021%,1.1554%,margin<=0.25 dcb>=-0.5541,16.2446%,2.1207%,margin<=0.3 dcb>=-0.6813
-combined,S_c,u12,vobs,9.5057%,0.9521%,margin<=0.25 vobs>=0.1266,10.3748%,1.8312%,margin<=0.3 vobs>=0.1063
-combined,S_c,u1234,vobs,9.5057%,0.9583%,margin<=0.25 vobs>=0.1998 oc=off dcb>=-0.4593,10.3748%,1.9150%,margin<=0.3 vobs>=0.1266 oc=off dcb>=-0.5584
-combined,S_c,u1234a,vobs,12.0043%,0.9602%,margin<=0.1 vobs>=0.1266 oc=off dca>=-0.2746,12.0043%,1.9952%,margin=off vobs>=0.1063 oc=off dca>=-0.4708
-combined,S_c,u2,vobs,9.6143%,1.2316%,margin<=0.25 dcb>=-0.5584,10.3748%,2.2879%,margin<=0.3 dcb>=-0.6462
-combined,S_r,u12,vobs,26.9651%,0.9521%,margin<=0.25 vobs>=0.1266,35.5023%,1.8312%,margin<=0.3 vobs>=0.1063
-combined,S_r,u1234,vobs,33.0036%,0.9583%,margin<=0.25 vobs>=0.1998 oc=off dcb>=-0.4593,40.1353%,1.9786%,margin<=0.25 vobs>=0.1266 oc>=0.9446 dcb>=-0.5584
-combined,S_r,u1234a,vobs,30.5570%,0.9930%,margin<=0.2 vobs>=0.1635 oc=off dca>=-0.2746,39.1983%,1.9941%,margin<=0.25 vobs>=0.1635 oc=off dca>=-0.4708
-combined,S_r,u2,vobs,35.7106%,1.2316%,margin<=0.25 dcb>=-0.5584,41.6450%,2.2879%,margin<=0.3 dcb>=-0.6462
-combined,S_h,u12,vobs,24.2455%,0.9521%,margin<=0.25 vobs>=0.1266,28.9738%,1.8312%,margin<=0.3 vobs>=0.1063
-combined,S_h,u1234,vobs,24.9497%,0.9583%,margin<=0.25 vobs>=0.1998 oc=off dcb>=-0.4593,29.6781%,1.9150%,margin<=0.3 vobs>=0.1266 oc=off dcb>=-0.5584
-combined,S_h,u1234a,vobs,31.8913%,0.9930%,margin<=0.2 vobs>=0.1635 oc=off dca>=-0.2746,35.6137%,1.9407%,margin<=0.3 vobs>=0.1635 oc=off dca>=-0.2746
-combined,S_h,u2,vobs,25.5533%,1.2316%,margin<=0.25 dcb>=-0.5584,29.8793%,2.2879%,margin<=0.3 dcb>=-0.6462
-combined,overall,u12,vobs,19.6384%,0.9521%,margin<=0.25 vobs>=0.1266,24.4113%,1.8312%,margin<=0.3 vobs>=0.1063
-combined,overall,u1234,vobs,22.2246%,0.9583%,margin<=0.25 vobs>=0.1998 oc=off dcb>=-0.4593,26.3877%,1.9150%,margin<=0.3 vobs>=0.1266 oc=off dcb>=-0.5584
-combined,overall,u1234a,vobs,23.6543%,0.9930%,margin<=0.2 vobs>=0.1635 oc=off dca>=-0.2746,27.8385%,1.9941%,margin<=0.25 vobs>=0.1635 oc=off dca>=-0.4708
-combined,overall,u2,vobs,23.4861%,1.2316%,margin<=0.25 dcb>=-0.5584,27.0816%,2.2879%,margin<=0.3 dcb>=-0.6462
+combined,S_c,u12,vobs,9.4092%,0.9521%,margin<=0.25 vobs>=0.1265,10.2845%,1.8309%,margin<=0.3 vobs>=0.1062
+combined,S_c,u1234,vobs,9.4092%,0.9587%,margin<=0.25 vobs>=0.1997 oc=off dcb>=-0.4591,10.2845%,1.9155%,margin<=0.3 vobs>=0.1265 oc=off dcb>=-0.5584
+combined,S_c,u1234a,vobs,11.9256%,0.9596%,margin<=0.1 vobs>=0.1265 oc=off dca>=-0.2734,11.9256%,1.9945%,margin=off vobs>=0.1062 oc=off dca>=-0.4699
+combined,S_c,u2,vobs,9.5186%,1.2320%,margin<=0.25 dcb>=-0.5584,10.2845%,2.2885%,margin<=0.3 dcb>=-0.6462
+combined,S_r,u12,vobs,27.1195%,0.9521%,margin<=0.25 vobs>=0.1265,35.9136%,1.8309%,margin<=0.3 vobs>=0.1062
+combined,S_r,u1234,vobs,33.4913%,0.9587%,margin<=0.25 vobs>=0.1997 oc=off dcb>=-0.4591,40.6003%,1.9790%,margin<=0.25 vobs>=0.1265 oc>=0.9447 dcb>=-0.5584
+combined,S_r,u1234a,vobs,30.6477%,0.9923%,margin<=0.2 vobs>=0.1634 oc=off dca>=-0.2734,39.5998%,1.9941%,margin<=0.25 vobs>=0.1634 oc=off dca>=-0.4699
+combined,S_r,u2,vobs,36.2296%,1.2320%,margin<=0.25 dcb>=-0.5584,42.0748%,2.2885%,margin<=0.3 dcb>=-0.6462
+combined,S_h,u12,vobs,23.9351%,0.9521%,margin<=0.25 vobs>=0.1265,28.7018%,1.8309%,margin<=0.3 vobs>=0.1062
+combined,S_h,u1234,vobs,24.6450%,0.9587%,margin<=0.25 vobs>=0.1997 oc=off dcb>=-0.4591,29.4118%,1.9155%,margin<=0.3 vobs>=0.1265 oc=off dcb>=-0.5584
+combined,S_h,u1234a,vobs,31.1359%,0.9923%,margin<=0.2 vobs>=0.1634 oc=off dca>=-0.2734,34.8884%,1.9399%,margin<=0.3 vobs>=0.1634 oc=off dca>=-0.2734
+combined,S_h,u2,vobs,25.2535%,1.2320%,margin<=0.25 dcb>=-0.5584,29.6146%,2.2885%,margin<=0.3 dcb>=-0.6462
+combined,overall,u12,vobs,19.5841%,0.9521%,margin<=0.25 vobs>=0.1265,24.4642%,1.8309%,margin<=0.3 vobs>=0.1062
+combined,overall,u1234,vobs,22.3000%,0.9587%,margin<=0.25 vobs>=0.1997 oc=off dcb>=-0.4591,26.4375%,1.9155%,margin<=0.3 vobs>=0.1265 oc=off dcb>=-0.5584
+combined,overall,u1234a,vobs,23.4882%,0.9923%,margin<=0.2 vobs>=0.1634 oc=off dca>=-0.2734,27.7955%,1.9941%,margin<=0.25 vobs>=0.1634 oc=off dca>=-0.4699
+combined,overall,u2,vobs,23.5731%,1.2320%,margin<=0.25 dcb>=-0.5584,27.1377%,2.2885%,margin<=0.3 dcb>=-0.6462

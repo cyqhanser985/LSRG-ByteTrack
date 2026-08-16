@@ -22,7 +22,7 @@
 #
 # Protocol
 # --------
-# Positive samples: S_r switch events (1921; gap always 1), match pair
+# Positive samples: S_r switch events (1899; gap always 1), match pair
 # (receiving tracker tid, its F detection box). Negative samples: all
 # detections in non-event frames (V7 group-C population), with per-mechanism
 # eligibility filters. All signals are causal (<= F-1 outputs + F detection).
@@ -31,7 +31,7 @@
 # same FPR budget (coverage can be high while the mechanism adds ~0).
 #
 # Outputs (data only; reports are maintained by hand as static documents):
-#   taxonomy/gate_feasibility_events.csv   per-event features (4756 rows)
+#   taxonomy/gate_feasibility_events.csv   per-event features (4713 rows)
 #   taxonomy/gate_feasibility_summary.csv  long-form trigger-rate table
 #   taxonomy/gate_feasibility_roc.png      ROC figure (optional, --no-figure)
 #

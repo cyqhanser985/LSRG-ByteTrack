@@ -1,6 +1,7 @@
 # 事件分类与物理签名报告（ID 失效异构机理）
 
-> 静态文档（手写维护，不再由代码生成）。数据源：`data/*_events_metrics.csv`（冻结 V1 事件表）、`event_classification.csv`、`event_counts_by_sequence.csv`。
+> ⚠️ **存档说明（2026-08-16）**：本报告数字基于 2026-08-16 事件全量重生成前的旧事件池（4,756 条），作方法学存档；当前事件池（4,713 条）与结论方向见 `research/README.md` 状态速览与 `research/docs/开发进度.md` §六。`event_classification.csv` 已删除（2026-08-16），分类逻辑唯一来源为 `analysis.py` 的 `classify()`。
+> 静态文档（手写维护，不再由代码生成）。数据源：`data/*_events_metrics.csv`（冻结事件表，2026-08-16 重生成）、`event_counts_by_sequence.csv`。
 > 结论日期：2026-08-07（分类/签名）/ 2026-08-08（整理）。
 
 ## 1. 事件定义与分类

@@ -19,19 +19,18 @@
 ## 2. 目录地图（**所有代码与产物统一放 `research/`，单位置**）
 
 **`research/`（本项目，唯一运行与产物位置）**：
-- `docs/`（进度台账 `开发进度.md`、`COE.md`、`研究方向.md`）· `README.md`（索引）· `reports/`（`day1_report.md` / `day2_report.md` / `day3_report.md` 研究结论）· `diag_exp/`（Day 3 诊断实验独立工作区：`run_diag.py` + `results/` + `README.md`，自包含，只读 data/ 与 taxonomy/；报告见 `reports/day3_report.md`）
-- `code/` — **活脚本（2 个）**：`analysis.py`（几何门控基线 + 三候选机制验证）、`den_online_eval.py`（在线-离线对齐，自包含只读 CSV；均用 `_repo_root()` 自动向上探测仓库根）。**2026-08-08 整理：V1–V8 历史脚本全部删除**（结论冻结在 `reports/day1_report.md`/`reports/day2_report.md` 与 `taxonomy/` 报告及 CSV；report 与代码解耦——改报告直接编辑 md，不重跑代码）。**2026-08-10：`diag_exp/run_diag.py` 通过 `import analysis` 复用其全部工具函数**（main 有守卫，import 无副作用），新特征（occlusion IoF / swap ΔC）为纯 numpy 向量化，全量三数据集 ~70s（无需 KF 重放）
-- `data/` — 冻结输入：`{ds}_events.csv` + `{ds}_events_metrics.csv`（主仓库 analysis 快照；只读，分类标准见 `data/README.md`）
-- `taxonomy/` — **产物（10 个，见名知义）**：`event_classification.csv` / `event_counts_by_sequence.csv`（冻结）、`warning_features.csv`（冻结 V5 特征集）、`gate_feasibility_{events,summary}.csv` + `gate_feasibility_roc.png`（analysis.py 生成）、`den_online_{ds}_full.csv`（den_online_eval.py 生成）、`event_taxonomy_report.md`（手写静态报告；门控/在线报告已合并至 `reports/day2_report.md`）
+- `docs/`（进度台账 `开发进度.md`、`COE.md`、`研究方向.md`）· `README.md`（索引）· `reports/`（`day1_report.md` / `day2_report.md` / `day3_report.md` 研究结论，**方法学存档**：数字基于 2026-08-16 重生成前的旧事件池）· `diag_exp/`（Day 3 诊断实验独立工作区：`run_diag.py` + `results/` + `README.md`，自包含，只读 data/ 与 taxonomy/；报告见 `reports/day3_report.md`）
+- `code/` — **活脚本（2 个）**：`analysis.py`（几何门控基线 + 三候选机制验证）、`den_online_eval.py`（在线-离线对齐，自包含只读 CSV；均用 `_repo_root()` 自动向上探测仓库根）。**2026-08-08 整理：V1–V8 历史脚本全部删除**（结论冻结在 `reports/day1_report.md`/`reports/day2_report.md` 与 `taxonomy/` 报告及 CSV；report 与代码解耦——改报告直接编辑 md，不重跑代码）。**2026-08-10：`diag_exp/run_diag.py` 通过 `import analysis` 复用其全部工具函数**（main 有守卫，import 无副作用），新特征（occlusion IoF / swap ΔC）为纯 numpy 向量化，全量三数据集 ~70s（无需 KF 重放）。**2026-08-16：事件集重生成**——`tools/build_ids_events.py`（motmetrics 时序匹配，唯一事件表生成器）+ `tools/build_event_counts.py`（分类计数锚点）；`code/backup/` 已删除（2026-08-16，旧基准）
+- `data/` — 冻结输入：`{ds}_events.csv` + `{ds}_events_metrics.csv` + `{ds}_events_summary.csv`（2026-08-16 从**当前清洗后 GT** + 冻结 track_results 全量重生成；只读，分类标准见 `data/README.md`）
+- `taxonomy/` — **产物（见名知义）**：`event_counts_by_sequence.csv`（冻结，SANITY 锚点）、`gate_feasibility_{events,summary}.csv` + `gate_feasibility_roc.png`（analysis.py 生成）、`den_online_{ds}_full.csv`（den_online_eval.py 生成）、`event_taxonomy_report.md`（手写静态报告，旧池存档；门控/在线报告已合并至 `reports/day2_report.md`）。**2026-08-16 删除**：`event_classification.csv`、`warning_features.csv`（旧 V1/V5 冻结产物，无代码读取、生成脚本已删、基于旧事件池）
 
 **主仓库 `E:\科研\ByteTrack`（只读数据源）**：
-- `datasets/` — GT + `YOLOX_outputs/{mot17,mot20,sportsmot}_v001_full/track_results/` — 跟踪输出（analysis.py 输入）
-- `YOLOX_outputs/analysis/` — 遗留评估产物与**冻结输入**：`{ds}_events.csv`、`switch_metrics/{ds}_events_metrics.csv`、`taxonomy/`（只读，脚本从这里读输入、不写入）
+- `datasets/` — GT（**2026-08-15 清洗：MOT17/MOT20 仅保留 conf==1 行**，SportsMOT 原始即干净）+ `YOLOX_outputs/{mot17,mot20,sportsmot}_v001_full/track_results/` — 跟踪输出（analysis.py 输入）
 - `exps/example/mot/yolox_x_{mot17,mot20,sportsmot}_v001.py` — 跟踪配置（继承 `yolox_x_mix_det.py` / `yolox_x_mix_mot20_ch.py`，后者 test_size=(896,1600)）
-- `yolox/` — 框架代码（**2026-08-08 起 DEN 在线插桩，alert 模式，`--den-gate` 默认关**）：`yolox/tracker/den_gate.py`（新，纯函数）+ `byte_tracker.py`/`mot_evaluator.py`/`tools/track_v001.py` 薄改动；**改前备份在 `research/code/backup/`（含 SHA256SUMS.txt）**；analysis.py 按文件路径加载 `yolox/tracker/kalman_filter.py` 做 KF 重放，不 import 包
-- `tools/` — 保留 `track_v001.py`（跟踪运行入口，在线插桩阶段使用）+ 数据集转换/可视化/诊断工具；**V1/V2 事件分析脚本已删除**（2026-08-08，产物冻结）
+- `yolox/` — 框架代码（**2026-08-08 起 DEN 在线插桩，alert 模式，`--den-gate` 默认关**）：`yolox/tracker/den_gate.py`（新，纯函数）+ `byte_tracker.py`/`mot_evaluator.py`/`tools/track_v001.py` 薄改动；analysis.py 按文件路径加载 `yolox/tracker/kalman_filter.py` 做 KF 重放，不 import 包
+- `tools/` — 保留 `track_v001.py`（跟踪运行入口，在线插桩阶段使用）+ 数据集/事件工具（`clean_mot_gt.py` GT 清洗、`build_ids_events.py` 事件表重生成、`build_event_counts.py` 分类计数、`plot_results.py` 评估图）；**V1/V2 事件分析脚本与报告生成脚本已删除**（2026-08-08 / 2026-08-16）
 
-**同步规则**：Git 管理，且**不再有双位置复制**——新脚本直接写在 `research/code/` 运行，产物直接写入 `research/taxonomy/`；主仓库侧只有只读数据源。
+**同步规则**：Git 管理，且**不再有双位置复制**——新脚本直接写在 `research/code/` 运行，产物直接写入 `research/taxonomy/`；主仓库侧只有只读数据源。`YOLOX_outputs/analysis/` 历史归档与 HTML 报告包已于 2026-08-16 删除（事件表唯一权威位置 = `research/data/`）。
 
 ## 3. 数据口径（易错点）
 
@@ -50,7 +49,7 @@
   - `tracker_events`：seq, frame, track_id, gt_id_new
   - `taxonomy_partition`：…, old_hid, class, in_tracker_join, in_reuse_join
   - `taxonomy_by_sequence`：dataset, seq, n_S_c, n_S_r, n_S_h, n_switch, n_reuse
-- **Day 3 诊断实验口径**（2026-08-10，详见 `reports/day3_report.md` 与 `diag_exp/recognition_summary.md`）：
+- **Day 3 诊断实验口径**（2026-08-10，详见 `reports/day3_report.md`；识别率明细在 `diag_exp/results/`）：
   - 正样本 = 全部冻结 switch 事件（S_c 1,841 / S_r 1,921 / S_h 994 = 4,756；分类别 + overall 分别分析）；负样本 = C 组全部检测（**含无 F−1 输出的非事件帧**——analysis.py 的 `prev is None` 分支 `c_n += n_det` 计入，该类检测 top1=top2=0 永不触发，仅稀释 FPR 分母；diag 首版漏计 396/371/878 条，与冻结 summary 对不上即此因）
   - **无 F−1 输出的"事件帧"也会被 `prev is None` 分支跳过**——SportsMOT V082 帧 407 的 S_c 事件（tid 有输出但 F−1 整帧无输出）漏计 1 条；analysis.py 语义 = 无活跃轨迹 → 门控特征未定义 → no-box 行。扩展类别分析时该分支必须写 no-box 事件行
   - **S_c/S_h 的 Motion Surprise 结构上不可计算**（接管方 F−1 无输出，定义数 0/1,841、0/994）——四特征对非 S_r 类别实际只有 3 个可用；S_c 合格事件（top1≥0.2∧top2≥0.2）仅 12.0%（SportsMOT 43/1,446），"冷启动结构性盲视"量化确认
@@ -79,7 +78,13 @@
 
 ## 4. 已知结论速查（验证过的数字，勿重复推导）
 
-- 4,756 条 IDS：S_c 1,841（38.7%）/ S_r 1,921（40.4%）/ S_h 994（20.9%）；序列级 114 条（MOT17 21 / MOT20 4 / SportsMOT 89）
+> ⚠️ 2026-08-16 事件集已按清洗后 GT 全量重生成：**当前事件池 = 4,713 条 IDS switch
+> （MOT17 546 / MOT20 1,600 / SportsMOT 2,567）**：S_c 1,828（38.8%）/ S_r 1,899
+> （40.3%）/ S_h 986（20.9%）；reuse 2,320。下列结论的**方向全部不变**（重生成后
+> 数字见 `research/README.md` 状态速览；SportsMOT 完全复现旧值）；`reports/day{1,2,3}`
+> 与 `taxonomy/event_taxonomy_report.md` 为旧池方法学存档。
+
+- 4,756 条 IDS（旧池）：S_c 1,841（38.7%）/ S_r 1,921（40.4%）/ S_h 994（20.9%）；序列级 114 条（MOT17 21 / MOT20 4 / SportsMOT 89）
 - 场景参数：MOT17 α=22.4%、π_r=58.5%；MOT20 α=16.6%、π_r=70.3%；SportsMOT α=56.3%、π_r=63.3%
 - S_r 局域：IoU_last 中位 0.854、dist_last P90 14.9 px；S_h 长尾：gap 中位 6、gap>5 占 56.3%、dist_last P90 97.3 px、IoU_last 中位 0.383
 - S_c：380 样本（20.6%）旧 tracker 事件帧仍在场，IoU_swap 中位 0.235、中心距中位 28.8 px
@@ -113,6 +118,7 @@
 17. **并集网格搜索要含"关闭"档**（每特征追加 ±1e9 哨兵）——否则并集无法复现子集最优点，出现 u1234 < u12 的非单调反常结果（2026-08-10 MOT20 实例）
 18. **C 组（正常帧）人口含"无 F−1 输出的非事件帧"检测**——analysis.py 在 `prev is None` 分支仍 `c_n += n_det`；只算"有 F−1 的帧"会使 C 计数对不上冻结 summary（MOT17 差 396 条）
 19. **`import analysis` 复用工具可行**——analysis.py 的 `main()` 有 `if __name__ == "__main__"` 守卫，import 无副作用；新脚本 `sys.path.insert(0, "../code")` 后可直接复用 load_frames/boxes_array/iou_matrix/extrapolate_box/kmc_arrays/_top1_top2_margin 等（diag_exp/run_diag.py 全量 70s，无 KF 重放时更快）
+20. **2026-08-15/16 数据清洗与事件全量重生成**：① MOT17/MOT20 的 gt.txt 原转换把 conf 抹平成 1、class 删成 -1，导致 ignore region（MOT17 44.7% / MOT20 15.1% 的行）被当活跃行人；已用 `tools/clean_mot_gt.py`（从 annotations/eval.json 重建，仅保留 conf==1）清洗，SportsMOT 原始即干净；② 清洗后 GT 的 ID 空间变化 → **用 `tools/build_ids_events.py` 以当前 GT + 冻结 track_results 重跑 motmetrics 时序匹配，全量重建事件集**（语义与旧冻结版逐位一致：SportsMOT 未动 GT 完全复现 3,329 事件；MOT17/MOT20 因 GT 变化事件数 1,116→1,083、2,711→2,621）；③ 下游全量重建：`event_counts_by_sequence.csv` → `analysis.py`（SANITY 全过）→ `run_diag.py`（SANITY 全过）→ `den_online_eval.py`；结论方向全部不变；④ 删除：`YOLOX_outputs/analysis/` 归档、HTML 报告包（`reports/ByteTrack_ID分析报告/`）、`research/code/backup/`、`bad_cases/` 诊断链、`event_classification.csv`/`warning_features.csv`、switch_metrics/id_switch/canvas/recognition/reproduction 等数据型报告与报告生成脚本（`draw_*`、`gen_examples.py`）；事件表唯一权威 = `research/data/`（README 含重生成命令与校验）
 
 ## 6. 文档与编码惯例
 
