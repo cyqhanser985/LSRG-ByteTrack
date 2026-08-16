@@ -55,7 +55,7 @@ research/
 - 主仓库 `E:\科研\ByteTrack` 侧只作**只读数据源**：`datasets/` GT（已清洗）、`YOLOX_outputs/*_v001_full/track_results/`
 - `tools/` 保留跟踪运行入口 `track_v001.py`（在线插桩阶段使用）与数据/事件工具：`tools/build_ids_events.py`（事件表重生成）、`tools/build_event_counts.py`（分类计数锚点）、`tools/clean_mot_gt.py`（GT 清洗）、`tools/plot_results.py`（评估图）；V1/V2 事件分析脚本与报告生成脚本已删除（2026-08-08 / 2026-08-16）
 - 注意：主仓库现为 Git 仓库，`baseline-v001` 为重构前基线；文件操作仍应谨慎
-- **报告与代码解耦**：`taxonomy/event_taxonomy_report.md` 与 `reports/day{1,2,3}_report.md` 是手写静态文档（方法学存档，数字基于 2026-08-16 重生成前的旧事件池），改报告直接编辑 md，不需要重跑代码
+- **报告与代码解耦**：`taxonomy/event_taxonomy_report.md` 与 `reports/day{1,2,3}_report.md` 是手写静态文档；day1/2/3 数字已于 2026-08-16 按当前事件池更新，`event_taxonomy_report.md` 为旧池方法学存档；改报告直接编辑 md，不需要重跑代码
 
 ## 当前状态速览（2026-08-16：GT 清洗后事件全量重生成，数字为当前事件池）
 
@@ -63,8 +63,8 @@ research/
 > `tools/build_ids_events.py` 以当前 GT + 冻结 track_results 重跑 motmetrics 时序
 > 匹配，全量重建事件集与全部下游产物（`data/`、`taxonomy/`、`diag_exp/results/`、
 > `den_online_*_full.csv`）。**所有结论方向不变**（数字微动，SportsMOT 因 GT 未变
-> 完全复现旧值）；结论报告 `reports/day{1,2,3}` 与 `taxonomy/event_taxonomy_report.md`
-> 为旧事件池方法学存档。
+> 完全复现旧值）；结论报告 `reports/day{1,2,3}` 数字已按当前事件池更新，
+> `taxonomy/event_taxonomy_report.md` 为旧事件池方法学存档。
 
 - ✅ 事件分类：**4,713 条 IDS switch**（MOT17 546 / MOT20 1,600 / SportsMOT 2,567）→ S_c 1,828（38.8%）/ S_r 1,899（40.3%）/ S_h 986（20.9%）；reuse 2,320 条；双视角不嵌套，旧 β 公式被否定
 - ✅ 物理签名：S_r 强局域（gap=1、IoU_last 中位 0.854）vs S_h 长尾漂移（gap 中位 6）显著分离

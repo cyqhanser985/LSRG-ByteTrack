@@ -1,0 +1,2622 @@
+seq,frame,type,gt_id_old,gt_id_new,track_id,note
+V001,47,reuse,4,42,6,tracker 6 matched gt 4 (last frame 42) now gt 42
+V001,104,switch,36,36,47,tracker 18 -> 47 on gt 36
+V001,124,switch,8,8,20,tracker 27 -> 20 on gt 8
+V001,125,reuse,7,8,20,tracker 20 matched gt 7 (last frame 123) now gt 8
+V001,128,switch,7,7,12,tracker 20 -> 12 on gt 7
+V001,129,reuse,12,7,12,tracker 12 matched gt 12 (last frame 127) now gt 7
+V001,140,switch,12,12,17,tracker 12 -> 17 on gt 12
+V001,141,reuse,29,12,17,tracker 17 matched gt 29 (last frame 139) now gt 12
+V001,144,switch,35,35,54,tracker 19 -> 54 on gt 35
+V001,151,switch,29,29,40,tracker 17 -> 40 on gt 29
+V001,166,reuse,13,47,13,tracker 13 matched gt 13 (last frame 163) now gt 47
+V001,169,switch,47,47,66,tracker 13 -> 66 on gt 47
+V001,171,switch,30,30,40,tracker 29 -> 40 on gt 30
+V001,176,reuse,30,29,40,tracker 40 matched gt 30 (last frame 175) now gt 29
+V001,178,reuse,29,30,40,tracker 40 matched gt 29 (last frame 177) now gt 30
+V001,185,switch,77,77,67,tracker 24 -> 67 on gt 77
+V001,185,reuse,16,44,32,tracker 32 matched gt 16 (last frame 184) now gt 44
+V001,188,switch,29,29,76,tracker 40 -> 76 on gt 29
+V001,201,switch,77,77,24,tracker 67 -> 24 on gt 77
+V001,224,switch,74,74,83,tracker 59 -> 83 on gt 74
+V001,225,reuse,33,49,11,tracker 11 matched gt 33 (last frame 219) now gt 49
+V001,229,switch,77,77,71,tracker 24 -> 71 on gt 77
+V001,238,switch,78,78,24,tracker 26 -> 24 on gt 78
+V001,239,switch,78,78,26,tracker 26 -> 26 on gt 78
+V001,242,switch,78,78,24,tracker 26 -> 24 on gt 78
+V001,243,reuse,77,78,24,tracker 24 matched gt 77 (last frame 224) now gt 78
+V001,247,switch,49,49,86,tracker 11 -> 86 on gt 49
+V001,247,switch,53,53,38,tracker 86 -> 38 on gt 53
+V001,248,reuse,53,49,86,tracker 86 matched gt 53 (last frame 246) now gt 49
+V001,248,reuse,32,53,38,tracker 38 matched gt 32 (last frame 242) now gt 53
+V001,249,switch,31,31,38,tracker 34 -> 38 on gt 31
+V001,249,switch,32,32,11,tracker 38 -> 11 on gt 32
+V001,249,switch,53,53,34,tracker 38 -> 34 on gt 53
+V001,250,reuse,53,31,38,tracker 38 matched gt 53 (last frame 248) now gt 31
+V001,250,reuse,31,53,34,tracker 34 matched gt 31 (last frame 248) now gt 53
+V001,254,switch,63,63,93,tracker 90 -> 93 on gt 63
+V001,254,reuse,63,64,90,tracker 90 matched gt 63 (last frame 253) now gt 64
+V001,266,switch,46,46,95,tracker 65 -> 95 on gt 46
+V001,282,switch,26,26,10,tracker 5 -> 10 on gt 26
+V001,283,reuse,24,26,10,tracker 10 matched gt 24 (last frame 281) now gt 26
+V001,284,switch,58,58,103,tracker 74 -> 103 on gt 58
+V001,291,switch,23,23,103,tracker 25 -> 103 on gt 23
+V001,292,reuse,58,23,103,tracker 103 matched gt 58 (last frame 290) now gt 23
+V001,296,switch,23,23,106,tracker 103 -> 106 on gt 23
+V001,296,switch,58,58,25,tracker 103 -> 25 on gt 58
+V001,297,switch,29,29,40,tracker 76 -> 40 on gt 29
+V001,297,reuse,23,58,25,tracker 25 matched gt 23 (last frame 284) now gt 58
+V001,298,switch,20,20,25,tracker 35 -> 25 on gt 20
+V001,298,switch,58,58,35,tracker 25 -> 35 on gt 58
+V001,298,reuse,30,29,40,tracker 40 matched gt 30 (last frame 296) now gt 29
+V001,299,switch,20,20,103,tracker 35 -> 103 on gt 20
+V001,299,reuse,20,58,35,tracker 35 matched gt 20 (last frame 297) now gt 58
+V001,300,reuse,23,20,103,tracker 103 matched gt 23 (last frame 295) now gt 20
+V001,301,switch,23,23,74,tracker 106 -> 74 on gt 23
+V001,301,switch,46,46,66,tracker 95 -> 66 on gt 46
+V001,302,reuse,58,23,74,tracker 74 matched gt 58 (last frame 267) now gt 23
+V001,302,reuse,47,46,66,tracker 66 matched gt 47 (last frame 300) now gt 46
+V001,302,reuse,26,50,5,tracker 5 matched gt 26 (last frame 269) now gt 50
+V001,303,switch,30,30,118,tracker 40 -> 118 on gt 30
+V001,309,switch,23,23,116,tracker 74 -> 116 on gt 23
+V001,312,switch,47,47,35,tracker 66 -> 35 on gt 47
+V001,312,switch,58,58,119,tracker 35 -> 119 on gt 58
+V001,313,reuse,58,47,35,tracker 35 matched gt 58 (last frame 309) now gt 47
+V001,314,switch,77,77,121,tracker 71 -> 121 on gt 77
+V001,317,switch,20,20,74,tracker 103 -> 74 on gt 20
+V001,318,reuse,23,20,74,tracker 74 matched gt 23 (last frame 308) now gt 20
+V001,319,switch,22,22,25,tracker 21 -> 25 on gt 22
+V001,320,reuse,58,22,25,tracker 25 matched gt 58 (last frame 297) now gt 22
+V001,322,switch,20,20,106,tracker 74 -> 106 on gt 20
+V001,323,switch,10,10,62,tracker 22 -> 62 on gt 10
+V001,323,reuse,23,20,106,tracker 106 matched gt 23 (last frame 300) now gt 20
+V001,326,switch,77,77,71,tracker 121 -> 71 on gt 77
+V001,344,switch,22,22,74,tracker 25 -> 74 on gt 22
+V001,345,reuse,20,22,74,tracker 74 matched gt 20 (last frame 321) now gt 22
+V001,348,switch,30,30,28,tracker 118 -> 28 on gt 30
+V001,349,reuse,28,30,28,tracker 28 matched gt 28 (last frame 344) now gt 30
+V001,358,switch,21,21,74,tracker 30 -> 74 on gt 21
+V001,358,reuse,30,52,28,tracker 28 matched gt 30 (last frame 352) now gt 52
+V001,359,reuse,22,21,74,tracker 74 matched gt 22 (last frame 349) now gt 21
+V001,362,switch,78,78,134,tracker 24 -> 134 on gt 78
+V001,366,switch,22,22,136,tracker 74 -> 136 on gt 22
+V001,368,switch,77,77,24,tracker 71 -> 24 on gt 77
+V001,369,reuse,78,77,24,tracker 24 matched gt 78 (last frame 361) now gt 77
+V001,387,switch,21,21,143,tracker 74 -> 143 on gt 21
+V001,397,switch,78,78,140,tracker 134 -> 140 on gt 78
+V001,409,switch,21,21,147,tracker 143 -> 147 on gt 21
+V001,409,switch,77,77,134,tracker 24 -> 134 on gt 77
+V001,410,reuse,78,77,134,tracker 134 matched gt 78 (last frame 396) now gt 77
+V001,412,switch,78,78,24,tracker 140 -> 24 on gt 78
+V001,413,switch,51,51,147,tracker 122 -> 147 on gt 51
+V001,413,reuse,77,78,24,tracker 24 matched gt 77 (last frame 408) now gt 78
+V001,415,switch,22,22,147,tracker 136 -> 147 on gt 22
+V001,416,switch,7,7,33,tracker 12 -> 33 on gt 7
+V001,416,switch,21,21,136,tracker 143 -> 136 on gt 21
+V001,416,switch,78,78,140,tracker 24 -> 140 on gt 78
+V001,416,reuse,51,22,147,tracker 147 matched gt 51 (last frame 414) now gt 22
+V001,417,reuse,18,7,33,tracker 33 matched gt 18 (last frame 414) now gt 7
+V001,417,reuse,22,21,136,tracker 136 matched gt 22 (last frame 414) now gt 21
+V001,419,switch,51,51,151,tracker 147 -> 151 on gt 51
+V001,420,switch,18,18,12,tracker 33 -> 12 on gt 18
+V001,421,reuse,7,18,12,tracker 12 matched gt 7 (last frame 415) now gt 18
+V001,423,reuse,68,73,131,tracker 131 matched gt 68 (last frame 422) now gt 73
+V001,424,switch,12,12,12,tracker 17 -> 12 on gt 12
+V001,424,switch,18,18,17,tracker 12 -> 17 on gt 18
+V001,424,switch,50,50,151,tracker 5 -> 151 on gt 50
+V001,424,switch,51,51,5,tracker 151 -> 5 on gt 51
+V001,425,reuse,18,12,12,tracker 12 matched gt 18 (last frame 422) now gt 12
+V001,425,reuse,12,18,17,tracker 17 matched gt 12 (last frame 423) now gt 18
+V001,425,reuse,51,50,151,tracker 151 matched gt 51 (last frame 423) now gt 50
+V001,425,reuse,50,51,5,tracker 5 matched gt 50 (last frame 423) now gt 51
+V001,427,switch,68,68,153,tracker 131 -> 153 on gt 68
+V002,22,reuse,231,229,182,tracker 182 matched gt 231 (last frame 7) now gt 229
+V002,24,switch,231,231,185,tracker 182 -> 185 on gt 231
+V002,25,reuse,228,231,185,tracker 185 matched gt 228 (last frame 23) now gt 231
+V002,26,switch,228,228,188,tracker 185 -> 188 on gt 228
+V002,49,switch,224,224,193,tracker 174 -> 193 on gt 224
+V002,53,switch,224,224,174,tracker 193 -> 174 on gt 224
+V002,53,switch,229,229,193,tracker 182 -> 193 on gt 229
+V002,54,reuse,224,229,193,tracker 193 matched gt 224 (last frame 52) now gt 229
+V002,58,switch,218,218,187,tracker 171 -> 187 on gt 218
+V002,58,switch,219,219,171,tracker 187 -> 171 on gt 219
+V002,59,reuse,219,218,187,tracker 187 matched gt 219 (last frame 57) now gt 218
+V002,59,reuse,218,219,171,tracker 171 matched gt 218 (last frame 49) now gt 219
+V002,66,switch,224,224,189,tracker 174 -> 189 on gt 224
+V002,67,reuse,230,224,189,tracker 189 matched gt 230 (last frame 52) now gt 224
+V002,70,switch,230,230,174,tracker 189 -> 174 on gt 230
+V002,71,reuse,224,230,174,tracker 174 matched gt 224 (last frame 65) now gt 230
+V002,79,switch,217,217,203,tracker 180 -> 203 on gt 217
+V002,131,switch,236,236,206,tracker 210 -> 206 on gt 236
+V002,131,switch,243,243,210,tracker 206 -> 210 on gt 243
+V002,132,reuse,243,236,206,tracker 206 matched gt 243 (last frame 130) now gt 236
+V002,132,reuse,236,243,210,tracker 210 matched gt 236 (last frame 125) now gt 243
+V002,145,switch,224,224,214,tracker 189 -> 214 on gt 224
+V002,155,reuse,215,226,183,tracker 183 matched gt 215 (last frame 147) now gt 226
+V002,167,switch,247,247,218,tracker 200 -> 218 on gt 247
+V002,168,switch,177,177,217,tracker 211 -> 217 on gt 177
+V002,174,switch,177,177,211,tracker 217 -> 211 on gt 177
+V002,176,switch,221,221,187,tracker 191 -> 187 on gt 221
+V002,177,reuse,218,221,187,tracker 187 matched gt 218 (last frame 173) now gt 221
+V002,181,switch,247,247,216,tracker 218 -> 216 on gt 247
+V002,182,switch,177,177,195,tracker 211 -> 195 on gt 177
+V002,182,switch,222,222,211,tracker 195 -> 211 on gt 222
+V002,183,switch,221,221,217,tracker 187 -> 217 on gt 221
+V002,183,reuse,222,177,195,tracker 195 matched gt 222 (last frame 181) now gt 177
+V002,183,reuse,177,222,211,tracker 211 matched gt 177 (last frame 177) now gt 222
+V002,184,reuse,177,221,217,tracker 217 matched gt 177 (last frame 170) now gt 221
+V002,187,switch,247,247,218,tracker 218 -> 218 on gt 247
+V002,203,switch,247,247,200,tracker 218 -> 200 on gt 247
+V002,212,switch,247,247,218,tracker 200 -> 218 on gt 247
+V002,215,switch,247,247,200,tracker 218 -> 200 on gt 247
+V002,217,switch,230,230,223,tracker 174 -> 223 on gt 230
+V002,217,reuse,247,254,200,tracker 200 matched gt 247 (last frame 216) now gt 254
+V002,221,switch,254,254,218,tracker 200 -> 218 on gt 254
+V002,225,reuse,254,247,200,tracker 200 matched gt 254 (last frame 217) now gt 247
+V002,229,switch,247,247,218,tracker 200 -> 218 on gt 247
+V002,233,switch,265,265,225,tracker 216 -> 225 on gt 265
+V002,275,switch,265,265,235,tracker 225 -> 235 on gt 265
+V002,281,switch,254,254,236,tracker 200 -> 236 on gt 254
+V002,327,switch,257,257,241,tracker 231 -> 241 on gt 257
+V002,332,switch,245,245,231,tracker 196 -> 231 on gt 245
+V002,333,reuse,257,245,231,tracker 231 matched gt 257 (last frame 304) now gt 245
+V002,345,switch,245,245,196,tracker 231 -> 196 on gt 245
+V002,349,switch,243,243,231,tracker 210 -> 231 on gt 243
+V002,350,reuse,245,243,231,tracker 231 matched gt 245 (last frame 340) now gt 243
+V002,351,switch,245,245,210,tracker 196 -> 210 on gt 245
+V002,352,switch,255,255,244,tracker 220 -> 244 on gt 255
+V002,352,reuse,243,245,210,tracker 210 matched gt 243 (last frame 348) now gt 245
+V002,363,switch,245,245,241,tracker 210 -> 241 on gt 245
+V002,364,reuse,257,245,241,tracker 241 matched gt 257 (last frame 351) now gt 245
+V002,396,switch,257,257,251,tracker 241 -> 251 on gt 257
+V002,398,switch,247,247,252,tracker 218 -> 252 on gt 247
+V002,405,switch,245,245,218,tracker 241 -> 218 on gt 245
+V002,406,reuse,247,245,218,tracker 218 matched gt 247 (last frame 366) now gt 245
+V002,412,switch,245,245,210,tracker 218 -> 210 on gt 245
+V002,422,switch,177,177,258,tracker 195 -> 258 on gt 177
+V002,428,reuse,15,55,259,tracker 259 matched gt 15 (last frame 427) now gt 55
+V002,436,switch,15,15,255,tracker 259 -> 255 on gt 15
+V002,437,reuse,183,15,255,tracker 255 matched gt 183 (last frame 435) now gt 15
+V002,452,switch,265,265,262,tracker 235 -> 262 on gt 265
+V002,459,switch,183,183,265,tracker 255 -> 265 on gt 183
+V002,464,reuse,271,272,260,tracker 260 matched gt 271 (last frame 463) now gt 272
+V002,474,switch,247,247,267,tracker 252 -> 267 on gt 247
+V002,483,switch,247,247,252,tracker 267 -> 252 on gt 247
+V002,484,switch,247,247,267,tracker 267 -> 267 on gt 247
+V002,507,reuse,183,276,265,tracker 265 matched gt 183 (last frame 506) now gt 276
+V002,514,switch,183,183,272,tracker 265 -> 272 on gt 183
+V002,525,switch,235,235,275,tracker 208 -> 275 on gt 235
+V002,530,switch,271,271,278,tracker 260 -> 278 on gt 271
+V002,533,reuse,183,275,272,tracker 272 matched gt 183 (last frame 521) now gt 275
+V002,535,switch,183,183,281,tracker 272 -> 281 on gt 183
+V002,539,switch,236,236,283,tracker 206 -> 283 on gt 236
+V002,557,switch,272,272,278,tracker 260 -> 278 on gt 272
+V002,559,reuse,271,272,278,tracker 278 matched gt 271 (last frame 558) now gt 272
+V002,563,switch,177,177,215,tracker 258 -> 215 on gt 177
+V002,564,reuse,268,177,215,tracker 215 matched gt 268 (last frame 562) now gt 177
+V002,567,switch,265,265,258,tracker 262 -> 258 on gt 265
+V002,568,reuse,177,265,258,tracker 258 matched gt 177 (last frame 550) now gt 265
+V002,573,reuse,277,279,285,tracker 285 matched gt 277 (last frame 572) now gt 279
+V002,574,switch,277,277,287,tracker 285 -> 287 on gt 277
+V002,577,switch,55,55,281,tracker 259 -> 281 on gt 55
+V002,577,switch,183,183,259,tracker 281 -> 259 on gt 183
+V002,578,reuse,183,55,281,tracker 281 matched gt 183 (last frame 560) now gt 55
+V002,578,reuse,55,183,259,tracker 259 matched gt 55 (last frame 576) now gt 183
+V002,580,switch,271,271,288,tracker 278 -> 288 on gt 271
+V002,599,switch,268,268,291,tracker 215 -> 291 on gt 268
+V002,613,switch,272,272,288,tracker 278 -> 288 on gt 272
+V002,614,reuse,271,272,288,tracker 288 matched gt 271 (last frame 585) now gt 272
+V002,615,switch,272,272,278,tracker 288 -> 278 on gt 272
+V002,615,reuse,272,271,288,tracker 288 matched gt 272 (last frame 614) now gt 271
+V002,623,switch,265,265,296,tracker 258 -> 296 on gt 265
+V002,633,switch,55,55,259,tracker 281 -> 259 on gt 55
+V002,634,reuse,183,55,259,tracker 259 matched gt 183 (last frame 632) now gt 55
+V002,635,switch,183,183,299,tracker 259 -> 299 on gt 183
+V002,685,switch,272,272,307,tracker 278 -> 307 on gt 272
+V002,718,switch,7,7,238,tracker 240 -> 238 on gt 7
+V002,718,switch,270,270,240,tracker 238 -> 240 on gt 270
+V002,719,reuse,270,7,238,tracker 238 matched gt 270 (last frame 717) now gt 7
+V002,719,reuse,7,270,240,tracker 240 matched gt 7 (last frame 717) now gt 270
+V002,798,switch,1,1,317,tracker 311 -> 317 on gt 1
+V002,824,reuse,259,286,300,tracker 300 matched gt 259 (last frame 817) now gt 286
+V002,826,switch,286,286,327,tracker 300 -> 327 on gt 286
+V002,837,switch,272,272,330,tracker 307 -> 330 on gt 272
+V002,859,switch,272,272,256,tracker 330 -> 256 on gt 272
+V002,859,switch,273,273,330,tracker 256 -> 330 on gt 273
+V002,860,reuse,273,272,256,tracker 256 matched gt 273 (last frame 852) now gt 272
+V002,860,reuse,272,273,330,tracker 330 matched gt 272 (last frame 858) now gt 273
+V002,865,switch,271,271,335,tracker 288 -> 335 on gt 271
+V002,875,reuse,290,293,334,tracker 334 matched gt 290 (last frame 873) now gt 293
+V002,876,switch,290,290,338,tracker 334 -> 338 on gt 290
+V002,882,switch,275,275,339,tracker 272 -> 339 on gt 275
+V002,885,switch,290,290,334,tracker 338 -> 334 on gt 290
+V002,885,switch,293,293,338,tracker 334 -> 338 on gt 293
+V002,886,reuse,293,290,334,tracker 334 matched gt 293 (last frame 877) now gt 290
+V002,886,reuse,290,293,338,tracker 338 matched gt 290 (last frame 884) now gt 293
+V002,891,switch,250,250,345,tracker 293 -> 345 on gt 250
+V002,915,switch,290,290,336,tracker 334 -> 336 on gt 290
+V002,915,switch,291,291,334,tracker 336 -> 334 on gt 291
+V002,916,reuse,291,290,336,tracker 336 matched gt 291 (last frame 911) now gt 290
+V002,916,reuse,290,291,334,tracker 334 matched gt 290 (last frame 914) now gt 291
+V002,937,switch,285,285,319,tracker 320 -> 319 on gt 285
+V002,938,reuse,4,285,319,tracker 319 matched gt 4 (last frame 932) now gt 285
+V002,941,switch,280,280,350,tracker 302 -> 350 on gt 280
+V002,942,switch,4,4,320,tracker 319 -> 320 on gt 4
+V002,947,switch,55,55,320,tracker 259 -> 320 on gt 55
+V002,948,reuse,285,55,320,tracker 320 matched gt 285 (last frame 936) now gt 55
+V002,950,reuse,55,4,320,tracker 320 matched gt 55 (last frame 949) now gt 4
+V002,954,switch,55,55,355,tracker 320 -> 355 on gt 55
+V002,967,switch,257,257,236,tracker 251 -> 236 on gt 257
+V002,968,reuse,254,257,236,tracker 236 matched gt 254 (last frame 966) now gt 257
+V002,974,switch,254,254,364,tracker 236 -> 364 on gt 254
+V002,985,switch,3,3,367,tracker 324 -> 367 on gt 3
+V002,1000,switch,55,55,370,tracker 355 -> 370 on gt 55
+V002,1001,switch,15,15,324,tracker 255 -> 324 on gt 15
+V002,1002,reuse,3,15,324,tracker 324 matched gt 3 (last frame 956) now gt 15
+V002,1005,switch,273,273,247,tracker 330 -> 247 on gt 273
+V002,1006,reuse,295,273,247,tracker 247 matched gt 295 (last frame 1004) now gt 273
+V002,1013,reuse,264,289,250,tracker 250 matched gt 264 (last frame 1012) now gt 289
+V002,1015,switch,15,15,368,tracker 324 -> 368 on gt 15
+V002,1025,switch,55,55,299,tracker 370 -> 299 on gt 55
+V002,1026,reuse,183,55,299,tracker 299 matched gt 183 (last frame 1023) now gt 55
+V002,1040,switch,13,13,371,tracker 361 -> 371 on gt 13
+V002,1041,switch,177,177,370,tracker 215 -> 370 on gt 177
+V002,1042,reuse,55,177,370,tracker 370 matched gt 55 (last frame 1024) now gt 177
+V002,1051,switch,183,183,324,tracker 299 -> 324 on gt 183
+V002,1052,reuse,15,183,324,tracker 324 matched gt 15 (last frame 1013) now gt 183
+V002,1053,switch,285,285,370,tracker 319 -> 370 on gt 285
+V002,1054,reuse,177,285,370,tracker 370 matched gt 177 (last frame 1048) now gt 285
+V002,1057,switch,285,285,319,tracker 370 -> 319 on gt 285
+V002,1058,switch,55,55,324,tracker 299 -> 324 on gt 55
+V002,1058,switch,177,177,215,tracker 370 -> 215 on gt 177
+V002,1059,reuse,183,55,324,tracker 324 matched gt 183 (last frame 1057) now gt 55
+V002,1061,reuse,55,183,324,tracker 324 matched gt 55 (last frame 1060) now gt 183
+V002,1068,switch,55,55,375,tracker 324 -> 375 on gt 55
+V002,1068,switch,277,277,285,tracker 287 -> 285 on gt 277
+V002,1069,reuse,279,277,285,tracker 285 matched gt 279 (last frame 1067) now gt 277
+V002,1072,switch,277,277,350,tracker 285 -> 350 on gt 277
+V002,1080,switch,6,6,358,tracker 340 -> 358 on gt 6
+V002,1080,switch,294,294,340,tracker 358 -> 340 on gt 294
+V002,1081,reuse,294,6,358,tracker 358 matched gt 294 (last frame 1079) now gt 6
+V002,1081,reuse,6,294,340,tracker 340 matched gt 6 (last frame 1078) now gt 294
+V002,1095,switch,285,285,381,tracker 319 -> 381 on gt 285
+V002,1147,switch,281,281,215,tracker 310 -> 215 on gt 281
+V002,1148,reuse,177,281,215,tracker 215 matched gt 177 (last frame 1146) now gt 281
+V002,1173,switch,283,283,388,tracker 318 -> 388 on gt 283
+V002,1189,switch,281,281,391,tracker 215 -> 391 on gt 281
+V002,1193,reuse,281,177,215,tracker 215 matched gt 281 (last frame 1162) now gt 177
+V002,1225,switch,4,4,340,tracker 320 -> 340 on gt 4
+V002,1225,switch,294,294,320,tracker 340 -> 320 on gt 294
+V002,1226,reuse,294,4,340,tracker 340 matched gt 294 (last frame 1224) now gt 4
+V002,1226,reuse,4,294,320,tracker 320 matched gt 4 (last frame 1223) now gt 294
+V002,1240,switch,55,55,397,tracker 375 -> 397 on gt 55
+V002,1241,switch,32,32,398,tracker 394 -> 398 on gt 32
+V002,1299,switch,12,12,170,tracker 357 -> 170 on gt 12
+V002,1300,switch,32,32,406,tracker 398 -> 406 on gt 32
+V002,1300,reuse,178,12,170,tracker 170 matched gt 178 (last frame 1298) now gt 12
+V002,1303,switch,11,11,408,tracker 313 -> 408 on gt 11
+V002,1305,switch,13,13,170,tracker 371 -> 170 on gt 13
+V002,1306,switch,32,32,396,tracker 398 -> 396 on gt 32
+V002,1306,switch,33,33,406,tracker 396 -> 406 on gt 33
+V002,1307,reuse,33,32,396,tracker 396 matched gt 33 (last frame 1305) now gt 32
+V002,1317,switch,21,21,250,tracker 412 -> 250 on gt 21
+V002,1318,reuse,289,21,250,tracker 250 matched gt 289 (last frame 1316) now gt 21
+V002,1323,switch,13,13,417,tracker 371 -> 417 on gt 13
+V002,1324,switch,14,14,170,tracker 365 -> 170 on gt 14
+V002,1324,switch,178,178,365,tracker 170 -> 365 on gt 178
+V002,1325,reuse,12,14,170,tracker 170 matched gt 12 (last frame 1304) now gt 14
+V002,1325,reuse,14,178,365,tracker 365 matched gt 14 (last frame 1323) now gt 178
+V002,1326,switch,47,47,409,tracker 415 -> 409 on gt 47
+V002,1327,switch,47,47,415,tracker 415 -> 415 on gt 47
+V002,1329,switch,32,32,418,tracker 396 -> 418 on gt 32
+V002,1335,switch,12,12,420,tracker 170 -> 420 on gt 12
+V002,1337,switch,32,32,396,tracker 418 -> 396 on gt 32
+V002,1352,switch,35,35,419,tracker 423 -> 419 on gt 35
+V002,1352,switch,61,61,423,tracker 419 -> 423 on gt 61
+V002,1353,reuse,61,35,419,tracker 419 matched gt 61 (last frame 1351) now gt 35
+V002,1353,reuse,35,61,423,tracker 423 matched gt 35 (last frame 1349) now gt 61
+V002,1366,switch,14,14,427,tracker 170 -> 427 on gt 14
+V002,1429,switch,9,9,428,tracker 441 -> 428 on gt 9
+V002,1429,switch,10,10,441,tracker 428 -> 441 on gt 10
+V002,1430,reuse,10,9,428,tracker 428 matched gt 10 (last frame 1428) now gt 9
+V002,1430,reuse,9,10,441,tracker 441 matched gt 9 (last frame 1420) now gt 10
+V002,1431,switch,32,32,406,tracker 396 -> 406 on gt 32
+V002,1431,switch,33,33,396,tracker 406 -> 396 on gt 33
+V002,1432,reuse,33,32,406,tracker 406 matched gt 33 (last frame 1430) now gt 32
+V002,1432,reuse,32,33,396,tracker 396 matched gt 32 (last frame 1424) now gt 33
+V002,1437,switch,12,12,417,tracker 420 -> 417 on gt 12
+V002,1437,switch,13,13,420,tracker 417 -> 420 on gt 13
+V002,1438,reuse,13,12,417,tracker 417 matched gt 13 (last frame 1436) now gt 12
+V002,1438,reuse,12,13,420,tracker 420 matched gt 12 (last frame 1434) now gt 13
+V002,1442,switch,43,43,430,tracker 438 -> 430 on gt 43
+V002,1443,reuse,40,43,430,tracker 430 matched gt 40 (last frame 1441) now gt 43
+V002,1461,switch,55,55,324,tracker 397 -> 324 on gt 55
+V002,1461,switch,183,183,397,tracker 324 -> 397 on gt 183
+V002,1462,reuse,183,55,324,tracker 324 matched gt 183 (last frame 1460) now gt 55
+V002,1462,reuse,55,183,397,tracker 397 matched gt 55 (last frame 1460) now gt 183
+V002,1463,switch,177,177,440,tracker 215 -> 440 on gt 177
+V002,1472,switch,64,64,458,tracker 444 -> 458 on gt 64
+V002,1472,switch,65,65,444,tracker 458 -> 444 on gt 65
+V002,1473,reuse,65,64,458,tracker 458 matched gt 65 (last frame 1471) now gt 64
+V002,1473,reuse,64,65,444,tracker 444 matched gt 64 (last frame 1468) now gt 65
+V002,1474,switch,40,40,416,tracker 430 -> 416 on gt 40
+V002,1475,reuse,38,40,416,tracker 416 matched gt 38 (last frame 1471) now gt 40
+V002,1484,switch,38,38,461,tracker 416 -> 461 on gt 38
+V002,1495,switch,38,38,421,tracker 416 -> 421 on gt 38
+V002,1496,reuse,37,38,421,tracker 421 matched gt 37 (last frame 1494) now gt 38
+V002,1508,switch,37,37,474,tracker 421 -> 474 on gt 37
+V002,1521,switch,48,48,395,tracker 442 -> 395 on gt 48
+V002,1522,switch,36,36,442,tracker 395 -> 442 on gt 36
+V002,1522,reuse,36,48,395,tracker 395 matched gt 36 (last frame 1517) now gt 48
+V002,1523,reuse,48,36,442,tracker 442 matched gt 48 (last frame 1520) now gt 36
+V002,1527,switch,48,48,478,tracker 395 -> 478 on gt 48
+V002,1529,switch,39,39,458,tracker 431 -> 458 on gt 39
+V002,1529,switch,64,64,431,tracker 458 -> 431 on gt 64
+V002,1530,reuse,64,39,458,tracker 458 matched gt 64 (last frame 1528) now gt 39
+V002,1530,reuse,39,64,431,tracker 431 matched gt 39 (last frame 1526) now gt 64
+V002,1531,switch,43,43,395,tracker 430 -> 395 on gt 43
+V002,1532,reuse,48,43,395,tracker 395 matched gt 48 (last frame 1526) now gt 43
+V002,1533,switch,40,40,430,tracker 416 -> 430 on gt 40
+V002,1534,reuse,43,40,430,tracker 430 matched gt 43 (last frame 1526) now gt 40
+V002,1535,switch,38,38,442,tracker 421 -> 442 on gt 38
+V002,1536,reuse,36,38,442,tracker 442 matched gt 36 (last frame 1525) now gt 38
+V002,1542,switch,36,36,432,tracker 442 -> 432 on gt 36
+V002,1543,reuse,62,36,432,tracker 432 matched gt 62 (last frame 1539) now gt 36
+V002,1558,reuse,73,76,481,tracker 481 matched gt 73 (last frame 1557) now gt 76
+V002,1561,switch,62,62,395,tracker 432 -> 395 on gt 62
+V002,1562,switch,73,73,486,tracker 481 -> 486 on gt 73
+V002,1562,reuse,43,62,395,tracker 395 matched gt 43 (last frame 1560) now gt 62
+V002,1568,reuse,73,88,486,tracker 486 matched gt 73 (last frame 1563) now gt 88
+V002,1569,switch,43,43,489,tracker 395 -> 489 on gt 43
+V002,1571,switch,73,73,481,tracker 486 -> 481 on gt 73
+V002,1572,reuse,76,73,481,tracker 481 matched gt 76 (last frame 1570) now gt 73
+V002,1598,switch,36,36,489,tracker 432 -> 489 on gt 36
+V002,1598,switch,43,43,432,tracker 489 -> 432 on gt 43
+V002,1599,reuse,43,36,489,tracker 489 matched gt 43 (last frame 1579) now gt 36
+V002,1599,reuse,36,43,432,tracker 432 matched gt 36 (last frame 1597) now gt 43
+V002,1602,reuse,179,180,498,tracker 498 matched gt 179 (last frame 1601) now gt 180
+V002,1604,reuse,180,179,498,tracker 498 matched gt 180 (last frame 1603) now gt 179
+V002,1605,reuse,179,180,498,tracker 498 matched gt 179 (last frame 1604) now gt 180
+V002,1607,reuse,180,179,498,tracker 498 matched gt 180 (last frame 1606) now gt 179
+V002,1613,switch,62,62,452,tracker 395 -> 452 on gt 62
+V002,1614,switch,33,33,395,tracker 396 -> 395 on gt 33
+V002,1614,switch,43,43,396,tracker 432 -> 396 on gt 43
+V002,1614,reuse,46,62,452,tracker 452 matched gt 46 (last frame 1612) now gt 62
+V002,1615,reuse,62,33,395,tracker 395 matched gt 62 (last frame 1595) now gt 33
+V002,1615,reuse,33,43,396,tracker 396 matched gt 33 (last frame 1613) now gt 43
+V002,1617,switch,46,46,505,tracker 452 -> 505 on gt 46
+V002,1617,switch,76,76,504,tracker 481 -> 504 on gt 76
+V002,1629,switch,76,76,486,tracker 504 -> 486 on gt 76
+V002,1629,switch,88,88,504,tracker 486 -> 504 on gt 88
+V002,1630,switch,61,61,478,tracker 423 -> 478 on gt 61
+V002,1630,reuse,88,76,486,tracker 486 matched gt 88 (last frame 1624) now gt 76
+V002,1630,reuse,76,88,504,tracker 504 matched gt 76 (last frame 1628) now gt 88
+V002,1634,reuse,48,61,478,tracker 478 matched gt 48 (last frame 1628) now gt 61
+V002,1636,switch,180,180,515,tracker 498 -> 515 on gt 180
+V002,1640,reuse,61,48,478,tracker 478 matched gt 61 (last frame 1639) now gt 48
+V002,1648,switch,75,75,515,tracker 506 -> 515 on gt 75
+V002,1649,reuse,180,75,515,tracker 515 matched gt 180 (last frame 1647) now gt 75
+V002,1651,switch,59,59,385,tracker 379 -> 385 on gt 59
+V002,1651,switch,70,70,379,tracker 385 -> 379 on gt 70
+V002,1652,reuse,70,59,385,tracker 385 matched gt 70 (last frame 1650) now gt 59
+V002,1652,reuse,59,70,379,tracker 379 matched gt 59 (last frame 1650) now gt 70
+V002,1653,switch,61,61,437,tracker 478 -> 437 on gt 61
+V002,1656,switch,61,61,511,tracker 478 -> 511 on gt 61
+V002,1661,switch,31,31,513,tracker 403 -> 513 on gt 31
+V002,1661,switch,180,180,498,tracker 515 -> 498 on gt 180
+V002,1662,reuse,179,180,498,tracker 498 matched gt 179 (last frame 1660) now gt 180
+V002,1663,reuse,180,179,498,tracker 498 matched gt 180 (last frame 1662) now gt 179
+V002,1666,switch,34,34,403,tracker 404 -> 403 on gt 34
+V002,1667,reuse,31,34,403,tracker 403 matched gt 31 (last frame 1660) now gt 34
+V002,1670,switch,180,180,506,tracker 498 -> 506 on gt 180
+V002,1671,switch,42,42,511,tracker 437 -> 511 on gt 42
+V002,1671,switch,61,61,437,tracker 511 -> 437 on gt 61
+V002,1672,reuse,61,42,511,tracker 511 matched gt 61 (last frame 1670) now gt 42
+V002,1672,reuse,42,61,437,tracker 437 matched gt 42 (last frame 1658) now gt 61
+V002,1677,switch,180,180,498,tracker 498 -> 498 on gt 180
+V002,1678,switch,88,88,520,tracker 504 -> 520 on gt 88
+V002,1686,reuse,179,180,498,tracker 498 matched gt 179 (last frame 1685) now gt 180
+V002,1688,reuse,180,179,498,tracker 498 matched gt 180 (last frame 1687) now gt 179
+V002,1696,switch,88,88,494,tracker 520 -> 494 on gt 88
+V002,1696,switch,111,111,520,tracker 494 -> 520 on gt 111
+V002,1697,reuse,111,88,494,tracker 494 matched gt 111 (last frame 1684) now gt 88
+V002,1697,reuse,88,111,520,tracker 520 matched gt 88 (last frame 1695) now gt 111
+V002,1706,switch,48,48,439,tracker 478 -> 439 on gt 48
+V002,1707,reuse,44,48,439,tracker 439 matched gt 44 (last frame 1680) now gt 48
+V002,1709,reuse,179,180,498,tracker 498 matched gt 179 (last frame 1708) now gt 180
+V002,1713,switch,9,9,540,tracker 428 -> 540 on gt 9
+V002,1713,reuse,48,44,439,tracker 439 matched gt 48 (last frame 1712) now gt 44
+V002,1732,switch,39,39,431,tracker 458 -> 431 on gt 39
+V002,1733,reuse,64,39,431,tracker 431 matched gt 64 (last frame 1731) now gt 39
+V002,1735,switch,64,64,458,tracker 431 -> 458 on gt 64
+V002,1736,reuse,39,64,458,tracker 458 matched gt 39 (last frame 1710) now gt 64
+V002,1746,switch,48,48,550,tracker 439 -> 550 on gt 48
+V002,1749,switch,75,75,554,tracker 515 -> 554 on gt 75
+V002,1752,switch,45,45,550,tracker 447 -> 550 on gt 45
+V002,1753,reuse,48,45,550,tracker 550 matched gt 48 (last frame 1751) now gt 45
+V002,1756,reuse,55,120,324,tracker 324 matched gt 55 (last frame 1755) now gt 120
+V002,1757,switch,78,78,557,tracker 527 -> 557 on gt 78
+V002,1759,switch,48,48,447,tracker 550 -> 447 on gt 48
+V002,1760,reuse,78,173,527,tracker 527 matched gt 78 (last frame 1751) now gt 173
+V002,1766,reuse,45,48,447,tracker 447 matched gt 45 (last frame 1747) now gt 48
+V002,1776,switch,42,42,431,tracker 511 -> 431 on gt 42
+V002,1777,switch,39,39,565,tracker 431 -> 565 on gt 39
+V002,1777,reuse,39,42,431,tracker 431 matched gt 39 (last frame 1775) now gt 42
+V002,1783,switch,80,80,568,tracker 543 -> 568 on gt 80
+V002,1799,switch,81,81,546,tracker 549 -> 546 on gt 81
+V002,1799,switch,96,96,549,tracker 546 -> 549 on gt 96
+V002,1800,reuse,96,81,546,tracker 546 matched gt 96 (last frame 1798) now gt 81
+V002,1800,reuse,81,96,549,tracker 549 matched gt 81 (last frame 1793) now gt 96
+V002,1802,switch,33,33,573,tracker 395 -> 573 on gt 33
+V002,1802,reuse,173,185,527,tracker 527 matched gt 173 (last frame 1801) now gt 185
+V002,1803,switch,66,66,556,tracker 386 -> 556 on gt 66
+V002,1803,switch,75,75,492,tracker 554 -> 492 on gt 75
+V002,1803,switch,86,86,554,tracker 492 -> 554 on gt 86
+V002,1804,reuse,86,75,492,tracker 492 matched gt 86 (last frame 1796) now gt 75
+V002,1804,reuse,75,86,554,tracker 554 matched gt 75 (last frame 1802) now gt 86
+V002,1809,switch,180,180,480,tracker 498 -> 480 on gt 180
+V002,1810,reuse,72,180,480,tracker 480 matched gt 72 (last frame 1808) now gt 180
+V002,1811,switch,70,70,579,tracker 379 -> 579 on gt 70
+V002,1814,switch,35,35,581,tracker 419 -> 581 on gt 35
+V002,1814,switch,173,173,510,tracker 527 -> 510 on gt 173
+V002,1815,reuse,49,173,510,tracker 510 matched gt 49 (last frame 1812) now gt 173
+V002,1821,switch,179,179,480,tracker 498 -> 480 on gt 179
+V002,1822,switch,53,53,531,tracker 530 -> 531 on gt 53
+V002,1822,switch,74,74,530,tracker 531 -> 530 on gt 74
+V002,1823,reuse,74,53,531,tracker 531 matched gt 74 (last frame 1821) now gt 53
+V002,1823,reuse,53,74,530,tracker 530 matched gt 53 (last frame 1821) now gt 74
+V002,1825,switch,180,180,586,tracker 480 -> 586 on gt 180
+V002,1826,switch,33,33,587,tracker 573 -> 587 on gt 33
+V002,1826,switch,49,49,486,tracker 510 -> 486 on gt 49
+V002,1826,switch,76,76,480,tracker 486 -> 480 on gt 76
+V002,1827,reuse,76,49,486,tracker 486 matched gt 76 (last frame 1825) now gt 49
+V002,1827,reuse,180,76,480,tracker 480 matched gt 180 (last frame 1817) now gt 76
+V002,1828,switch,42,42,424,tracker 431 -> 424 on gt 42
+V002,1829,reuse,56,42,424,tracker 424 matched gt 56 (last frame 1821) now gt 42
+V002,1830,switch,72,72,586,tracker 480 -> 586 on gt 72
+V002,1831,switch,56,56,556,tracker 424 -> 556 on gt 56
+V002,1831,reuse,180,72,586,tracker 586 matched gt 180 (last frame 1829) now gt 72
+V002,1832,switch,50,50,586,tracker 516 -> 586 on gt 50
+V002,1832,switch,72,72,516,tracker 586 -> 516 on gt 72
+V002,1832,switch,180,180,592,tracker 586 -> 592 on gt 180
+V002,1832,reuse,66,56,556,tracker 556 matched gt 66 (last frame 1830) now gt 56
+V002,1833,reuse,72,50,586,tracker 586 matched gt 72 (last frame 1831) now gt 50
+V002,1833,reuse,50,72,516,tracker 516 matched gt 50 (last frame 1831) now gt 72
+V002,1834,switch,66,66,593,tracker 556 -> 593 on gt 66
+V002,1835,switch,81,81,568,tracker 546 -> 568 on gt 81
+V002,1836,reuse,80,81,568,tracker 568 matched gt 80 (last frame 1812) now gt 81
+V002,1839,reuse,31,100,513,tracker 513 matched gt 31 (last frame 1817) now gt 100
+V002,1841,switch,97,97,589,tracker 576 -> 589 on gt 97
+V002,1842,switch,80,80,546,tracker 568 -> 546 on gt 80
+V002,1843,switch,118,118,571,tracker 541 -> 571 on gt 118
+V002,1843,reuse,81,80,546,tracker 546 matched gt 81 (last frame 1834) now gt 80
+V002,1844,switch,113,113,510,tracker 563 -> 510 on gt 113
+V002,1845,switch,42,42,419,tracker 424 -> 419 on gt 42
+V002,1845,switch,56,56,595,tracker 556 -> 595 on gt 56
+V002,1845,switch,70,70,424,tracker 579 -> 424 on gt 70
+V002,1845,switch,173,173,563,tracker 510 -> 563 on gt 173
+V002,1845,reuse,173,113,510,tracker 510 matched gt 173 (last frame 1843) now gt 113
+V002,1846,reuse,35,42,419,tracker 419 matched gt 35 (last frame 1805) now gt 42
+V002,1846,reuse,42,70,424,tracker 424 matched gt 42 (last frame 1844) now gt 70
+V002,1846,reuse,80,122,546,tracker 546 matched gt 80 (last frame 1844) now gt 122
+V002,1847,switch,80,80,395,tracker 546 -> 395 on gt 80
+V002,1848,switch,48,48,597,tracker 447 -> 597 on gt 48
+V002,1848,reuse,33,80,395,tracker 395 matched gt 33 (last frame 1783) now gt 80
+V002,1852,switch,176,176,598,tracker 179 -> 598 on gt 176
+V002,1853,switch,118,118,179,tracker 571 -> 179 on gt 118
+V002,1854,reuse,176,118,179,tracker 179 matched gt 176 (last frame 1850) now gt 118
+V002,1856,switch,180,180,531,tracker 586 -> 531 on gt 180
+V002,1857,switch,53,53,592,tracker 531 -> 592 on gt 53
+V002,1860,switch,81,81,584,tracker 568 -> 584 on gt 81
+V002,1861,switch,97,97,405,tracker 589 -> 405 on gt 97
+V002,1861,reuse,85,81,584,tracker 584 matched gt 85 (last frame 1851) now gt 81
+V002,1862,switch,18,18,589,tracker 405 -> 589 on gt 18
+V002,1862,reuse,18,97,405,tracker 405 matched gt 18 (last frame 1860) now gt 97
+V002,1863,reuse,97,18,589,tracker 589 matched gt 97 (last frame 1843) now gt 18
+V002,1865,switch,179,179,531,tracker 498 -> 531 on gt 179
+V002,1866,switch,75,75,520,tracker 492 -> 520 on gt 75
+V002,1866,switch,111,111,492,tracker 520 -> 492 on gt 111
+V002,1866,reuse,53,179,531,tracker 531 matched gt 53 (last frame 1855) now gt 179
+V002,1867,reuse,111,75,520,tracker 520 matched gt 111 (last frame 1865) now gt 75
+V002,1867,reuse,75,111,492,tracker 492 matched gt 75 (last frame 1862) now gt 111
+V002,1871,reuse,113,173,563,tracker 563 matched gt 113 (last frame 1843) now gt 173
+V002,1874,reuse,81,85,584,tracker 584 matched gt 81 (last frame 1870) now gt 85
+V002,1879,switch,120,120,598,tracker 324 -> 598 on gt 120
+V002,1879,switch,176,176,365,tracker 598 -> 365 on gt 176
+V002,1880,reuse,176,120,598,tracker 598 matched gt 176 (last frame 1878) now gt 120
+V002,1881,switch,180,180,545,tracker 586 -> 545 on gt 180
+V002,1883,switch,176,176,609,tracker 598 -> 609 on gt 176
+V002,1886,switch,52,52,531,tracker 545 -> 531 on gt 52
+V002,1887,reuse,179,52,531,tracker 531 matched gt 179 (last frame 1885) now gt 52
+V002,1887,reuse,19,83,407,tracker 407 matched gt 19 (last frame 1885) now gt 83
+V002,1887,reuse,85,110,584,tracker 584 matched gt 85 (last frame 1874) now gt 110
+V002,1889,reuse,83,19,407,tracker 407 matched gt 83 (last frame 1888) now gt 19
+V002,1890,switch,179,179,545,tracker 531 -> 545 on gt 179
+V002,1891,switch,81,81,395,tracker 584 -> 395 on gt 81
+V002,1892,reuse,80,81,395,tracker 395 matched gt 80 (last frame 1885) now gt 81
+V002,1897,reuse,81,125,568,tracker 568 matched gt 81 (last frame 1857) now gt 125
+V002,1900,reuse,19,83,407,tracker 407 matched gt 19 (last frame 1899) now gt 83
+V002,1902,switch,19,19,453,tracker 407 -> 453 on gt 19
+V002,1903,reuse,105,19,453,tracker 453 matched gt 105 (last frame 1901) now gt 19
+V002,1905,reuse,18,101,589,tracker 589 matched gt 18 (last frame 1897) now gt 101
+V002,1907,switch,18,18,621,tracker 589 -> 621 on gt 18
+V002,1907,switch,105,105,622,tracker 453 -> 622 on gt 105
+V002,1908,reuse,83,189,407,tracker 407 matched gt 83 (last frame 1907) now gt 189
+V002,1912,reuse,189,83,407,tracker 407 matched gt 189 (last frame 1911) now gt 83
+V002,1918,switch,180,180,628,tracker 586 -> 628 on gt 180
+V002,1921,switch,19,19,599,tracker 453 -> 599 on gt 19
+V002,1921,switch,174,174,453,tracker 599 -> 453 on gt 174
+V002,1922,switch,80,80,631,tracker 395 -> 631 on gt 80
+V002,1922,reuse,174,19,599,tracker 599 matched gt 174 (last frame 1919) now gt 19
+V002,1922,reuse,19,174,453,tracker 453 matched gt 19 (last frame 1920) now gt 174
+V002,1924,switch,189,189,632,tracker 407 -> 632 on gt 189
+V002,1930,switch,116,116,568,tracker 610 -> 568 on gt 116
+V002,1930,switch,125,125,610,tracker 568 -> 610 on gt 125
+V002,1931,reuse,125,116,568,tracker 568 matched gt 125 (last frame 1928) now gt 116
+V002,1931,reuse,116,125,610,tracker 610 matched gt 116 (last frame 1929) now gt 125
+V002,1932,switch,76,76,545,tracker 480 -> 545 on gt 76
+V002,1932,switch,77,77,557,tracker 521 -> 557 on gt 77
+V002,1934,switch,76,76,480,tracker 480 -> 480 on gt 76
+V002,1934,reuse,78,77,557,tracker 557 matched gt 78 (last frame 1930) now gt 77
+V002,1936,switch,77,77,521,tracker 557 -> 521 on gt 77
+V002,1936,switch,158,158,407,tracker 623 -> 407 on gt 158
+V002,1936,reuse,158,109,623,tracker 623 matched gt 158 (last frame 1935) now gt 109
+V002,1937,switch,72,72,557,tracker 516 -> 557 on gt 72
+V002,1937,reuse,83,158,407,tracker 407 matched gt 83 (last frame 1914) now gt 158
+V002,1937,reuse,114,121,630,tracker 630 matched gt 114 (last frame 1933) now gt 121
+V002,1938,switch,77,77,516,tracker 521 -> 516 on gt 77
+V002,1938,switch,78,78,521,tracker 557 -> 521 on gt 78
+V002,1938,reuse,77,72,557,tracker 557 matched gt 77 (last frame 1934) now gt 72
+V002,1939,switch,83,83,638,tracker 407 -> 638 on gt 83
+V002,1939,reuse,72,77,516,tracker 516 matched gt 72 (last frame 1936) now gt 77
+V002,1939,reuse,77,78,521,tracker 521 matched gt 77 (last frame 1937) now gt 78
+V002,1940,switch,56,56,597,tracker 595 -> 597 on gt 56
+V002,1940,switch,101,101,639,tracker 589 -> 639 on gt 101
+V002,1940,switch,114,114,589,tracker 630 -> 589 on gt 114
+V002,1941,reuse,48,56,597,tracker 597 matched gt 48 (last frame 1939) now gt 56
+V002,1941,reuse,101,114,589,tracker 589 matched gt 101 (last frame 1939) now gt 114
+V002,1945,switch,78,78,516,tracker 521 -> 516 on gt 78
+V002,1955,switch,89,89,648,tracker 634 -> 648 on gt 89
+V002,1959,reuse,42,95,419,tracker 419 matched gt 42 (last frame 1954) now gt 95
+V002,1960,reuse,77,78,516,tracker 516 matched gt 77 (last frame 1940) now gt 78
+V002,1961,switch,85,85,645,tracker 584 -> 645 on gt 85
+V002,1964,switch,77,77,647,tracker 516 -> 647 on gt 77
+V002,1965,switch,98,98,647,tracker 564 -> 647 on gt 98
+V002,1965,switch,109,109,568,tracker 623 -> 568 on gt 109
+V002,1966,reuse,116,109,568,tracker 568 matched gt 116 (last frame 1964) now gt 109
+V002,1973,switch,78,78,536,tracker 516 -> 536 on gt 78
+V002,1975,switch,85,85,516,tracker 584 -> 516 on gt 85
+V002,1981,switch,77,77,501,tracker 516 -> 501 on gt 77
+V002,1981,switch,100,100,520,tracker 513 -> 520 on gt 100
+V002,1982,reuse,79,77,501,tracker 501 matched gt 79 (last frame 1980) now gt 77
+V002,1982,reuse,75,100,520,tracker 520 matched gt 75 (last frame 1971) now gt 100
+V002,1986,reuse,54,119,616,tracker 616 matched gt 54 (last frame 1971) now gt 119
+V002,1987,switch,78,78,631,tracker 516 -> 631 on gt 78
+V002,1987,switch,79,79,536,tracker 501 -> 536 on gt 79
+V002,1988,switch,50,50,470,tracker 586 -> 470 on gt 50
+V002,1988,reuse,80,78,631,tracker 631 matched gt 80 (last frame 1986) now gt 78
+V002,1988,reuse,94,79,536,tracker 536 matched gt 94 (last frame 1956) now gt 79
+V002,1989,switch,94,94,628,tracker 536 -> 628 on gt 94
+V002,1989,reuse,187,50,470,tracker 470 matched gt 187 (last frame 1987) now gt 50
+V002,1990,reuse,180,94,628,tracker 628 matched gt 180 (last frame 1977) now gt 94
+V002,1991,switch,187,187,462,tracker 470 -> 462 on gt 187
+V002,1992,reuse,107,187,462,tracker 462 matched gt 107 (last frame 1989) now gt 187
+V002,1995,switch,107,107,592,tracker 462 -> 592 on gt 107
+V002,1996,switch,83,83,645,tracker 638 -> 645 on gt 83
+V002,1996,switch,85,85,638,tracker 584 -> 638 on gt 85
+V002,1996,reuse,53,107,592,tracker 592 matched gt 53 (last frame 1994) now gt 107
+V002,1997,switch,53,53,661,tracker 592 -> 661 on gt 53
+V002,1997,switch,173,173,641,tracker 563 -> 641 on gt 173
+V002,1997,reuse,83,85,638,tracker 638 matched gt 83 (last frame 1995) now gt 85
+V002,1998,switch,80,80,657,tracker 631 -> 657 on gt 80
+V002,1998,switch,116,116,662,tracker 568 -> 662 on gt 116
+V002,2000,switch,74,74,520,tracker 530 -> 520 on gt 74
+V002,2000,switch,100,100,664,tracker 520 -> 664 on gt 100
+V002,2001,switch,114,114,646,tracker 589 -> 646 on gt 114
+V002,2001,reuse,100,74,520,tracker 520 matched gt 100 (last frame 1999) now gt 74
+V002,2003,switch,114,114,589,tracker 646 -> 589 on gt 114
+V002,2003,switch,116,116,630,tracker 568 -> 630 on gt 116
+V002,2004,switch,187,187,592,tracker 462 -> 592 on gt 187
+V002,2005,reuse,107,187,592,tracker 592 matched gt 107 (last frame 2002) now gt 187
+V002,2006,switch,80,80,554,tracker 657 -> 554 on gt 80
+V002,2007,switch,94,94,669,tracker 628 -> 669 on gt 94
+V002,2007,switch,109,109,662,tracker 568 -> 662 on gt 109
+V002,2007,switch,116,116,568,tracker 568 -> 568 on gt 116
+V002,2007,reuse,86,80,554,tracker 554 matched gt 86 (last frame 2005) now gt 80
+V002,2008,reuse,109,116,568,tracker 568 matched gt 109 (last frame 2006) now gt 116
+V002,2010,switch,86,86,628,tracker 554 -> 628 on gt 86
+V002,2011,reuse,94,86,628,tracker 628 matched gt 94 (last frame 2006) now gt 86
+V002,2012,switch,100,100,672,tracker 664 -> 672 on gt 100
+V002,2012,switch,107,107,664,tracker 592 -> 664 on gt 107
+V002,2013,switch,189,189,638,tracker 632 -> 638 on gt 189
+V002,2013,reuse,100,107,664,tracker 664 matched gt 100 (last frame 2011) now gt 107
+V002,2014,switch,121,121,646,tracker 630 -> 646 on gt 121
+V002,2014,reuse,85,189,638,tracker 638 matched gt 85 (last frame 2002) now gt 189
+V002,2017,switch,121,121,610,tracker 630 -> 610 on gt 121
+V002,2017,switch,125,125,646,tracker 610 -> 646 on gt 125
+V002,2018,reuse,125,121,610,tracker 610 matched gt 125 (last frame 2016) now gt 121
+V002,2018,reuse,114,125,646,tracker 646 matched gt 114 (last frame 2002) now gt 125
+V002,2022,switch,75,75,673,tracker 520 -> 673 on gt 75
+V002,2022,switch,179,179,563,tracker 531 -> 563 on gt 179
+V002,2023,reuse,173,179,563,tracker 563 matched gt 173 (last frame 1996) now gt 179
+V002,2027,switch,180,180,670,tracker 628 -> 670 on gt 180
+V002,2029,reuse,189,124,632,tracker 632 matched gt 189 (last frame 2012) now gt 124
+V002,2036,reuse,189,85,638,tracker 638 matched gt 189 (last frame 2035) now gt 85
+V002,2050,switch,121,121,546,tracker 610 -> 546 on gt 121
+V002,2050,switch,122,122,610,tracker 546 -> 610 on gt 122
+V002,2051,reuse,122,121,546,tracker 546 matched gt 122 (last frame 2049) now gt 121
+V002,2051,reuse,121,122,610,tracker 610 matched gt 121 (last frame 2037) now gt 122
+V002,2054,switch,85,85,686,tracker 638 -> 686 on gt 85
+V002,2054,reuse,85,189,638,tracker 638 matched gt 85 (last frame 2053) now gt 189
+V002,2063,switch,79,79,641,tracker 536 -> 641 on gt 79
+V002,2063,switch,119,119,440,tracker 616 -> 440 on gt 119
+V002,2064,reuse,173,79,641,tracker 641 matched gt 173 (last frame 1999) now gt 79
+V002,2064,reuse,177,119,440,tracker 440 matched gt 177 (last frame 2050) now gt 119
+V002,2068,switch,172,172,693,tracker 668 -> 693 on gt 172
+V002,2070,switch,180,180,695,tracker 628 -> 695 on gt 180
+V002,2073,switch,79,79,664,tracker 641 -> 664 on gt 79
+V002,2073,switch,97,97,453,tracker 405 -> 453 on gt 97
+V002,2073,switch,107,107,641,tracker 664 -> 641 on gt 107
+V002,2073,switch,174,174,405,tracker 453 -> 405 on gt 174
+V002,2073,switch,177,177,365,tracker 440 -> 365 on gt 177
+V002,2073,switch,178,178,440,tracker 365 -> 440 on gt 178
+V002,2074,reuse,107,79,664,tracker 664 matched gt 107 (last frame 2072) now gt 79
+V002,2074,reuse,174,97,453,tracker 453 matched gt 174 (last frame 2072) now gt 97
+V002,2074,reuse,79,107,641,tracker 641 matched gt 79 (last frame 2071) now gt 107
+V002,2074,reuse,97,174,405,tracker 405 matched gt 97 (last frame 2072) now gt 174
+V002,2074,reuse,178,177,365,tracker 365 matched gt 178 (last frame 2072) now gt 177
+V002,2074,reuse,119,178,440,tracker 440 matched gt 119 (last frame 2070) now gt 178
+V002,2080,switch,119,119,609,tracker 440 -> 609 on gt 119
+V002,2081,reuse,176,119,609,tracker 609 matched gt 176 (last frame 2079) now gt 119
+V002,2082,switch,176,176,701,tracker 609 -> 701 on gt 176
+V002,2084,switch,159,159,704,tracker 685 -> 704 on gt 159
+V002,2084,switch,160,160,702,tracker 700 -> 702 on gt 160
+V002,2085,switch,83,83,705,tracker 645 -> 705 on gt 83
+V002,2086,switch,18,18,700,tracker 621 -> 700 on gt 18
+V002,2086,switch,79,79,592,tracker 664 -> 592 on gt 79
+V002,2087,switch,18,18,621,tracker 621 -> 621 on gt 18
+V002,2087,switch,180,180,707,tracker 628 -> 707 on gt 180
+V002,2087,reuse,187,79,592,tracker 592 matched gt 187 (last frame 2085) now gt 79
+V002,2090,switch,179,179,709,tracker 563 -> 709 on gt 179
+V002,2092,switch,187,187,664,tracker 592 -> 664 on gt 187
+V002,2093,reuse,79,187,664,tracker 664 matched gt 79 (last frame 2079) now gt 187
+V002,2098,switch,176,176,365,tracker 701 -> 365 on gt 176
+V002,2098,switch,177,177,701,tracker 365 -> 701 on gt 177
+V002,2099,switch,127,127,715,tracker 711 -> 715 on gt 127
+V002,2099,reuse,177,176,365,tracker 365 matched gt 177 (last frame 2082) now gt 176
+V002,2099,reuse,176,177,701,tracker 701 matched gt 176 (last frame 2097) now gt 177
+V002,2101,switch,18,18,711,tracker 621 -> 711 on gt 18
+V002,2101,reuse,19,126,599,tracker 599 matched gt 19 (last frame 2100) now gt 126
+V002,2102,switch,161,161,716,tracker 683 -> 716 on gt 161
+V002,2102,reuse,127,18,711,tracker 711 matched gt 127 (last frame 2098) now gt 18
+V002,2105,switch,18,18,621,tracker 711 -> 621 on gt 18
+V002,2111,switch,101,101,699,tracker 639 -> 699 on gt 101
+V002,2114,switch,101,101,639,tracker 699 -> 639 on gt 101
+V002,2116,switch,179,179,707,tracker 709 -> 707 on gt 179
+V002,2117,switch,100,100,699,tracker 672 -> 699 on gt 100
+V002,2118,switch,101,101,699,tracker 639 -> 699 on gt 101
+V002,2119,switch,100,100,639,tracker 672 -> 639 on gt 100
+V002,2120,reuse,101,100,639,tracker 639 matched gt 101 (last frame 2117) now gt 100
+V002,2120,reuse,180,179,707,tracker 707 matched gt 180 (last frame 2091) now gt 179
+V002,2131,reuse,36,144,489,tracker 489 matched gt 36 (last frame 2086) now gt 144
+V002,2132,switch,177,177,664,tracker 701 -> 664 on gt 177
+V002,2133,switch,177,177,701,tracker 701 -> 701 on gt 177
+V002,2137,switch,176,176,726,tracker 365 -> 726 on gt 176
+V002,2139,switch,106,106,621,tracker 455 -> 621 on gt 106
+V002,2139,switch,180,180,709,tracker 707 -> 709 on gt 180
+V002,2140,switch,97,97,727,tracker 453 -> 727 on gt 97
+V002,2140,switch,105,105,621,tracker 622 -> 621 on gt 105
+V002,2140,switch,106,106,455,tracker 455 -> 455 on gt 106
+V002,2140,switch,177,177,527,tracker 701 -> 527 on gt 177
+V002,2140,switch,187,187,701,tracker 664 -> 701 on gt 187
+V002,2141,reuse,18,105,621,tracker 621 matched gt 18 (last frame 2112) now gt 105
+V002,2141,reuse,185,177,527,tracker 527 matched gt 185 (last frame 2139) now gt 177
+V002,2141,reuse,177,187,701,tracker 701 matched gt 177 (last frame 2138) now gt 187
+V002,2142,switch,176,176,365,tracker 726 -> 365 on gt 176
+V002,2143,switch,105,105,622,tracker 621 -> 622 on gt 105
+V002,2144,switch,105,105,621,tracker 621 -> 621 on gt 105
+V002,2144,switch,113,113,726,tracker 510 -> 726 on gt 113
+V002,2144,switch,185,185,510,tracker 527 -> 510 on gt 185
+V002,2145,reuse,176,113,726,tracker 726 matched gt 176 (last frame 2141) now gt 113
+V002,2146,reuse,113,185,510,tracker 510 matched gt 113 (last frame 2143) now gt 185
+V002,2147,reuse,179,180,709,tracker 709 matched gt 179 (last frame 2109) now gt 180
+V002,2150,switch,97,97,405,tracker 727 -> 405 on gt 97
+V002,2150,switch,174,174,727,tracker 405 -> 727 on gt 174
+V002,2151,switch,176,176,726,tracker 365 -> 726 on gt 176
+V002,2151,reuse,174,97,405,tracker 405 matched gt 174 (last frame 2149) now gt 97
+V002,2151,reuse,97,174,727,tracker 727 matched gt 97 (last frame 2147) now gt 174
+V002,2152,reuse,113,176,726,tracker 726 matched gt 113 (last frame 2147) now gt 176
+V002,2155,switch,112,112,365,tracker 567 -> 365 on gt 112
+V002,2155,switch,176,176,510,tracker 726 -> 510 on gt 176
+V002,2156,switch,185,185,365,tracker 510 -> 365 on gt 185
+V002,2156,reuse,185,176,510,tracker 510 matched gt 185 (last frame 2150) now gt 176
+V002,2157,reuse,176,185,365,tracker 365 matched gt 176 (last frame 2150) now gt 185
+V002,2164,switch,189,189,735,tracker 638 -> 735 on gt 189
+V002,2172,reuse,176,113,726,tracker 726 matched gt 176 (last frame 2153) now gt 113
+V002,2184,switch,112,112,739,tracker 567 -> 739 on gt 112
+V002,2185,switch,128,128,738,tracker 734 -> 738 on gt 128
+V002,2185,switch,173,173,726,tracker 641 -> 726 on gt 173
+V002,2186,reuse,141,128,738,tracker 738 matched gt 141 (last frame 2182) now gt 128
+V002,2186,reuse,113,173,726,tracker 726 matched gt 113 (last frame 2184) now gt 173
+V002,2188,switch,113,113,740,tracker 726 -> 740 on gt 113
+V002,2191,switch,141,141,734,tracker 738 -> 734 on gt 141
+V002,2192,switch,79,79,707,tracker 592 -> 707 on gt 79
+V002,2193,reuse,179,79,707,tracker 707 matched gt 179 (last frame 2182) now gt 79
+V002,2194,switch,120,120,742,tracker 598 -> 742 on gt 120
+V002,2194,switch,176,176,527,tracker 510 -> 527 on gt 176
+V002,2194,switch,177,177,570,tracker 527 -> 570 on gt 177
+V002,2195,switch,85,85,743,tracker 686 -> 743 on gt 85
+V002,2195,switch,120,120,598,tracker 598 -> 598 on gt 120
+V002,2195,reuse,177,176,527,tracker 527 matched gt 177 (last frame 2193) now gt 176
+V002,2195,reuse,115,177,570,tracker 570 matched gt 115 (last frame 2192) now gt 177
+V002,2197,reuse,128,141,734,tracker 734 matched gt 128 (last frame 2184) now gt 141
+V002,2202,switch,177,177,719,tracker 570 -> 719 on gt 177
+V002,2203,switch,185,185,745,tracker 365 -> 745 on gt 185
+V002,2204,switch,128,128,715,tracker 738 -> 715 on gt 128
+V002,2205,switch,128,128,738,tracker 738 -> 738 on gt 128
+V002,2228,switch,115,115,727,tracker 570 -> 727 on gt 115
+V002,2229,reuse,174,115,727,tracker 727 matched gt 174 (last frame 2207) now gt 115
+V002,2241,switch,174,174,752,tracker 727 -> 752 on gt 174
+V002,2244,switch,187,187,641,tracker 701 -> 641 on gt 187
+V002,2245,reuse,107,187,641,tracker 641 matched gt 107 (last frame 2241) now gt 187
+V002,2246,switch,99,99,702,tracker 539 -> 702 on gt 99
+V002,2246,switch,160,160,539,tracker 702 -> 539 on gt 160
+V002,2247,switch,187,187,701,tracker 641 -> 701 on gt 187
+V002,2247,reuse,160,99,702,tracker 702 matched gt 160 (last frame 2245) now gt 99
+V002,2247,reuse,99,160,539,tracker 539 matched gt 99 (last frame 2245) now gt 160
+V002,2249,switch,187,187,641,tracker 701 -> 641 on gt 187
+V002,2252,switch,168,168,754,tracker 582 -> 754 on gt 168
+V002,2278,switch,174,174,765,tracker 752 -> 765 on gt 174
+V002,2281,switch,122,122,768,tracker 610 -> 768 on gt 122
+V002,2286,switch,112,112,740,tracker 739 -> 740 on gt 112
+V002,2286,switch,113,113,739,tracker 740 -> 739 on gt 113
+V002,2287,reuse,113,112,740,tracker 740 matched gt 113 (last frame 2285) now gt 112
+V002,2287,reuse,112,113,739,tracker 739 matched gt 112 (last frame 2282) now gt 113
+V002,2311,switch,120,120,769,tracker 598 -> 769 on gt 120
+V002,2327,switch,119,119,781,tracker 609 -> 781 on gt 119
+V002,2338,switch,120,120,782,tracker 769 -> 782 on gt 120
+V002,2360,switch,177,177,671,tracker 719 -> 671 on gt 177
+V002,2381,switch,177,177,790,tracker 719 -> 790 on gt 177
+V002,2386,switch,120,120,781,tracker 782 -> 781 on gt 120
+V002,2387,reuse,119,120,781,tracker 781 matched gt 119 (last frame 2385) now gt 120
+V002,2462,switch,92,92,801,tracker 688 -> 801 on gt 92
+V002,2502,switch,116,116,407,tracker 568 -> 407 on gt 116
+V002,2503,switch,159,159,671,tracker 704 -> 671 on gt 159
+V002,2503,reuse,158,116,407,tracker 407 matched gt 158 (last frame 2487) now gt 116
+V002,2504,reuse,117,159,671,tracker 671 matched gt 117 (last frame 2487) now gt 159
+V002,2505,switch,172,172,807,tracker 693 -> 807 on gt 172
+V002,2508,switch,125,125,734,tracker 646 -> 734 on gt 125
+V002,2508,switch,141,141,646,tracker 734 -> 646 on gt 141
+V002,2509,reuse,141,125,734,tracker 734 matched gt 141 (last frame 2505) now gt 125
+V002,2509,reuse,125,141,646,tracker 646 matched gt 125 (last frame 2507) now gt 141
+V002,2531,switch,117,117,816,tracker 671 -> 816 on gt 117
+V002,2535,switch,92,92,691,tracker 801 -> 691 on gt 92
+V002,2536,reuse,93,92,691,tracker 691 matched gt 93 (last frame 2534) now gt 92
+V002,2538,switch,131,131,818,tracker 656 -> 818 on gt 131
+V002,2547,switch,131,131,807,tracker 818 -> 807 on gt 131
+V002,2547,switch,172,172,818,tracker 807 -> 818 on gt 172
+V002,2548,reuse,172,131,807,tracker 807 matched gt 172 (last frame 2539) now gt 131
+V002,2548,reuse,131,172,818,tracker 818 matched gt 131 (last frame 2546) now gt 172
+V002,2564,switch,128,128,646,tracker 738 -> 646 on gt 128
+V002,2565,reuse,141,128,646,tracker 646 matched gt 141 (last frame 2553) now gt 128
+V002,2585,switch,141,141,829,tracker 646 -> 829 on gt 141
+V002,2596,switch,172,172,831,tracker 818 -> 831 on gt 172
+V002,2597,switch,177,177,828,tracker 790 -> 828 on gt 177
+V002,2602,switch,128,128,833,tracker 646 -> 833 on gt 128
+V002,2604,switch,177,177,790,tracker 828 -> 790 on gt 177
+V002,2606,reuse,110,135,584,tracker 584 matched gt 110 (last frame 2599) now gt 135
+V002,2614,reuse,101,138,699,tracker 699 matched gt 101 (last frame 2593) now gt 138
+V002,2617,switch,122,122,646,tracker 768 -> 646 on gt 122
+V002,2618,switch,138,138,835,tracker 699 -> 835 on gt 138
+V002,2626,switch,177,177,836,tracker 790 -> 836 on gt 177
+V002,2632,switch,125,125,646,tracker 734 -> 646 on gt 125
+V002,2633,switch,177,177,790,tracker 836 -> 790 on gt 177
+V002,2633,reuse,128,125,646,tracker 646 matched gt 128 (last frame 2567) now gt 125
+V002,2641,reuse,125,122,646,tracker 646 matched gt 125 (last frame 2640) now gt 122
+V002,2642,reuse,138,136,699,tracker 699 matched gt 138 (last frame 2617) now gt 136
+V002,2648,reuse,172,137,831,tracker 831 matched gt 172 (last frame 2622) now gt 137
+V002,2667,switch,186,186,691,tracker 729 -> 691 on gt 186
+V002,2668,reuse,92,186,691,tracker 691 matched gt 92 (last frame 2666) now gt 186
+V002,2669,switch,125,125,844,tracker 646 -> 844 on gt 125
+V002,2669,reuse,131,139,807,tracker 807 matched gt 131 (last frame 2660) now gt 139
+V002,2683,reuse,89,142,648,tracker 648 matched gt 89 (last frame 2660) now gt 142
+V002,2685,switch,127,127,698,tracker 715 -> 698 on gt 127
+V002,2688,reuse,123,127,698,tracker 698 matched gt 123 (last frame 2687) now gt 127
+V002,2700,switch,123,123,539,tracker 698 -> 539 on gt 123
+V002,2701,reuse,160,123,539,tracker 539 matched gt 160 (last frame 2699) now gt 123
+V002,2751,switch,128,128,715,tracker 833 -> 715 on gt 128
+V002,2752,reuse,127,128,715,tracker 715 matched gt 127 (last frame 2684) now gt 128
+V002,2757,switch,128,128,829,tracker 715 -> 829 on gt 128
+V002,2758,reuse,141,128,829,tracker 829 matched gt 141 (last frame 2748) now gt 128
+V002,2762,switch,145,145,859,tracker 796 -> 859 on gt 145
+V003,69,switch,535,535,941,tracker 928 -> 941 on gt 535
+V003,82,switch,531,531,935,tracker 923 -> 935 on gt 531
+V003,83,switch,531,531,923,tracker 923 -> 923 on gt 531
+V003,87,switch,531,531,935,tracker 923 -> 935 on gt 531
+V003,88,reuse,553,531,935,tracker 935 matched gt 553 (last frame 86) now gt 531
+V003,92,reuse,531,553,935,tracker 935 matched gt 531 (last frame 91) now gt 553
+V003,94,reuse,553,531,935,tracker 935 matched gt 553 (last frame 93) now gt 531
+V003,96,reuse,531,553,935,tracker 935 matched gt 531 (last frame 95) now gt 553
+V003,103,reuse,553,531,935,tracker 935 matched gt 553 (last frame 102) now gt 531
+V003,104,reuse,531,553,935,tracker 935 matched gt 531 (last frame 103) now gt 553
+V003,107,reuse,553,531,935,tracker 935 matched gt 553 (last frame 106) now gt 531
+V003,108,reuse,531,553,935,tracker 935 matched gt 531 (last frame 107) now gt 553
+V003,141,switch,517,517,974,tracker 890 -> 974 on gt 517
+V003,145,switch,517,517,890,tracker 974 -> 890 on gt 517
+V003,151,switch,522,522,981,tracker 939 -> 981 on gt 522
+V003,172,switch,169,169,921,tracker 937 -> 921 on gt 169
+V003,173,reuse,512,169,921,tracker 921 matched gt 512 (last frame 142) now gt 169
+V003,235,switch,499,499,1003,tracker 889 -> 1003 on gt 499
+V003,242,switch,30,30,902,tracker 879 -> 902 on gt 30
+V003,243,reuse,541,30,902,tracker 902 matched gt 541 (last frame 211) now gt 30
+V003,245,reuse,160,328,994,tracker 994 matched gt 160 (last frame 233) now gt 328
+V003,271,switch,112,112,927,tracker 934 -> 927 on gt 112
+V003,272,reuse,110,112,927,tracker 927 matched gt 110 (last frame 270) now gt 112
+V003,274,reuse,112,110,927,tracker 927 matched gt 112 (last frame 273) now gt 110
+V003,291,switch,30,30,943,tracker 902 -> 943 on gt 30
+V003,291,reuse,110,112,927,tracker 927 matched gt 110 (last frame 290) now gt 112
+V003,292,reuse,508,30,943,tracker 943 matched gt 508 (last frame 255) now gt 30
+V003,309,switch,110,110,1029,tracker 927 -> 1029 on gt 110
+V003,324,switch,168,168,1020,tracker 1000 -> 1020 on gt 168
+V003,346,reuse,168,20,1000,tracker 1000 matched gt 168 (last frame 323) now gt 20
+V003,366,reuse,472,29,875,tracker 875 matched gt 472 (last frame 361) now gt 29
+V003,374,switch,29,29,888,tracker 875 -> 888 on gt 29
+V003,375,reuse,470,29,888,tracker 888 matched gt 470 (last frame 369) now gt 29
+V003,385,switch,468,468,1045,tracker 870 -> 1045 on gt 468
+V003,432,switch,110,110,1066,tracker 1029 -> 1066 on gt 110
+V003,433,switch,471,471,1045,tracker 878 -> 1045 on gt 471
+V003,434,reuse,468,471,1045,tracker 1045 matched gt 468 (last frame 431) now gt 471
+V003,437,switch,471,471,878,tracker 1045 -> 878 on gt 471
+V003,437,reuse,168,9,1020,tracker 1020 matched gt 168 (last frame 337) now gt 9
+V003,438,reuse,9,48,1020,tracker 1020 matched gt 9 (last frame 437) now gt 48
+V003,443,switch,9,9,1069,tracker 1020 -> 1069 on gt 9
+V003,459,switch,492,492,893,tracker 914 -> 893 on gt 492
+V003,460,reuse,497,492,893,tracker 893 matched gt 497 (last frame 429) now gt 492
+V003,632,switch,110,110,869,tracker 1066 -> 869 on gt 110
+V003,633,reuse,501,110,869,tracker 869 matched gt 501 (last frame 631) now gt 110
+V003,636,switch,83,83,1112,tracker 980 -> 1112 on gt 83
+V003,638,switch,67,67,896,tracker 908 -> 896 on gt 67
+V003,639,reuse,66,67,896,tracker 896 matched gt 66 (last frame 633) now gt 67
+V003,641,switch,186,186,1131,tracker 868 -> 1131 on gt 186
+V003,707,switch,81,81,959,tracker 915 -> 959 on gt 81
+V003,708,switch,81,81,915,tracker 915 -> 915 on gt 81
+V003,726,switch,46,46,1148,tracker 1128 -> 1148 on gt 46
+V003,734,switch,8,8,1151,tracker 1056 -> 1151 on gt 8
+V003,750,switch,305,305,1033,tracker 1016 -> 1033 on gt 305
+V003,751,reuse,57,305,1033,tracker 1033 matched gt 57 (last frame 718) now gt 305
+V003,782,switch,186,186,866,tracker 1131 -> 866 on gt 186
+V003,783,reuse,86,186,866,tracker 866 matched gt 86 (last frame 781) now gt 186
+V003,784,switch,305,305,1154,tracker 1033 -> 1154 on gt 305
+V003,790,switch,186,186,1131,tracker 866 -> 1131 on gt 186
+V003,792,switch,186,186,866,tracker 1131 -> 866 on gt 186
+V003,796,switch,186,186,1131,tracker 866 -> 1131 on gt 186
+V003,812,switch,186,186,866,tracker 1131 -> 866 on gt 186
+V003,841,switch,6,6,1176,tracker 1096 -> 1176 on gt 6
+V003,854,switch,5,5,1180,tracker 1133 -> 1180 on gt 5
+V003,878,switch,290,290,1177,tracker 1185 -> 1177 on gt 290
+V003,878,switch,421,421,1185,tracker 1177 -> 1185 on gt 421
+V003,879,reuse,421,290,1177,tracker 1177 matched gt 421 (last frame 877) now gt 290
+V003,879,reuse,290,421,1185,tracker 1185 matched gt 290 (last frame 873) now gt 421
+V003,904,switch,277,277,1189,tracker 1022 -> 1189 on gt 277
+V003,918,switch,49,49,1022,tracker 1006 -> 1022 on gt 49
+V003,919,reuse,277,49,1022,tracker 1022 matched gt 277 (last frame 903) now gt 49
+V003,920,switch,49,49,1006,tracker 1022 -> 1006 on gt 49
+V003,960,reuse,277,36,1189,tracker 1189 matched gt 277 (last frame 942) now gt 36
+V003,1040,reuse,49,312,1006,tracker 1006 matched gt 49 (last frame 970) now gt 312
+V003,1052,switch,277,277,1264,tracker 1189 -> 1264 on gt 277
+V003,1055,switch,3,3,1266,tracker 1123 -> 1266 on gt 3
+V003,1078,switch,10,10,1114,tracker 1076 -> 1114 on gt 10
+V003,1079,switch,328,328,999,tracker 994 -> 999 on gt 328
+V003,1079,reuse,15,10,1114,tracker 1114 matched gt 15 (last frame 1062) now gt 10
+V003,1081,reuse,18,328,999,tracker 999 matched gt 18 (last frame 1058) now gt 328
+V003,1113,switch,274,274,1284,tracker 1280 -> 1284 on gt 274
+V003,1114,switch,326,326,1285,tracker 1081 -> 1285 on gt 326
+V003,1115,switch,48,48,999,tracker 1020 -> 999 on gt 48
+V003,1116,reuse,328,48,999,tracker 999 matched gt 328 (last frame 1087) now gt 48
+V003,1121,reuse,274,318,1280,tracker 1280 matched gt 274 (last frame 1112) now gt 318
+V003,1124,switch,323,323,1288,tracker 979 -> 1288 on gt 323
+V003,1137,reuse,714,275,1217,tracker 1217 matched gt 714 (last frame 1134) now gt 275
+V003,1142,switch,318,318,1295,tracker 1280 -> 1295 on gt 318
+V003,1143,switch,45,45,1266,tracker 1115 -> 1266 on gt 45
+V003,1144,reuse,3,45,1266,tracker 1266 matched gt 3 (last frame 1142) now gt 45
+V003,1145,switch,326,326,1298,tracker 1285 -> 1298 on gt 326
+V003,1145,switch,428,428,1055,tracker 1030 -> 1055 on gt 428
+V003,1146,switch,324,324,1302,tracker 1074 -> 1302 on gt 324
+V003,1146,switch,328,328,1083,tracker 999 -> 1083 on gt 328
+V003,1146,switch,428,428,1030,tracker 1030 -> 1030 on gt 428
+V003,1152,switch,277,277,1309,tracker 1264 -> 1309 on gt 277
+V003,1155,switch,428,428,1055,tracker 1030 -> 1055 on gt 428
+V003,1156,reuse,12,428,1055,tracker 1055 matched gt 12 (last frame 1141) now gt 428
+V003,1156,reuse,1,273,1141,tracker 1141 matched gt 1 (last frame 1115) now gt 273
+V003,1157,switch,12,12,1030,tracker 1055 -> 1030 on gt 12
+V003,1157,switch,325,325,1269,tracker 1094 -> 1269 on gt 325
+V003,1157,switch,428,428,1094,tracker 1055 -> 1094 on gt 428
+V003,1158,reuse,428,12,1030,tracker 1030 matched gt 428 (last frame 1153) now gt 12
+V003,1158,reuse,325,428,1094,tracker 1094 matched gt 325 (last frame 1156) now gt 428
+V003,1160,switch,322,322,1232,tracker 970 -> 1232 on gt 322
+V003,1162,reuse,32,272,956,tracker 956 matched gt 32 (last frame 1112) now gt 272
+V003,1164,switch,322,322,999,tracker 970 -> 999 on gt 322
+V003,1165,switch,313,313,1091,tracker 993 -> 1091 on gt 313
+V003,1165,reuse,48,322,999,tracker 999 matched gt 48 (last frame 1162) now gt 322
+V003,1166,switch,277,277,1295,tracker 1309 -> 1295 on gt 277
+V003,1166,switch,318,318,1309,tracker 1295 -> 1309 on gt 318
+V003,1166,reuse,11,313,1091,tracker 1091 matched gt 11 (last frame 1140) now gt 313
+V003,1167,switch,9,9,1091,tracker 1069 -> 1091 on gt 9
+V003,1167,reuse,318,277,1295,tracker 1295 matched gt 318 (last frame 1165) now gt 277
+V003,1167,reuse,277,318,1309,tracker 1309 matched gt 277 (last frame 1162) now gt 318
+V003,1168,reuse,313,9,1091,tracker 1091 matched gt 313 (last frame 1166) now gt 9
+V003,1177,switch,325,325,1055,tracker 1269 -> 1055 on gt 325
+V003,1178,reuse,428,325,1055,tracker 1055 matched gt 428 (last frame 1156) now gt 325
+V003,1182,switch,314,314,1151,tracker 1034 -> 1151 on gt 314
+V003,1183,switch,314,314,1055,tracker 1034 -> 1055 on gt 314
+V003,1183,switch,325,325,1034,tracker 1055 -> 1034 on gt 325
+V003,1184,reuse,325,314,1055,tracker 1055 matched gt 325 (last frame 1182) now gt 314
+V003,1184,reuse,314,325,1034,tracker 1034 matched gt 314 (last frame 1181) now gt 325
+V003,1187,switch,274,274,1324,tracker 1284 -> 1324 on gt 274
+V003,1209,switch,428,428,1103,tracker 1094 -> 1103 on gt 428
+V003,1210,reuse,310,428,1103,tracker 1103 matched gt 310 (last frame 1208) now gt 428
+V003,1212,switch,319,319,1254,tracker 1227 -> 1254 on gt 319
+V003,1213,switch,310,310,1232,tracker 1103 -> 1232 on gt 310
+V003,1213,reuse,320,319,1254,tracker 1254 matched gt 320 (last frame 1211) now gt 319
+V003,1214,reuse,715,310,1232,tracker 1232 matched gt 715 (last frame 1100) now gt 310
+V003,1217,switch,325,325,1154,tracker 1034 -> 1154 on gt 325
+V003,1218,reuse,305,325,1154,tracker 1154 matched gt 305 (last frame 1215) now gt 325
+V003,1220,switch,319,319,1343,tracker 1254 -> 1343 on gt 319
+V003,1220,switch,428,428,1314,tracker 1103 -> 1314 on gt 428
+V003,1222,switch,310,310,1103,tracker 1232 -> 1103 on gt 310
+V003,1223,reuse,428,310,1103,tracker 1103 matched gt 428 (last frame 1210) now gt 310
+V003,1228,reuse,319,320,1254,tracker 1254 matched gt 319 (last frame 1219) now gt 320
+V003,1235,switch,320,320,1351,tracker 1254 -> 1351 on gt 320
+V003,1239,switch,319,319,1351,tracker 1343 -> 1351 on gt 319
+V003,1239,switch,320,320,1254,tracker 1254 -> 1254 on gt 320
+V003,1240,reuse,274,276,1324,tracker 1324 matched gt 274 (last frame 1221) now gt 276
+V003,1241,switch,319,319,1343,tracker 1351 -> 1343 on gt 319
+V003,1253,switch,296,296,1142,tracker 1158 -> 1142 on gt 296
+V003,1254,reuse,303,296,1142,tracker 1142 matched gt 303 (last frame 1200) now gt 296
+V003,1264,switch,321,321,1158,tracker 1250 -> 1158 on gt 321
+V003,1268,switch,293,293,1254,tracker 1242 -> 1254 on gt 293
+V003,1269,reuse,320,293,1254,tracker 1254 matched gt 320 (last frame 1247) now gt 293
+V003,1316,switch,289,289,1254,tracker 1275 -> 1254 on gt 289
+V003,1317,reuse,293,289,1254,tracker 1254 matched gt 293 (last frame 1295) now gt 289
+V003,1334,switch,292,292,1386,tracker 1104 -> 1386 on gt 292
+V003,1368,switch,292,292,1104,tracker 1386 -> 1104 on gt 292
+V003,1386,switch,349,349,1416,tracker 1188 -> 1416 on gt 349
+V003,1393,switch,270,270,1414,tracker 1279 -> 1414 on gt 270
+V003,1393,switch,433,433,1289,tracker 1346 -> 1289 on gt 433
+V003,1394,reuse,438,433,1289,tracker 1289 matched gt 438 (last frame 1386) now gt 433
+V003,1403,switch,457,457,1279,tracker 1304 -> 1279 on gt 457
+V003,1404,reuse,270,457,1279,tracker 1279 matched gt 270 (last frame 1390) now gt 457
+V003,1406,switch,237,237,1245,tracker 1320 -> 1245 on gt 237
+V003,1407,reuse,260,237,1245,tracker 1245 matched gt 260 (last frame 1405) now gt 237
+V003,1411,switch,260,260,1244,tracker 1245 -> 1244 on gt 260
+V003,1412,reuse,317,260,1244,tracker 1244 matched gt 317 (last frame 1410) now gt 260
+V003,1423,switch,460,460,1205,tracker 1234 -> 1205 on gt 460
+V003,1424,reuse,348,460,1205,tracker 1205 matched gt 348 (last frame 1422) now gt 460
+V003,1438,switch,348,348,1445,tracker 1205 -> 1445 on gt 348
+V003,1475,switch,266,266,1454,tracker 1233 -> 1454 on gt 266
+V003,1492,switch,426,426,1464,tracker 1136 -> 1464 on gt 426
+V003,1496,switch,426,426,1136,tracker 1464 -> 1136 on gt 426
+V003,1501,switch,270,270,1461,tracker 1414 -> 1461 on gt 270
+V003,1518,reuse,270,439,1461,tracker 1461 matched gt 270 (last frame 1517) now gt 439
+V003,1523,switch,431,431,1479,tracker 1369 -> 1479 on gt 431
+V003,1528,switch,431,431,1369,tracker 1369 -> 1369 on gt 431
+V003,1562,switch,392,392,1512,tracker 1375 -> 1512 on gt 392
+V003,1564,switch,426,426,1514,tracker 1136 -> 1514 on gt 426
+V003,1569,switch,426,426,1507,tracker 1514 -> 1507 on gt 426
+V003,1571,switch,426,426,1516,tracker 1507 -> 1516 on gt 426
+V003,1599,switch,461,461,1205,tracker 1240 -> 1205 on gt 461
+V003,1600,reuse,460,461,1205,tracker 1205 matched gt 460 (last frame 1594) now gt 461
+V003,1623,switch,208,208,1557,tracker 1235 -> 1557 on gt 208
+V003,1650,switch,626,626,1407,tracker 1478 -> 1407 on gt 626
+V003,1651,reuse,412,626,1407,tracker 1407 matched gt 412 (last frame 1627) now gt 626
+V003,1657,switch,626,626,1478,tracker 1407 -> 1478 on gt 626
+V003,1671,switch,349,349,1584,tracker 1416 -> 1584 on gt 349
+V003,1678,switch,465,465,1279,tracker 1299 -> 1279 on gt 465
+V003,1679,reuse,457,465,1279,tracker 1279 matched gt 457 (last frame 1659) now gt 465
+V003,1692,reuse,403,628,1390,tracker 1390 matched gt 403 (last frame 1689) now gt 628
+V003,1695,switch,381,381,1478,tracker 1490 -> 1478 on gt 381
+V003,1696,reuse,626,381,1478,tracker 1478 matched gt 626 (last frame 1694) now gt 381
+V003,1698,switch,601,601,1593,tracker 1498 -> 1593 on gt 601
+V003,1698,switch,626,626,1498,tracker 1478 -> 1498 on gt 626
+V003,1699,reuse,601,626,1498,tracker 1498 matched gt 601 (last frame 1697) now gt 626
+V003,1702,switch,381,381,1490,tracker 1478 -> 1490 on gt 381
+V003,1716,switch,625,625,1609,tracker 1474 -> 1609 on gt 625
+V003,1718,switch,410,410,1246,tracker 1243 -> 1246 on gt 410
+V003,1719,reuse,411,410,1246,tracker 1246 matched gt 411 (last frame 1687) now gt 410
+V003,1723,switch,408,408,1246,tracker 1342 -> 1246 on gt 408
+V003,1724,reuse,410,408,1246,tracker 1246 matched gt 410 (last frame 1722) now gt 408
+V003,1739,switch,592,592,1437,tracker 1444 -> 1437 on gt 592
+V003,1740,switch,684,684,1621,tracker 1345 -> 1621 on gt 684
+V003,1740,reuse,654,592,1437,tracker 1437 matched gt 654 (last frame 1736) now gt 592
+V003,1760,switch,589,589,1628,tracker 1283 -> 1628 on gt 589
+V003,1762,switch,592,592,1444,tracker 1437 -> 1444 on gt 592
+V003,1762,reuse,592,654,1437,tracker 1437 matched gt 592 (last frame 1761) now gt 654
+V003,1770,switch,340,340,1631,tracker 1401 -> 1631 on gt 340
+V003,1770,switch,353,353,1408,tracker 1424 -> 1408 on gt 353
+V003,1771,reuse,387,353,1408,tracker 1408 matched gt 387 (last frame 1769) now gt 353
+V003,1788,switch,731,731,1647,tracker 1634 -> 1647 on gt 731
+V003,1788,reuse,731,630,1634,tracker 1634 matched gt 731 (last frame 1787) now gt 630
+V003,1790,switch,589,589,1584,tracker 1628 -> 1584 on gt 589
+V003,1795,switch,654,654,1653,tracker 1437 -> 1653 on gt 654
+V003,1801,switch,386,386,1659,tracker 1582 -> 1659 on gt 386
+V003,1806,reuse,402,377,1393,tracker 1393 matched gt 402 (last frame 1805) now gt 377
+V003,1814,switch,353,353,1657,tracker 1408 -> 1657 on gt 353
+V003,1814,switch,654,654,1408,tracker 1653 -> 1408 on gt 654
+V003,1815,reuse,353,387,1408,tracker 1408 matched gt 353 (last frame 1813) now gt 387
+V003,1822,switch,354,354,1377,tracker 1396 -> 1377 on gt 354
+V003,1822,switch,388,388,1667,tracker 1377 -> 1667 on gt 388
+V003,1822,switch,392,392,1365,tracker 1512 -> 1365 on gt 392
+V003,1823,reuse,388,354,1377,tracker 1377 matched gt 388 (last frame 1821) now gt 354
+V003,1827,switch,385,385,1413,tracker 1365 -> 1413 on gt 385
+V003,1827,switch,678,678,1365,tracker 1413 -> 1365 on gt 678
+V003,1828,switch,392,392,1401,tracker 1512 -> 1401 on gt 392
+V003,1828,reuse,678,385,1413,tracker 1413 matched gt 678 (last frame 1826) now gt 385
+V003,1828,reuse,385,678,1365,tracker 1365 matched gt 385 (last frame 1821) now gt 678
+V003,1829,reuse,340,392,1401,tracker 1401 matched gt 340 (last frame 1769) now gt 392
+V003,1833,switch,354,354,1396,tracker 1377 -> 1396 on gt 354
+V003,1844,switch,354,354,1377,tracker 1396 -> 1377 on gt 354
+V003,1858,switch,548,548,1614,tracker 1617 -> 1614 on gt 548
+V003,1858,switch,549,549,1617,tracker 1614 -> 1617 on gt 549
+V003,1859,reuse,549,548,1614,tracker 1614 matched gt 549 (last frame 1857) now gt 548
+V003,1860,reuse,548,549,1617,tracker 1617 matched gt 548 (last frame 1833) now gt 549
+V003,1862,switch,367,367,1393,tracker 1378 -> 1393 on gt 367
+V003,1863,reuse,377,367,1393,tracker 1393 matched gt 377 (last frame 1838) now gt 367
+V003,1878,switch,354,354,1676,tracker 1377 -> 1676 on gt 354
+V003,1888,switch,670,670,1696,tracker 1363 -> 1696 on gt 670
+V003,1890,switch,591,591,1695,tracker 1341 -> 1695 on gt 591
+V003,1903,switch,571,571,1704,tracker 1467 -> 1704 on gt 571
+V003,1913,switch,584,584,1710,tracker 1443 -> 1710 on gt 584
+V003,1913,switch,670,670,1443,tracker 1696 -> 1443 on gt 670
+V003,1914,reuse,584,670,1443,tracker 1443 matched gt 584 (last frame 1912) now gt 670
+V003,1917,switch,338,338,1265,tracker 1256 -> 1265 on gt 338
+V003,1917,switch,595,595,1256,tracker 1265 -> 1256 on gt 595
+V003,1918,reuse,338,595,1256,tracker 1256 matched gt 338 (last frame 1896) now gt 595
+V003,1935,switch,625,625,1719,tracker 1609 -> 1719 on gt 625
+V003,1935,switch,629,629,1609,tracker 1661 -> 1609 on gt 629
+V003,1936,reuse,625,629,1609,tracker 1609 matched gt 625 (last frame 1934) now gt 629
+V003,1937,switch,392,392,1722,tracker 1401 -> 1722 on gt 392
+V003,1947,switch,388,388,1371,tracker 1667 -> 1371 on gt 388
+V003,1948,reuse,597,388,1371,tracker 1371 matched gt 597 (last frame 1922) now gt 388
+V003,1949,switch,380,380,1319,tracker 1270 -> 1319 on gt 380
+V003,1950,reuse,596,380,1319,tracker 1319 matched gt 596 (last frame 1948) now gt 380
+V003,1959,reuse,590,730,1338,tracker 1338 matched gt 590 (last frame 1895) now gt 730
+V003,1963,reuse,380,596,1319,tracker 1319 matched gt 380 (last frame 1962) now gt 596
+V003,1966,reuse,356,364,1337,tracker 1337 matched gt 356 (last frame 1927) now gt 364
+V003,1968,reuse,595,338,1265,tracker 1265 matched gt 595 (last frame 1916) now gt 338
+V003,1970,switch,380,380,1338,tracker 1319 -> 1338 on gt 380
+V003,1972,reuse,730,380,1338,tracker 1338 matched gt 730 (last frame 1969) now gt 380
+V003,1979,switch,394,394,1341,tracker 1272 -> 1341 on gt 394
+V003,1979,switch,581,581,1448,tracker 1459 -> 1448 on gt 581
+V003,1980,reuse,591,394,1341,tracker 1341 matched gt 591 (last frame 1889) now gt 394
+V003,1980,reuse,582,581,1448,tracker 1448 matched gt 582 (last frame 1953) now gt 581
+V003,1995,switch,378,378,1387,tracker 1420 -> 1387 on gt 378
+V003,1996,reuse,585,378,1387,tracker 1387 matched gt 585 (last frame 1986) now gt 378
+V003,1998,switch,378,378,1420,tracker 1387 -> 1420 on gt 378
+V003,2002,switch,585,585,1417,tracker 1387 -> 1417 on gt 585
+V003,2003,reuse,379,585,1417,tracker 1417 matched gt 379 (last frame 1960) now gt 585
+V003,2010,switch,386,386,1530,tracker 1659 -> 1530 on gt 386
+V003,2011,switch,380,380,1318,tracker 1338 -> 1318 on gt 380
+V003,2011,reuse,569,386,1530,tracker 1530 matched gt 569 (last frame 2006) now gt 386
+V003,2012,reuse,675,380,1318,tracker 1318 matched gt 675 (last frame 2010) now gt 380
+V003,2020,switch,585,585,1710,tracker 1417 -> 1710 on gt 585
+V003,2021,reuse,584,585,1710,tracker 1710 matched gt 584 (last frame 2015) now gt 585
+V003,2025,switch,673,673,1267,tracker 1331 -> 1267 on gt 673
+V003,2025,switch,706,706,1331,tracker 1267 -> 1331 on gt 706
+V003,2026,reuse,706,673,1267,tracker 1267 matched gt 706 (last frame 2017) now gt 673
+V003,2026,reuse,673,706,1331,tracker 1331 matched gt 673 (last frame 2024) now gt 706
+V003,2037,switch,385,385,1722,tracker 1413 -> 1722 on gt 385
+V003,2038,switch,571,571,1420,tracker 1704 -> 1420 on gt 571
+V003,2038,reuse,392,385,1722,tracker 1722 matched gt 392 (last frame 2036) now gt 385
+V003,2039,reuse,378,571,1420,tracker 1420 matched gt 378 (last frame 1994) now gt 571
+V003,2051,reuse,679,677,1347,tracker 1347 matched gt 679 (last frame 2050) now gt 677
+V003,2072,switch,679,679,1779,tracker 1347 -> 1779 on gt 679
+V003,2074,reuse,578,645,1373,tracker 1373 matched gt 578 (last frame 2027) now gt 645
+V003,2075,switch,679,679,1621,tracker 1347 -> 1621 on gt 679
+V003,2076,switch,684,684,1780,tracker 1621 -> 1780 on gt 684
+V003,2076,reuse,684,679,1621,tracker 1621 matched gt 684 (last frame 2074) now gt 679
+V003,2090,switch,679,679,1782,tracker 1621 -> 1782 on gt 679
+V003,2110,reuse,679,681,1621,tracker 1621 matched gt 679 (last frame 2089) now gt 681
+V003,2111,switch,157,157,1802,tracker 1767 -> 1802 on gt 157
+V003,2111,reuse,157,156,1767,tracker 1767 matched gt 157 (last frame 2110) now gt 156
+V003,2118,reuse,559,153,1805,tracker 1805 matched gt 559 (last frame 2117) now gt 153
+V003,2119,switch,697,697,1722,tracker 1406 -> 1722 on gt 697
+V003,2120,reuse,385,697,1722,tracker 1722 matched gt 385 (last frame 2074) now gt 697
+V003,2126,switch,622,622,1406,tracker 1488 -> 1406 on gt 622
+V003,2127,switch,648,648,1438,tracker 1450 -> 1438 on gt 648
+V003,2127,switch,665,665,1450,tracker 1438 -> 1450 on gt 665
+V003,2127,reuse,697,622,1406,tracker 1406 matched gt 697 (last frame 2117) now gt 622
+V003,2128,switch,650,650,1817,tracker 1457 -> 1817 on gt 650
+V003,2128,reuse,665,648,1438,tracker 1438 matched gt 665 (last frame 2126) now gt 648
+V003,2128,reuse,648,665,1450,tracker 1450 matched gt 648 (last frame 2126) now gt 665
+V003,2129,switch,678,678,1347,tracker 1365 -> 1347 on gt 678
+V003,2131,switch,664,664,1788,tracker 1357 -> 1788 on gt 664
+V003,2134,switch,679,679,1824,tracker 1782 -> 1824 on gt 679
+V003,2142,switch,706,706,1267,tracker 1331 -> 1267 on gt 706
+V003,2143,reuse,673,706,1267,tracker 1267 matched gt 673 (last frame 2141) now gt 706
+V003,2153,switch,681,681,1782,tracker 1621 -> 1782 on gt 681
+V003,2154,reuse,679,681,1782,tracker 1782 matched gt 679 (last frame 2132) now gt 681
+V003,2156,switch,684,684,1365,tracker 1780 -> 1365 on gt 684
+V003,2157,switch,244,244,1849,tracker 1627 -> 1849 on gt 244
+V003,2157,reuse,678,684,1365,tracker 1365 matched gt 678 (last frame 2125) now gt 684
+V003,2160,switch,681,681,1621,tracker 1782 -> 1621 on gt 681
+V003,2161,switch,681,681,1782,tracker 1782 -> 1782 on gt 681
+V003,2163,switch,681,681,1621,tracker 1782 -> 1621 on gt 681
+V003,2165,switch,636,636,1730,tracker 1713 -> 1730 on gt 636
+V003,2166,reuse,727,636,1730,tracker 1730 matched gt 727 (last frame 2116) now gt 636
+V003,2172,switch,641,641,1405,tracker 1361 -> 1405 on gt 641
+V003,2173,reuse,660,641,1405,tracker 1405 matched gt 660 (last frame 2134) now gt 641
+V003,2177,switch,641,641,1361,tracker 1405 -> 1361 on gt 641
+V003,2180,switch,685,685,1722,tracker 1859 -> 1722 on gt 685
+V003,2181,reuse,641,660,1405,tracker 1405 matched gt 641 (last frame 2176) now gt 660
+V003,2181,reuse,697,685,1722,tracker 1722 matched gt 697 (last frame 2133) now gt 685
+V003,2190,switch,652,652,1705,tracker 1694 -> 1705 on gt 652
+V003,2191,reuse,658,652,1705,tracker 1705 matched gt 658 (last frame 2159) now gt 652
+V003,2192,switch,701,701,1465,tracker 1410 -> 1465 on gt 701
+V003,2194,reuse,637,701,1465,tracker 1465 matched gt 637 (last frame 2191) now gt 701
+V003,2196,switch,660,660,1410,tracker 1405 -> 1410 on gt 660
+V003,2196,switch,701,701,1405,tracker 1465 -> 1405 on gt 701
+V003,2197,reuse,701,660,1410,tracker 1410 matched gt 701 (last frame 2181) now gt 660
+V003,2197,reuse,660,701,1405,tracker 1405 matched gt 660 (last frame 2195) now gt 701
+V003,2198,switch,656,656,1694,tracker 1688 -> 1694 on gt 656
+V003,2199,reuse,652,656,1694,tracker 1694 matched gt 652 (last frame 2188) now gt 656
+V003,2200,switch,656,656,1870,tracker 1694 -> 1870 on gt 656
+V003,2201,switch,665,665,1694,tracker 1450 -> 1694 on gt 665
+V003,2202,reuse,656,665,1694,tracker 1694 matched gt 656 (last frame 2199) now gt 665
+V003,2204,switch,637,637,1887,tracker 1465 -> 1887 on gt 637
+V003,2204,switch,641,641,1465,tracker 1361 -> 1465 on gt 641
+V003,2207,switch,640,640,1888,tracker 1700 -> 1888 on gt 640
+V003,2207,reuse,701,641,1465,tracker 1465 matched gt 701 (last frame 2194) now gt 641
+V003,2215,switch,680,680,1859,tracker 1425 -> 1859 on gt 680
+V003,2216,reuse,685,680,1859,tracker 1859 matched gt 685 (last frame 2178) now gt 680
+V003,2217,switch,664,664,1881,tracker 1788 -> 1881 on gt 664
+V003,2221,switch,634,634,1361,tracker 1554 -> 1361 on gt 634
+V003,2222,switch,558,558,1895,tracker 1775 -> 1895 on gt 558
+V003,2222,reuse,641,634,1361,tracker 1361 matched gt 641 (last frame 2192) now gt 634
+V003,2224,switch,685,685,1846,tracker 1722 -> 1846 on gt 685
+V003,2225,reuse,682,685,1846,tracker 1846 matched gt 682 (last frame 2223) now gt 685
+V003,2226,switch,686,686,1904,tracker 1891 -> 1904 on gt 686
+V003,2226,reuse,137,138,1899,tracker 1899 matched gt 137 (last frame 2225) now gt 138
+V003,2226,reuse,686,683,1891,tracker 1891 matched gt 686 (last frame 2225) now gt 683
+V003,2227,switch,558,558,1775,tracker 1895 -> 1775 on gt 558
+V003,2227,switch,656,656,1450,tracker 1870 -> 1450 on gt 656
+V003,2227,switch,664,664,1907,tracker 1881 -> 1907 on gt 664
+V003,2228,reuse,665,656,1450,tracker 1450 matched gt 665 (last frame 2200) now gt 656
+V003,2229,switch,137,137,1912,tracker 1899 -> 1912 on gt 137
+V003,2229,switch,662,662,1882,tracker 1362 -> 1882 on gt 662
+V003,2229,reuse,685,682,1846,tracker 1846 matched gt 685 (last frame 2228) now gt 682
+V003,2230,switch,647,647,1554,tracker 1506 -> 1554 on gt 647
+V003,2234,switch,660,660,1491,tracker 1410 -> 1491 on gt 660
+V003,2234,reuse,634,647,1554,tracker 1554 matched gt 634 (last frame 2220) now gt 647
+V003,2235,reuse,635,660,1491,tracker 1491 matched gt 635 (last frame 2233) now gt 660
+V003,2236,switch,660,660,1410,tracker 1491 -> 1410 on gt 660
+V003,2236,switch,704,704,1881,tracker 1404 -> 1881 on gt 704
+V003,2236,reuse,660,635,1491,tracker 1491 matched gt 660 (last frame 2235) now gt 635
+V003,2237,switch,214,214,1897,tracker 1917 -> 1897 on gt 214
+V003,2237,reuse,664,704,1881,tracker 1881 matched gt 664 (last frame 2226) now gt 704
+V003,2237,reuse,214,211,1917,tracker 1917 matched gt 214 (last frame 2236) now gt 211
+V003,2238,reuse,624,214,1897,tracker 1897 matched gt 624 (last frame 2236) now gt 214
+V003,2239,switch,660,660,1491,tracker 1410 -> 1491 on gt 660
+V003,2240,reuse,635,660,1491,tracker 1491 matched gt 635 (last frame 2238) now gt 660
+V003,2241,switch,704,704,1788,tracker 1881 -> 1788 on gt 704
+V003,2242,reuse,664,704,1788,tracker 1788 matched gt 664 (last frame 2216) now gt 704
+V003,2243,switch,624,624,1733,tracker 1897 -> 1733 on gt 624
+V003,2243,switch,635,635,1410,tracker 1491 -> 1410 on gt 635
+V003,2243,switch,657,657,1361,tracker 1678 -> 1361 on gt 657
+V003,2244,switch,255,255,1922,tracker 1499 -> 1922 on gt 255
+V003,2244,switch,610,610,1588,tracker 1753 -> 1588 on gt 610
+V003,2244,switch,623,623,1926,tracker 1733 -> 1926 on gt 623
+V003,2244,reuse,623,624,1733,tracker 1733 matched gt 623 (last frame 2242) now gt 624
+V003,2244,reuse,660,635,1410,tracker 1410 matched gt 660 (last frame 2237) now gt 635
+V003,2244,reuse,634,657,1361,tracker 1361 matched gt 634 (last frame 2236) now gt 657
+V003,2245,switch,236,236,1918,tracker 1455 -> 1918 on gt 236
+V003,2245,reuse,609,610,1588,tracker 1588 matched gt 609 (last frame 2240) now gt 610
+V003,2246,switch,255,255,1499,tracker 1922 -> 1499 on gt 255
+V003,2246,switch,610,610,1753,tracker 1588 -> 1753 on gt 610
+V003,2246,reuse,610,609,1588,tracker 1588 matched gt 610 (last frame 2245) now gt 609
+V003,2249,switch,656,656,1694,tracker 1450 -> 1694 on gt 656
+V003,2250,switch,700,700,1730,tracker 1536 -> 1730 on gt 700
+V003,2250,switch,704,704,1404,tracker 1788 -> 1404 on gt 704
+V003,2250,reuse,665,656,1694,tracker 1694 matched gt 665 (last frame 2231) now gt 656
+V003,2251,switch,680,680,1722,tracker 1859 -> 1722 on gt 680
+V003,2251,reuse,636,700,1730,tracker 1730 matched gt 636 (last frame 2199) now gt 700
+V003,2252,switch,652,652,1450,tracker 1705 -> 1450 on gt 652
+V003,2252,reuse,685,680,1722,tracker 1722 matched gt 685 (last frame 2212) now gt 680
+V003,2253,reuse,656,652,1450,tracker 1450 matched gt 656 (last frame 2248) now gt 652
+V003,2257,switch,236,236,1455,tracker 1918 -> 1455 on gt 236
+V003,2258,switch,680,680,1406,tracker 1722 -> 1406 on gt 680
+V003,2259,reuse,622,680,1406,tracker 1406 matched gt 622 (last frame 2257) now gt 680
+V003,2260,switch,646,646,1678,tracker 1489 -> 1678 on gt 646
+V003,2261,reuse,657,646,1678,tracker 1678 matched gt 657 (last frame 2241) now gt 646
+V003,2264,switch,644,644,1705,tracker 1605 -> 1705 on gt 644
+V003,2264,switch,680,680,1722,tracker 1406 -> 1722 on gt 680
+V003,2265,reuse,652,644,1705,tracker 1705 matched gt 652 (last frame 2251) now gt 644
+V003,2266,switch,686,686,1891,tracker 1904 -> 1891 on gt 686
+V003,2267,switch,700,700,1536,tracker 1730 -> 1536 on gt 700
+V003,2267,reuse,683,686,1891,tracker 1891 matched gt 683 (last frame 2265) now gt 686
+V003,2268,switch,646,646,1489,tracker 1678 -> 1489 on gt 646
+V003,2268,switch,647,647,1410,tracker 1554 -> 1410 on gt 647
+V003,2269,reuse,635,647,1410,tracker 1410 matched gt 635 (last frame 2246) now gt 647
+V003,2270,switch,648,648,1678,tracker 1438 -> 1678 on gt 648
+V003,2271,reuse,647,635,1410,tracker 1410 matched gt 647 (last frame 2270) now gt 635
+V003,2271,reuse,646,648,1678,tracker 1678 matched gt 646 (last frame 2267) now gt 648
+V003,2271,reuse,688,687,1932,tracker 1932 matched gt 688 (last frame 2270) now gt 687
+V003,2272,switch,646,646,1881,tracker 1489 -> 1881 on gt 646
+V003,2273,reuse,704,646,1881,tracker 1881 matched gt 704 (last frame 2240) now gt 646
+V003,2274,switch,646,646,1489,tracker 1881 -> 1489 on gt 646
+V003,2275,switch,229,229,1918,tracker 1460 -> 1918 on gt 229
+V003,2276,switch,652,652,1881,tracker 1450 -> 1881 on gt 652
+V003,2276,reuse,236,229,1918,tracker 1918 matched gt 236 (last frame 2256) now gt 229
+V003,2277,switch,229,229,1460,tracker 1918 -> 1460 on gt 229
+V003,2277,switch,628,628,1609,tracker 1390 -> 1609 on gt 628
+V003,2277,reuse,646,652,1881,tracker 1881 matched gt 646 (last frame 2273) now gt 652
+V003,2278,switch,652,652,1450,tracker 1881 -> 1450 on gt 652
+V003,2278,reuse,629,628,1609,tracker 1609 matched gt 629 (last frame 2264) now gt 628
+V003,2281,switch,635,635,1678,tracker 1410 -> 1678 on gt 635
+V003,2282,switch,647,647,1954,tracker 1410 -> 1954 on gt 647
+V003,2282,reuse,648,635,1678,tracker 1678 matched gt 648 (last frame 2271) now gt 635
+V003,2283,switch,646,646,1361,tracker 1489 -> 1361 on gt 646
+V003,2284,reuse,657,646,1361,tracker 1361 matched gt 657 (last frame 2246) now gt 646
+V003,2285,switch,628,628,1647,tracker 1609 -> 1647 on gt 628
+V003,2285,switch,647,647,1410,tracker 1954 -> 1410 on gt 647
+V003,2286,switch,628,628,1609,tracker 1609 -> 1609 on gt 628
+V003,2286,reuse,635,647,1410,tracker 1410 matched gt 635 (last frame 2273) now gt 647
+V003,2288,switch,635,635,1410,tracker 1678 -> 1410 on gt 635
+V003,2288,switch,644,644,1888,tracker 1705 -> 1888 on gt 644
+V003,2289,switch,638,638,1404,tracker 1430 -> 1404 on gt 638
+V003,2289,switch,647,647,1678,tracker 1410 -> 1678 on gt 647
+V003,2289,reuse,647,635,1410,tracker 1410 matched gt 647 (last frame 2286) now gt 635
+V003,2289,reuse,640,644,1888,tracker 1888 matched gt 640 (last frame 2210) now gt 644
+V003,2290,reuse,704,638,1404,tracker 1404 matched gt 704 (last frame 2264) now gt 638
+V003,2290,reuse,635,647,1678,tracker 1678 matched gt 635 (last frame 2287) now gt 647
+V003,2292,switch,635,635,1954,tracker 1410 -> 1954 on gt 635
+V003,2293,reuse,647,635,1954,tracker 1954 matched gt 647 (last frame 2284) now gt 635
+V003,2298,switch,646,646,1489,tracker 1361 -> 1489 on gt 646
+V003,2298,switch,652,652,1361,tracker 1450 -> 1361 on gt 652
+V003,2300,switch,648,648,1954,tracker 1678 -> 1954 on gt 648
+V003,2301,switch,652,652,1489,tracker 1450 -> 1489 on gt 652
+V003,2301,reuse,635,648,1954,tracker 1954 matched gt 635 (last frame 2293) now gt 648
+V003,2302,reuse,646,652,1489,tracker 1489 matched gt 646 (last frame 2282) now gt 652
+V003,2303,switch,646,646,1361,tracker 1361 -> 1361 on gt 646
+V003,2307,switch,646,646,1817,tracker 1361 -> 1817 on gt 646
+V003,2309,switch,648,648,1410,tracker 1954 -> 1410 on gt 648
+V003,2309,reuse,650,646,1817,tracker 1817 matched gt 650 (last frame 2301) now gt 646
+V003,2310,reuse,635,648,1410,tracker 1410 matched gt 635 (last frame 2291) now gt 648
+V003,2312,switch,638,638,1907,tracker 1404 -> 1907 on gt 638
+V003,2313,switch,642,642,1567,tracker 1654 -> 1567 on gt 642
+V003,2313,reuse,664,638,1907,tracker 1907 matched gt 664 (last frame 2246) now gt 638
+V003,2314,reuse,643,642,1567,tracker 1567 matched gt 643 (last frame 2285) now gt 642
+V003,2315,switch,638,638,1430,tracker 1907 -> 1430 on gt 638
+V003,2320,switch,705,705,1404,tracker 1447 -> 1404 on gt 705
+V003,2321,reuse,638,705,1404,tracker 1404 matched gt 638 (last frame 2311) now gt 705
+V003,2328,switch,612,612,1598,tracker 1601 -> 1598 on gt 612
+V003,2329,reuse,611,612,1598,tracker 1598 matched gt 611 (last frame 2319) now gt 612
+V003,2331,switch,505,505,1775,tracker 1769 -> 1775 on gt 505
+V003,2331,switch,705,705,1447,tracker 1404 -> 1447 on gt 705
+V003,2332,switch,629,629,1634,tracker 1609 -> 1634 on gt 629
+V003,2332,switch,633,633,1654,tracker 1671 -> 1654 on gt 633
+V003,2332,reuse,558,505,1775,tracker 1775 matched gt 558 (last frame 2300) now gt 505
+V003,2333,reuse,630,629,1634,tracker 1634 matched gt 630 (last frame 2331) now gt 629
+V003,2338,reuse,629,630,1634,tracker 1634 matched gt 629 (last frame 2337) now gt 630
+V003,2345,switch,613,613,1492,tracker 1718 -> 1492 on gt 613
+V003,2346,reuse,632,613,1492,tracker 1492 matched gt 632 (last frame 2325) now gt 613
+V003,2350,switch,613,613,1598,tracker 1492 -> 1598 on gt 613
+V003,2351,switch,613,613,1492,tracker 1492 -> 1492 on gt 613
+V003,2352,switch,236,236,1567,tracker 1455 -> 1567 on gt 236
+V003,2353,reuse,642,236,1567,tracker 1567 matched gt 642 (last frame 2342) now gt 236
+V003,2354,switch,236,236,1450,tracker 1567 -> 1450 on gt 236
+V003,2354,switch,613,613,1598,tracker 1492 -> 1598 on gt 613
+V003,2355,switch,236,236,1567,tracker 1567 -> 1567 on gt 236
+V003,2355,reuse,612,613,1598,tracker 1598 matched gt 612 (last frame 2352) now gt 613
+V003,2358,switch,253,253,1432,tracker 1472 -> 1432 on gt 253
+V003,2358,switch,689,689,2003,tracker 1997 -> 2003 on gt 689
+V003,2359,reuse,661,253,1432,tracker 1432 matched gt 661 (last frame 2337) now gt 253
+V003,2361,switch,253,253,1472,tracker 1432 -> 1472 on gt 253
+V003,2361,switch,558,558,2008,tracker 1775 -> 2008 on gt 558
+V003,2363,switch,253,253,1432,tracker 1472 -> 1432 on gt 253
+V003,2374,switch,253,253,1472,tracker 1432 -> 1472 on gt 253
+V003,2377,switch,610,610,1598,tracker 1753 -> 1598 on gt 610
+V003,2378,reuse,613,610,1598,tracker 1598 matched gt 613 (last frame 2376) now gt 610
+V003,2381,switch,230,230,1555,tracker 1665 -> 1555 on gt 230
+V003,2381,switch,254,254,1907,tracker 1468 -> 1907 on gt 254
+V003,2381,switch,576,576,2023,tracker 1819 -> 2023 on gt 576
+V003,2382,switch,253,253,1404,tracker 1472 -> 1404 on gt 253
+V003,2382,reuse,618,230,1555,tracker 1555 matched gt 618 (last frame 2350) now gt 230
+V003,2382,reuse,638,254,1907,tracker 1907 matched gt 638 (last frame 2313) now gt 254
+V003,2383,switch,253,253,1472,tracker 1472 -> 1472 on gt 253
+V003,2384,switch,716,716,1982,tracker 1988 -> 1982 on gt 716
+V003,2384,switch,723,723,1988,tracker 1982 -> 1988 on gt 723
+V003,2385,reuse,723,716,1982,tracker 1982 matched gt 723 (last frame 2383) now gt 716
+V003,2385,reuse,716,723,1988,tracker 1988 matched gt 716 (last frame 2383) now gt 723
+V003,2391,switch,139,139,1880,tracker 1787 -> 1880 on gt 139
+V003,2391,switch,140,140,1787,tracker 1880 -> 1787 on gt 140
+V003,2392,reuse,140,139,1880,tracker 1880 matched gt 140 (last frame 2390) now gt 139
+V003,2392,reuse,139,140,1787,tracker 1787 matched gt 139 (last frame 2384) now gt 140
+V003,2393,switch,254,254,1468,tracker 1907 -> 1468 on gt 254
+V003,2394,switch,226,226,1449,tracker 1590 -> 1449 on gt 226
+V003,2395,reuse,702,226,1449,tracker 1449 matched gt 702 (last frame 2367) now gt 226
+V003,2401,switch,140,140,1796,tracker 1787 -> 1796 on gt 140
+V003,2401,switch,142,142,1787,tracker 1796 -> 1787 on gt 142
+V003,2401,switch,221,221,1495,tracker 1597 -> 1495 on gt 221
+V003,2402,reuse,142,140,1796,tracker 1796 matched gt 142 (last frame 2400) now gt 140
+V003,2402,reuse,140,142,1787,tracker 1787 matched gt 140 (last frame 2400) now gt 142
+V003,2402,reuse,616,221,1495,tracker 1495 matched gt 616 (last frame 2388) now gt 221
+V004,7,switch,349,349,2278,tracker 2254 -> 2278 on gt 349
+V004,8,switch,573,573,2254,tracker 2252 -> 2254 on gt 573
+V004,9,reuse,349,573,2254,tracker 2254 matched gt 349 (last frame 6) now gt 573
+V004,10,switch,374,374,2253,tracker 2266 -> 2253 on gt 374
+V004,11,switch,373,373,2248,tracker 2259 -> 2248 on gt 373
+V004,37,reuse,224,222,2276,tracker 2276 matched gt 224 (last frame 30) now gt 222
+V004,45,reuse,222,224,2276,tracker 2276 matched gt 222 (last frame 38) now gt 224
+V004,46,switch,1167,1167,2324,tracker 2321 -> 2324 on gt 1167
+V004,46,reuse,224,222,2276,tracker 2276 matched gt 224 (last frame 45) now gt 222
+V004,48,switch,224,224,2330,tracker 2276 -> 2330 on gt 224
+V004,62,reuse,1167,217,2321,tracker 2321 matched gt 1167 (last frame 45) now gt 217
+V004,65,switch,297,297,2337,tracker 2191 -> 2337 on gt 297
+V004,87,switch,376,376,2201,tracker 2243 -> 2201 on gt 376
+V004,88,reuse,308,376,2201,tracker 2201 matched gt 308 (last frame 78) now gt 376
+V004,89,switch,269,269,2216,tracker 2226 -> 2216 on gt 269
+V004,90,reuse,268,269,2216,tracker 2216 matched gt 268 (last frame 54) now gt 269
+V004,95,switch,169,169,2366,tracker 2185 -> 2366 on gt 169
+V004,97,switch,135,135,2370,tracker 2086 -> 2370 on gt 135
+V004,110,switch,169,169,2185,tracker 2366 -> 2185 on gt 169
+V004,117,switch,381,381,2201,tracker 2214 -> 2201 on gt 381
+V004,118,switch,145,145,2383,tracker 2375 -> 2383 on gt 145
+V004,118,switch,215,215,2385,tracker 2380 -> 2385 on gt 215
+V004,118,reuse,376,381,2201,tracker 2201 matched gt 376 (last frame 92) now gt 381
+V004,119,switch,283,283,2183,tracker 2256 -> 2183 on gt 283
+V004,119,switch,427,427,2388,tracker 2163 -> 2388 on gt 427
+V004,120,reuse,295,283,2183,tracker 2183 matched gt 295 (last frame 89) now gt 283
+V004,121,switch,427,427,2163,tracker 2163 -> 2163 on gt 427
+V004,122,switch,381,381,2214,tracker 2201 -> 2214 on gt 381
+V004,123,switch,220,220,2386,tracker 2351 -> 2386 on gt 220
+V004,123,reuse,215,214,2380,tracker 2380 matched gt 215 (last frame 117) now gt 214
+V004,127,reuse,145,173,2375,tracker 2375 matched gt 145 (last frame 110) now gt 173
+V004,130,switch,215,215,2386,tracker 2385 -> 2386 on gt 215
+V004,131,switch,220,220,2351,tracker 2386 -> 2351 on gt 220
+V004,131,reuse,220,215,2386,tracker 2386 matched gt 220 (last frame 129) now gt 215
+V004,134,switch,378,378,2221,tracker 2229 -> 2221 on gt 378
+V004,135,reuse,310,378,2221,tracker 2221 matched gt 310 (last frame 88) now gt 378
+V004,142,switch,174,174,2402,tracker 2387 -> 2402 on gt 174
+V004,158,switch,243,243,2416,tracker 2081 -> 2416 on gt 243
+V004,166,switch,224,224,2421,tracker 2330 -> 2421 on gt 224
+V004,168,switch,170,170,2423,tracker 2179 -> 2423 on gt 170
+V004,170,switch,220,220,2386,tracker 2351 -> 2386 on gt 220
+V004,171,reuse,215,220,2386,tracker 2386 matched gt 215 (last frame 169) now gt 220
+V004,182,switch,26,26,2419,tracker 2404 -> 2419 on gt 26
+V004,184,switch,169,169,2427,tracker 2185 -> 2427 on gt 169
+V004,206,switch,169,169,2185,tracker 2427 -> 2185 on gt 169
+V004,213,switch,81,81,2404,tracker 2333 -> 2404 on gt 81
+V004,214,reuse,26,81,2404,tracker 2404 matched gt 26 (last frame 181) now gt 81
+V004,215,switch,205,205,2445,tracker 2428 -> 2445 on gt 205
+V004,216,switch,81,81,2333,tracker 2404 -> 2333 on gt 81
+V004,218,switch,215,215,2382,tracker 2386 -> 2382 on gt 215
+V004,219,reuse,260,215,2382,tracker 2382 matched gt 260 (last frame 213) now gt 215
+V004,222,switch,215,215,2330,tracker 2382 -> 2330 on gt 215
+V004,225,reuse,224,215,2330,tracker 2330 matched gt 224 (last frame 165) now gt 215
+V004,231,reuse,215,260,2382,tracker 2382 matched gt 215 (last frame 221) now gt 260
+V004,238,switch,380,380,2098,tracker 2143 -> 2098 on gt 380
+V004,239,switch,380,380,2143,tracker 2143 -> 2143 on gt 380
+V004,240,switch,81,81,2404,tracker 2333 -> 2404 on gt 81
+V004,245,switch,81,81,2333,tracker 2404 -> 2333 on gt 81
+V004,296,switch,169,169,2455,tracker 2185 -> 2455 on gt 169
+V004,297,switch,170,170,2451,tracker 2423 -> 2451 on gt 170
+V004,307,switch,81,81,2494,tracker 2333 -> 2494 on gt 81
+V004,316,switch,261,261,2499,tracker 2277 -> 2499 on gt 261
+V004,323,reuse,264,61,2500,tracker 2500 matched gt 264 (last frame 321) now gt 61
+V004,332,switch,170,170,2185,tracker 2451 -> 2185 on gt 170
+V004,333,switch,170,170,2451,tracker 2451 -> 2451 on gt 170
+V004,335,switch,424,424,2481,tracker 2178 -> 2481 on gt 424
+V004,338,switch,224,224,2513,tracker 2421 -> 2513 on gt 224
+V004,340,switch,224,224,2421,tracker 2513 -> 2421 on gt 224
+V004,342,switch,170,170,2516,tracker 2451 -> 2516 on gt 170
+V004,351,switch,1167,1167,2527,tracker 2324 -> 2527 on gt 1167
+V004,365,switch,208,208,2537,tracker 2512 -> 2537 on gt 208
+V004,366,switch,247,247,2100,tracker 2097 -> 2100 on gt 247
+V004,367,reuse,298,247,2100,tracker 2100 matched gt 298 (last frame 321) now gt 247
+V004,372,switch,26,26,2352,tracker 2419 -> 2352 on gt 26
+V004,373,reuse,88,26,2352,tracker 2352 matched gt 88 (last frame 371) now gt 26
+V004,376,switch,81,81,2419,tracker 2494 -> 2419 on gt 81
+V004,384,reuse,247,1117,2097,tracker 2097 matched gt 247 (last frame 359) now gt 1117
+V004,394,switch,170,170,2455,tracker 2516 -> 2455 on gt 170
+V004,395,switch,169,169,2516,tracker 2455 -> 2516 on gt 169
+V004,395,reuse,169,170,2455,tracker 2455 matched gt 169 (last frame 390) now gt 170
+V004,396,switch,81,81,2549,tracker 2494 -> 2549 on gt 81
+V004,396,reuse,170,169,2516,tracker 2516 matched gt 170 (last frame 393) now gt 169
+V004,408,switch,26,26,2419,tracker 2352 -> 2419 on gt 26
+V004,408,reuse,26,88,2352,tracker 2352 matched gt 26 (last frame 407) now gt 88
+V004,413,switch,262,262,2198,tracker 2398 -> 2198 on gt 262
+V004,414,switch,169,169,2544,tracker 2516 -> 2544 on gt 169
+V004,414,reuse,200,262,2198,tracker 2198 matched gt 200 (last frame 345) now gt 262
+V004,416,switch,110,110,2562,tracker 2062 -> 2562 on gt 110
+V004,422,switch,1117,1117,2115,tracker 2097 -> 2115 on gt 1117
+V004,423,switch,223,223,2059,tracker 2228 -> 2059 on gt 223
+V004,423,switch,1117,1117,2097,tracker 2097 -> 2097 on gt 1117
+V004,424,reuse,242,223,2059,tracker 2059 matched gt 242 (last frame 422) now gt 223
+V004,426,switch,262,262,2398,tracker 2198 -> 2398 on gt 262
+V004,429,switch,262,262,2198,tracker 2398 -> 2198 on gt 262
+V004,431,switch,169,169,2455,tracker 2544 -> 2455 on gt 169
+V004,431,switch,170,170,2544,tracker 2455 -> 2544 on gt 170
+V004,432,switch,195,195,2079,tracker 2192 -> 2079 on gt 195
+V004,432,reuse,170,169,2455,tracker 2455 matched gt 170 (last frame 430) now gt 169
+V004,432,reuse,169,170,2544,tracker 2544 matched gt 169 (last frame 423) now gt 170
+V004,433,reuse,196,195,2079,tracker 2079 matched gt 196 (last frame 403) now gt 195
+V004,440,switch,224,224,2276,tracker 2421 -> 2276 on gt 224
+V004,444,switch,222,222,2059,tracker 2276 -> 2059 on gt 222
+V004,445,reuse,223,222,2059,tracker 2059 matched gt 223 (last frame 443) now gt 222
+V004,446,switch,193,193,2134,tracker 2095 -> 2134 on gt 193
+V004,446,reuse,222,223,2059,tracker 2059 matched gt 222 (last frame 445) now gt 223
+V004,447,reuse,197,193,2134,tracker 2134 matched gt 197 (last frame 408) now gt 193
+V004,449,switch,224,224,2059,tracker 2421 -> 2059 on gt 224
+V004,450,switch,193,193,2065,tracker 2134 -> 2065 on gt 193
+V004,450,switch,194,194,2315,tracker 2065 -> 2315 on gt 194
+V004,450,reuse,223,224,2059,tracker 2059 matched gt 223 (last frame 448) now gt 224
+V004,451,reuse,194,193,2065,tracker 2065 matched gt 194 (last frame 449) now gt 193
+V004,451,reuse,192,194,2315,tracker 2315 matched gt 192 (last frame 447) now gt 194
+V004,455,switch,192,192,2079,tracker 2315 -> 2079 on gt 192
+V004,456,reuse,195,192,2079,tracker 2079 matched gt 195 (last frame 452) now gt 192
+V004,459,switch,224,224,2276,tracker 2059 -> 2276 on gt 224
+V004,460,reuse,222,224,2276,tracker 2276 matched gt 222 (last frame 439) now gt 224
+V004,478,switch,26,26,2352,tracker 2419 -> 2352 on gt 26
+V004,479,switch,88,88,2419,tracker 2352 -> 2419 on gt 88
+V004,479,reuse,88,26,2352,tracker 2352 matched gt 88 (last frame 474) now gt 26
+V004,480,reuse,26,88,2419,tracker 2419 matched gt 26 (last frame 477) now gt 88
+V004,485,switch,230,230,2077,tracker 2073 -> 2077 on gt 230
+V004,485,switch,234,234,2097,tracker 2207 -> 2097 on gt 234
+V004,485,switch,1117,1117,2207,tracker 2097 -> 2207 on gt 1117
+V004,486,reuse,236,230,2077,tracker 2077 matched gt 236 (last frame 470) now gt 230
+V004,486,reuse,1117,234,2097,tracker 2097 matched gt 1117 (last frame 482) now gt 234
+V004,486,reuse,234,1117,2207,tracker 2207 matched gt 234 (last frame 484) now gt 1117
+V004,489,switch,228,228,2568,tracker 2064 -> 2568 on gt 228
+V004,491,reuse,230,132,2073,tracker 2073 matched gt 230 (last frame 483) now gt 132
+V004,506,switch,128,128,2499,tracker 2155 -> 2499 on gt 128
+V004,506,switch,233,233,2073,tracker 2116 -> 2073 on gt 233
+V004,507,reuse,132,233,2073,tracker 2073 matched gt 132 (last frame 505) now gt 233
+V004,508,switch,128,128,2155,tracker 2155 -> 2155 on gt 128
+V004,511,switch,132,132,2116,tracker 2073 -> 2116 on gt 132
+V004,512,reuse,233,132,2116,tracker 2116 matched gt 233 (last frame 500) now gt 132
+V004,519,switch,164,164,2604,tracker 2172 -> 2604 on gt 164
+V004,529,switch,72,72,2623,tracker 2405 -> 2623 on gt 72
+V004,542,switch,132,132,2073,tracker 2116 -> 2073 on gt 132
+V004,543,reuse,233,132,2073,tracker 2073 matched gt 233 (last frame 513) now gt 132
+V004,555,switch,226,226,2056,tracker 2281 -> 2056 on gt 226
+V004,556,reuse,229,226,2056,tracker 2056 matched gt 229 (last frame 499) now gt 226
+V004,563,switch,72,72,2405,tracker 2623 -> 2405 on gt 72
+V004,564,switch,72,72,2623,tracker 2623 -> 2623 on gt 72
+V004,565,switch,72,72,2405,tracker 2623 -> 2405 on gt 72
+V004,574,switch,170,170,2172,tracker 2544 -> 2172 on gt 170
+V004,575,reuse,164,170,2172,tracker 2172 matched gt 164 (last frame 514) now gt 170
+V004,578,switch,167,167,2432,tracker 2363 -> 2432 on gt 167
+V004,579,reuse,204,167,2432,tracker 2432 matched gt 204 (last frame 552) now gt 167
+V004,597,switch,91,91,2663,tracker 2470 -> 2663 on gt 91
+V004,599,switch,91,91,2470,tracker 2663 -> 2470 on gt 91
+V004,601,switch,167,167,2332,tracker 2432 -> 2332 on gt 167
+V004,601,switch,169,169,2544,tracker 2455 -> 2544 on gt 169
+V004,602,reuse,168,167,2332,tracker 2332 matched gt 168 (last frame 598) now gt 167
+V004,602,reuse,170,169,2544,tracker 2544 matched gt 170 (last frame 571) now gt 169
+V004,611,switch,168,168,2522,tracker 2332 -> 2522 on gt 168
+V004,612,reuse,202,168,2522,tracker 2522 matched gt 202 (last frame 529) now gt 168
+V004,627,switch,159,159,2651,tracker 2472 -> 2651 on gt 159
+V004,630,switch,159,159,2472,tracker 2651 -> 2472 on gt 159
+V004,633,switch,170,170,2455,tracker 2172 -> 2455 on gt 170
+V004,634,reuse,169,170,2455,tracker 2455 matched gt 169 (last frame 600) now gt 170
+V004,642,switch,1182,1182,2697,tracker 2681 -> 2697 on gt 1182
+V004,643,reuse,1182,1156,2681,tracker 2681 matched gt 1182 (last frame 641) now gt 1156
+V004,646,switch,170,170,2172,tracker 2455 -> 2172 on gt 170
+V004,648,switch,1182,1182,2705,tracker 2697 -> 2705 on gt 1182
+V004,651,switch,170,170,2455,tracker 2172 -> 2455 on gt 170
+V004,656,switch,65,65,2470,tracker 2531 -> 2470 on gt 65
+V004,657,reuse,91,65,2470,tracker 2470 matched gt 91 (last frame 650) now gt 65
+V004,658,switch,69,69,2710,tracker 2615 -> 2710 on gt 69
+V004,658,switch,77,77,2313,tracker 2356 -> 2313 on gt 77
+V004,659,switch,89,89,2713,tracker 2313 -> 2713 on gt 89
+V004,659,reuse,89,77,2313,tracker 2313 matched gt 89 (last frame 657) now gt 77
+V004,660,switch,1117,1117,2651,tracker 2207 -> 2651 on gt 1117
+V004,661,switch,69,69,2615,tracker 2710 -> 2615 on gt 69
+V004,661,reuse,159,1117,2651,tracker 2651 matched gt 159 (last frame 629) now gt 1117
+V004,664,switch,65,65,2531,tracker 2470 -> 2531 on gt 65
+V004,665,switch,153,153,2722,tracker 2510 -> 2722 on gt 153
+V004,667,switch,77,77,2356,tracker 2313 -> 2356 on gt 77
+V004,670,switch,65,65,2470,tracker 2531 -> 2470 on gt 65
+V004,670,switch,143,143,2677,tracker 2496 -> 2677 on gt 143
+V004,671,switch,146,146,2402,tracker 2391 -> 2402 on gt 146
+V004,671,switch,174,174,2716,tracker 2402 -> 2716 on gt 174
+V004,672,switch,125,125,2727,tracker 2317 -> 2727 on gt 125
+V004,672,reuse,174,146,2402,tracker 2402 matched gt 174 (last frame 670) now gt 146
+V004,673,switch,153,153,2510,tracker 2722 -> 2510 on gt 153
+V004,690,switch,143,143,2496,tracker 2677 -> 2496 on gt 143
+V004,693,switch,69,69,2710,tracker 2615 -> 2710 on gt 69
+V004,694,switch,69,69,2615,tracker 2615 -> 2615 on gt 69
+V004,694,switch,146,146,2677,tracker 2402 -> 2677 on gt 146
+V004,695,reuse,143,146,2677,tracker 2677 matched gt 143 (last frame 687) now gt 146
+V004,696,switch,126,126,2409,tracker 2314 -> 2409 on gt 126
+V004,697,switch,126,126,2314,tracker 2314 -> 2314 on gt 126
+V004,697,switch,146,146,2375,tracker 2677 -> 2375 on gt 146
+V004,698,switch,172,172,2479,tracker 2232 -> 2479 on gt 172
+V004,698,switch,173,173,2677,tracker 2375 -> 2677 on gt 173
+V004,698,switch,1118,1118,2402,tracker 2558 -> 2402 on gt 1118
+V004,698,reuse,173,146,2375,tracker 2375 matched gt 173 (last frame 696) now gt 146
+V004,699,switch,175,175,2639,tracker 2670 -> 2639 on gt 175
+V004,699,reuse,146,1118,2402,tracker 2402 matched gt 146 (last frame 674) now gt 1118
+V004,700,switch,171,171,2479,tracker 2189 -> 2479 on gt 171
+V004,700,reuse,105,175,2639,tracker 2639 matched gt 105 (last frame 697) now gt 175
+V004,701,switch,172,172,2232,tracker 2232 -> 2232 on gt 172
+V004,701,reuse,151,171,2479,tracker 2479 matched gt 151 (last frame 652) now gt 171
+V004,702,switch,78,78,2739,tracker 2634 -> 2739 on gt 78
+V004,703,switch,175,175,2670,tracker 2639 -> 2670 on gt 175
+V004,703,reuse,146,173,2677,tracker 2677 matched gt 146 (last frame 695) now gt 173
+V004,709,switch,171,171,2232,tracker 2479 -> 2232 on gt 171
+V004,710,switch,69,69,2746,tracker 2615 -> 2746 on gt 69
+V004,710,switch,153,153,2722,tracker 2510 -> 2722 on gt 153
+V004,710,reuse,172,171,2232,tracker 2232 matched gt 172 (last frame 707) now gt 171
+V004,711,switch,176,176,2207,tracker 2525 -> 2207 on gt 176
+V004,712,switch,1060,1060,2738,tracker 2680 -> 2738 on gt 1060
+V004,713,reuse,69,31,2710,tracker 2710 matched gt 69 (last frame 660) now gt 31
+V004,714,switch,143,143,2752,tracker 2496 -> 2752 on gt 143
+V004,718,switch,147,147,2207,tracker 2319 -> 2207 on gt 147
+V004,719,switch,147,147,2319,tracker 2319 -> 2319 on gt 147
+V004,719,switch,174,174,2752,tracker 2716 -> 2752 on gt 174
+V004,720,switch,147,147,2207,tracker 2319 -> 2207 on gt 147
+V004,720,switch,174,174,2716,tracker 2716 -> 2716 on gt 174
+V004,721,switch,143,143,2760,tracker 2752 -> 2760 on gt 143
+V004,721,reuse,1117,147,2207,tracker 2207 matched gt 1117 (last frame 659) now gt 147
+V004,734,switch,112,112,2727,tracker 2605 -> 2727 on gt 112
+V004,734,reuse,97,98,2765,tracker 2765 matched gt 97 (last frame 732) now gt 98
+V004,735,reuse,98,97,2765,tracker 2765 matched gt 98 (last frame 734) now gt 97
+V004,735,reuse,125,112,2727,tracker 2727 matched gt 125 (last frame 703) now gt 112
+V004,741,switch,98,98,2777,tracker 2765 -> 2777 on gt 98
+V004,741,switch,170,170,2604,tracker 2455 -> 2604 on gt 170
+V004,742,reuse,164,170,2604,tracker 2604 matched gt 164 (last frame 740) now gt 170
+V004,754,switch,88,88,2756,tracker 2419 -> 2756 on gt 88
+V004,766,switch,1174,1174,2739,tracker 2643 -> 2739 on gt 1174
+V004,767,switch,89,89,2786,tracker 2713 -> 2786 on gt 89
+V004,768,switch,78,78,2643,tracker 2739 -> 2643 on gt 78
+V004,769,reuse,1174,78,2643,tracker 2643 matched gt 1174 (last frame 745) now gt 78
+V004,769,reuse,78,1174,2739,tracker 2739 matched gt 78 (last frame 761) now gt 1174
+V004,775,switch,1182,1182,2795,tracker 2705 -> 2795 on gt 1182
+V004,776,switch,176,176,2797,tracker 2525 -> 2797 on gt 176
+V004,779,switch,44,44,2083,tracker 2084 -> 2083 on gt 44
+V004,779,switch,160,160,2473,tracker 2601 -> 2473 on gt 160
+V004,780,reuse,134,44,2083,tracker 2083 matched gt 134 (last frame 751) now gt 44
+V004,780,reuse,156,160,2473,tracker 2473 matched gt 156 (last frame 778) now gt 160
+V004,781,switch,156,156,2601,tracker 2473 -> 2601 on gt 156
+V004,782,reuse,160,156,2601,tracker 2601 matched gt 160 (last frame 778) now gt 156
+V004,786,switch,1066,1066,2812,tracker 2642 -> 2812 on gt 1066
+V004,789,switch,98,98,2810,tracker 2777 -> 2810 on gt 98
+V004,789,reuse,65,91,2470,tracker 2470 matched gt 65 (last frame 787) now gt 91
+V004,792,switch,44,44,2084,tracker 2083 -> 2084 on gt 44
+V004,794,switch,75,75,2536,tracker 2467 -> 2536 on gt 75
+V004,794,switch,76,76,2467,tracker 2536 -> 2467 on gt 76
+V004,795,reuse,76,75,2536,tracker 2536 matched gt 76 (last frame 792) now gt 75
+V004,795,reuse,75,76,2467,tracker 2467 matched gt 75 (last frame 793) now gt 76
+V004,796,switch,155,155,2690,tracker 2652 -> 2690 on gt 155
+V004,796,reuse,91,65,2470,tracker 2470 matched gt 91 (last frame 793) now gt 65
+V004,797,switch,78,78,2827,tracker 2643 -> 2827 on gt 78
+V004,802,reuse,83,39,2622,tracker 2622 matched gt 83 (last frame 785) now gt 39
+V004,803,switch,51,51,2470,tracker 2325 -> 2470 on gt 51
+V004,803,switch,65,65,2325,tracker 2470 -> 2325 on gt 65
+V004,804,reuse,65,51,2470,tracker 2470 matched gt 65 (last frame 797) now gt 51
+V004,804,reuse,51,65,2325,tracker 2325 matched gt 51 (last frame 802) now gt 65
+V004,805,switch,103,103,2672,tracker 2673 -> 2672 on gt 103
+V004,806,switch,159,159,2601,tracker 2472 -> 2601 on gt 159
+V004,806,reuse,102,103,2672,tracker 2672 matched gt 102 (last frame 794) now gt 103
+V004,807,reuse,156,159,2601,tracker 2601 matched gt 156 (last frame 805) now gt 159
+V004,809,switch,83,83,2784,tracker 2622 -> 2784 on gt 83
+V004,815,switch,39,39,2784,tracker 2622 -> 2784 on gt 39
+V004,816,switch,83,83,2622,tracker 2784 -> 2622 on gt 83
+V004,816,reuse,83,39,2784,tracker 2784 matched gt 83 (last frame 811) now gt 39
+V004,817,reuse,39,83,2622,tracker 2622 matched gt 39 (last frame 814) now gt 83
+V004,821,switch,87,87,2536,tracker 2438 -> 2536 on gt 87
+V004,821,switch,91,91,2438,tracker 2470 -> 2438 on gt 91
+V004,822,reuse,75,87,2536,tracker 2536 matched gt 75 (last frame 818) now gt 87
+V004,822,reuse,87,91,2438,tracker 2438 matched gt 87 (last frame 820) now gt 91
+V004,823,switch,88,88,2847,tracker 2756 -> 2847 on gt 88
+V004,827,switch,75,75,2438,tracker 2536 -> 2438 on gt 75
+V004,828,reuse,91,75,2438,tracker 2438 matched gt 91 (last frame 826) now gt 75
+V004,829,switch,51,51,2643,tracker 2470 -> 2643 on gt 51
+V004,830,switch,51,51,2470,tracker 2470 -> 2470 on gt 51
+V004,835,switch,173,173,2375,tracker 2677 -> 2375 on gt 173
+V004,836,reuse,146,173,2375,tracker 2375 matched gt 146 (last frame 834) now gt 173
+V004,847,switch,83,83,2651,tracker 2622 -> 2651 on gt 83
+V004,847,switch,91,91,2866,tracker 2438 -> 2866 on gt 91
+V004,848,reuse,1117,83,2651,tracker 2651 matched gt 1117 (last frame 846) now gt 83
+V004,853,reuse,1001,35,2831,tracker 2831 matched gt 1001 (last frame 852) now gt 35
+V004,854,switch,89,89,2643,tracker 2786 -> 2643 on gt 89
+V004,855,reuse,78,89,2643,tracker 2643 matched gt 78 (last frame 793) now gt 89
+V004,856,switch,143,143,2383,tracker 2760 -> 2383 on gt 143
+V004,856,switch,1001,1001,2864,tracker 2831 -> 2864 on gt 1001
+V004,857,switch,674,674,2872,tracker 2131 -> 2872 on gt 674
+V004,857,reuse,145,143,2383,tracker 2383 matched gt 145 (last frame 818) now gt 143
+V004,858,switch,65,65,2536,tracker 2325 -> 2536 on gt 65
+V004,858,switch,87,87,2325,tracker 2536 -> 2325 on gt 87
+V004,858,switch,143,143,2760,tracker 2383 -> 2760 on gt 143
+V004,859,reuse,87,65,2536,tracker 2536 matched gt 87 (last frame 857) now gt 65
+V004,859,reuse,65,87,2325,tracker 2325 matched gt 65 (last frame 857) now gt 87
+V004,861,switch,143,143,2383,tracker 2383 -> 2383 on gt 143
+V004,868,switch,83,83,2622,tracker 2651 -> 2622 on gt 83
+V004,868,reuse,83,1117,2651,tracker 2651 matched gt 83 (last frame 867) now gt 1117
+V004,869,switch,8,8,2882,tracker 2876 -> 2882 on gt 8
+V004,869,reuse,8,6,2876,tracker 2876 matched gt 8 (last frame 863) now gt 6
+V004,870,switch,143,143,2878,tracker 2383 -> 2878 on gt 143
+V004,872,switch,674,674,2131,tracker 2872 -> 2131 on gt 674
+V004,880,switch,1117,1117,2894,tracker 2651 -> 2894 on gt 1117
+V004,882,switch,997,997,2890,tracker 2889 -> 2890 on gt 997
+V004,882,reuse,1117,36,2651,tracker 2651 matched gt 1117 (last frame 873) now gt 36
+V004,882,reuse,997,1134,2889,tracker 2889 matched gt 997 (last frame 881) now gt 1134
+V004,899,switch,54,54,2643,tracker 2468 -> 2643 on gt 54
+V004,899,switch,71,71,2468,tracker 2561 -> 2468 on gt 71
+V004,899,switch,89,89,2909,tracker 2643 -> 2909 on gt 89
+V004,900,reuse,89,54,2643,tracker 2643 matched gt 89 (last frame 898) now gt 54
+V004,901,switch,75,75,2866,tracker 2438 -> 2866 on gt 75
+V004,901,reuse,54,71,2468,tracker 2468 matched gt 54 (last frame 894) now gt 71
+V004,902,reuse,91,75,2866,tracker 2866 matched gt 91 (last frame 884) now gt 75
+V004,903,switch,48,48,2335,tracker 2353 -> 2335 on gt 48
+V004,904,reuse,49,48,2335,tracker 2335 matched gt 49 (last frame 900) now gt 48
+V004,916,switch,75,75,2438,tracker 2866 -> 2438 on gt 75
+V004,916,reuse,75,91,2866,tracker 2866 matched gt 75 (last frame 915) now gt 91
+V004,919,switch,1184,1184,2917,tracker 2807 -> 2917 on gt 1184
+V004,922,switch,83,83,2927,tracker 2622 -> 2927 on gt 83
+V004,927,switch,83,83,2622,tracker 2927 -> 2622 on gt 83
+V004,933,switch,76,76,2866,tracker 2467 -> 2866 on gt 76
+V004,934,switch,88,88,2549,tracker 2847 -> 2549 on gt 88
+V004,934,reuse,91,76,2866,tracker 2866 matched gt 91 (last frame 922) now gt 76
+V004,935,reuse,81,88,2549,tracker 2549 matched gt 81 (last frame 928) now gt 88
+V004,941,switch,91,91,2467,tracker 2866 -> 2467 on gt 91
+V004,942,reuse,76,91,2467,tracker 2467 matched gt 76 (last frame 932) now gt 91
+V004,945,switch,48,48,2353,tracker 2335 -> 2353 on gt 48
+V004,948,reuse,88,81,2549,tracker 2549 matched gt 88 (last frame 947) now gt 81
+V004,951,reuse,91,90,2467,tracker 2467 matched gt 91 (last frame 950) now gt 90
+V004,952,reuse,83,74,2622,tracker 2622 matched gt 83 (last frame 931) now gt 74
+V004,957,switch,87,87,2600,tracker 2325 -> 2600 on gt 87
+V004,958,reuse,56,87,2600,tracker 2600 matched gt 56 (last frame 954) now gt 87
+V004,959,switch,87,87,2325,tracker 2600 -> 2325 on gt 87
+V004,965,switch,921,921,2942,tracker 2825 -> 2942 on gt 921
+V004,966,switch,91,91,2323,tracker 2467 -> 2323 on gt 91
+V004,967,reuse,60,91,2323,tracker 2323 matched gt 60 (last frame 923) now gt 91
+V004,969,switch,87,87,2468,tracker 2325 -> 2468 on gt 87
+V004,969,switch,1117,1117,2744,tracker 2894 -> 2744 on gt 1117
+V004,969,switch,1165,1165,2962,tracker 2744 -> 2962 on gt 1165
+V004,970,reuse,71,87,2468,tracker 2468 matched gt 71 (last frame 968) now gt 87
+V004,970,reuse,1165,1117,2744,tracker 2744 matched gt 1165 (last frame 968) now gt 1117
+V004,972,switch,1175,1175,2967,tracker 2607 -> 2967 on gt 1175
+V004,979,switch,12,12,2774,tracker 2829 -> 2774 on gt 12
+V004,980,reuse,14,12,2774,tracker 2774 matched gt 14 (last frame 948) now gt 12
+V004,983,switch,76,76,2504,tracker 2866 -> 2504 on gt 76
+V004,984,reuse,66,76,2504,tracker 2504 matched gt 66 (last frame 962) now gt 76
+V004,990,reuse,87,71,2468,tracker 2468 matched gt 87 (last frame 989) now gt 71
+V004,992,switch,1175,1175,2607,tracker 2967 -> 2607 on gt 1175
+V004,996,switch,87,87,2643,tracker 2468 -> 2643 on gt 87
+V004,997,reuse,54,87,2643,tracker 2643 matched gt 54 (last frame 970) now gt 87
+V004,997,reuse,1194,1077,2782,tracker 2782 matched gt 1194 (last frame 974) now gt 1077
+V004,1003,switch,922,922,2991,tracker 2830 -> 2991 on gt 922
+V004,1004,switch,65,65,2504,tracker 2536 -> 2504 on gt 65
+V004,1004,switch,76,76,2536,tracker 2504 -> 2536 on gt 76
+V004,1005,reuse,76,65,2504,tracker 2504 matched gt 76 (last frame 1003) now gt 65
+V004,1005,reuse,65,76,2536,tracker 2536 matched gt 65 (last frame 997) now gt 76
+V004,1009,switch,88,88,2349,tracker 2549 -> 2349 on gt 88
+V004,1010,reuse,34,88,2349,tracker 2349 matched gt 34 (last frame 974) now gt 88
+V004,1011,switch,87,87,2994,tracker 2643 -> 2994 on gt 87
+V004,1015,switch,814,814,2942,tracker 2823 -> 2942 on gt 814
+V004,1015,switch,921,921,2823,tracker 2942 -> 2823 on gt 921
+V004,1016,reuse,921,814,2942,tracker 2942 matched gt 921 (last frame 1014) now gt 814
+V004,1016,reuse,814,921,2823,tracker 2823 matched gt 814 (last frame 1013) now gt 921
+V004,1017,switch,88,88,2549,tracker 2349 -> 2549 on gt 88
+V004,1018,switch,86,86,2998,tracker 2565 -> 2998 on gt 86
+V004,1018,reuse,81,88,2549,tracker 2549 matched gt 81 (last frame 1016) now gt 88
+V004,1020,reuse,1187,1163,2937,tracker 2937 matched gt 1187 (last frame 1002) now gt 1163
+V004,1026,switch,90,90,2415,tracker 2467 -> 2415 on gt 90
+V004,1027,reuse,58,90,2415,tracker 2415 matched gt 58 (last frame 1025) now gt 90
+V004,1033,reuse,1184,1085,2917,tracker 2917 matched gt 1184 (last frame 1005) now gt 1085
+V004,1037,switch,1171,1171,3012,tracker 3003 -> 3012 on gt 1171
+V004,1038,switch,1,1,3003,tracker 3009 -> 3003 on gt 1
+V004,1039,reuse,1171,1,3003,tracker 3003 matched gt 1171 (last frame 1035) now gt 1
+V004,1042,switch,63,63,3014,tracker 2627 -> 3014 on gt 63
+V004,1045,switch,91,91,2467,tracker 2323 -> 2467 on gt 91
+V004,1047,reuse,90,91,2467,tracker 2467 matched gt 90 (last frame 1022) now gt 91
+V004,1049,switch,1196,1196,2755,tracker 2754 -> 2755 on gt 1196
+V004,1050,reuse,1195,1196,2755,tracker 2755 matched gt 1195 (last frame 1021) now gt 1196
+V004,1053,switch,1155,1155,2668,tracker 2703 -> 2668 on gt 1155
+V004,1053,reuse,1211,1131,3017,tracker 3017 matched gt 1211 (last frame 1052) now gt 1131
+V004,1054,switch,1155,1155,2703,tracker 2703 -> 2703 on gt 1155
+V004,1056,switch,1090,1090,3002,tracker 2879 -> 3002 on gt 1090
+V004,1059,switch,16,16,3020,tracker 2737 -> 3020 on gt 16
+V004,1061,switch,86,86,3020,tracker 2998 -> 3020 on gt 86
+V004,1062,switch,1176,1176,3018,tracker 2714 -> 3018 on gt 1176
+V004,1062,reuse,16,86,3020,tracker 3020 matched gt 16 (last frame 1060) now gt 86
+V004,1065,switch,16,16,2737,tracker 3020 -> 2737 on gt 16
+V004,1065,switch,86,86,2998,tracker 3020 -> 2998 on gt 86
+V004,1065,switch,1211,1211,3026,tracker 3017 -> 3026 on gt 1211
+V004,1072,switch,70,70,2590,tracker 2588 -> 2590 on gt 70
+V004,1072,switch,1211,1211,3031,tracker 3026 -> 3031 on gt 1211
+V004,1073,reuse,52,70,2590,tracker 2590 matched gt 52 (last frame 1071) now gt 70
+V004,1076,reuse,1211,1180,3026,tracker 3026 matched gt 1211 (last frame 1069) now gt 1180
+V004,1077,switch,1182,1182,2983,tracker 2795 -> 2983 on gt 1182
+V004,1078,reuse,1196,1086,2754,tracker 2754 matched gt 1196 (last frame 1048) now gt 1086
+V004,1079,switch,1107,1107,3041,tracker 3016 -> 3041 on gt 1107
+V004,1079,switch,1175,1175,2674,tracker 2607 -> 2674 on gt 1175
+V004,1080,switch,1175,1175,2607,tracker 2607 -> 2607 on gt 1175
+V004,1084,reuse,74,1153,2622,tracker 2622 matched gt 74 (last frame 1038) now gt 1153
+V004,1092,switch,1159,1159,2703,tracker 2674 -> 2703 on gt 1159
+V004,1100,switch,921,921,3053,tracker 2823 -> 3053 on gt 921
+V004,1101,switch,1159,1159,2588,tracker 2674 -> 2588 on gt 1159
+V004,1102,reuse,70,1159,2588,tracker 2588 matched gt 70 (last frame 1062) now gt 1159
+V004,1106,switch,63,63,2714,tracker 3014 -> 2714 on gt 63
+V004,1107,switch,1177,1177,2588,tracker 2668 -> 2588 on gt 1177
+V004,1107,reuse,1176,63,2714,tracker 2714 matched gt 1176 (last frame 1061) now gt 63
+V004,1108,switch,63,63,3014,tracker 2714 -> 3014 on gt 63
+V004,1108,reuse,1159,1177,2588,tracker 2588 matched gt 1159 (last frame 1106) now gt 1177
+V004,1115,switch,1041,1041,3057,tracker 2339 -> 3057 on gt 1041
+V004,1116,switch,22,22,3034,tracker 2570 -> 3034 on gt 22
+V004,1121,switch,85,85,3064,tracker 2646 -> 3064 on gt 85
+V004,1129,reuse,1173,1170,3067,tracker 3067 matched gt 1173 (last frame 1128) now gt 1170
+V004,1133,switch,63,63,2714,tracker 3014 -> 2714 on gt 63
+V004,1138,switch,1173,1173,3074,tracker 3067 -> 3074 on gt 1173
+V004,1140,switch,1036,1036,3076,tracker 2161 -> 3076 on gt 1036
+V004,1157,switch,63,63,3014,tracker 2714 -> 3014 on gt 63
+V004,1169,switch,1154,1154,3090,tracker 2656 -> 3090 on gt 1154
+V004,1175,switch,921,921,3103,tracker 3053 -> 3103 on gt 921
+V004,1175,switch,996,996,2572,tracker 2939 -> 2572 on gt 996
+V004,1176,reuse,21,996,2572,tracker 2572 matched gt 21 (last frame 1110) now gt 996
+V004,1180,reuse,1137,1147,3055,tracker 3055 matched gt 1137 (last frame 1170) now gt 1147
+V004,1182,switch,1001,1001,3051,tracker 2864 -> 3051 on gt 1001
+V004,1184,switch,1001,1001,3023,tracker 2864 -> 3023 on gt 1001
+V004,1185,switch,1142,1142,3111,tracker 3105 -> 3111 on gt 1142
+V004,1185,reuse,79,1001,3023,tracker 3023 matched gt 79 (last frame 1145) now gt 1001
+V004,1188,reuse,1077,1068,2782,tracker 2782 matched gt 1077 (last frame 1159) now gt 1068
+V004,1192,reuse,1114,978,2984,tracker 2984 matched gt 1114 (last frame 1177) now gt 978
+V004,1194,switch,1159,1159,3018,tracker 2588 -> 3018 on gt 1159
+V004,1196,switch,1176,1176,2983,tracker 3018 -> 2983 on gt 1176
+V004,1196,reuse,1176,1159,3018,tracker 3018 matched gt 1176 (last frame 1179) now gt 1159
+V004,1197,switch,1147,1147,3118,tracker 3055 -> 3118 on gt 1147
+V004,1197,reuse,1182,1176,2983,tracker 2983 matched gt 1182 (last frame 1195) now gt 1176
+V004,1201,switch,1182,1182,3075,tracker 2983 -> 3075 on gt 1182
+V004,1203,reuse,1147,1179,3118,tracker 3118 matched gt 1147 (last frame 1202) now gt 1179
+V004,1206,reuse,86,933,2998,tracker 2998 matched gt 86 (last frame 1205) now gt 933
+V004,1207,reuse,1147,1141,3055,tracker 3055 matched gt 1147 (last frame 1192) now gt 1141
+V004,1208,switch,1160,1160,3130,tracker 2282 -> 3130 on gt 1160
+V004,1211,switch,24,24,2729,tracker 2751 -> 2729 on gt 24
+V004,1211,switch,1147,1147,3078,tracker 3118 -> 3078 on gt 1147
+V004,1212,reuse,23,24,2729,tracker 2729 matched gt 23 (last frame 1160) now gt 24
+V004,1212,reuse,1148,1147,3078,tracker 3078 matched gt 1148 (last frame 1210) now gt 1147
+V004,1218,switch,1172,1172,2671,tracker 3033 -> 2671 on gt 1172
+V004,1219,reuse,933,86,2998,tracker 2998 matched gt 933 (last frame 1218) now gt 86
+V004,1220,switch,1170,1170,3033,tracker 3067 -> 3033 on gt 1170
+V004,1220,switch,1173,1173,3067,tracker 3074 -> 3067 on gt 1173
+V004,1220,reuse,86,933,2998,tracker 2998 matched gt 86 (last frame 1219) now gt 933
+V004,1220,reuse,1160,1080,3130,tracker 3130 matched gt 1160 (last frame 1219) now gt 1080
+V004,1221,reuse,1172,1170,3033,tracker 3033 matched gt 1172 (last frame 1217) now gt 1170
+V004,1221,reuse,1170,1173,3067,tracker 3067 matched gt 1170 (last frame 1219) now gt 1173
+V004,1222,switch,1091,1091,2901,tracker 2849 -> 2901 on gt 1091
+V004,1222,reuse,1186,1136,3132,tracker 3132 matched gt 1186 (last frame 1221) now gt 1136
+V004,1223,switch,1041,1041,2792,tracker 3057 -> 2792 on gt 1041
+V004,1223,switch,1093,1093,3057,tracker 2792 -> 3057 on gt 1093
+V004,1223,reuse,1183,1091,2901,tracker 2901 matched gt 1183 (last frame 1221) now gt 1091
+V004,1224,reuse,1093,1041,2792,tracker 2792 matched gt 1093 (last frame 1222) now gt 1041
+V004,1224,reuse,1041,1093,3057,tracker 3057 matched gt 1041 (last frame 1220) now gt 1093
+V004,1226,switch,979,979,2854,tracker 2851 -> 2854 on gt 979
+V004,1226,reuse,1160,1070,2282,tracker 2282 matched gt 1160 (last frame 1205) now gt 1070
+V004,1227,switch,1125,1125,3127,tracker 2867 -> 3127 on gt 1125
+V004,1227,reuse,983,979,2854,tracker 2854 matched gt 983 (last frame 1225) now gt 979
+V004,1231,switch,1172,1172,3033,tracker 3033 -> 3033 on gt 1172
+V004,1232,reuse,1170,1172,3033,tracker 3033 matched gt 1170 (last frame 1230) now gt 1172
+V004,1235,switch,1170,1170,2729,tracker 3033 -> 2729 on gt 1170
+V004,1236,switch,1077,1077,2497,tracker 2782 -> 2497 on gt 1077
+V004,1236,reuse,24,1170,2729,tracker 2729 matched gt 24 (last frame 1221) now gt 1170
+V004,1237,reuse,1162,1077,2497,tracker 2497 matched gt 1162 (last frame 1235) now gt 1077
+V004,1239,switch,979,979,2851,tracker 2854 -> 2851 on gt 979
+V004,1240,switch,979,979,2854,tracker 2854 -> 2854 on gt 979
+V004,1240,switch,1162,1162,3156,tracker 2497 -> 3156 on gt 1162
+V004,1241,reuse,937,1108,3139,tracker 3139 matched gt 937 (last frame 1240) now gt 1108
+V004,1242,switch,937,937,3159,tracker 3139 -> 3159 on gt 937
+V004,1243,reuse,1164,1071,3155,tracker 3155 matched gt 1164 (last frame 1242) now gt 1071
+V004,1244,switch,1170,1170,2751,tracker 2729 -> 2751 on gt 1170
+V004,1245,switch,1045,1045,3161,tracker 2899 -> 3161 on gt 1045
+V004,1245,switch,1164,1164,3162,tracker 3155 -> 3162 on gt 1164
+V004,1245,reuse,24,1170,2751,tracker 2751 matched gt 24 (last frame 1201) now gt 1170
+V004,1245,reuse,791,964,3028,tracker 3028 matched gt 791 (last frame 1243) now gt 964
+V004,1246,switch,426,426,3160,tracker 3151 -> 3160 on gt 426
+V004,1250,switch,791,791,3166,tracker 3028 -> 3166 on gt 791
+V004,1250,switch,1153,1153,3129,tracker 2622 -> 3129 on gt 1153
+V004,1252,switch,1151,1151,3172,tracker 2981 -> 3172 on gt 1151
+V004,1253,switch,997,997,2844,tracker 2890 -> 2844 on gt 997
+V004,1253,switch,1081,1081,2890,tracker 2844 -> 2890 on gt 1081
+V004,1254,reuse,1081,997,2844,tracker 2844 matched gt 1081 (last frame 1252) now gt 997
+V004,1254,reuse,997,1081,2890,tracker 2890 matched gt 997 (last frame 1243) now gt 1081
+V004,1255,reuse,1162,1074,3156,tracker 3156 matched gt 1162 (last frame 1243) now gt 1074
+V004,1262,switch,1074,1074,2527,tracker 3156 -> 2527 on gt 1074
+V004,1263,switch,1167,1167,3156,tracker 2527 -> 3156 on gt 1167
+V004,1263,reuse,1167,1074,2527,tracker 2527 matched gt 1167 (last frame 1261) now gt 1074
+V004,1265,switch,983,983,2851,tracker 2854 -> 2851 on gt 983
+V004,1266,reuse,979,983,2851,tracker 2851 matched gt 979 (last frame 1209) now gt 983
+V004,1276,switch,1116,1116,3046,tracker 3021 -> 3046 on gt 1116
+V004,1276,switch,1179,1179,2739,tracker 3118 -> 2739 on gt 1179
+V004,1277,reuse,1112,1116,3046,tracker 3046 matched gt 1112 (last frame 1275) now gt 1116
+V004,1277,reuse,1174,1179,2739,tracker 2739 matched gt 1174 (last frame 1261) now gt 1179
+V004,1279,switch,1040,1040,2792,tracker 2093 -> 2792 on gt 1040
+V004,1279,switch,1041,1041,2093,tracker 2792 -> 2093 on gt 1041
+V004,1280,switch,1039,1039,3190,tracker 2348 -> 3190 on gt 1039
+V004,1280,reuse,1041,1040,2792,tracker 2792 matched gt 1041 (last frame 1272) now gt 1040
+V004,1280,reuse,1040,1041,2093,tracker 2093 matched gt 1040 (last frame 1278) now gt 1041
+V004,1282,switch,1151,1151,2918,tracker 3172 -> 2918 on gt 1151
+V004,1283,reuse,1152,1151,2918,tracker 2918 matched gt 1152 (last frame 1263) now gt 1151
+V004,1289,switch,1041,1041,3156,tracker 2093 -> 3156 on gt 1041
+V004,1290,reuse,1074,1041,3156,tracker 3156 matched gt 1074 (last frame 1259) now gt 1041
+V004,1304,switch,1166,1166,3174,tracker 3186 -> 3174 on gt 1166
+V004,1304,switch,1181,1181,3186,tracker 3174 -> 3186 on gt 1181
+V004,1305,reuse,1166,1181,3186,tracker 3186 matched gt 1166 (last frame 1283) now gt 1181
+V004,1306,switch,1145,1145,2751,tracker 3042 -> 2751 on gt 1145
+V004,1306,reuse,1181,1166,3174,tracker 3174 matched gt 1181 (last frame 1303) now gt 1166
+V004,1307,reuse,1170,1145,2751,tracker 2751 matched gt 1170 (last frame 1257) now gt 1145
+V004,1308,switch,1161,1161,3046,tracker 2498 -> 3046 on gt 1161
+V004,1310,reuse,1116,1161,3046,tracker 3046 matched gt 1116 (last frame 1277) now gt 1161
+V004,1312,reuse,1118,1034,2402,tracker 2402 matched gt 1118 (last frame 1297) now gt 1034
+V004,1320,switch,979,979,2093,tracker 2854 -> 2093 on gt 979
+V004,1321,reuse,1041,979,2093,tracker 2093 matched gt 1041 (last frame 1280) now gt 979
+V004,1323,switch,427,427,2832,tracker 2163 -> 2832 on gt 427
+V004,1323,switch,1095,1095,2163,tracker 2832 -> 2163 on gt 1095
+V004,1324,reuse,1095,427,2832,tracker 2832 matched gt 1095 (last frame 1322) now gt 427
+V004,1324,reuse,427,1095,2163,tracker 2163 matched gt 427 (last frame 1319) now gt 1095
+V004,1328,switch,1003,1003,3215,tracker 2745 -> 3215 on gt 1003
+V004,1335,switch,1133,1133,3012,tracker 2946 -> 3012 on gt 1133
+V004,1336,reuse,1171,1133,3012,tracker 3012 matched gt 1171 (last frame 1309) now gt 1133
+V004,1339,switch,1176,1176,2962,tracker 2983 -> 2962 on gt 1176
+V004,1340,reuse,1165,1176,2962,tracker 2962 matched gt 1165 (last frame 1313) now gt 1176
+V004,1343,switch,1042,1042,2917,tracker 2061 -> 2917 on gt 1042
+V004,1343,switch,1085,1085,2061,tracker 2917 -> 2061 on gt 1085
+V004,1344,reuse,1085,1042,2917,tracker 2917 matched gt 1085 (last frame 1341) now gt 1042
+V004,1344,reuse,1042,1085,2061,tracker 2061 matched gt 1042 (last frame 1342) now gt 1085
+V004,1345,reuse,1161,1051,2498,tracker 2498 matched gt 1161 (last frame 1307) now gt 1051
+V004,1353,reuse,1161,1101,3046,tracker 3046 matched gt 1161 (last frame 1317) now gt 1101
+V004,1357,reuse,1041,1073,3156,tracker 3156 matched gt 1041 (last frame 1350) now gt 1073
+V004,1359,switch,1133,1133,2751,tracker 3012 -> 2751 on gt 1133
+V004,1360,reuse,1145,1133,2751,tracker 2751 matched gt 1145 (last frame 1316) now gt 1133
+V004,1377,switch,542,542,3232,tracker 3101 -> 3232 on gt 542
+V004,1379,reuse,1040,1056,2792,tracker 2792 matched gt 1040 (last frame 1357) now gt 1056
+V004,1395,switch,1097,1097,3250,tracker 2914 -> 3250 on gt 1097
+V004,1416,reuse,1109,913,2775,tracker 2775 matched gt 1109 (last frame 1403) now gt 913
+V004,1418,switch,1000,1000,3272,tracker 3268 -> 3272 on gt 1000
+V004,1428,switch,542,542,3278,tracker 3232 -> 3278 on gt 542
+V004,1429,switch,962,962,3279,tracker 2948 -> 3279 on gt 962
+V004,1430,switch,1097,1097,3281,tracker 3250 -> 3281 on gt 1097
+V004,1434,switch,913,913,2741,tracker 2775 -> 2741 on gt 913
+V004,1434,switch,1113,1113,2775,tracker 2741 -> 2775 on gt 1113
+V004,1435,reuse,1113,913,2741,tracker 2741 matched gt 1113 (last frame 1432) now gt 913
+V004,1435,reuse,913,1113,2775,tracker 2775 matched gt 913 (last frame 1433) now gt 1113
+V004,1440,reuse,1000,1047,3268,tracker 3268 matched gt 1000 (last frame 1417) now gt 1047
+V004,1441,switch,1045,1045,2871,tracker 3161 -> 2871 on gt 1045
+V004,1442,reuse,1044,1045,2871,tracker 2871 matched gt 1044 (last frame 1424) now gt 1045
+V004,1457,reuse,1045,1072,2871,tracker 2871 matched gt 1045 (last frame 1445) now gt 1072
+V004,1459,reuse,1039,985,3190,tracker 3190 matched gt 1039 (last frame 1436) now gt 985
+V004,1462,switch,936,936,3300,tracker 3066 -> 3300 on gt 936
+V004,1464,switch,1072,1072,3161,tracker 2871 -> 3161 on gt 1072
+V004,1465,reuse,1045,1072,3161,tracker 3161 matched gt 1045 (last frame 1440) now gt 1072
+V004,1468,switch,983,983,3299,tracker 2851 -> 3299 on gt 983
+V004,1468,switch,1078,1078,3111,tracker 2931 -> 3111 on gt 1078
+V004,1469,reuse,1142,1078,3111,tracker 3111 matched gt 1142 (last frame 1465) now gt 1078
+V004,1470,switch,1079,1079,2992,tracker 2955 -> 2992 on gt 1079
+V004,1470,switch,1101,1101,3302,tracker 3046 -> 3302 on gt 1101
+V004,1471,reuse,1128,1079,2992,tracker 2992 matched gt 1128 (last frame 1468) now gt 1079
+V004,1477,switch,1141,1141,3086,tracker 3055 -> 3086 on gt 1141
+V004,1478,switch,983,983,2851,tracker 3299 -> 2851 on gt 983
+V004,1478,reuse,1143,1141,3086,tracker 3086 matched gt 1143 (last frame 1457) now gt 1141
+V004,1479,switch,1079,1079,2931,tracker 2992 -> 2931 on gt 1079
+V004,1480,reuse,1078,1079,2931,tracker 2931 matched gt 1078 (last frame 1463) now gt 1079
+V004,1484,switch,922,922,2118,tracker 2991 -> 2118 on gt 922
+V004,1484,switch,977,977,2991,tracker 2118 -> 2991 on gt 977
+V004,1485,reuse,977,922,2118,tracker 2118 matched gt 977 (last frame 1481) now gt 922
+V004,1485,reuse,922,977,2991,tracker 2991 matched gt 922 (last frame 1483) now gt 977
+V004,1486,reuse,1072,993,2871,tracker 2871 matched gt 1072 (last frame 1463) now gt 993
+V004,1487,switch,921,921,3310,tracker 3103 -> 3310 on gt 921
+V004,1506,switch,1086,1086,3321,tracker 2754 -> 3321 on gt 1086
+V004,1515,switch,1078,1078,3329,tracker 3111 -> 3329 on gt 1078
+V004,1523,switch,999,999,3328,tracker 3326 -> 3328 on gt 999
+V004,1523,switch,1083,1083,3055,tracker 2902 -> 3055 on gt 1083
+V004,1523,reuse,1036,574,3076,tracker 3076 matched gt 1036 (last frame 1520) now gt 574
+V004,1524,reuse,1096,999,3328,tracker 3328 matched gt 1096 (last frame 1522) now gt 999
+V004,1524,reuse,1141,1083,3055,tracker 3055 matched gt 1141 (last frame 1476) now gt 1083
+V004,1531,switch,949,949,3339,tracker 3338 -> 3339 on gt 949
+V004,1534,switch,1096,1096,3326,tracker 3328 -> 3326 on gt 1096
+V004,1535,switch,989,989,3359,tracker 3307 -> 3359 on gt 989
+V004,1535,reuse,999,1096,3326,tracker 3326 matched gt 999 (last frame 1517) now gt 1096
+V004,1548,switch,1101,1101,3046,tracker 3302 -> 3046 on gt 1101
+V004,1561,switch,1097,1097,2754,tracker 3281 -> 2754 on gt 1097
+V004,1570,switch,968,968,3363,tracker 3245 -> 3363 on gt 968
+V004,1572,switch,968,968,3245,tracker 3363 -> 3245 on gt 968
+V004,1573,switch,1101,1101,3351,tracker 3046 -> 3351 on gt 1101
+V004,1575,reuse,1086,1097,2754,tracker 2754 matched gt 1086 (last frame 1502) now gt 1097
+V004,1578,switch,1084,1084,2726,tracker 2731 -> 2726 on gt 1084
+V004,1579,reuse,1098,1084,2726,tracker 2726 matched gt 1098 (last frame 1576) now gt 1084
+V004,1584,switch,1102,1102,2731,tracker 3210 -> 2731 on gt 1102
+V004,1585,switch,1095,1095,2754,tracker 2163 -> 2754 on gt 1095
+V004,1585,switch,1097,1097,2163,tracker 2754 -> 2163 on gt 1097
+V004,1585,reuse,1084,1102,2731,tracker 2731 matched gt 1084 (last frame 1571) now gt 1102
+V004,1586,reuse,1097,1095,2754,tracker 2754 matched gt 1097 (last frame 1584) now gt 1095
+V004,1586,reuse,1095,1097,2163,tracker 2163 matched gt 1095 (last frame 1583) now gt 1097
+V004,1587,switch,1101,1101,3046,tracker 3351 -> 3046 on gt 1101
+V004,1588,switch,1066,1066,2781,tracker 2812 -> 2781 on gt 1066
+V004,1589,switch,1075,1075,2726,tracker 3204 -> 2726 on gt 1075
+V004,1589,reuse,1069,1066,2781,tracker 2781 matched gt 1069 (last frame 1578) now gt 1066
+V004,1590,switch,1098,1098,2731,tracker 2726 -> 2731 on gt 1098
+V004,1590,reuse,1084,1075,2726,tracker 2726 matched gt 1084 (last frame 1588) now gt 1075
+V004,1591,switch,1084,1084,2731,tracker 2726 -> 2731 on gt 1084
+V004,1592,reuse,1102,1084,2731,tracker 2731 matched gt 1102 (last frame 1589) now gt 1084
+V004,1598,reuse,1084,1098,2731,tracker 2731 matched gt 1084 (last frame 1592) now gt 1098
+V004,1604,switch,1102,1102,3402,tracker 2731 -> 3402 on gt 1102
+V004,1610,switch,1095,1095,2820,tracker 2754 -> 2820 on gt 1095
+V004,1611,reuse,1094,1095,2820,tracker 2820 matched gt 1094 (last frame 1609) now gt 1095
+V004,1612,switch,1094,1094,3408,tracker 2820 -> 3408 on gt 1094
+V004,1614,switch,1091,1091,2820,tracker 2901 -> 2820 on gt 1091
+V004,1614,switch,1095,1095,2901,tracker 2820 -> 2901 on gt 1095
+V004,1615,reuse,1095,1091,2820,tracker 2820 matched gt 1095 (last frame 1612) now gt 1091
+V004,1615,reuse,1091,1095,2901,tracker 2901 matched gt 1091 (last frame 1613) now gt 1095
+V004,1619,switch,1094,1094,3417,tracker 3408 -> 3417 on gt 1094
+V004,1627,switch,1088,1088,3424,tracker 2905 -> 3424 on gt 1088
+V004,1629,switch,1091,1091,2754,tracker 2820 -> 2754 on gt 1091
+V004,1630,reuse,1095,1091,2754,tracker 2754 matched gt 1095 (last frame 1607) now gt 1091
+V004,1635,switch,1092,1092,3403,tracker 2839 -> 3403 on gt 1092
+V004,1636,switch,1090,1090,3397,tracker 3002 -> 3397 on gt 1090
+V004,1636,switch,1092,1092,2820,tracker 2839 -> 2820 on gt 1092
+V004,1637,switch,1092,1092,2839,tracker 2839 -> 2839 on gt 1092
+V004,1642,switch,884,884,3333,tracker 2589 -> 3333 on gt 884
+V004,1643,switch,1090,1090,3002,tracker 3002 -> 3002 on gt 1090
+V004,1643,reuse,508,884,3333,tracker 3333 matched gt 508 (last frame 1641) now gt 884
+V004,1646,switch,1102,1102,3209,tracker 3402 -> 3209 on gt 1102
+V004,1648,switch,1015,1015,3445,tracker 3439 -> 3445 on gt 1015
+V004,1650,reuse,1100,1102,3209,tracker 3209 matched gt 1100 (last frame 1649) now gt 1102
+V004,1658,switch,1080,1080,3449,tracker 3130 -> 3449 on gt 1080
+V004,1660,switch,508,508,3457,tracker 3333 -> 3457 on gt 508
+V004,1661,switch,950,950,3454,tracker 3426 -> 3454 on gt 950
+V004,1662,switch,1047,1047,3461,tracker 3268 -> 3461 on gt 1047
+V004,1667,switch,1065,1065,3467,tracker 2906 -> 3467 on gt 1065
+V004,1676,reuse,1015,1018,3439,tracker 3439 matched gt 1015 (last frame 1646) now gt 1018
+V004,1677,switch,1094,1094,2916,tracker 3417 -> 2916 on gt 1094
+V004,1678,switch,477,477,2698,tracker 3227 -> 2698 on gt 477
+V004,1678,switch,642,642,3227,tracker 2698 -> 3227 on gt 642
+V004,1678,switch,1087,1087,3424,tracker 2916 -> 3424 on gt 1087
+V004,1678,reuse,1087,1094,2916,tracker 2916 matched gt 1087 (last frame 1676) now gt 1094
+V004,1679,switch,1046,1046,3268,tracker 3347 -> 3268 on gt 1046
+V004,1679,reuse,642,477,2698,tracker 2698 matched gt 642 (last frame 1677) now gt 477
+V004,1679,reuse,477,642,3227,tracker 3227 matched gt 477 (last frame 1665) now gt 642
+V004,1679,reuse,1088,1087,3424,tracker 3424 matched gt 1088 (last frame 1643) now gt 1087
+V004,1680,reuse,1047,1046,3268,tracker 3268 matched gt 1047 (last frame 1654) now gt 1046
+V004,1687,switch,999,999,3461,tracker 3328 -> 3461 on gt 999
+V004,1687,switch,1047,1047,3328,tracker 3461 -> 3328 on gt 1047
+V004,1688,switch,1097,1097,3473,tracker 2163 -> 3473 on gt 1097
+V004,1688,reuse,1047,999,3461,tracker 3461 matched gt 1047 (last frame 1686) now gt 999
+V004,1688,reuse,999,1047,3328,tracker 3328 matched gt 999 (last frame 1681) now gt 1047
+V004,1690,switch,1090,1090,2163,tracker 3002 -> 2163 on gt 1090
+V004,1691,reuse,1097,1090,2163,tracker 2163 matched gt 1097 (last frame 1687) now gt 1090
+V004,1706,switch,1020,1020,3496,tracker 3493 -> 3496 on gt 1020
+V004,1709,reuse,1020,466,3493,tracker 3493 matched gt 1020 (last frame 1703) now gt 466
+V004,1711,switch,921,921,3499,tracker 3310 -> 3499 on gt 921
+V004,1712,switch,990,990,3310,tracker 3332 -> 3310 on gt 990
+V004,1715,switch,991,991,3502,tracker 3498 -> 3502 on gt 991
+V004,1717,reuse,921,990,3310,tracker 3310 matched gt 921 (last frame 1710) now gt 990
+V004,1722,switch,791,791,3030,tracker 3166 -> 3030 on gt 791
+V004,1723,reuse,792,791,3030,tracker 3030 matched gt 792 (last frame 1716) now gt 791
+V004,1729,switch,542,542,3508,tracker 3278 -> 3508 on gt 542
+V004,1737,switch,792,792,3166,tracker 3030 -> 3166 on gt 792
+V004,1741,switch,921,921,3359,tracker 3499 -> 3359 on gt 921
+V004,1742,switch,989,989,3499,tracker 3359 -> 3499 on gt 989
+V004,1742,reuse,989,921,3359,tracker 3359 matched gt 989 (last frame 1740) now gt 921
+V004,1743,reuse,921,989,3499,tracker 3499 matched gt 921 (last frame 1740) now gt 989
+V004,1747,switch,1051,1051,3202,tracker 2498 -> 3202 on gt 1051
+V004,1748,reuse,1209,1051,3202,tracker 3202 matched gt 1209 (last frame 1746) now gt 1051
+V004,1749,switch,941,941,3511,tracker 3391 -> 3511 on gt 941
+V004,1755,switch,1101,1101,3202,tracker 3046 -> 3202 on gt 1101
+V004,1756,reuse,1051,1101,3202,tracker 3202 matched gt 1051 (last frame 1754) now gt 1101
+V004,1761,switch,962,962,3029,tracker 3279 -> 3029 on gt 962
+V004,1762,switch,403,403,3521,tracker 3345 -> 3521 on gt 403
+V004,1762,reuse,1057,962,3029,tracker 3029 matched gt 1057 (last frame 1746) now gt 962
+V004,1763,switch,552,552,3523,tracker 3516 -> 3523 on gt 552
+V004,1765,switch,958,958,2061,tracker 3098 -> 2061 on gt 958
+V004,1765,reuse,552,544,3516,tracker 3516 matched gt 552 (last frame 1755) now gt 544
+V004,1766,reuse,1085,958,2061,tracker 2061 matched gt 1085 (last frame 1712) now gt 958
+V004,1769,switch,791,791,3166,tracker 3030 -> 3166 on gt 791
+V004,1769,switch,792,792,3030,tracker 3030 -> 3030 on gt 792
+V004,1776,reuse,791,792,3030,tracker 3030 matched gt 791 (last frame 1768) now gt 792
+V004,1780,switch,990,990,3513,tracker 3310 -> 3513 on gt 990
+V004,1782,switch,958,958,3098,tracker 2061 -> 3098 on gt 958
+V004,1782,switch,990,990,3310,tracker 3513 -> 3310 on gt 990
+V004,1783,switch,961,961,3035,tracker 3027 -> 3035 on gt 961
+V004,1784,switch,960,960,3070,tracker 3145 -> 3070 on gt 960
+V004,1784,reuse,1052,961,3035,tracker 3035 matched gt 1052 (last frame 1753) now gt 961
+V004,1785,switch,979,979,2865,tracker 2093 -> 2865 on gt 979
+V004,1785,switch,981,981,2093,tracker 2865 -> 2093 on gt 981
+V004,1785,reuse,1055,960,3070,tracker 3070 matched gt 1055 (last frame 1763) now gt 960
+V004,1786,reuse,981,979,2865,tracker 2865 matched gt 981 (last frame 1784) now gt 979
+V004,1786,reuse,979,981,2093,tracker 2093 matched gt 979 (last frame 1781) now gt 981
+V004,1787,switch,960,960,3145,tracker 3070 -> 3145 on gt 960
+V004,1801,reuse,962,957,3279,tracker 3279 matched gt 962 (last frame 1760) now gt 957
+V004,1808,switch,960,960,3027,tracker 3145 -> 3027 on gt 960
+V004,1809,reuse,961,960,3027,tracker 3027 matched gt 961 (last frame 1782) now gt 960
+V004,1811,switch,1055,1055,3145,tracker 3070 -> 3145 on gt 1055
+V004,1812,switch,552,552,3540,tracker 3523 -> 3540 on gt 552
+V004,1812,reuse,960,1055,3145,tracker 3145 matched gt 960 (last frame 1807) now gt 1055
+V004,1813,reuse,1053,959,3110,tracker 3110 matched gt 1053 (last frame 1812) now gt 959
+V004,1816,switch,527,527,3557,tracker 3553 -> 3557 on gt 527
+V004,1817,switch,956,956,3547,tracker 3093 -> 3547 on gt 956
+V004,1820,reuse,959,1053,3110,tracker 3110 matched gt 959 (last frame 1819) now gt 1053
+V004,1821,switch,552,552,3523,tracker 3540 -> 3523 on gt 552
+V004,1821,reuse,1053,959,3110,tracker 3110 matched gt 1053 (last frame 1820) now gt 959
+V004,1824,switch,959,959,3279,tracker 3110 -> 3279 on gt 959
+V004,1825,reuse,957,959,3279,tracker 3279 matched gt 957 (last frame 1815) now gt 959
+V004,1826,switch,552,552,3540,tracker 3523 -> 3540 on gt 552
+V004,1826,switch,959,959,3110,tracker 3279 -> 3110 on gt 959
+V004,1833,switch,962,962,3145,tracker 3029 -> 3145 on gt 962
+V004,1834,reuse,1055,962,3145,tracker 3145 matched gt 1055 (last frame 1821) now gt 962
+V004,1838,switch,552,552,3523,tracker 3540 -> 3523 on gt 552
+V004,1843,switch,552,552,3540,tracker 3523 -> 3540 on gt 552
+V004,1843,switch,959,959,3029,tracker 3110 -> 3029 on gt 959
+V004,1844,switch,959,959,3110,tracker 3110 -> 3110 on gt 959
+V004,1845,switch,959,959,3029,tracker 3110 -> 3029 on gt 959
+V004,1846,reuse,962,959,3029,tracker 3029 matched gt 962 (last frame 1832) now gt 959
+V004,1850,switch,962,962,3279,tracker 3145 -> 3279 on gt 962
+V004,1850,switch,996,996,2844,tracker 2572 -> 2844 on gt 996
+V004,1850,switch,997,997,3583,tracker 2844 -> 3583 on gt 997
+V004,1851,switch,959,959,3110,tracker 3029 -> 3110 on gt 959
+V004,1851,reuse,959,962,3279,tracker 3279 matched gt 959 (last frame 1825) now gt 962
+V004,1851,reuse,997,996,2844,tracker 2844 matched gt 997 (last frame 1849) now gt 996
+V004,1851,reuse,443,539,3555,tracker 3555 matched gt 443 (last frame 1837) now gt 539
+V004,1854,switch,959,959,3279,tracker 3110 -> 3279 on gt 959
+V004,1855,switch,959,959,3110,tracker 3110 -> 3110 on gt 959
+V004,1856,switch,552,552,3523,tracker 3540 -> 3523 on gt 552
+V004,1862,switch,443,443,3595,tracker 3555 -> 3595 on gt 443
+V004,1865,switch,993,993,3231,tracker 2871 -> 3231 on gt 993
+V004,1866,reuse,994,993,3231,tracker 3231 matched gt 994 (last frame 1846) now gt 993
+V004,1867,switch,552,552,3540,tracker 3523 -> 3540 on gt 552
+V004,1874,switch,552,552,3523,tracker 3540 -> 3523 on gt 552
+V004,1875,switch,571,571,3609,tracker 3335 -> 3609 on gt 571
+V004,1881,switch,443,443,3617,tracker 3595 -> 3617 on gt 443
+V004,1885,switch,443,443,3619,tracker 3595 -> 3619 on gt 443
+V004,1889,switch,993,993,2871,tracker 3231 -> 2871 on gt 993
+V004,1893,switch,993,993,3231,tracker 2871 -> 3231 on gt 993
+V004,1895,switch,443,443,3595,tracker 3619 -> 3595 on gt 443
+V004,1895,switch,552,552,3540,tracker 3523 -> 3540 on gt 552
+V004,1897,switch,552,552,3523,tracker 3540 -> 3523 on gt 552
+V004,1899,switch,443,443,3617,tracker 3595 -> 3617 on gt 443
+V004,1903,switch,539,539,3628,tracker 3555 -> 3628 on gt 539
+V004,1906,switch,968,968,3184,tracker 3245 -> 3184 on gt 968
+V004,1907,reuse,966,968,3184,tracker 3184 matched gt 966 (last frame 1902) now gt 968
+V004,1908,switch,443,443,3595,tracker 3617 -> 3595 on gt 443
+V004,1908,switch,993,993,3268,tracker 3231 -> 3268 on gt 993
+V004,1909,reuse,1046,993,3268,tracker 3268 matched gt 1046 (last frame 1767) now gt 993
+V004,1911,switch,427,427,3540,tracker 2832 -> 3540 on gt 427
+V004,1911,switch,443,443,3619,tracker 3595 -> 3619 on gt 443
+V004,1912,reuse,552,427,3540,tracker 3540 matched gt 552 (last frame 1896) now gt 427
+V004,1913,switch,967,967,3102,tracker 3188 -> 3102 on gt 967
+V004,1914,reuse,971,967,3102,tracker 3102 matched gt 971 (last frame 1887) now gt 967
+V004,1915,switch,993,993,3258,tracker 3268 -> 3258 on gt 993
+V004,1916,reuse,998,993,3258,tracker 3258 matched gt 998 (last frame 1894) now gt 993
+V004,1917,switch,1021,1021,3145,tracker 3276 -> 3145 on gt 1021
+V004,1918,switch,1021,1021,3261,tracker 3276 -> 3261 on gt 1021
+V004,1919,switch,969,969,3102,tracker 3197 -> 3102 on gt 969
+V004,1919,reuse,965,1021,3261,tracker 3261 matched gt 965 (last frame 1917) now gt 1021
+V004,1920,reuse,1021,965,3261,tracker 3261 matched gt 1021 (last frame 1919) now gt 965
+V004,1920,reuse,967,969,3102,tracker 3102 matched gt 967 (last frame 1914) now gt 969
+V004,1921,switch,969,969,3197,tracker 3102 -> 3197 on gt 969
+V004,1923,switch,969,969,3102,tracker 3197 -> 3102 on gt 969
+V004,1925,switch,1021,1021,3279,tracker 3261 -> 3279 on gt 1021
+V004,1926,switch,997,997,3258,tracker 3583 -> 3258 on gt 997
+V004,1926,reuse,962,1021,3279,tracker 3279 matched gt 962 (last frame 1919) now gt 1021
+V004,1927,reuse,993,997,3258,tracker 3258 matched gt 993 (last frame 1916) now gt 997
+V004,1929,switch,997,997,3583,tracker 3258 -> 3583 on gt 997
+V004,1931,switch,1021,1021,3261,tracker 3279 -> 3261 on gt 1021
+V004,1932,reuse,965,1021,3261,tracker 3261 matched gt 965 (last frame 1930) now gt 1021
+V004,1936,switch,947,947,3641,tracker 3412 -> 3641 on gt 947
+V004,1940,switch,965,965,3145,tracker 3261 -> 3145 on gt 965
+V004,1941,reuse,962,965,3145,tracker 3145 matched gt 962 (last frame 1849) now gt 965
+V004,1946,switch,903,903,3640,tracker 2862 -> 3640 on gt 903
+V004,1946,switch,985,985,3261,tracker 3190 -> 3261 on gt 985
+V004,1947,switch,903,903,2862,tracker 2862 -> 2862 on gt 903
+V004,1947,switch,1021,1021,3190,tracker 3261 -> 3190 on gt 1021
+V004,1947,reuse,1021,985,3261,tracker 3261 matched gt 1021 (last frame 1935) now gt 985
+V004,1948,switch,903,903,3640,tracker 2862 -> 3640 on gt 903
+V004,1948,reuse,985,1021,3190,tracker 3190 matched gt 985 (last frame 1945) now gt 1021
+V004,1949,switch,903,903,2862,tracker 2862 -> 2862 on gt 903
+V004,1955,switch,1020,1020,3656,tracker 3496 -> 3656 on gt 1020
+V004,1960,switch,541,541,3628,tracker 3601 -> 3628 on gt 541
+V004,1961,switch,539,539,3601,tracker 3628 -> 3601 on gt 539
+V004,1961,reuse,539,541,3628,tracker 3628 matched gt 539 (last frame 1958) now gt 541
+V004,1962,reuse,541,539,3601,tracker 3601 matched gt 541 (last frame 1951) now gt 539
+V004,1985,switch,466,466,3531,tracker 3493 -> 3531 on gt 466
+V004,1986,reuse,939,466,3531,tracker 3531 matched gt 939 (last frame 1896) now gt 466
+V004,1990,switch,466,466,3493,tracker 3531 -> 3493 on gt 466
+V004,1998,switch,939,939,3506,tracker 3531 -> 3506 on gt 939
+V004,1999,switch,944,944,3641,tracker 3384 -> 3641 on gt 944
+V004,2000,reuse,947,944,3641,tracker 3641 matched gt 947 (last frame 1998) now gt 944
+V004,2002,switch,539,539,3628,tracker 3601 -> 3628 on gt 539
+V004,2003,reuse,541,539,3628,tracker 3628 matched gt 541 (last frame 2000) now gt 539
+V004,2004,switch,541,541,3684,tracker 3628 -> 3684 on gt 541
+V004,2007,switch,903,903,3681,tracker 2862 -> 3681 on gt 903
+V004,2007,switch,947,947,3339,tracker 3641 -> 3339 on gt 947
+V004,2008,reuse,949,947,3339,tracker 3339 matched gt 949 (last frame 2006) now gt 947
+V004,2010,switch,541,541,3601,tracker 3684 -> 3601 on gt 541
+V004,2011,switch,949,949,3641,tracker 3339 -> 3641 on gt 949
+V004,2012,reuse,944,949,3641,tracker 3641 matched gt 944 (last frame 2010) now gt 949
+V004,2013,switch,939,939,3687,tracker 3531 -> 3687 on gt 939
+V004,2015,switch,1020,1020,3511,tracker 3656 -> 3511 on gt 1020
+V004,2016,reuse,941,1020,3511,tracker 3511 matched gt 941 (last frame 1991) now gt 1020
+V004,2021,switch,1012,1012,2099,tracker 3185 -> 2099 on gt 1012
+V004,2022,reuse,976,1012,2099,tracker 2099 matched gt 976 (last frame 2020) now gt 1012
+V004,2023,reuse,1012,976,2099,tracker 2099 matched gt 1012 (last frame 2022) now gt 976
+V004,2024,switch,509,509,3697,tracker 3375 -> 3697 on gt 509
+V004,2026,reuse,976,1012,2099,tracker 2099 matched gt 976 (last frame 2025) now gt 1012
+V004,2027,switch,976,976,3185,tracker 2099 -> 3185 on gt 976
+V004,2027,reuse,539,541,3601,tracker 3601 matched gt 539 (last frame 1995) now gt 541
+V004,2028,reuse,1012,976,3185,tracker 3185 matched gt 1012 (last frame 2020) now gt 976
+V004,2032,switch,918,918,3701,tracker 3700 -> 3701 on gt 918
+V004,2033,switch,939,939,3703,tracker 3687 -> 3703 on gt 939
+V004,2033,switch,1015,1015,3493,tracker 3445 -> 3493 on gt 1015
+V004,2034,switch,1015,1015,3445,tracker 3445 -> 3445 on gt 1015
+V004,2036,switch,939,939,3506,tracker 3687 -> 3506 on gt 939
+V004,2037,reuse,467,939,3506,tracker 3506 matched gt 467 (last frame 2035) now gt 939
+V004,2038,switch,539,539,3589,tracker 3628 -> 3589 on gt 539
+V004,2038,switch,540,540,3628,tracker 3589 -> 3628 on gt 540
+V004,2039,reuse,540,539,3589,tracker 3589 matched gt 540 (last frame 2036) now gt 539
+V004,2039,reuse,539,540,3628,tracker 3628 matched gt 539 (last frame 2037) now gt 540
+V004,2041,switch,466,466,3474,tracker 3493 -> 3474 on gt 466
+V004,2041,switch,467,467,3445,tracker 3506 -> 3445 on gt 467
+V004,2042,reuse,1016,466,3474,tracker 3474 matched gt 1016 (last frame 2039) now gt 466
+V004,2042,reuse,1015,467,3445,tracker 3445 matched gt 1015 (last frame 2040) now gt 467
+V004,2043,switch,1015,1015,3506,tracker 3445 -> 3506 on gt 1015
+V004,2044,reuse,939,1015,3506,tracker 3506 matched gt 939 (last frame 2042) now gt 1015
+V004,2044,reuse,918,525,3700,tracker 3700 matched gt 918 (last frame 2031) now gt 525
+V004,2047,switch,976,976,2099,tracker 3185 -> 2099 on gt 976
+V004,2049,switch,939,939,3445,tracker 3506 -> 3445 on gt 939
+V004,2050,reuse,467,939,3445,tracker 3445 matched gt 467 (last frame 2048) now gt 939
+V004,2052,reuse,939,467,3445,tracker 3445 matched gt 939 (last frame 2051) now gt 467
+V004,2054,switch,542,542,3719,tracker 3508 -> 3719 on gt 542
+V004,2055,switch,977,977,3203,tracker 2991 -> 3203 on gt 977
+V004,2056,reuse,1004,977,3203,tracker 3203 matched gt 1004 (last frame 2038) now gt 977
+V004,2063,switch,939,939,3723,tracker 3445 -> 3723 on gt 939
+V004,2070,switch,876,876,3728,tracker 3726 -> 3728 on gt 876
+V004,2075,switch,504,504,3715,tracker 3400 -> 3715 on gt 504
+V004,2076,switch,466,466,3729,tracker 3474 -> 3729 on gt 466
+V004,2076,reuse,1020,1199,3656,tracker 3656 matched gt 1020 (last frame 2014) now gt 1199
+V004,2094,switch,552,552,3740,tracker 3523 -> 3740 on gt 552
+V004,2101,reuse,552,476,3523,tracker 3523 matched gt 552 (last frame 2093) now gt 476
+V004,2112,reuse,876,531,3726,tracker 3726 matched gt 876 (last frame 2069) now gt 531
+V004,2122,switch,542,542,3126,tracker 3719 -> 3126 on gt 542
+V004,2122,reuse,953,492,3422,tracker 3422 matched gt 953 (last frame 2121) now gt 492
+V004,2141,switch,477,477,3523,tracker 2698 -> 3523 on gt 477
+V004,2141,switch,593,593,3757,tracker 3753 -> 3757 on gt 593
+V004,2142,switch,593,593,3753,tracker 3753 -> 3753 on gt 593
+V004,2142,reuse,476,477,3523,tracker 3523 matched gt 476 (last frame 2119) now gt 477
+V004,2144,switch,453,453,3766,tracker 3465 -> 3766 on gt 453
+V004,2146,switch,552,552,2698,tracker 3740 -> 2698 on gt 552
+V004,2147,reuse,477,552,2698,tracker 2698 matched gt 477 (last frame 2138) now gt 552
+V004,2147,reuse,885,533,3663,tracker 3663 matched gt 885 (last frame 2118) now gt 533
+V004,2148,switch,394,394,3589,tracker 3764 -> 3589 on gt 394
+V004,2149,reuse,539,394,3589,tracker 3589 matched gt 539 (last frame 2147) now gt 394
+V004,2150,switch,535,535,2060,tracker 2141 -> 2060 on gt 535
+V004,2151,reuse,534,535,2060,tracker 2060 matched gt 534 (last frame 2147) now gt 535
+V004,2155,switch,453,453,3465,tracker 3766 -> 3465 on gt 453
+V004,2155,switch,885,885,3768,tracker 3663 -> 3768 on gt 885
+V004,2156,switch,453,453,3766,tracker 3766 -> 3766 on gt 453
+V004,2160,switch,532,532,3768,tracker 3782 -> 3768 on gt 532
+V004,2161,reuse,885,532,3768,tracker 3768 matched gt 885 (last frame 2159) now gt 532
+V004,2163,switch,540,540,3675,tracker 3628 -> 3675 on gt 540
+V004,2164,reuse,878,540,3675,tracker 3675 matched gt 878 (last frame 2162) now gt 540
+V004,2167,reuse,536,417,2146,tracker 2146 matched gt 536 (last frame 2152) now gt 417
+V004,2169,switch,885,885,3799,tracker 3768 -> 3799 on gt 885
+V004,2169,reuse,540,878,3675,tracker 3675 matched gt 540 (last frame 2168) now gt 878
+V004,2172,reuse,532,528,3782,tracker 3782 matched gt 532 (last frame 2157) now gt 528
+V004,2175,reuse,540,579,3628,tracker 3628 matched gt 540 (last frame 2162) now gt 579
+V004,2196,switch,433,433,3773,tracker 2046 -> 3773 on gt 433
+V004,2199,switch,465,465,3394,tracker 3538 -> 3394 on gt 465
+V004,2200,reuse,550,465,3394,tracker 3394 matched gt 550 (last frame 2184) now gt 465
+V004,2204,switch,488,488,3556,tracker 3431 -> 3556 on gt 488
+V004,2205,reuse,486,488,3556,tracker 3556 matched gt 486 (last frame 2190) now gt 488
+V004,2208,switch,488,488,3431,tracker 3556 -> 3431 on gt 488
+V004,2211,switch,425,425,2046,tracker 2066 -> 2046 on gt 425
+V004,2211,switch,480,480,3826,tracker 3286 -> 3826 on gt 480
+V004,2211,switch,482,482,3286,tracker 3620 -> 3286 on gt 482
+V004,2212,reuse,433,425,2046,tracker 2046 matched gt 433 (last frame 2195) now gt 425
+V004,2212,reuse,480,482,3286,tracker 3286 matched gt 480 (last frame 2210) now gt 482
+V004,2216,switch,503,503,3392,tracker 3377 -> 3392 on gt 503
+V004,2217,reuse,472,503,3392,tracker 3392 matched gt 472 (last frame 2166) now gt 503
+V004,2219,switch,469,469,3529,tracker 3518 -> 3529 on gt 469
+V004,2220,switch,500,500,3636,tracker 3731 -> 3636 on gt 500
+V004,2221,reuse,498,500,3636,tracker 3636 matched gt 498 (last frame 2169) now gt 500
+V004,2223,switch,469,469,3392,tracker 3518 -> 3392 on gt 469
+V004,2224,switch,500,500,3731,tracker 3636 -> 3731 on gt 500
+V004,2224,switch,547,547,3832,tracker 3749 -> 3832 on gt 547
+V004,2224,reuse,503,469,3392,tracker 3392 matched gt 503 (last frame 2219) now gt 469
+V004,2233,switch,500,500,3636,tracker 3731 -> 3636 on gt 500
+V004,2238,switch,425,425,3842,tracker 2046 -> 3842 on gt 425
+V004,2247,reuse,396,414,3150,tracker 3150 matched gt 396 (last frame 2236) now gt 414
+V004,2251,switch,410,410,3832,tracker 3735 -> 3832 on gt 410
+V004,2252,reuse,547,410,3832,tracker 3832 matched gt 547 (last frame 2249) now gt 410
+V004,2259,switch,400,400,2046,tracker 3543 -> 2046 on gt 400
+V004,2260,switch,547,547,3735,tracker 3832 -> 3735 on gt 547
+V004,2260,reuse,425,400,2046,tracker 2046 matched gt 425 (last frame 2237) now gt 400
+V004,2261,reuse,410,547,3735,tracker 3735 matched gt 410 (last frame 2250) now gt 547
+V004,2266,switch,505,505,3857,tracker 3466 -> 3857 on gt 505
+V004,2270,switch,547,547,3845,tracker 3735 -> 3845 on gt 547
+V004,2270,switch,548,548,3735,tracker 3743 -> 3735 on gt 548
+V004,2271,switch,532,532,3859,tracker 3768 -> 3859 on gt 532
+V004,2271,reuse,547,548,3735,tracker 3735 matched gt 547 (last frame 2262) now gt 548
+V004,2272,switch,500,500,3631,tracker 3636 -> 3631 on gt 500
+V004,2273,reuse,497,500,3631,tracker 3631 matched gt 497 (last frame 2154) now gt 500
+V004,2275,switch,529,529,3743,tracker 3836 -> 3743 on gt 529
+V004,2276,reuse,548,529,3743,tracker 3743 matched gt 548 (last frame 2250) now gt 529
+V004,2279,switch,408,408,3845,tracker 3539 -> 3845 on gt 408
+V004,2279,switch,547,547,3539,tracker 3845 -> 3539 on gt 547
+V004,2280,reuse,547,408,3845,tracker 3845 matched gt 547 (last frame 2273) now gt 408
+V004,2280,reuse,408,547,3539,tracker 3539 matched gt 408 (last frame 2278) now gt 547
+V004,2298,switch,548,548,3539,tracker 3735 -> 3539 on gt 548
+V004,2302,switch,410,410,3539,tracker 3832 -> 3539 on gt 410
+V004,2302,switch,547,547,3832,tracker 3539 -> 3832 on gt 547
+V004,2303,reuse,547,410,3539,tracker 3539 matched gt 547 (last frame 2296) now gt 410
+V004,2303,reuse,410,547,3832,tracker 3832 matched gt 410 (last frame 2301) now gt 547
+V004,2305,switch,408,408,3866,tracker 3845 -> 3866 on gt 408
+V004,2307,reuse,885,407,3799,tracker 3799 matched gt 885 (last frame 2288) now gt 407
+V004,2320,switch,530,530,3768,tracker 3810 -> 3768 on gt 530
+V004,2321,reuse,532,530,3768,tracker 3768 matched gt 532 (last frame 2270) now gt 530
+V004,2323,switch,530,530,3810,tracker 3768 -> 3810 on gt 530
+V004,2324,switch,876,876,3881,tracker 3728 -> 3881 on gt 876
+V004,2329,switch,532,532,3845,tracker 3859 -> 3845 on gt 532
+V004,2330,reuse,408,532,3845,tracker 3845 matched gt 408 (last frame 2304) now gt 532
+V004,2332,switch,548,548,3832,tracker 3735 -> 3832 on gt 548
+V004,2333,switch,918,918,3895,tracker 3701 -> 3895 on gt 918
+V004,2335,switch,410,410,3832,tracker 3539 -> 3832 on gt 410
+V004,2335,switch,548,548,3539,tracker 3735 -> 3539 on gt 548
+V004,2336,reuse,547,410,3832,tracker 3832 matched gt 547 (last frame 2317) now gt 410
+V004,2336,reuse,410,548,3539,tracker 3539 matched gt 410 (last frame 2334) now gt 548
+V004,2344,switch,402,402,3521,tracker 2042 -> 3521 on gt 402
+V004,2345,reuse,403,402,3521,tracker 3521 matched gt 403 (last frame 2320) now gt 402
+V004,2360,switch,520,520,3605,tracker 3618 -> 3605 on gt 520
+V004,2361,reuse,521,520,3605,tracker 3605 matched gt 521 (last frame 2359) now gt 520
+V004,2364,switch,547,547,3915,tracker 3832 -> 3915 on gt 547
+V004,2365,switch,1206,1206,3903,tracker 3908 -> 3903 on gt 1206
+V004,2367,switch,527,527,3743,tracker 3557 -> 3743 on gt 527
+V004,2368,reuse,529,527,3743,tracker 3743 matched gt 529 (last frame 2333) now gt 527
+V004,2387,switch,548,548,3915,tracker 3539 -> 3915 on gt 548
+V004,2388,switch,547,547,3539,tracker 3915 -> 3539 on gt 547
+V004,2389,reuse,548,547,3539,tracker 3539 matched gt 548 (last frame 2372) now gt 547
+V004,2401,reuse,522,431,3564,tracker 3564 matched gt 522 (last frame 2382) now gt 431
+V004,2403,reuse,726,891,3924,tracker 3924 matched gt 726 (last frame 2402) now gt 891
+V004,2404,switch,408,408,3552,tracker 3866 -> 3552 on gt 408
+V004,2405,reuse,524,408,3552,tracker 3552 matched gt 524 (last frame 2386) now gt 408
+V004,2406,switch,603,603,3927,tracker 3848 -> 3927 on gt 603
+V004,2408,switch,726,726,3932,tracker 3924 -> 3932 on gt 726
+V004,2413,switch,603,603,3848,tracker 3927 -> 3848 on gt 603
+V004,2414,switch,580,580,3936,tracker 3814 -> 3936 on gt 580
+V004,2414,reuse,603,631,3927,tracker 3927 matched gt 603 (last frame 2412) now gt 631
+V004,2422,reuse,538,597,3937,tracker 3937 matched gt 538 (last frame 2421) now gt 597
+V004,2436,switch,626,626,3944,tracker 3904 -> 3944 on gt 626
+V004,2459,switch,1206,1206,3955,tracker 3903 -> 3955 on gt 1206
+V004,2462,reuse,1206,397,3903,tracker 3903 matched gt 1206 (last frame 2458) now gt 397
+V004,2472,switch,724,724,3847,tracker 3856 -> 3847 on gt 724
+V004,2473,reuse,602,724,3847,tracker 3847 matched gt 602 (last frame 2471) now gt 724
+V004,2479,switch,449,449,3646,tracker 3643 -> 3646 on gt 449
+V004,2498,switch,597,597,3975,tracker 3937 -> 3975 on gt 597
+V004,2498,reuse,597,621,3937,tracker 3937 matched gt 597 (last frame 2495) now gt 621
+V004,2500,switch,390,390,3972,tracker 3734 -> 3972 on gt 390
+V004,2501,switch,1206,1206,3977,tracker 3955 -> 3977 on gt 1206
+V004,2504,switch,602,602,3979,tracker 3847 -> 3979 on gt 602
+V004,2514,reuse,390,576,3734,tracker 3734 matched gt 390 (last frame 2499) now gt 576
+V004,2519,switch,388,388,3972,tracker 3807 -> 3972 on gt 388
+V004,2519,switch,900,900,3988,tracker 3677 -> 3988 on gt 900
+V004,2535,switch,448,448,3651,tracker 3646 -> 3651 on gt 448
+V004,2536,reuse,444,448,3651,tracker 3651 matched gt 444 (last frame 2534) now gt 448
+V004,2551,switch,440,440,3773,tracker 3711 -> 3773 on gt 440
+V004,2552,reuse,433,440,3773,tracker 3773 matched gt 433 (last frame 2548) now gt 440
+V004,2553,switch,440,440,3711,tracker 3773 -> 3711 on gt 440
+V004,2553,switch,571,571,4008,tracker 3609 -> 4008 on gt 571
+V004,2556,switch,433,433,4011,tracker 3773 -> 4011 on gt 433
+V004,2565,switch,622,622,4014,tracker 3865 -> 4014 on gt 622
+V004,2574,switch,622,622,3865,tracker 4014 -> 3865 on gt 622
+V004,2582,switch,571,571,3609,tracker 4008 -> 3609 on gt 571
+V004,2583,reuse,393,568,3686,tracker 3686 matched gt 393 (last frame 2565) now gt 568
+V004,2594,switch,644,644,3959,tracker 4005 -> 3959 on gt 644
+V004,2594,switch,830,830,4005,tracker 3959 -> 4005 on gt 830
+V004,2595,reuse,830,644,3959,tracker 3959 matched gt 830 (last frame 2592) now gt 644
+V004,2595,reuse,644,830,4005,tracker 4005 matched gt 644 (last frame 2593) now gt 830
+V004,2596,switch,622,622,3937,tracker 3865 -> 3937 on gt 622
+V004,2597,reuse,621,622,3937,tracker 3937 matched gt 621 (last frame 2569) now gt 622
+V004,2603,reuse,1206,615,3977,tracker 3977 matched gt 1206 (last frame 2602) now gt 615
+V004,2611,switch,573,573,3757,tracker 2254 -> 3757 on gt 573
+V004,2611,switch,1206,1206,4041,tracker 3977 -> 4041 on gt 1206
+V004,2612,switch,573,573,2254,tracker 2254 -> 2254 on gt 573
+V004,2630,reuse,601,600,4046,tracker 4046 matched gt 601 (last frame 2629) now gt 600
+V004,2631,switch,583,583,3562,tracker 3787 -> 3562 on gt 583
+V004,2632,reuse,910,583,3562,tracker 3562 matched gt 910 (last frame 2622) now gt 583
+V004,2634,switch,621,621,4053,tracker 3937 -> 4053 on gt 621
+V004,2636,switch,600,600,4055,tracker 4046 -> 4055 on gt 600
+V004,2636,reuse,600,601,4046,tracker 4046 matched gt 600 (last frame 2635) now gt 601
+V004,2640,switch,910,910,4060,tracker 3562 -> 4060 on gt 910
+V004,2649,switch,442,442,3619,tracker 3546 -> 3619 on gt 442
+V004,2650,reuse,443,442,3619,tracker 3619 matched gt 443 (last frame 2648) now gt 442
+V004,2659,reuse,622,608,3865,tracker 3865 matched gt 622 (last frame 2595) now gt 608
+V004,2676,switch,1206,1206,4077,tracker 4041 -> 4077 on gt 1206
+V004,2679,switch,398,398,3946,tracker 3965 -> 3946 on gt 398
+V004,2679,switch,1206,1206,4041,tracker 4077 -> 4041 on gt 1206
+V004,2680,reuse,399,398,3946,tracker 3946 matched gt 399 (last frame 2651) now gt 398
+V004,2692,switch,604,604,4082,tracker 3834 -> 4082 on gt 604
+V004,2699,reuse,553,890,3930,tracker 3930 matched gt 553 (last frame 2687) now gt 890
+V004,2704,switch,725,725,4087,tracker 3989 -> 4087 on gt 725
+V004,2705,switch,611,611,3834,tracker 3870 -> 3834 on gt 611
+V004,2706,reuse,604,611,3834,tracker 3834 matched gt 604 (last frame 2691) now gt 611
+V004,2714,switch,436,436,3619,tracker 3235 -> 3619 on gt 436
+V004,2714,switch,594,594,3235,tracker 3259 -> 3235 on gt 594
+V004,2715,switch,610,610,3870,tracker 3986 -> 3870 on gt 610
+V004,2715,reuse,436,594,3235,tracker 3235 matched gt 436 (last frame 2713) now gt 594
+V004,2716,reuse,611,610,3870,tracker 3870 matched gt 611 (last frame 2704) now gt 610
+V004,2717,switch,622,622,4053,tracker 3937 -> 4053 on gt 622
+V004,2718,switch,622,622,3937,tracker 3937 -> 3937 on gt 622
+V004,2731,switch,906,906,4107,tracker 2140 -> 4107 on gt 906
+V004,2732,switch,598,598,3927,tracker 4040 -> 3927 on gt 598
+V004,2732,switch,619,619,4120,tracker 3941 -> 4120 on gt 619
+V004,2733,reuse,631,598,3927,tracker 3927 matched gt 631 (last frame 2731) now gt 598
+V004,2738,switch,792,792,4121,tracker 3030 -> 4121 on gt 792
+V004,2740,switch,917,917,4129,tracker 4067 -> 4129 on gt 917
+V004,2744,switch,725,725,3989,tracker 4087 -> 3989 on gt 725
+V004,2746,switch,631,631,4046,tracker 3927 -> 4046 on gt 631
+V004,2747,reuse,601,631,4046,tracker 4046 matched gt 601 (last frame 2745) now gt 631
+V004,2749,reuse,631,601,4046,tracker 4046 matched gt 631 (last frame 2748) now gt 601
+V004,2750,switch,787,787,2140,tracker 3928 -> 2140 on gt 787
+V004,2751,reuse,906,787,2140,tracker 2140 matched gt 906 (last frame 2730) now gt 787
+V004,2761,switch,601,601,4140,tracker 4046 -> 4140 on gt 601
+V004,2761,reuse,601,631,4046,tracker 4046 matched gt 601 (last frame 2760) now gt 631
+V004,2778,reuse,557,658,2145,tracker 2145 matched gt 557 (last frame 2758) now gt 658
+V004,2803,switch,578,578,3780,tracker 3951 -> 3780 on gt 578
+V004,2804,switch,840,840,4178,tracker 4171 -> 4178 on gt 840
+V004,2804,reuse,581,578,3780,tracker 3780 matched gt 581 (last frame 2800) now gt 578
+V004,2804,reuse,595,788,3864,tracker 3864 matched gt 595 (last frame 2728) now gt 788
+V004,2806,reuse,840,839,4171,tracker 4171 matched gt 840 (last frame 2803) now gt 839
+V004,2810,switch,678,678,4180,tracker 4091 -> 4180 on gt 678
+V004,2812,switch,625,625,4180,tracker 3871 -> 4180 on gt 625
+V004,2812,switch,678,678,3871,tracker 4091 -> 3871 on gt 678
+V004,2813,reuse,625,678,3871,tracker 3871 matched gt 625 (last frame 2811) now gt 678
+V004,2820,switch,619,619,4053,tracker 4120 -> 4053 on gt 619
+V004,2821,switch,621,621,3937,tracker 4053 -> 3937 on gt 621
+V004,2821,reuse,621,619,4053,tracker 4053 matched gt 621 (last frame 2815) now gt 619
+V004,2823,switch,575,575,3734,tracker 3974 -> 3734 on gt 575
+V004,2823,reuse,678,661,4091,tracker 4091 matched gt 678 (last frame 2803) now gt 661
+V004,2824,reuse,576,575,3734,tracker 3734 matched gt 576 (last frame 2817) now gt 575
+V004,2828,switch,597,597,4183,tracker 3975 -> 4183 on gt 597
+V004,2832,switch,604,604,4158,tracker 4082 -> 4158 on gt 604
+V004,2838,switch,626,626,3909,tracker 3944 -> 3909 on gt 626
+V004,2839,reuse,588,626,3909,tracker 3909 matched gt 588 (last frame 2828) now gt 626
+V004,2841,reuse,597,812,3975,tracker 3975 matched gt 597 (last frame 2826) now gt 812
+V004,2845,switch,597,597,4091,tracker 4183 -> 4091 on gt 597
+V004,2846,reuse,661,597,4091,tracker 4091 matched gt 661 (last frame 2841) now gt 597
+V004,2847,switch,571,571,2236,tracker 3609 -> 2236 on gt 571
+V004,2847,switch,580,580,3806,tracker 3936 -> 3806 on gt 580
+V004,2848,reuse,572,571,2236,tracker 2236 matched gt 572 (last frame 2846) now gt 571
+V004,2848,reuse,582,580,3806,tracker 3806 matched gt 582 (last frame 2846) now gt 580
+V004,2850,switch,572,572,3609,tracker 2236 -> 3609 on gt 572
+V004,2851,switch,661,661,4200,tracker 4091 -> 4200 on gt 661
+V004,2852,switch,806,806,2118,tracker 2169 -> 2118 on gt 806
+V004,2852,switch,922,922,2169,tracker 2118 -> 2169 on gt 922
+V004,2853,reuse,922,806,2118,tracker 2118 matched gt 922 (last frame 2850) now gt 806
+V004,2853,reuse,806,922,2169,tracker 2169 matched gt 806 (last frame 2851) now gt 922
+V004,2861,switch,571,571,3609,tracker 2236 -> 3609 on gt 571
+V004,2867,switch,677,677,2704,tracker 4001 -> 2704 on gt 677
+V004,2868,reuse,643,677,2704,tracker 2704 matched gt 643 (last frame 2857) now gt 677
+V004,2874,switch,571,571,2236,tracker 3609 -> 2236 on gt 571
+V004,2876,switch,620,620,4208,tracker 3919 -> 4208 on gt 620
+V004,2886,switch,605,605,4023,tracker 4056 -> 4023 on gt 605
+V004,2886,switch,839,839,4211,tracker 4171 -> 4211 on gt 839
+V004,2888,switch,643,643,4217,tracker 2704 -> 4217 on gt 643
+V004,2888,switch,725,725,4218,tracker 3989 -> 4218 on gt 725
+V004,2892,switch,699,699,4171,tracker 4187 -> 4171 on gt 699
+V004,2893,switch,622,622,4091,tracker 3937 -> 4091 on gt 622
+V004,2893,reuse,839,699,4171,tracker 4171 matched gt 839 (last frame 2885) now gt 699
+V004,2894,reuse,597,622,4091,tracker 4091 matched gt 597 (last frame 2862) now gt 622
+V004,2925,switch,618,618,4091,tracker 3593 -> 4091 on gt 618
+V004,2928,switch,622,622,3909,tracker 4091 -> 3909 on gt 622
+V004,2929,switch,621,621,3593,tracker 4053 -> 3593 on gt 621
+V004,2929,switch,722,722,4237,tracker 4128 -> 4237 on gt 722
+V004,2930,reuse,618,621,3593,tracker 3593 matched gt 618 (last frame 2901) now gt 621
+V004,2934,reuse,626,622,3909,tracker 3909 matched gt 626 (last frame 2904) now gt 622
+V004,2937,reuse,622,626,3909,tracker 3909 matched gt 622 (last frame 2936) now gt 626
+V004,2939,switch,642,642,4222,tracker 3227 -> 4222 on gt 642
+V004,2940,switch,665,665,4243,tracker 4224 -> 4243 on gt 665
+V004,2940,switch,667,667,4224,tracker 4243 -> 4224 on gt 667
+V004,2941,reuse,667,665,4243,tracker 4243 matched gt 667 (last frame 2939) now gt 665
+V004,2941,reuse,665,667,4224,tracker 4224 matched gt 665 (last frame 2937) now gt 667
+V004,2942,reuse,626,622,3909,tracker 3909 matched gt 626 (last frame 2941) now gt 622
+V004,2961,switch,625,625,3829,tracker 4180 -> 3829 on gt 625
+V004,2962,reuse,617,625,3829,tracker 3829 matched gt 617 (last frame 2930) now gt 625
+V004,2964,switch,666,666,4041,tracker 4253 -> 4041 on gt 666
+V004,2965,reuse,1206,666,4041,tracker 4041 matched gt 1206 (last frame 2963) now gt 666
+V004,2968,switch,625,625,4180,tracker 3829 -> 4180 on gt 625
+V004,2968,reuse,622,626,3909,tracker 3909 matched gt 622 (last frame 2967) now gt 626
+V004,2971,switch,626,626,3829,tracker 3909 -> 3829 on gt 626
+V004,2971,reuse,626,622,3909,tracker 3909 matched gt 626 (last frame 2970) now gt 622
+V004,2972,switch,676,676,4257,tracker 4030 -> 4257 on gt 676
+V004,2972,reuse,625,626,3829,tracker 3829 matched gt 625 (last frame 2967) now gt 626
+V004,2973,switch,626,626,3909,tracker 3829 -> 3909 on gt 626
+V004,2974,switch,631,631,3829,tracker 4046 -> 3829 on gt 631
+V004,2974,reuse,622,626,3909,tracker 3909 matched gt 622 (last frame 2971) now gt 626
+V004,2976,switch,626,626,3829,tracker 3909 -> 3829 on gt 626
+V004,2979,switch,620,620,3909,tracker 4208 -> 3909 on gt 620
+V004,2980,reuse,626,620,3909,tracker 3909 matched gt 626 (last frame 2975) now gt 620
+V004,2981,switch,620,620,3829,tracker 3909 -> 3829 on gt 620
+V004,2981,switch,626,626,4208,tracker 3829 -> 4208 on gt 626
+V004,2982,switch,627,627,3829,tracker 3894 -> 3829 on gt 627
+V004,2982,reuse,620,626,4208,tracker 4208 matched gt 620 (last frame 2978) now gt 626
+V004,2983,switch,620,620,3909,tracker 3909 -> 3909 on gt 620
+V004,2983,reuse,626,627,3829,tracker 3829 matched gt 626 (last frame 2979) now gt 627
+V004,2986,switch,620,620,4208,tracker 3909 -> 4208 on gt 620
+V004,2986,switch,626,626,3909,tracker 4208 -> 3909 on gt 626
+V004,2987,switch,619,619,3894,tracker 4053 -> 3894 on gt 619
+V004,2987,switch,725,725,4265,tracker 4218 -> 4265 on gt 725
+V004,2987,reuse,626,620,4208,tracker 4208 matched gt 626 (last frame 2983) now gt 620
+V004,2987,reuse,620,626,3909,tracker 3909 matched gt 620 (last frame 2985) now gt 626
+V004,2988,reuse,627,619,3894,tracker 3894 matched gt 627 (last frame 2981) now gt 619
+V004,2991,switch,1206,1206,4268,tracker 4041 -> 4268 on gt 1206
+V004,2993,reuse,627,631,3829,tracker 3829 matched gt 627 (last frame 2992) now gt 631
+V004,2994,switch,627,627,4208,tracker 3829 -> 4208 on gt 627
+V004,2995,reuse,620,627,4208,tracker 4208 matched gt 620 (last frame 2992) now gt 627
+V004,2999,switch,631,631,3894,tracker 3829 -> 3894 on gt 631
+V004,3000,reuse,619,631,3894,tracker 3894 matched gt 619 (last frame 2993) now gt 631
+V004,3003,switch,619,619,4046,tracker 3894 -> 4046 on gt 619
+V004,3004,reuse,631,619,4046,tracker 4046 matched gt 631 (last frame 2965) now gt 619
+V004,3005,switch,631,631,3873,tracker 3894 -> 3873 on gt 631
+V004,3006,switch,570,570,3894,tracker 3873 -> 3894 on gt 570
+V004,3007,switch,570,570,3978,tracker 3873 -> 3978 on gt 570
+V004,3007,reuse,570,631,3873,tracker 3873 matched gt 570 (last frame 3003) now gt 631
+V004,3008,switch,621,621,3873,tracker 3593 -> 3873 on gt 621
+V004,3008,switch,631,631,3894,tracker 3873 -> 3894 on gt 631
+V004,3008,reuse,614,570,3978,tracker 3978 matched gt 614 (last frame 2989) now gt 570
+V004,3009,switch,570,570,3593,tracker 3978 -> 3593 on gt 570
+V004,3009,reuse,631,621,3873,tracker 3873 matched gt 631 (last frame 3007) now gt 621
+V004,3010,switch,570,570,3978,tracker 3978 -> 3978 on gt 570
+V004,3013,switch,625,625,3686,tracker 4180 -> 3686 on gt 625
+V004,3014,switch,625,625,4180,tracker 4180 -> 4180 on gt 625
+V004,3016,switch,625,625,3686,tracker 4180 -> 3686 on gt 625
+V004,3017,reuse,568,625,3686,tracker 3686 matched gt 568 (last frame 2968) now gt 625
+V004,3018,switch,602,602,3870,tracker 3979 -> 3870 on gt 602
+V004,3019,reuse,610,602,3870,tracker 3870 matched gt 610 (last frame 2996) now gt 602
+V004,3023,switch,625,625,4029,tracker 3686 -> 4029 on gt 625
+V004,3024,reuse,569,625,4029,tracker 4029 matched gt 569 (last frame 2995) now gt 625
+V004,3028,switch,725,725,4292,tracker 4265 -> 4292 on gt 725
+V004,3043,switch,627,627,3829,tracker 4208 -> 3829 on gt 627
+V004,3044,reuse,631,627,3829,tracker 3829 matched gt 631 (last frame 2997) now gt 627
+V004,3045,switch,725,725,4301,tracker 4292 -> 4301 on gt 725
+V004,3046,switch,826,826,3994,tracker 3992 -> 3994 on gt 826
+V004,3047,reuse,825,826,3994,tracker 3994 matched gt 825 (last frame 3039) now gt 826
+V004,3051,switch,628,628,3894,tracker 3886 -> 3894 on gt 628
+V004,3051,switch,725,725,4304,tracker 4301 -> 4304 on gt 725
+V004,3051,switch,825,825,3992,tracker 3994 -> 3992 on gt 825
+V004,3052,reuse,631,628,3894,tracker 3894 matched gt 631 (last frame 3049) now gt 628
+V004,3052,reuse,826,825,3992,tracker 3992 matched gt 826 (last frame 3045) now gt 825
+V004,3054,switch,715,715,4258,tracker 4249 -> 4258 on gt 715
+V004,3054,switch,783,783,4249,tracker 4258 -> 4249 on gt 783
+V004,3055,switch,631,631,3886,tracker 3894 -> 3886 on gt 631
+V004,3055,reuse,783,715,4258,tracker 4258 matched gt 783 (last frame 3053) now gt 715
+V004,3055,reuse,715,783,4249,tracker 4249 matched gt 715 (last frame 3053) now gt 783
+V004,3058,reuse,628,631,3886,tracker 3886 matched gt 628 (last frame 3050) now gt 631
+V004,3060,switch,905,905,4309,tracker 3923 -> 4309 on gt 905
+V004,3063,switch,631,631,4301,tracker 3886 -> 4301 on gt 631
+V004,3064,switch,825,825,4311,tracker 3992 -> 4311 on gt 825
+V004,3065,switch,841,841,4133,tracker 4148 -> 4133 on gt 841
+V004,3066,reuse,700,841,4133,tracker 4133 matched gt 700 (last frame 3064) now gt 841
+V004,3067,switch,766,766,2109,tracker 2808 -> 2109 on gt 766
+V004,3067,switch,841,841,4148,tracker 4133 -> 4148 on gt 841
+V004,3067,reuse,841,700,4133,tracker 4133 matched gt 841 (last frame 3066) now gt 700
+V004,3068,reuse,834,766,2109,tracker 2109 matched gt 834 (last frame 3066) now gt 766
+V004,3069,switch,834,834,4314,tracker 2109 -> 4314 on gt 834
+V004,3074,switch,631,631,3886,tracker 3886 -> 3886 on gt 631
+V004,3081,switch,631,631,3978,tracker 3886 -> 3978 on gt 631
+V004,3082,reuse,570,631,3978,tracker 3978 matched gt 570 (last frame 3021) now gt 631
+V004,3083,switch,865,865,3886,tracker 3940 -> 3886 on gt 865
+V004,3083,switch,904,904,4309,tracker 2149 -> 4309 on gt 904
+V004,3083,switch,905,905,2149,tracker 4309 -> 2149 on gt 905
+V004,3084,reuse,631,865,3886,tracker 3886 matched gt 631 (last frame 3079) now gt 865
+V004,3084,reuse,905,904,4309,tracker 4309 matched gt 905 (last frame 3082) now gt 904
+V004,3084,reuse,904,905,2149,tracker 2149 matched gt 904 (last frame 3082) now gt 905
+V004,3087,switch,631,631,3886,tracker 3978 -> 3886 on gt 631
+V004,3088,reuse,865,631,3886,tracker 3886 matched gt 865 (last frame 3086) now gt 631
+V004,3096,switch,865,865,4326,tracker 3886 -> 4326 on gt 865
+V004,3106,switch,631,631,4332,tracker 3886 -> 4332 on gt 631
+V004,3120,switch,825,825,4340,tracker 4311 -> 4340 on gt 825
+V004,3131,switch,637,637,4326,tracker 3987 -> 4326 on gt 637
+V004,3132,reuse,865,637,4326,tracker 4326 matched gt 865 (last frame 3130) now gt 637
+V004,3133,switch,865,865,3940,tracker 4326 -> 3940 on gt 865
+V004,3137,switch,904,904,2149,tracker 4309 -> 2149 on gt 904
+V004,3137,switch,905,905,4355,tracker 2149 -> 4355 on gt 905
+V004,3137,switch,921,921,4357,tracker 3359 -> 4357 on gt 921
+V004,3138,reuse,905,904,2149,tracker 2149 matched gt 905 (last frame 3136) now gt 904
+V004,3142,switch,806,806,3359,tracker 2118 -> 3359 on gt 806
+V004,3143,switch,921,921,2118,tracker 4357 -> 2118 on gt 921
+V004,3143,reuse,921,806,3359,tracker 3359 matched gt 921 (last frame 3136) now gt 806
+V004,3144,reuse,806,921,2118,tracker 2118 matched gt 806 (last frame 3138) now gt 921
+V004,3150,switch,631,631,3987,tracker 4332 -> 3987 on gt 631
+V004,3151,reuse,637,631,3987,tracker 3987 matched gt 637 (last frame 3125) now gt 631
+V004,3152,switch,631,631,4332,tracker 3987 -> 4332 on gt 631
+V004,3152,switch,866,866,4368,tracker 4347 -> 4368 on gt 866
+V004,3158,switch,643,643,4024,tracker 4217 -> 4024 on gt 643
+V004,3159,reuse,655,643,4024,tracker 4024 matched gt 655 (last frame 3147) now gt 643
+V004,3160,switch,724,724,4369,tracker 3847 -> 4369 on gt 724
+V004,3161,switch,655,655,3889,tracker 4024 -> 3889 on gt 655
+V004,3162,reuse,629,655,3889,tracker 3889 matched gt 629 (last frame 3094) now gt 655
+V004,3171,switch,632,632,4332,tracker 3976 -> 4332 on gt 632
+V004,3172,reuse,631,632,4332,tracker 4332 matched gt 631 (last frame 3161) now gt 632
+V004,3173,reuse,632,631,4332,tracker 4332 matched gt 632 (last frame 3172) now gt 631
+V004,3193,switch,655,655,4069,tracker 3889 -> 4069 on gt 655
+V004,3194,reuse,703,655,4069,tracker 4069 matched gt 703 (last frame 3153) now gt 655
+V004,3197,switch,724,724,3982,tracker 4369 -> 3982 on gt 724
+V004,3198,reuse,633,724,3982,tracker 3982 matched gt 633 (last frame 3185) now gt 724
+V004,3200,switch,891,891,4192,tracker 3924 -> 4192 on gt 891
+V004,3201,switch,724,724,3924,tracker 3982 -> 3924 on gt 724
+V004,3201,switch,800,800,4375,tracker 4396 -> 4375 on gt 800
+V004,3201,reuse,669,891,4192,tracker 4192 matched gt 669 (last frame 3183) now gt 891
+V004,3202,switch,650,650,4021,tracker 4068 -> 4021 on gt 650
+V004,3202,reuse,891,724,3924,tracker 3924 matched gt 891 (last frame 3199) now gt 724
+V004,3202,reuse,756,800,4375,tracker 4375 matched gt 756 (last frame 3200) now gt 800
+V004,3203,switch,655,655,3889,tracker 4069 -> 3889 on gt 655
+V004,3203,reuse,721,650,4021,tracker 4021 matched gt 721 (last frame 3201) now gt 650
+V004,3204,switch,826,826,4340,tracker 3994 -> 4340 on gt 826
+V004,3205,switch,633,633,4369,tracker 3982 -> 4369 on gt 633
+V004,3205,reuse,825,826,4340,tracker 4340 matched gt 825 (last frame 3203) now gt 826
+V004,3206,switch,639,639,4332,tracker 3971 -> 4332 on gt 639
+V004,3206,reuse,724,633,4369,tracker 4369 matched gt 724 (last frame 3190) now gt 633
+V004,3206,reuse,1206,889,4268,tracker 4268 matched gt 1206 (last frame 3204) now gt 889
+V004,3207,switch,825,825,3994,tracker 4340 -> 3994 on gt 825
+V004,3207,reuse,631,639,4332,tracker 4332 matched gt 631 (last frame 3205) now gt 639
+V004,3208,switch,756,756,4396,tracker 4375 -> 4396 on gt 756
+V004,3208,reuse,826,825,3994,tracker 3994 matched gt 826 (last frame 3198) now gt 825
+V004,3209,reuse,800,756,4396,tracker 4396 matched gt 800 (last frame 3195) now gt 756
+V004,3210,switch,638,638,3924,tracker 3855 -> 3924 on gt 638
+V004,3211,switch,631,631,4369,tracker 4332 -> 4369 on gt 631
+V004,3211,switch,724,724,4192,tracker 3924 -> 4192 on gt 724
+V004,3211,reuse,724,638,3924,tracker 3924 matched gt 724 (last frame 3204) now gt 638
+V004,3212,reuse,891,724,4192,tracker 4192 matched gt 891 (last frame 3206) now gt 724
+V004,3213,switch,871,871,4021,tracker 4206 -> 4021 on gt 871
+V004,3213,reuse,724,891,4192,tracker 4192 matched gt 724 (last frame 3212) now gt 891
+V004,3214,switch,826,826,3994,tracker 4340 -> 3994 on gt 826
+V004,3215,switch,638,638,3855,tracker 3924 -> 3855 on gt 638
+V004,3215,reuse,825,826,3994,tracker 3994 matched gt 825 (last frame 3213) now gt 826
+V004,3215,reuse,650,871,4021,tracker 4021 matched gt 650 (last frame 3212) now gt 871
+V004,3216,switch,655,655,4069,tracker 3889 -> 4069 on gt 655
+V004,3216,reuse,826,825,3994,tracker 3994 matched gt 826 (last frame 3215) now gt 825
+V004,3220,switch,826,826,4340,tracker 3994 -> 4340 on gt 826
+V004,3224,reuse,891,724,4192,tracker 4192 matched gt 891 (last frame 3223) now gt 724
+V004,3228,reuse,802,755,4162,tracker 4162 matched gt 802 (last frame 3203) now gt 755
+V004,3236,reuse,724,891,4192,tracker 4192 matched gt 724 (last frame 3235) now gt 891
+V004,3237,reuse,891,724,4192,tracker 4192 matched gt 891 (last frame 3236) now gt 724
+V004,3238,switch,641,641,4069,tracker 3945 -> 4069 on gt 641
+V004,3239,reuse,655,641,4069,tracker 4069 matched gt 655 (last frame 3217) now gt 641
+V004,3242,reuse,724,891,4192,tracker 4192 matched gt 724 (last frame 3241) now gt 891
+V004,3257,reuse,801,803,4166,tracker 4166 matched gt 801 (last frame 3243) now gt 803
+V004,3263,switch,680,680,4108,tracker 4137 -> 4108 on gt 680
+V004,3265,switch,924,924,3750,tracker 3993 -> 3750 on gt 924
+V004,3265,reuse,663,680,4108,tracker 4108 matched gt 663 (last frame 3264) now gt 680
+V004,3266,switch,673,673,3993,tracker 3750 -> 3993 on gt 673
+V004,3266,reuse,673,924,3750,tracker 3750 matched gt 673 (last frame 3250) now gt 924
+V004,3267,reuse,924,673,3993,tracker 3993 matched gt 924 (last frame 3264) now gt 673
+V004,3270,switch,638,638,4192,tracker 3855 -> 4192 on gt 638
+V004,3270,switch,651,651,4427,tracker 4101 -> 4427 on gt 651
+V004,3270,switch,891,891,4219,tracker 4192 -> 4219 on gt 891
+V004,3271,reuse,891,638,4192,tracker 4192 matched gt 891 (last frame 3269) now gt 638
+V004,3271,reuse,672,891,4219,tracker 4219 matched gt 672 (last frame 3214) now gt 891
+V004,3273,switch,663,663,4160,tracker 4108 -> 4160 on gt 663
+V004,3274,reuse,681,663,4160,tracker 4160 matched gt 681 (last frame 3271) now gt 663
+V004,3276,switch,681,681,4108,tracker 4160 -> 4108 on gt 681
+V004,3281,switch,638,638,3855,tracker 4192 -> 3855 on gt 638
+V004,3282,switch,891,891,4192,tracker 4219 -> 4192 on gt 891
+V004,3283,switch,905,905,4436,tracker 4355 -> 4436 on gt 905
+V004,3283,reuse,638,891,4192,tracker 4192 matched gt 638 (last frame 3279) now gt 891
+V004,3284,switch,848,848,4438,tracker 4169 -> 4438 on gt 848
+V004,3284,reuse,821,1200,4412,tracker 4412 matched gt 821 (last frame 3257) now gt 1200
+V004,3288,switch,659,659,4069,tracker 4076 -> 4069 on gt 659
+V004,3298,switch,663,663,4444,tracker 4160 -> 4444 on gt 663
+V004,3298,switch,892,892,4069,tracker 4256 -> 4069 on gt 892
+V004,3299,reuse,641,892,4069,tracker 4069 matched gt 641 (last frame 3270) now gt 892
+V004,3300,reuse,680,681,4108,tracker 4108 matched gt 680 (last frame 3275) now gt 681
+V004,3301,switch,867,867,4431,tracker 4345 -> 4431 on gt 867
+V004,3301,reuse,723,874,4161,tracker 4161 matched gt 723 (last frame 3289) now gt 874
+V004,3301,reuse,713,875,4377,tracker 4377 matched gt 713 (last frame 3284) now gt 875
+V004,3303,switch,663,663,4160,tracker 4444 -> 4160 on gt 663
+V004,3304,switch,867,867,4345,tracker 4431 -> 4345 on gt 867
+V004,3307,reuse,861,860,4441,tracker 4441 matched gt 861 (last frame 3302) now gt 860
+V004,3308,switch,861,861,4377,tracker 4441 -> 4377 on gt 861
+V004,3309,reuse,875,861,4377,tracker 4377 matched gt 875 (last frame 3307) now gt 861
+V004,3310,switch,875,875,4446,tracker 4377 -> 4446 on gt 875
+V004,3314,switch,894,894,4269,tracker 4203 -> 4269 on gt 894
+V004,3315,switch,660,660,4076,tracker 4075 -> 4076 on gt 660
+V004,3315,reuse,653,894,4269,tracker 4269 matched gt 653 (last frame 3313) now gt 894

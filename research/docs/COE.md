@@ -19,7 +19,7 @@
 ## 2. 目录地图（**所有代码与产物统一放 `research/`，单位置**）
 
 **`research/`（本项目，唯一运行与产物位置）**：
-- `docs/`（进度台账 `开发进度.md`、`COE.md`、`研究方向.md`）· `README.md`（索引）· `reports/`（`day1_report.md` / `day2_report.md` / `day3_report.md` 研究结论，**方法学存档**：数字基于 2026-08-16 重生成前的旧事件池）· `diag_exp/`（Day 3 诊断实验独立工作区：`run_diag.py` + `results/` + `README.md`，自包含，只读 data/ 与 taxonomy/；报告见 `reports/day3_report.md`）
+- `docs/`（进度台账 `开发进度.md`、`COE.md`、`研究方向.md`）· `README.md`（索引）· `reports/`（`day1_report.md` / `day2_report.md` / `day3_report.md` 研究结论，数字已按 2026-08-16 事件池更新）· `diag_exp/`（Day 3 诊断实验独立工作区：`run_diag.py` + `results/` + `README.md`，自包含，只读 data/ 与 taxonomy/；报告见 `reports/day3_report.md`）
 - `code/` — **活脚本（2 个）**：`analysis.py`（几何门控基线 + 三候选机制验证）、`den_online_eval.py`（在线-离线对齐，自包含只读 CSV；均用 `_repo_root()` 自动向上探测仓库根）。**2026-08-08 整理：V1–V8 历史脚本全部删除**（结论冻结在 `reports/day1_report.md`/`reports/day2_report.md` 与 `taxonomy/` 报告及 CSV；report 与代码解耦——改报告直接编辑 md，不重跑代码）。**2026-08-10：`diag_exp/run_diag.py` 通过 `import analysis` 复用其全部工具函数**（main 有守卫，import 无副作用），新特征（occlusion IoF / swap ΔC）为纯 numpy 向量化，全量三数据集 ~70s（无需 KF 重放）。**2026-08-16：事件集重生成**——`tools/build_ids_events.py`（motmetrics 时序匹配，唯一事件表生成器）+ `tools/build_event_counts.py`（分类计数锚点）；`code/backup/` 已删除（2026-08-16，旧基准）
 - `data/` — 冻结输入：`{ds}_events.csv` + `{ds}_events_metrics.csv` + `{ds}_events_summary.csv`（2026-08-16 从**当前清洗后 GT** + 冻结 track_results 全量重生成；只读，分类标准见 `data/README.md`）
 - `taxonomy/` — **产物（见名知义）**：`event_counts_by_sequence.csv`（冻结，SANITY 锚点）、`gate_feasibility_{events,summary}.csv` + `gate_feasibility_roc.png`（analysis.py 生成）、`den_online_{ds}_full.csv`（den_online_eval.py 生成）、`event_taxonomy_report.md`（手写静态报告，旧池存档；门控/在线报告已合并至 `reports/day2_report.md`）。**2026-08-16 删除**：`event_classification.csv`、`warning_features.csv`（旧 V1/V5 冻结产物，无代码读取、生成脚本已删、基于旧事件池）
@@ -81,8 +81,8 @@
 > ⚠️ 2026-08-16 事件集已按清洗后 GT 全量重生成：**当前事件池 = 4,713 条 IDS switch
 > （MOT17 546 / MOT20 1,600 / SportsMOT 2,567）**：S_c 1,828（38.8%）/ S_r 1,899
 > （40.3%）/ S_h 986（20.9%）；reuse 2,320。下列结论的**方向全部不变**（重生成后
-> 数字见 `research/README.md` 状态速览；SportsMOT 完全复现旧值）；`reports/day{1,2,3}`
-> 与 `taxonomy/event_taxonomy_report.md` 为旧池方法学存档。
+> 数字见 `research/README.md` 状态速览与 `reports/day{1,2,3}_report.md`；
+> SportsMOT 完全复现旧值）；`taxonomy/event_taxonomy_report.md` 为旧池方法学存档。
 
 - 4,756 条 IDS（旧池）：S_c 1,841（38.7%）/ S_r 1,921（40.4%）/ S_h 994（20.9%）；序列级 114 条（MOT17 21 / MOT20 4 / SportsMOT 89）
 - 场景参数：MOT17 α=22.4%、π_r=58.5%；MOT20 α=16.6%、π_r=70.3%；SportsMOT α=56.3%、π_r=63.3%

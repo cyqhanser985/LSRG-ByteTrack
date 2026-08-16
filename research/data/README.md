@@ -50,4 +50,4 @@ cd research/data && sha256sum *.csv > SHA256SUMS.txt
 
 - **只读**：任何脚本不得写入本目录；如需新输入，走"冻结 → 复制 → 校验"流程。
 - 修改事件表 = 修改全部分析基准；Git 已启用（`baseline-v001` 为重构前基线），改动前仍应先备份并同步更新 `taxonomy/event_counts_by_sequence.csv`（SANITY 硬断言源）。
-- 本目录不存放报告（结论报告在 `research/reports/day{1,2,3}_report.md` 与 `taxonomy/event_taxonomy_report.md`；注意其数字基于 2026-08-16 重生成前的旧事件池，作为方法学存档）。
+- 本目录不存放报告（结论报告在 `research/reports/day{1,2,3}_report.md`，数字已按当前事件池更新；`taxonomy/event_taxonomy_report.md` 为旧池方法学存档）。

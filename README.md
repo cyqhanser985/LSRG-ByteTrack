@@ -68,7 +68,7 @@ python tools/track_v001.py \
 | `docs/开发进度.md` | 步骤 1-8 开发全记录（已归档） |
 | `docs/experience.md` | 经验与踩坑沉淀（已归档） |
 | `docs/USAGE_GUIDE.md` | 使用指南（已归档） |
-| `research/reports/day{1,2,3}_report.md` | 研究结论报告（方法学存档，数字基于 2026-08-16 重生成前的旧事件池） |
+| `research/reports/day{1,2,3}_report.md` | 研究结论报告（数字已按 2026-08-16 重生成事件池更新；`event_taxonomy_report.md` 为旧池存档） |
 
 ## 数据集说明
 

@@ -1,0 +1,5 @@
+seq,switch_count,reuse_count,num_switches_metric,transfer_rows,status
+V001,67,44,67,46,OK
+V002,437,282,437,288,OK
+V003,309,202,309,198,OK
+V004,787,493,787,502,OK

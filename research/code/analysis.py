@@ -674,8 +674,8 @@ def collect_sequence(ctx, seq, frames):
         # group C (normal frames): geometric-gate trigger counts
         if not in_ev:
             ctx.c_n += n_det
-            for e in EPS_IDX:
-                ctx.c_trig[e] += int(trig[:, EPS_IDX[e]].sum())
+            for i, e in enumerate(EPS):
+                ctx.c_trig[e] += int(trig[:, i].sum())
             for i in range(n_det):
                 if not np.isnan(cosv[i]):
                     ctx.neg_kmc.append([cosv[i], rvv[i], vobsn[i], top1v[i]])
