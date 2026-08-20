@@ -1,47 +1,62 @@
-# taxonomy/ — 产物（分析输出 + 静态报告）
+# taxonomy/ — LSRG-ByteTrack 产物库（模型、图表、数据表与报告）
 
-**定位**：本目录是分析链的**输出侧**（"taxonomy" = 失效分类学）。所有代码生成的数据文件、图片与手写静态报告统一存放于此；脚本（`code/analysis.py` → OUT、`code/den_online_eval.py` → `../taxonomy`）只写入本目录。输入侧规则见 `data/README.md`。
+**定位**：本目录是科研分析链的**统一产物库**。所有代码生成的特征张量、校准器模型、统计大表、论文图表与静态分析报告均收纳于此。
 
-## 分类标准（产物分级）
+---
 
-| 级 | 子类 | 判定规则 | 文件 |
-|---|---|---|---|
-| ① | **冻结产物** | 事件表重生成时同步重建，仍被活脚本读取（SANITY 锚点） | `event_counts_by_sequence.csv` |
-| ② | **离线分析产物** | `analysis.py` 每次运行重新生成（活产物，可覆写） | `gate_feasibility_events.csv`、`gate_feasibility_summary.csv`、`gate_feasibility_roc.png` |
-| ③ | **在线插桩产物** | `den_online_eval.py` 生成（活产物，可覆写） | `den_online_{mot17,mot20,sportsmot}_full.csv` |
-| ④ | **静态报告** | 手写维护，与代码解耦；改报告直接编辑 md | `event_taxonomy_report.md`（事件侧）；`research/reports/day1_report.md`（设计收敛与门控基线）、`research/reports/day2_report.md`（三机制筛选与在线插桩）、`research/reports/day3_report.md`（可观测性诊断与路线裁决） |
+## 一、 产物分类与清册
 
-> 2026-08-16：`event_classification.csv` 与 `warning_features.csv`（旧 V1/V5 冻结
-> 产物，生成脚本已删、无代码读取、基于旧事件池）已删除；分类逻辑唯一来源为
-> `analysis.py` 的 `classify()`，计数锚点唯一来源为 `event_counts_by_sequence.csv`
-> （由 `tools/build_event_counts.py` 从事件表重建）。
+### 1. 核心风险张量与模型校准器 (Binaries & Models)
 
-## 文件清单（6 个数据文件 + 1 篇报告，2026-08-16 整理后）
+| 文件 | 生成脚本 | 说明 |
+|---|---|---|
+| `risk_ecdf_calibrator.npz` (22MB) | `risk_features.py` | 基于 164.7 万正常帧负样本的 ECDF 经验分布校准器模型（Git 忽略） |
+| `risk_features_negatives.npz` (15.7MB) | `risk_features.py` | 164.7 万负样本校准风险特征及序列元数据包（Git 忽略） |
+| `risk_features_events.npy` (113KB) | `risk_features.py` | 4,713 条 ID Switch 事件的 3 维因果风险特征核心张量 $[N, 3]$（Git 忽略） |
+| `risk_features_events.npz` (178KB) | `risk_features.py` | 包含风险矩阵、原始物理特征、标签与序列元数据的完整数据包（Git 忽略） |
 
-| 文件 | 生成源 | 级 | 内容 |
-|---|---|---|---|
-| `event_counts_by_sequence.csv` | `tools/build_event_counts.py`（冻结） | ① | 114 序列级分类计数（S_c/S_r/S_h × switch/reuse）；`analysis.py` SANITY 读取源 |
-| `gate_feasibility_events.csv` | `analysis.py` | ② | 4,713 行逐事件：class + top1/top2/margin + cos_theta/r_v/v_obs_norm + sigma_norm + n_neighbor + geom_020 |
-| `gate_feasibility_summary.csv` | `analysis.py` | ② | 长表：geom 基线 A/B/C × ε + kmc/kf/den 最优触发点 |
-| `gate_feasibility_roc.png` | `analysis.py` | ② | 三机制 ROC 图（全目录唯一图片） |
-| `risk_features_events.npy` | `risk_features.py` | ② | 4,713×3 核心风险张量（r_weak/r_comp/r_swap，严格[0,1]，零NaN） |
-| `risk_features_events.npz` | `risk_features.py` | ② | 包含风险矩阵、原始矩阵、类别标签与序列/帧/ID元数据的压缩包 |
-| `risk_features_events.csv` | `risk_features.py` | ② | 逐事件人类可读 CSV（含原始特征与校准风险分值） |
-| `risk_features_negatives.npz` | `test_neg_cache.py` / `risk_features.py` | ② | 164.7万负样本校准风险特征及序列元数据缓存包 |
-| `risk_ecdf_calibrator.npz` | `risk_features.py` | ② | 负样本（164.7万框）ECDF经验分布校准器模型与分位数表 |
-| `risk_aggregation_summary.csv` | `risk_aggregation.py` | ② | 四大聚合模型在 Oracle 与 Test 口径下的 FPR@TPR 与 pAUC 评测大表 |
-| `risk_aggregation_tpr_grid.csv` | `risk_aggregation.py` | ② | TPR 60%..100% 以 5% 为跨度的 FPR 详细对齐大表 |
-| `risk_aggregation_roc.png` | `risk_aggregation.py` | ② | 四大聚合模型 TPR 60%..100% ROC 曲线与 5% 步长折线图 |
-| `den_online_{mot17,mot20,sportsmot}_full.csv` | `den_online_eval.py` | ③ | 在线-离线对齐：ε0×γ 网格 FPR/TPR + 锚点指标 |
-| `event_taxonomy_report.md` | 手写 | 报告 | 事件分类/物理签名/可挽回性（数字基于 2026-08-16 前旧事件池，方法学存档） |
+### 2. 统计评测与跨数据集对比数据表 (Tables: CSV / JSON)
 
-## 使用规则
+| 文件 | 生成脚本 | 说明 |
+|---|---|---|
+| `event_counts_by_sequence.csv` | `tools/build_event_counts.py` | 114 个序列的分类事件基准计数（SANITY 硬断言读取源） |
+| `risk_features_events.csv` | `risk_features.py` | 逐事件人类可读 CSV（含 $f_{\text{weak}}, f_{\text{comp}}, f_{\text{swap}}$ 原始值与校准风险分） |
+| `risk_aggregation_summary.csv` | `risk_aggregation.py` | 四大聚合模型在 Oracle 与 Test 口径下的 FPR@TPR 与 pAUC 评测汇总表 |
+| `risk_aggregation_tpr_grid.csv` | `risk_aggregation.py` | TPR 60%~100%（5% 步长）四大模型的全量 FPR 详细对齐表 |
+| `class_dataset_breakdown_master_table.csv` | `comprehensive_class_dataset_breakdown.py` | 跨数据集（MOT17/20/SportsMOT）与跨类别（$S_c, S_r, S_h$）综合汇总主表 |
+| `class_dataset_intra_benchmark_table.csv` | `comprehensive_class_dataset_breakdown.py` | 数据集内各类别相对占比与风险表现基准表 |
+| `class_dataset_percentiles_table.csv` | `comprehensive_class_dataset_breakdown.py` | 风险特征在正负样本中的关键分位数（P50/P90/P99）对比表 |
+| `class_dataset_breakdown_full.json` | `comprehensive_class_dataset_breakdown.py` | 全量跨维度嵌套统计明细 JSON（1.7MB） |
+| `gate_feasibility_events.csv` | `analysis.py` | 早期几何门控逐事件特征表 |
+| `gate_feasibility_summary.csv` | `analysis.py` | 早期门控触发率与候选机制筛选长表 |
+| `den_online_{ds}_full.csv` | `den_online_eval.py` | DEN 在线插桩 alert 模式逐数据集网格评估结果 |
+| `den_online_{ds}_smoke.csv` | `den_online_eval.py` | DEN 在线插桩冒烟序列评估结果 |
 
-- ②③ 类为活产物：重跑对应脚本即覆写；① 类与报告禁止被脚本覆写。
-- 删除任何文件前先读内容（Git 已启用，`baseline-v001` 为重构前基线；仍应谨慎操作）。
+### 3. 学术论文与诊断图表 (Figures: PNG)
 
-## 旧版命名映射
+| 文件 | 生成脚本 | 说明 |
+|---|---|---|
+| `fig_dataset_roc_2x2_grid.png` | `generate_paper_tables_and_figures.py` | 论文主图：三数据集独立及整体合并的 2×2 四宫格 ROC 曲线 |
+| `fig_risk_score_tail_quantiles.png` | `generate_paper_tables_and_figures.py` | 尾部分位数风险分值断崖分布对比折线图 |
+| `fig_roc_{mot17,mot20,sportsmot,overall}.png` | `generate_split_paper_figures.py` | 各数据集独立的高分辨率 ROC 曲线图 |
+| `fig_geometry_iou_cost_matrix.png` | `generate_geometric_diagram.py` | 空间重叠与匈牙利分配代价矩阵几何示意图 |
+| `fig_single_feature_discriminability.png` | `class_risk_breakdown.py` | 单一因果物理特征的判别力分布图 |
+| `fig_sr_cross_dataset_escalation.png` | `class_risk_breakdown.py` | $S_r$ 活跃接管类别跨数据集雪崩激增趋势图 |
+| `fig_sr_model_benchmark.png` | `class_risk_breakdown.py` | $S_r$ 针对四大聚合模型的基准性能对比图 |
+| `class_risk_tpr_fpr_comparison.png` | `class_risk_breakdown.py` | 三大类别隔离评测 TPR-FPR 对比大图 |
+| `risk_aggregation_roc.png` | `risk_aggregation.py` | 四大聚合模型 TPR 60%~100% 对应 FPR 对比曲线 |
+| `gate_feasibility_roc.png` | `analysis.py` | 早期三候选机制 ROC 对比图 |
 
-- `event_counts_by_sequence.csv` 即早期版本中的 `taxonomy_by_sequence.csv`（序列级分类计数）。
-- 早期 `taxonomy_partition.csv` / `event_classification.csv`（逐事件分类）与 `warning_features.csv`（V5 预警特征集）已于 2026-08-16 删除。
-- 旧版命名已不再使用；后续代码与文档统一引用当前文件名。
+### 4. 静态分析报告 (Static Reports: Markdown)
+
+| 文件 | 维护方式 | 说明 |
+|---|---|---|
+| `event_taxonomy_report.md` | 手写存档 | 早期事件分类、物理签名与可挽回性理论分析报告（方法学存档） |
+
+---
+
+## 二、 产物生成与覆写规则
+
+- **可自动覆写产物**：运行 `../code/run_all_pipeline.py` 即可按需重新生成所有 CSV、PNG、JSON 与模型二进制。
+- **只读保护产物**：`event_counts_by_sequence.csv` 为基准校验锚点，由 `tools/build_event_counts.py` 严格维护。
+- **大文件追踪**：`.npz` 与 `.npy` 大型模型包已被 `.gitignore` 规则自动忽略，保障 Git 仓库轻量化。

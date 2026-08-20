@@ -1,4 +1,8 @@
-# diag_exp — 小型可观测性诊断实验（Day 3，Go/No-Go）
+# diag_exp — 小型可观测性诊断实验（Day 3，Go/No-Go 阶段归档）
+
+> [!NOTE]
+> **本工作区为已完成并归档的独立诊断实验（Day 3）**。
+> 实验结论：**情况 B（No-Go）** —— 廉价门控信号识别率不足 40%，正式终止纯 Gate-centric 路线，为后续 Phase 5 因果风险建模奠定了理论基础。
 
 依据《../docs/研究方向.md》执行的"小型可观测性诊断实验"独立工作区：在冻结 switch 事件池（2026-08-16 重生成后 S_c 1,828 / S_r 1,899 / S_h 986，共 4,713）上验证四个廉价正交门控信号（Margin / Motion Surprise / Occlusion / Swap Instability）的联合识别率（分类别 + 全部），裁决 Gate 路线去留。
 

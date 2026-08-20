@@ -1,82 +1,102 @@
-# ByteTrack 多目标跟踪项目
+# LSRG-ByteTrack: 面向多目标跟踪 ID 失效机理与因果物理风险建模研究
 
-本仓库包含两个明确分区：
+本项目基于工业级多目标跟踪框架 [ByteTrack](https://github.com/ifzhang/ByteTrack)（ECCV 2022，MIT License），系统性开展针对 **身份跳变（Identity Switch, IDS）** 失效模式的机理分类、DEN 在线门控探索，以及最新的**严格在线因果物理风险建模、经验分布（ECDF）校准与全局误报雪崩（FPR Avalanche）归因**研究。
 
-1. **官方 ByteTrack 基线复现区（只读 / 归档）**：基于 [ByteTrack](https://github.com/ifzhang/ByteTrack)（ECCV 2022，MIT License）的复现与评估链路，包含 `yolox/` 上游框架、`exps/` 实验配置、`tools/` 运行工具、`datasets/`（Git 忽略）、`pretrained/`（Git 忽略）与 `YOLOX_outputs/`（Git 忽略）。
-2. **LSRG 活跃研究区（`research/`）**：ID 失效机理分类、DEN 门控验证、可观测性诊断与后续 OC-SORT / C-BIoU 关联函数重构工作。**当前研究进展以 [`research/README.md`](research/README.md) 为唯一入口。**
+---
 
-> `docs/` 下的旧版开发文档已归档，仅作历史参考；新研究文档统一维护在 `research/docs/` 与 `research/reports/`。
+## 🌟 最新研究成果速览 (Phase 5)
 
-## 目录结构
+| 交付成果 | 入口位置 | 说明 |
+|---|---|---|
+| 📖 **万字深度复盘长文** | [`research/专家博客.md`](research/专家博客.md) | 从科研原点复盘：三维因果风险建模、ECDF分布校准与误报雪崩归因 |
+| 📊 **学术汇报完整 PPTX** | [`research/reports/LSRG_ByteTrack_组会汇报_v8.pptx`](research/reports/LSRG_ByteTrack_组会汇报_v8.pptx) | 7 页宽屏学术报告（含统一尺度大表、四大模型盲测对比与全屏 ROC） |
+| ⚡ **一键科研流水线总控** | [`research/code/run_all_pipeline.py`](research/code/run_all_pipeline.py) | 一键端到端复现特征提取、模型评测、归因分析与图表生成 |
+| 📑 **核心研究研报系列** | [`research/reports/`](research/reports/) | 包含 Day 1~3 研报、类别隔离评测报告、离线 HTML 交互研报 |
+
+---
+
+## 📁 目录架构全景
 
 ```text
 ByteTrack/
-├── .gitignore                           # 排除 datasets/videos/大型输出
-├── requirements.txt                     # 补齐 scipy, matplotlib 等依赖
-├── setup.py                             # 配置 exclude 规则，防止污染命名空间
-├── README.md                            # 统一入口门户（复现基线 + research 索引）
-├── yolox/                               # 上游框架
-├── exps/                                # 实验配置
-├── tools/                               # 通用运行/转换/评估工具（修复路径依赖与入口保护）
-├── research/                            # 活跃研究主区
-│   ├── README.md                        # 研究区总索引
-│   ├── docs/                            # COE.md / 开发进度.md / 研究方向.md
-│   ├── reports/                         # day1_report / day2_report / day3_report
-│   ├── code/                            # analysis.py / den_online_eval.py / 备份 diff
-│   ├── data/                            # 唯一权威冻结输入 + SHA256SUMS.txt
-│   ├── taxonomy/                        # 规范化产物 + 映射说明
-│   └── diag_exp/                        # 独立诊断实验
-├── docs/                                # 旧版开发文档（标注已归档）
-├── reports/                             # 自包含交付报告与打包产物
-├── scripts/                             # 打包与校验辅助脚本（消除绝对盘符）
-├── datasets/                            # (Git 忽略) 数据集
-├── pretrained/                          # (Git 忽略) 权重文件
-└── YOLOX_outputs/                       # (Git 忽略) 运行输出
+├── research/                               # 【核心】LSRG 活跃科研主工作区
+│   ├── README.md                           # 科研区完整导航与全景索引
+│   ├── 专家博客.md                         # 深度长文：因果物理风险与雪崩机理
+│   ├── docs/                               # 活跃台账 (开发进度.md / COE.md / 研究方向.md)
+│   ├── reports/                            # 交付研报 (Day1-3研报 / 组会PPTX / HTML报告)
+│   ├── code/                               # 科研代码库 (README.md / run_all_pipeline.py)
+│   │   ├── risk_features.py                # 因果风险特征抽取与 164.7万负样本 ECDF 校准
+│   │   ├── risk_aggregation.py             # 四大聚合模型 5-Fold 盲测与 ROC 评测
+│   │   ├── class_risk_breakdown.py         # S_c / S_r / S_h 类别隔离评测与雪崩归因
+│   │   ├── comprehensive_class_dataset_breakdown.py # 跨数据集/类别交叉大表生成
+│   │   └── generate_*.py                   # 论文级 2x2 ROC / 代价矩阵 / 组会 PPT 生成
+│   ├── data/                               # 冻结基准输入 (*_events.csv, *_events_metrics.csv)
+│   ├── taxonomy/                           # 统一产物库 (模型二进制/数据表/ROC图表)
+│   └── diag_exp/                           # [已归档] Day 3 四特征可观测性诊断实验
+│
+├── archive/                                # 【归档】历史阶段资产与离线展示包
+│   └── phase1_id_switch_report/            # 阶段 1 挖掘报告与 436MB 视频/可视化资产 (index.html)
+│
+├── yolox/                                  # 上游跟踪器算法与模型库 (包含 DEN 门控模块)
+├── exps/                                   # 实验配置文件 (MOT17, MOT20, SportsMOT)
+├── tools/                                  # 数据清洗与基准运行工具 (clean_mot_gt.py, track_v001.py 等)
+├── docs/                                   # 顶层说明与阶段 1 开发历史 (阶段1开发历史_归档.md)
+├── datasets/                               # (Git 忽略) MOT17 / MOT20 / SportsMOT 数据集
+├── pretrained/                             # (Git 忽略) YOLOX-X 预训练模型权重
+├── YOLOX_outputs/                          # (Git 忽略) 规范化全量运行输出 (*_v001_full, *_den_alert_full)
+└── .gitignore                              # 规范化忽略规则 (排除 datasets/npz/大型输出)
 ```
 
-## 官方 ByteTrack 基线复现区（只读 / 归档）
+---
 
-本分区保留三数据集（MOT17 / MOT20 / SportsMOT）的 V001 全量评估链路与结果。
+## 🚀 快速开始与复现指南
 
+### 1. 环境准备
 ```bash
-# 1. 环境（Python 3.8 + PyTorch + CUDA）
+# 激活 Conda 环境
 conda activate bytetrack
-python setup.py develop
 
-# 2. 全量评估（MOT17 示例，不指定 --sequence 即跑全部序列）
+# 安装开发依赖
+python setup.py develop
+```
+
+### 2. 运行官方 ByteTrack 基线全量跟踪
+```bash
+# MOT17 全量 21 序列评估示例
 python tools/track_v001.py \
     -f exps/example/mot/yolox_x_mot17_v001.py \
     -c pretrained/bytetrack_x_mot17.pth.tar \
     -expn mot17_v001_full -b 1 -d 1 --fp16 --fuse
 ```
 
-历史 ID 事件挖掘/报告生成脚本已下线；事件表唯一权威 = `research/data/`（由
-`tools/build_ids_events.py` 从当前 GT + track_results 重生成，命令见
-`research/data/README.md`）。
+### 3. 一键执行 LSRG 科研分析流水线
+```bash
+cd research/code
 
-## LSRG 活跃研究区
+# 一键端到端运行 (特征提取 -> ECDF校准 -> 聚合模型评测 -> 类别归因 -> 汇报生成)
+python run_all_pipeline.py --all
 
-- 研究总索引：[`research/README.md`](research/README.md)
-- 跨会话经验与坑位：[`research/docs/COE.md`](research/docs/COE.md)
-- 研究进度台账：[`research/docs/开发进度.md`](research/docs/开发进度.md)
-- 冻结数据源：[`research/data/README.md`](research/data/README.md)（含 `SHA256SUMS.txt`）
+# 或分阶段运行
+python run_all_pipeline.py --stage features       # 提取因果风险特征与 ECDF 校准器
+python run_all_pipeline.py --stage eval           # 四大聚合模型 5-Fold 评测
+python run_all_pipeline.py --stage presentation   # 重新编译生成组会 PPTX
+```
 
-## 文档索引（历史归档）
+---
 
-| 文档 | 说明 |
-|------|------|
-| `docs/开发进度.md` | 步骤 1-8 开发全记录（已归档） |
-| `docs/experience.md` | 经验与踩坑沉淀（已归档） |
-| `docs/USAGE_GUIDE.md` | 使用指南（已归档） |
-| `research/reports/day{1,2,3}_report.md` | 研究结论报告（数字已按 2026-08-16 重生成事件池更新；`event_taxonomy_report.md` 为旧池存档） |
+## 📊 数据集与基准说明
 
-## 数据集说明
+| 数据集 | 序列规模 | 标注状态 | 基准 MOTA / IDF1 / IDS |
+|---|---|---|---|
+| **MOT17** | 21 序列 (train) | GT 已清洗（仅保留 `conf==1` 行人） | 77.8 / 74.9 / 546 |
+| **MOT20** | 4 序列 (train) | GT 已清洗（仅保留 `conf==1` 行人） | 77.8 / 74.6 / 1,600 |
+| **SportsMOT** | 90 序列 (含GT子集) | 原始 GT 格式规范 | 97.1 / 74.8 / 2,567 |
 
-| 数据集 | 内容 | 状态 |
-|--------|------|------|
-| MOT17 | 行人跟踪，21 序列 | 全量评估完成；GT 已清洗（仅 conf==1 行人） |
-| MOT20 | 拥挤场景行人，4 序列 | 全量评估完成；GT 已清洗（仅 conf==1 行人） |
-| SportsMOT | 体育运动，240 序列（90 有 GT） | 全量评估完成；GT 原始即干净 |
+---
 
-> 本项目在官方代码基础上未改动 `yolox/` 框架核心算法；评估链路适配（v001 配置、
-> `tools/track_v001.py`、`mot_evaluator.py` 视频切换逻辑）详见 `docs/开发进度.md`。
+## 🧭 文档导航
+
+- **科研总入口**：[`research/README.md`](research/README.md)
+- **踩坑与协作手册**：[`research/docs/COE.md`](research/docs/COE.md)
+- **最新进度台账**：[`research/docs/开发进度.md`](research/docs/开发进度.md)
+- **历史阶段 1 报告**：`archive/phase1_id_switch_report/index.html`

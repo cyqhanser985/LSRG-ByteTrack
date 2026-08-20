@@ -124,6 +124,8 @@ docs/api
 .code-workspace.code-workspace
 *.pkl
 *.npy
+*.npz
+*.jsonl
 *.pth
 *.onnx
 *.engine

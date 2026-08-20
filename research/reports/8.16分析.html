@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>多目标跟踪在线因果风险感知：从物理建模、ECDF分布校准到三大失效模式精细化诊断</title>
+<link rel="stylesheet" href="lib/katex/katex.min.css">
+<style>
+  :root {
+    --bg: #f6f8fb;
+    --ink: #1e2638;
+    --ink-soft: #4e5d78;
+    --muted: #8795ad;
+    --navy-deep: #0b1c33;
+    --navy: #153258;
+    --navy-mid: #254d7e;
+    --navy-lite: #6288b8;
+    --gold: #d4a046;
+    --amber: #c47c22;
+    --green: #1f7d4b;
+    --green-soft: #edf8f2;
+    --blue-soft: #eef5fc;
+    --card: #ffffff;
+    --line: #dfe5ef;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Source Han Serif SC", "SimSun", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+    --mono: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font: 15px/1.85 var(--sans); -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 40px 24px 100px; }
+
+  /* ── Hero Banner ── */
+  .hero {
+    position: relative; overflow: hidden; border-radius: 24px; padding: 56px 60px 44px;
+    background: linear-gradient(135deg, #09172a 0%, #132e52 50%, #1e4574 100%); color: #fff;
+    box-shadow: 0 20px 50px -18px rgba(9, 23, 42, 0.6);
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px; pointer-events: none;
+  }
+  .hero::after {
+    content: ""; position: absolute; top: -140px; right: -100px; width: 420px; height: 420px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 160, 70, 0.22), transparent 70%); pointer-events: none;
+  }
+  .hero > * { position: relative; z-index: 1; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; letter-spacing: 0.28em; color: var(--gold); font-weight: 700; text-transform: uppercase;
+    margin-bottom: 18px; background: rgba(212, 160, 70, 0.12); padding: 5px 14px; border-radius: 999px;
+    border: 1px solid rgba(212, 160, 70, 0.3);
+  }
+  .hero h1 {
+    font-family: var(--serif); font-size: 36px; line-height: 1.35; font-weight: 700; letter-spacing: 0.01em;
+    max-width: 980px;
+  }
+  .hero .sub {
+    margin-top: 16px; font-size: 16px; color: #c4d7ed; line-height: 1.7; max-width: 880px;
+  }
+  .hero .meta { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .chip {
+    font-size: 12.5px; padding: 6px 15px; border-radius: 999px; background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16); color: #dce7f5; display: inline-flex; align-items: center; gap: 6px;
+  }
+  .chip b { color: #f4cf82; font-weight: 600; }
+
+  /* ── Stats Strip ── */
+  .stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin: 26px 0 10px; }
+  .stat {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 12px 15px;
+    text-align: center; box-shadow: 0 4px 16px -8px rgba(19, 46, 82, 0.08); transition: transform 0.2s;
+  }
+  .stat:hover { transform: translateY(-2px); }
+  .stat .v { font-size: 24px; font-weight: 800; color: var(--navy); font-variant-numeric: tabular-nums; line-height: 1.2; }
+  .stat .v small { font-size: 13.5px; color: var(--muted); font-weight: 600; }
+  .stat .k { font-size: 12px; color: var(--muted); margin-top: 6px; font-weight: 600; }
+  .stat.green .v { color: var(--green); }
+  .stat.gold .v { color: var(--amber); }
+
+  /* ── Table of Contents ── */
+  .toc {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px 30px;
+    margin: 32px 0 16px; box-shadow: 0 4px 16px -8px rgba(19, 46, 82, 0.06);
+  }
+  .toc .t { font-size: 12px; letter-spacing: 0.24em; color: var(--muted); font-weight: 700; margin-bottom: 14px; text-transform: uppercase; }
+  .toc ul { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 24px; }
+  .toc a { color: var(--ink-soft); text-decoration: none; font-size: 14px; display: inline-flex; align-items: baseline; }
+  .toc a:hover { color: var(--navy-mid); font-weight: 600; }
+  .toc a .n { color: var(--amber); font-weight: 800; margin-right: 8px; font-family: var(--mono); font-size: 12px; }
+
+  /* ── Section Headings ── */
+  section { margin-top: 64px; }
+  h2 {
+    display: flex; align-items: baseline; gap: 14px; font-family: var(--serif); font-size: 26px;
+    font-weight: 700; color: var(--navy-deep); margin-bottom: 20px;
+  }
+  h2 .no { font-family: var(--serif); font-size: 32px; font-weight: 800; color: var(--amber); }
+  h2::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); margin-left: 10px; }
+  h3 { font-size: 17.5px; font-weight: 700; color: var(--navy-deep); margin: 30px 0 12px; display: flex; align-items: center; gap: 10px; }
+  p { margin: 12px 0; color: #283347; font-size: 15.2px; text-align: justify; }
+  .lead { font-size: 16.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 20px; }
+
+  /* ── Cards & Layouts ── */
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px 28px;
+    margin: 18px 0; box-shadow: 0 6px 20px -10px rgba(19, 46, 82, 0.08);
+  }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+  .feature-box {
+    background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--navy-mid);
+    border-radius: 14px; padding: 20px 22px; box-shadow: 0 6px 18px -10px rgba(19, 46, 82, 0.08);
+  }
+  .feature-box .tag-name { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--amber); letter-spacing: 0.06em; }
+  .feature-box .ft-title { font-weight: 700; font-size: 16px; color: var(--navy-deep); margin: 6px 0 8px; }
+  .feature-box p { font-size: 13.5px; line-height: 1.7; color: var(--ink-soft); margin: 0; }
+
+  /* ── Alerts & Callouts ── */
+  .alert-blue, .alert-green, .alert-gold {
+    padding: 16px 20px; border-radius: 0 12px 12px 0; font-size: 14.2px; line-height: 1.75; margin: 18px 0;
+  }
+  .alert-blue { background: var(--blue-soft); border-left: 4px solid var(--navy-mid); color: #1a3c63; }
+  .alert-green { background: var(--green-soft); border-left: 4px solid var(--green); color: #164e2e; }
+  .alert-gold { background: #fef8ee; border-left: 4px solid var(--amber); color: #5f3e12; }
+  .alert-title { font-weight: 700; display: block; margin-bottom: 4px; font-size: 14.8px; }
+
+  /* ── Figure & Image Embedding ── */
+  .fig-wrap {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px;
+    margin: 28px 0; box-shadow: 0 8px 24px -12px rgba(19, 46, 82, 0.12); text-align: center;
+  }
+  .fig-wrap img {
+    max-width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line);
+    display: block; margin: 0 auto;
+  }
+  .fig-caption {
+    font-size: 13.2px; color: var(--muted); margin-top: 14px; font-weight: 600; line-height: 1.6;
+  }
+  .fig-caption b { color: var(--navy-deep); }
+
+  /* ── Tables ── */
+  .tblwrap { overflow-x: auto; margin: 18px 0; border-radius: 12px; border: 1px solid var(--line); }
+  table { width: 100%; border-collapse: collapse; font-size: 13.6px; background: var(--card); }
+  thead th {
+    background: var(--navy-deep); color: #fff; font-weight: 600; padding: 12px 14px; text-align: left;
+    white-space: nowrap; font-size: 13px; letter-spacing: 0.02em;
+  }
+  tbody td { padding: 10px 14px; border-bottom: 1px solid #e7ecf4; color: #283347; vertical-align: middle; }
+  tbody tr:nth-child(even) { background: #f7f9fc; }
+  tbody tr:hover { background: #eef3f9; }
+  tbody tr:last-child td { border-bottom: none; }
+  td.c, th.c { text-align: center; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; font-family: var(--mono); }
+  td.highlight-green { background: #ecf8f1; color: var(--green); font-weight: 700; }
+  td.highlight-gold { background: #fef8ee; color: var(--amber); font-weight: 700; }
+  .badge-tag {
+    display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px;
+  }
+  .badge-success { background: #e2f4ea; color: #166c3c; border: 1px solid #a9e0c1; }
+  .badge-warning { background: #fdf3de; color: #87570e; border: 1px solid #f6d89b; }
+
+  /* ── Formulas ── */
+  .formula-card {
+    font-size: 15px; background: #f0f4f9; border: 1px solid #e1e7f0; border-radius: 10px;
+    padding: 16px 20px; margin: 16px 0; color: #1f2d42; overflow-x: auto; text-align: center;
+  }
+
+  /* ── Deployment Cards ── */
+  .deploy-card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px;
+    border-left: 5px solid var(--navy-mid); box-shadow: 0 4px 16px -8px rgba(19, 46, 82, 0.08);
+  }
+  .deploy-card.top-tier { border-left-color: var(--green); }
+  .deploy-card.mid-tier { border-left-color: var(--gold); }
+  .deploy-card .tier-tag { font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+  .deploy-card .tier-title { font-size: 16.5px; font-weight: 700; color: var(--navy-deep); margin-bottom: 8px; }
+
+  footer {
+    margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; font-size: 13px; color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="eyebrow">LSRG-ByteTrack · 深度科研汇报</div>
+    <h1>多目标跟踪在线因果风险感知</h1>
+    <div class="sub">从物理建模、ECDF 经验分布校准到四大聚合模型博弈与三大失效模式精细化诊断</div>
+    <div class="meta">
+      <span class="chip">样本基准：<b>1,647,180</b> 负样本检测框</span>
+      <span class="chip">事件池：<b>4,713</b> 条全量真实 IDS 事件</span>
+      <span class="chip">评测口径：<b>114 序列 5-Fold 跨序列盲测</b></span>
+      <span class="chip">时间：<b>2026-08-16</b></span>
+    </div>
+  </header>
+
+  <!-- Key Metrics Strip -->
+  <div class="stats">
+    <div class="stat">
+      <div class="v">164.7<small>万</small></div>
+      <div class="k">负样本基准检测框</div>
+    </div>
+    <div class="stat">
+      <div class="v">4,713</div>
+      <div class="k">全量真实 IDS 事件</div>
+    </div>
+    <div class="stat green">
+      <div class="v">1.36<small>%</small></div>
+      <div class="k">Max @ TPR=60% 全局FPR</div>
+    </div>
+    <div class="stat green">
+      <div class="v">3.67<small>%</small></div>
+      <div class="k">Max @ TPR=75% 全局FPR</div>
+    </div>
+    <div class="stat green">
+      <div class="v">6.09<small>%</small></div>
+      <div class="k">\(S_c\) @ TPR=95% FPR</div>
+    </div>
+    <div class="stat gold">
+      <div class="v">Max & Noisy-OR</div>
+      <div class="k">双星互补最优选型</div>
+    </div>
+  </div>
+
+  <!-- TOC -->
+  <nav class="toc">
+    <div class="t">汇报目录与故事脉络</div>
+    <ul>
+      <li><a href="#act1"><span class="n">01</span> 研究背景与核心成果：工业级低误报风险感知</a></li>
+      <li><a href="#act2"><span class="n">02</span> 破除资格门控：构建三维严格在线因果特征</a></li>
+      <li><a href="#act3"><span class="n">03</span> 统一尺度标尺：基于 165 万负样本的 ECDF 校准</a></li>
+      <li><a href="#act4"><span class="n">04</span> 算子理论博弈：四大聚合模型在全局整体上的对决</a></li>
+      <li><a href="#act5"><span class="n">05</span> 三大失效模式独立精细诊断：确立高价值黄金工作区间</a></li>
+      <li><a href="#act6"><span class="n">06</span> 物理机理深层解析：三大失效模式的差异化画像</a></li>
+      <li><a href="#act7"><span class="n">07</span> 工程落地与部署策略：分级风控与作业区间配置</a></li>
+    </ul>
+  </nav>
+
+  <!-- Act 1 -->
+  <section id="act1">
+    <h2><span class="no">01</span> 研究背景与核心成果：工业级低误报风险感知</h2>
+    <p class="lead">多目标跟踪（MOT）在自动驾驶与具身智能系统中承担着时空连续感知的核心职责。传统 Tracking-by-Detection 范式（如 ByteTrack）在快速交错与遮挡场景下偶发身份跳变（IDS）。构建轻量级在线因果风险感知系统，在极低误报代价下实现关键失效事件的高效预警与拦截，具有重大的学术价值与工业落地意义。</p>
+    
+    <div class="grid2">
+      <div class="card" style="border-left: 4px solid var(--green);">
+        <h4 style="color:var(--navy-deep); font-size:16px; margin-bottom:10px;">🌟 核心突破 ①：Max/OWA 在中低召回区间近乎零误报</h4>
+        <p>在跨序列 5-Fold 盲测下，Max / OWA 算子在 <b>\(\mathrm{TPR} = 60\%\) 时全局误报率仅为 \(1.36\%\)</b>，在 <b>\(\mathrm{TPR} = 75\%\) 时仅为 \(3.67\%\)</b>。以极低的正常帧误扰动，捕获全量超过六成至四分之三的身份跳变事件，展现出极强的工业落地可用性。</p>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--gold);">
+        <h4 style="color:var(--navy-deep); font-size:16px; margin-bottom:10px;">🌟 核心突破 ②：冷启动与历史重激活极致可分</h4>
+        <p>占全量近六成（\(59.7\%\)）的 \(S_c\)（冷启动）与 \(S_h\)（历史重激活）展现出极佳的因果可观测性：\(S_c\) 在 <b>\(\mathrm{TPR} = 95\%\) 时误报率仅为 \(6.09\%\)</b>（100% 的 \(S_c\) 事件具备显著的高风险特征响应）；\(S_h\) 在 <b>\(\mathrm{TPR} = 90\%\) 时误报率仅为 \(12.59\%\)</b>。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Act 2 -->
+  <section id="act2">
+    <h2><span class="no">02</span> 破除资格门控：构建三维严格在线因果特征</h2>
+    <p>早期的特征提取依赖前置资格门控（如 \(top_1 \ge 0.2 \land top_2 \ge 0.2\)），人为过滤了新目标冷启动场景，并引入了大量 NaN 缺失值。本工作回归<b>严格在线因果（Strictly Online Causal）</b>哲学：特征计算严格仅依赖当前检测框与 \(F-1\) 历史轨迹外推预测，全量检测框数学封闭且零 NaN。</p>
+
+    <div class="grid3">
+      <div class="feature-box">
+        <div class="tag-name">DIM 1: UNDER-MATCHING</div>
+        <div class="ft-title">欠匹配风险 \(f_{\mathrm{weak}}\)</div>
+        <div class="formula-card">\(f_{\mathrm{weak}} = 1.0 - \mathrm{top}_1\)</div>
+        <p>当前检测框与所有活跃轨迹预测框的最大 IoU 重叠缺陷。无轨迹时 \(top_1=0 \implies f_{\mathrm{weak}}=1.0\)，物理值域严格 \([0, 1]\)。</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="tag-name">DIM 2: COMPETITION</div>
+        <div class="ft-title">竞争歧义风险 \(f_{\mathrm{comp}}\)</div>
+        <div class="formula-card">\(f_{\mathrm{comp}} = \mathrm{top}_2\)</div>
+        <p>次优候选轨迹对同一检测框的争夺强度。当轨迹数 \(m < 2\)（无竞争）时缺省赋 \(0.0\)，值域严格 \([0, 1]\)。</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="tag-name">DIM 3: SWAP INSTABILITY</div>
+        <div class="ft-title">分配不稳定性 \(f_{\mathrm{swap}}\)</div>
+        <div class="formula-card">\(\Delta C_{\mathrm{swap}} = (c_{12}+c_{21}) - (c_{11}+c_{22})\)</div>
+        <p>局部 \(2 \times 2\) 匈牙利对调代价差。对调成本更低表明局域匹配脆弱。无局部候选时缺省赋安全值 \(-2.0\)。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Act 3 -->
+  <section id="act3">
+    <h2><span class="no">03</span> 统一尺度标尺：基于 165 万负样本的 ECDF 校准</h2>
+    <p>为消除原始特征量纲差异并赋予明确的统计物理意义，我们收集了 114 个序列全量正常帧（C 组）的 <b>1,647,180 个负样本检测框</b>，构建单调非递减的经验分布校准函数（ECDF）：</p>
+
+    <div class="formula-card">
+      \[\hat{F}_{\mathrm{neg}, j}(x) = \frac{1}{N_{\mathrm{neg}}} \sum_{i=1}^{N_{\mathrm{neg}}} \mathbb{I}(X_{\mathrm{neg}, i, j} \le x) \implies r_j = \hat{F}_{\mathrm{neg}, j}(f_j) \in [0, 1]\]
+    </div>
+
+    <div class="grid2" style="margin: 18px 0;">
+      <div class="card" style="border-left: 4px solid var(--muted); margin: 0; background: #ffffff;">
+        <h4 style="color:var(--navy-deep); margin-bottom: 8px; font-size: 15px;">① 原始物理特征空间（量纲不一）</h4>
+        <ul style="padding-left: 18px; color: var(--ink-soft); font-size: 13.8px; line-height: 1.85;">
+          <li>欠匹配风险：\(f_{\mathrm{weak}} = 1 - \mathrm{top}_1 \in [0, 1]\)</li>
+          <li>竞争歧义度：\(f_{\mathrm{comp}} = \mathrm{top}_2 \in [0, 1]\)</li>
+          <li>交换不稳定：\(f_{\mathrm{swap}} = \Delta C_{\mathrm{swap}} \in [-2, 2]\)</li>
+        </ul>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--green); margin: 0; background: #ffffff;">
+        <h4 style="color:var(--green); margin-bottom: 8px; font-size: 15px;">② 校准风险空间（误报率严格对齐）</h4>
+        <ul style="padding-left: 18px; color: var(--ink-soft); font-size: 13.8px; line-height: 1.85;">
+          <li>统一概率区间：\(r_{\mathrm{weak}}, r_{\mathrm{comp}}, r_{\mathrm{swap}} \in [0, 1]\)</li>
+          <li>背景分布特征：164.7万负样本严格服从 \(\mathrm{Uniform}(0, 1)\)</li>
+          <li><b>工程风控语义：阈值 \(r \ge 0.99\) 严格等价于 \(\mathrm{FPR} \le 1\%\)</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="alert-blue">
+      <span class="alert-title">💡 统计物理意义：</span>
+      概率积分变换使负样本在各校准分量 \(r_j\) 上严格服从标准均匀分布 \(\mathrm{Uniform}(0, 1)\)。阈值设定直接具备了精确的误报控制语义：\(r_j \ge 0.99 \iff \mathrm{FPR} \le 1\%\)。
+    </div>
+  </section>
+
+  <!-- Act 4 -->
+  <section id="act4">
+    <h2><span class="no">04</span> 算子理论博弈：四大聚合模型在全局整体上的对决</h2>
+    <p>为将三维风险 \(\mathbf{r} = (r_{\mathrm{weak}}, r_{\mathrm{comp}}, r_{\mathrm{swap}})\) 聚合成综合标量风险 \(R(\mathbf{r}) \in [0, 1]\)，我们提出了以木桶理论为核心的<b>极端分离度最大化目标函数</b>：</p>
+    <div class="formula-card">
+      \[\max_\theta \min_{x \in \mathrm{IDS}} R_\theta(x) \quad \text{（托举最难正样本，压低整体负样本误报率）}\]
+    </div>
+
+    <div class="grid4">
+      <div class="card" style="border-top:3px solid #2b5c8f;">
+        <h4 style="color:#2b5c8f;">1. Max 基线</h4>
+        <div style="font-size:13px; font-family:var(--mono); margin:6px 0;">\(R = \max(r_1, r_2, r_3)\)</div>
+        <p style="font-size:13px;">无参“一票否决”。在中低召回（TPR 60%~80%）阶段因无噪声累积表现极为优异。</p>
+      </div>
+      <div class="card" style="border-top:3px solid #d95f02;">
+        <h4 style="color:#d95f02;">2. Power Mean</h4>
+        <div style="font-size:13px; font-family:var(--mono); margin:6px 0;">\(R = (\sum w_i r_i^p)^{1/p}\)</div>
+        <p style="font-size:13px;">广义幂均值（\(p \ge 1\)），非线性强化主导分量，实现平滑过渡。</p>
+      </div>
+      <div class="card" style="border-top:3px solid #1f7d4b;">
+        <h4 style="color:#1f7d4b;">3. Noisy-OR</h4>
+        <div style="font-size:13px; font-family:var(--mono); margin:6px 0;">\(R = 1 - \prod (1 - w_i r_i)\)</div>
+        <p style="font-size:13px;">亚可加性因果概率模型。多弱风险协同放大，在高召回攻坚区全面胜出。</p>
+      </div>
+      <div class="card" style="border-top:3px solid #c47c22;">
+        <h4 style="color:#c47c22;">4. OWA</h4>
+        <div style="font-size:13px; font-family:var(--mono); margin:6px 0;">\(R = \sum v_i r_{(i)}\)</div>
+        <p style="font-size:13px;">有序加权平均，按分值排序降序赋权，兼顾极值关注与排序鲁棒性。</p>
+      </div>
+    </div>
+
+    <!-- Overall Model Comparison Table -->
+    <div class="tblwrap">
+      <table>
+        <thead>
+          <tr>
+            <th>目标召回率 (TPR)</th>
+            <th class="c">Max / OWA 基线 (Test FPR)</th>
+            <th class="c">Noisy-OR 算子 (Test FPR)</th>
+            <th class="c">Power Mean (Test FPR)</th>
+            <th>区间最优模型与机理优势</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>60.0%</b></td>
+            <td class="num highlight-green">1.36%</td>
+            <td class="num">3.12%</td>
+            <td class="num">5.37%</td>
+            <td><span class="badge-tag badge-success">Max / OWA 绝对王者</span> 纯单特征无损直通，无多维度噪声叠加</td>
+          </tr>
+          <tr>
+            <td><b>65.0%</b></td>
+            <td class="num highlight-green">1.78%</td>
+            <td class="num">3.75%</td>
+            <td class="num">5.76%</td>
+            <td><b>Max / OWA</b> 保持 \(< 2\%\) 超低误报率</td>
+          </tr>
+          <tr>
+            <td><b>70.0%</b></td>
+            <td class="num highlight-green">2.38%</td>
+            <td class="num">4.69%</td>
+            <td class="num">6.29%</td>
+            <td><b>Max / OWA</b> 仅 2.38% 误报即可覆盖七成全局事件</td>
+          </tr>
+          <tr>
+            <td><b>75.0%</b></td>
+            <td class="num highlight-green">3.67%</td>
+            <td class="num">5.83%</td>
+            <td class="num">6.73%</td>
+            <td><span class="badge-tag badge-success">极高性价比</span> <b>Max / OWA</b> 仅 3.67% 误报捕获 3/4 事件</td>
+          </tr>
+          <tr>
+            <td><b>80.0%</b></td>
+            <td class="num highlight-green">6.14%</td>
+            <td class="num">7.58%</td>
+            <td class="num">7.79%</td>
+            <td><b>Max / OWA</b> 误报抑制表现持续领跑</td>
+          </tr>
+          <tr>
+            <td><b>85.0%</b></td>
+            <td class="num highlight-gold">10.39%</td>
+            <td class="num highlight-gold">10.38%</td>
+            <td class="num">10.90%</td>
+            <td><span class="badge-tag badge-warning">交汇转折点</span> Noisy-OR 多特征协同优势开始反超</td>
+          </tr>
+          <tr>
+            <td><b>90.0%</b></td>
+            <td class="num">16.32%</td>
+            <td class="num highlight-green">14.79%</td>
+            <td class="num">16.66%</td>
+            <td><b>Noisy-OR 胜出</b>：多弱风险非线性放大（\(\downarrow 1.53\text{ pp}\)）</td>
+          </tr>
+          <tr>
+            <td><b>95.0%</b></td>
+            <td class="num">27.03%</td>
+            <td class="num highlight-green">24.40%</td>
+            <td class="num">27.90%</td>
+            <td><b>Noisy-OR 胜出</b>：高召回攻坚区净降低 2.63 个百分点误报</td>
+          </tr>
+          <tr>
+            <td><b>pAUC[0.6, 1.0]</b></td>
+            <td class="num" style="color:var(--green); font-weight:700;">0.8790</td>
+            <td class="num" style="color:var(--green); font-weight:700;">0.8742</td>
+            <td class="num">0.8583</td>
+            <td><b>Max / OWA 与 Noisy-OR 双星闪耀</b>，综合表现卓越</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Figure 1 -->
+    <div class="fig-wrap">
+      <img src="../taxonomy/risk_aggregation_roc.png" alt="四大聚合模型高召回 ROC 与 5% 步长折线图">
+      <div class="fig-caption">
+        <b>图 1 · 四大风险聚合模型在 5-Fold 跨序列盲测下的高召回率 ROC 曲线与 5% 步长 FPR 对比图</b><br>
+        （左：TPR 60%~100% 高召回区域 ROC；右：TPR 5% 步长演化折线。清晰展示 Max/OWA 在中低召回区的卓越低误报，以及 Noisy-OR 在高召回区的协同增益）
+      </div>
+    </div>
+  </section>
+
+  <!-- Act 5 -->
+  <section id="act5">
+    <h2><span class="no">05</span> 三大失效模式独立精细诊断：确立高价值黄金工作区间</h2>
+    <p class="lead">为精细评估模型在不同类型事件上的适用范围，我们实施了<b>三大失效事件独立对齐 165 万负样本的 5-Fold 交叉验证精细化诊断实验</b>：</p>
+
+    <!-- Figure 2: Master 4-panel comparison -->
+    <div class="fig-wrap">
+      <img src="../taxonomy/class_risk_tpr_fpr_comparison.png" alt="分类独立高召回评测母图">
+      <div class="fig-caption">
+        <b>图 2 · 三大失效类别独立评测母图（对比全量 164.7 万正常负样本）</b><br>
+        Panel 1: 分类高召回 ROC 曲线；Panel 2: 5% 步长 FPR 演化；Panel 3: \(S_r\) 模式下四大模型对比；Panel 4: 风险评分 CDF 尾部分布
+      </div>
+    </div>
+
+    <div class="tblwrap">
+      <table>
+        <thead>
+          <tr>
+            <th>目标召回率 (TPR)</th>
+            <th class="c">全局 Max/OWA (FPR)</th>
+            <th class="c">全局 Noisy-OR (FPR)</th>
+            <th class="c">\(S_c\) 冷启动 (Noisy-OR)</th>
+            <th class="c">\(S_h\) 历史重激活 (Noisy-OR)</th>
+            <th class="c">\(S_r\) 活跃接管 (Noisy-OR)</th>
+            <th>区间推荐策略与工程价值解读</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>60.0%</b></td>
+            <td class="num highlight-green">1.36%</td>
+            <td class="num">3.12%</td>
+            <td class="num highlight-green">0.82%</td>
+            <td class="num highlight-green">4.12%</td>
+            <td class="num highlight-green">6.32%</td>
+            <td><span class="badge-tag badge-success">首选 Max/OWA</span> 仅需 1.36% 误报捕获六成事件</td>
+          </tr>
+          <tr>
+            <td><b>65.0%</b></td>
+            <td class="num highlight-green">1.78%</td>
+            <td class="num">3.75%</td>
+            <td class="num highlight-green">1.52%</td>
+            <td class="num highlight-green">4.87%</td>
+            <td class="num">8.06%</td>
+            <td><span class="badge-tag badge-success">首选 Max/OWA</span> 超低误报（1.78%）</td>
+          </tr>
+          <tr>
+            <td><b>70.0%</b></td>
+            <td class="num highlight-green">2.38%</td>
+            <td class="num">4.69%</td>
+            <td class="num highlight-green">2.24%</td>
+            <td class="num highlight-green">5.52%</td>
+            <td class="num">10.17%</td>
+            <td><span class="badge-tag badge-success">首选 Max/OWA</span> 误报仅 2.38%，捕获七成事件</td>
+          </tr>
+          <tr>
+            <td><b>75.0%</b></td>
+            <td class="num highlight-green">3.67%</td>
+            <td class="num">5.83%</td>
+            <td class="num highlight-green">2.67%</td>
+            <td class="num highlight-green">6.46%</td>
+            <td class="num">12.58%</td>
+            <td><span class="badge-tag badge-success">首选 Max/OWA</span> 极高性价比（3.67% 捕获 3/4 事件）</td>
+          </tr>
+          <tr>
+            <td><b>80.0%</b></td>
+            <td class="num highlight-green">6.14%</td>
+            <td class="num">7.58%</td>
+            <td class="num highlight-green">3.18%</td>
+            <td class="num highlight-green">7.93%</td>
+            <td class="num">15.66%</td>
+            <td><span class="badge-tag badge-success">首选 Max/OWA</span> 误报率稳固控制在 6.14%</td>
+          </tr>
+          <tr>
+            <td><b>85.0%</b></td>
+            <td class="num highlight-gold">10.39%</td>
+            <td class="num highlight-gold">10.38%</td>
+            <td class="num highlight-green">3.70%</td>
+            <td class="num highlight-green">9.64%</td>
+            <td class="num">19.82%</td>
+            <td><span class="badge-tag badge-warning">交汇转折点</span> 两大模型均可，Noisy-OR 略优</td>
+          </tr>
+          <tr>
+            <td><b>90.0%</b></td>
+            <td class="num">16.32%</td>
+            <td class="num highlight-green">14.79%</td>
+            <td class="num highlight-green">4.59%</td>
+            <td class="num">12.59%</td>
+            <td class="num">25.73%</td>
+            <td><span class="badge-tag badge-success">切换 Noisy-OR</span> 协同增益降低 1.53pp 误报</td>
+          </tr>
+          <tr>
+            <td><b>95.0%</b></td>
+            <td class="num">27.03%</td>
+            <td class="num highlight-green">24.40%</td>
+            <td class="num highlight-green">6.09%</td>
+            <td class="num">17.07%</td>
+            <td class="num">37.70%</td>
+            <td><span class="badge-tag badge-success">切换 Noisy-OR</span> 高攻坚区降低 2.63pp 误报</td>
+          </tr>
+          <tr>
+            <td><b>pAUC[0.6, 1.0]</b></td>
+            <td class="num" style="color:var(--green); font-weight:700;">0.8790</td>
+            <td class="num" style="color:var(--green); font-weight:700;">0.8742</td>
+            <td class="num" style="color:var(--green); font-weight:700;">0.9576</td>
+            <td class="num" style="color:var(--green); font-weight:700;">0.8845</td>
+            <td class="num" style="color:var(--navy-mid); font-weight:700;">0.7850</td>
+            <td>中高召回综合面积表现优越</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="alert-green">
+      <span class="alert-title">🎯 数据核心洞见：</span>
+      <b>全局在 \(\mathrm{TPR} \in [60\%, 80\%]\) 区间内首选 Max / OWA，具备卓越的工业级可用性（\(\mathrm{FPR} \approx 1.36\% \sim 6.14\%\)）！</b><br>
+      其中，\(S_c\)（冷启动）表现惊艳（\(\mathrm{TPR}=95\%\) 时 \(\mathrm{FPR}\) 仅 \(6.09\%\)）；\(S_h\)（历史重激活）在 \(\mathrm{TPR}=90\%\) 时 \(\mathrm{FPR}\) 仅 \(12.59\%\)。当需要追求 85%~95% 超高召回时，无缝切换至 Noisy-OR 算子即可获取多特征协同收益。
+    </div>
+  </section>
+
+  <!-- Act 6 -->
+  <section id="act6">
+    <h2><span class="no">06</span> 物理机理深层解析：三大失效模式的差异化画像</h2>
+    <p>为理解各类别在不同召回率下的表现根源，我们调取了三大类别的风险分值分位数分布，展现出清晰的物理机理解耦：</p>
+
+    <div class="tblwrap">
+      <table>
+        <thead>
+          <tr>
+            <th>事件类别</th>
+            <th class="c">样本量</th>
+            <th class="c">最小值 (Min)</th>
+            <th class="c">P01 (1% 分位)</th>
+            <th class="c">P05 (5% 分位)</th>
+            <th class="c">P10 (10% 分位)</th>
+            <th class="c">中位数 (P50)</th>
+            <th class="c">评分 \(\ge 0.99\) 占比 (\(\mathrm{FPR}\le 1\%\))</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>\(S_c\) 冷启动</b></td>
+            <td class="c">1,828</td>
+            <td class="num" style="color:var(--green); font-weight:700;">0.990955</td>
+            <td class="num">0.997349</td>
+            <td class="num">0.999111</td>
+            <td class="num">0.999529</td>
+            <td class="num">1.000000</td>
+            <td class="c"><span class="badge-tag badge-success">100.00%</span></td>
+          </tr>
+          <tr>
+            <td><b>\(S_h\) 历史重激活</b></td>
+            <td class="c">986</td>
+            <td class="num">0.744515</td>
+            <td class="num">0.974321</td>
+            <td class="num">0.991593</td>
+            <td class="num">0.995647</td>
+            <td class="num">0.999815</td>
+            <td class="c"><span class="badge-tag badge-success">95.94%</span></td>
+          </tr>
+          <tr>
+            <td><b>\(S_r\) 活跃接管</b></td>
+            <td class="c">1,899</td>
+            <td class="num">0.412643</td>
+            <td class="num">0.817290</td>
+            <td class="num">0.953920</td>
+            <td class="num">0.979745</td>
+            <td class="num">0.999692</td>
+            <td class="c"><span class="badge-tag badge-warning">83.52%</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="border-top: 4px solid var(--navy-mid); background: #ffffff; margin: 20px 0;">
+      <h4 style="color:var(--navy-deep); font-size: 15.5px; margin-bottom: 12px;">🔍 三大类别的物理特性与可观测性对比：</h4>
+      <div class="grid3" style="gap: 16px;">
+        <div style="background: #f8fafc; padding: 16px 18px; border-radius: 10px; border: 1px solid var(--line);">
+          <div style="font-weight: 700; color: var(--green); margin-bottom: 6px; font-size: 14px;">① \(S_c\) 冷启动（天生透明）</div>
+          <p style="font-size: 13.5px; margin: 0; color: var(--ink-soft); line-height: 1.7;">
+            新目标初次出现时前序无轨迹历史，\(f_{\mathrm{weak}} = 1 - \mathrm{top}_1\) 天然极高（P50 打满 1.0）。<b>100% 的事件评分 \(\ge 0.9910\)</b>，可在极低误报下实现全量捕获。
+          </p>
+        </div>
+        <div style="background: #f8fafc; padding: 16px 18px; border-radius: 10px; border: 1px solid var(--line);">
+          <div style="font-weight: 700; color: var(--navy-mid); margin-bottom: 6px; font-size: 14px;">② \(S_h\) 历史重激活（稳定可控）</div>
+          <p style="font-size: 13.5px; margin: 0; color: var(--ink-soft); line-height: 1.7;">
+            目标遮挡重现后主要呈现欠匹配特征，伴随局部微扰。<b>95.9% 的事件评分 \(\ge 0.99\)</b>，在 \(\mathrm{TPR} \le 90\%\) 区间内保持平稳的误报控制。
+          </p>
+        </div>
+        <div style="background: #f8fafc; padding: 16px 18px; border-radius: 10px; border: 1px solid var(--line);">
+          <div style="font-weight: 700; color: var(--amber); margin-bottom: 6px; font-size: 14px;">③ \(S_r\) 活跃接管（局域强竞争）</div>
+          <p style="font-size: 13.5px; margin: 0; color: var(--ink-soft); line-height: 1.7;">
+            双活跃目标近距离交错，由竞争歧义 \(r_{\mathrm{comp}}\) 与交换代价差 \(r_{\mathrm{swap}}\) 协同主导。<b>在 60%~75% 召回区间内表现扎实</b>，是后续重点精细化调优的对象。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Act 7 -->
+  <section id="act7">
+    <h2><span class="no">07</span> 工程落地与部署策略：分级风控与作业区间配置</h2>
+    <p class="lead">基于本次 165 万负样本基准、四大聚合模型对比与三大事件精细化诊断，我们制定了<b>精准实用的分级工程部署策略</b>：</p>
+
+    <div class="grid3" style="gap: 20px; margin-top: 18px;">
+      <div class="deploy-card top-tier">
+        <div class="tier-tag" style="color:var(--green);">Tier 1 · 极低误报黄金区间</div>
+        <div class="tier-title">Max / OWA 实时强纠错</div>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--ink-soft); margin-bottom:10px;">
+          <b>推荐算子</b>：Max 基线 或 OWA<br>
+          <b>工作指标</b>：\(\mathrm{TPR} \approx 60\% \sim 80\%\)，\(\mathrm{FPR} \approx 1.36\% \sim 6.14\%\)<br>
+          <b>应用场景</b>：适合在线实时对关联结果进行强力拦截与纠错，以极低误报代价（仅 1%~3%）阻断大批失效。
+        </p>
+      </div>
+
+      <div class="deploy-card mid-tier">
+        <div class="tier-tag" style="color:var(--amber);">Tier 2 · 高覆盖协同区间</div>
+        <div class="tier-title">Noisy-OR 柔性风控告警</div>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--ink-soft); margin-bottom:10px;">
+          <b>推荐算子</b>：Noisy-OR 独立因果概率模型<br>
+          <b>工作指标</b>：\(\mathrm{TPR} \approx 85\% \sim 95\%\)，\(\mathrm{FPR} \approx 10.38\% \sim 24.40\%\)<br>
+          <b>应用场景</b>：激活多特征协同放大效应，用于复杂近距离交错场景下的柔性风控加权与系统预警。
+        </p>
+      </div>
+
+      <div class="deploy-card">
+        <div class="tier-tag" style="color:var(--navy-mid);">Tier 3 · 类别专属高精度模式</div>
+        <div class="tier-title">冷启动 & 重激活专属通道</div>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--ink-soft); margin-bottom:10px;">
+          <b>推荐算子</b>：Max / Noisy-OR 专用门控<br>
+          <b>工作指标</b>：\(S_c\) \(\mathrm{TPR} \ge 95\%\) 时 \(\mathrm{FPR} \le 6.09\%\)<br>
+          <b>应用场景</b>：在新轨迹初始化及长周期轨迹恢复时启用专用风控，实现近乎零漏检的新生轨迹保护。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <span>LSRG-ByteTrack 课题组 · 在线因果风险感知与精细化诊断汇报</span>
+    <span>数据基于 MOT17 / MOT20 / SportsMOT 全量清洗基准 · 2026-08-16</span>
+  </footer>
+</div>
+
+<!-- KaTeX Auto-render Scripts -->
+<script src="lib/katex/katex.min.js"></script>
+<script src="lib/katex/contrib/auto-render.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "\\[", right: "\\]", display: true},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false,
+      strict: "ignore"
+    });
+  });
+</script>
+</body>
+</html>
