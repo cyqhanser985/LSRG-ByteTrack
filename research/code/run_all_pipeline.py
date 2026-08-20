@@ -49,18 +49,6 @@ STAGES = {
     "presentation": [
         ("生成 7 页学术组会汇报 PPTX", "generate_lab_presentation.py"),
     ],
-    "confusion": [
-        ("计算并生成各数据集混淆矩阵", "eval_confusion_matrix.py"),
-    ],
-    "ablation": [
-        ("双特征消融实验训练与评测", "risk_aggregation_two_features.py"),
-    ],
-    "recovery_dino": [
-        ("DINO 视觉相似度匹配与恢复评估", "id_recovery_dino.py"),
-    ],
-    "recovery_vlm": [
-        ("VLM 选择题兜底恢复评估", "id_recovery_vlm.py"),
-    ],
 }
 
 
@@ -98,7 +86,7 @@ def main():
     )
     parser.add_argument(
         "--stage",
-        choices=["features", "eval", "breakdown", "figures", "presentation", "confusion", "ablation", "recovery_dino", "recovery_vlm"],
+        choices=["features", "eval", "breakdown", "figures", "presentation"],
         help="指定运行特定阶段"
     )
     parser.add_argument(

@@ -24,12 +24,6 @@ research/code/
 │   ├── generate_split_paper_figures.py   # 生成单张/拆分版论文图
 │   └── generate_geometric_diagram.py     # 生成 IoU 几何测度与代价矩阵示意图
 │
-├── [模块 4: 新增实验（混淆矩阵 / 双特征消融 / ID 自愈恢复）]
-│   ├── eval_confusion_matrix.py          # 任务 1: 计算并生成各数据集混淆矩阵
-│   ├── risk_aggregation_two_features.py  # 任务 2: 双特征消融实验训练与评测
-│   ├── id_recovery_dino.py               # 任务 3: DINO 视觉相似度匹配与恢复评估
-│   └── id_recovery_vlm.py                # 任务 3: VLM 选择题兜底恢复评估
-│
 └── run_all_pipeline.py                   # [流水线总控] 一键端到端运行与复现入口
 ```
 
@@ -61,15 +55,6 @@ research/code/
 | [`generate_paper_tables_and_figures.py`](generate_paper_tables_and_figures.py) | 生成论文发表级 2×2 四宫格 ROC 图与分位数分析图 | `fig_dataset_roc_2x2_grid.png`<br>`fig_risk_score_tail_quantiles.png` |
 | [`generate_split_paper_figures.py`](generate_split_paper_figures.py) | 生成各单数据集独立 ROC 图表（MOT17, MOT20, SportsMOT, Overall） | `fig_roc_{ds}.png` |
 | [`generate_geometric_diagram.py`](generate_geometric_diagram.py) | 绘制几何 IoU 代价矩阵原理图 | `fig_geometry_iou_cost_matrix.png` |
-
-### 4. 新增实验（混淆矩阵 / 双特征消融 / ID 自愈恢复）
-
-| 脚本 | 核心功能 | 输入源 | 核心产物 |
-|---|---|---|---|
-| [`eval_confusion_matrix.py`](eval_confusion_matrix.py) | 任务 1: 计算并生成各数据集混淆矩阵 | `risk_features_events.npz`<br>`risk_features_negatives.npz` | `confusion_matrix_report.csv` |
-| [`risk_aggregation_two_features.py`](risk_aggregation_two_features.py) | 任务 2: 双特征消融实验训练与评测 | `risk_features_events.npz`<br>`risk_features_negatives.npz` | `two_features_vs_baseline.csv`<br>`fig_two_features_roc.png` |
-| [`id_recovery_dino.py`](id_recovery_dino.py) | 任务 3: DINO 视觉相似度匹配与恢复评估 | `datasets/` 图像帧<br>`YOLOX_outputs/` 跟踪框 | `id_recovery_dino_summary.csv`<br>`id_recovery_hard_cases.npz` (Hard Cases) |
-| [`id_recovery_vlm.py`](id_recovery_vlm.py) | 任务 3: VLM 选择题兜底恢复评估 | `id_recovery_hard_cases.npz`<br>拼图可视化网格 | `id_recovery_vlm_results.csv` |
 
 
 ---
